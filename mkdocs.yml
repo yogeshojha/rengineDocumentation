@@ -4,8 +4,8 @@ site_name: reNgine Documentation for Developers and Pentesters
 theme:
   name: material
   palette:
-    scheme: slate
-    primary: blue grey
+    scheme: default
+    primary: blue
   font:
     text: Nunito Sans
     code: Roboto Mono
@@ -16,7 +16,6 @@ site_description: reNgine is an automated reconnaissance framework meant for inf
 site_author: Yogesh Ojha
 
 copyright: Copyright &copy; 2020 reNgine
-
 
 # Nav Bar
 nav:
