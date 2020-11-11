@@ -21,6 +21,9 @@ copyright: Copyright &copy; 2020 reNgine
 nav:
     - Home: 'index.md'
     - 'For Penetration Testers':
-        - 'Welcome': 'pentester/index.md'
+        - 'Introduction': 'pentester/install/#for-penetration-testers'
+        - 'Prerequisites': 'pentester/install/#prerequisites'
+        - 'Installation Instructions': '/pentester/install/#rengine-installation'
+        - 'Running reNgine': 'pentester/install/#run-rengine'
     - For Developers:
         - 'Welcome': 'developer/index.md'
