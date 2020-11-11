@@ -8,6 +8,6 @@ This documentation is designed for both Developers and Penetration Testers.
 
 [I am a Developer](developer/)
 
-[I am a Pentester](pentester/)
+[I am a Pentester](pentester/install.md)
 
 *This documentation is currently under construction. Help me build this documentation.*
