@@ -17,6 +17,10 @@ site_author: Yogesh Ojha
 
 copyright: Copyright &copy; 2020 reNgine
 
+# Extensions
+markdown_extensions:
+  - admonition
+
 # Nav Bar
 nav:
     - Home: 'index.md'
