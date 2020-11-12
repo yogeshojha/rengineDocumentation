@@ -232,6 +232,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rengine-current-capabilities" class="md-nav__link">
+    reNgine current capabilities
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -302,8 +309,20 @@
 
 
   <li class="md-nav__item">
-    <a href="pentester/install/#run-rengine" class="md-nav__link">
-      Running reNgine
+    <a href="/pentester/usage/" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="/pentester/scan_engine/" class="md-nav__link">
+      Defining Scan Engines
     </a>
   </li>
 
@@ -381,6 +400,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rengine-current-capabilities" class="md-nav__link">
+    reNgine current capabilities
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -400,7 +426,18 @@
                 
                 <h1 id="welcome">Welcome</h1>
 <h2 id="rengine"><strong>reNgine</strong></h2>
-<p><strong>reNgine</strong> is an automated reconnaissance framework meant to gather information during penetration testing of web applications. <strong>reNgine</strong> has pipeline of highly configurable reconnaissance steps. With the integration of various open source information gathering tools, <strong>reNgine</strong>, uses all or some of them depending upon the configuration and gathers the results at a single place.</p>
+<p><strong>reNgine</strong> is an automated reconnaissance framework meant information gathering during penetration testing of web applications. <strong>reNgine</strong> has pipeline of highly configurable reconnaissance steps. With the integration of various open source information gathering tools, <strong>reNgine</strong>, uses all or some of them depending upon the configuration and gathers the results at a single place.</p>
+<h2 id="rengine-current-capabilities">reNgine current capabilities</h2>
+<div class="admonition example">
+<p class="admonition-title">reNgine capabilities</p>
+<ul>
+<li><strong>Subdomain Discovery</strong>: Discovers all the subdomains using tools like sublist3r, subfinder, amass, assetfinder, etc.</li>
+<li><strong>Port Scan</strong>: Use to identify the open ports on the subdomains that have been discovered. Currently reNgine uses naabu to check for open ports. <em>We have plans to use masscan in the future.</em></li>
+<li><strong>Directory and File Search</strong>: Uses <code>dirsearch</code> to discover the directories and files.</li>
+<li><strong>Fetch all Endpoints</strong>: Fetches all the urls for each subdomains from various sources like Open Threat Exchange, Wayback machine, common crawl etc. reNgine uses <code>gau</code>, <code>hakrawler</code> to fetch the endpoints.</li>
+<li><strong>Vulnerability Scan</strong> <em>(Beta)</em>: reNgine uses <code>nuclei</code> to perform the Vulnerability Scans on the targets.</li>
+</ul>
+</div>
 <p>This documentation is designed for both Developers and Penetration Testers.</p>
 <ul>
 <li>
@@ -413,6 +450,44 @@
 <div class="admonition warning">
 <p>This documentation is currently under construction. <a href="https://github.com/yogeshojha/rengineDocumentation">Help me build this documentation</a>.</p>
 </div>
+<p>reNgine uses these tools and utilities, and would like to thank the developers for such awesome tools. reNgine would not have been possible without the usage of these tools. <strong>Thank you!</strong></p>
+<ul>
+<li><a href="https://github.com/projectdiscovery">Project Discovery</a><ul>
+<li><a href="https://github.com/projectdiscovery/nuclei">nuclei</a></li>
+<li><a href="https://github.com/projectdiscovery/httpx">httpx</a></li>
+<li><a href="https://github.com/projectdiscovery/naabu">naabu</a></li>
+<li><a href="https://github.com/projectdiscovery/subfinder">subfinder</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/OWASP">OWASP</a><ul>
+<li><a href="https://github.com/OWASP/Amass">amass</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/michenriksen">Michael Henriksen</a><ul>
+<li><a href="https://github.com/michenriksen/aquatone">aquatone</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/aboul3la">Ahmed Aboul-Ela</a><ul>
+<li><a href="https://github.com/aboul3la/sublist3r">Sublist3r</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/tomnomnom">Tom Hudson</a><ul>
+<li><a href="https://github.com/tomnomnom/assetfinder">assetfinder</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/lc">Corben Leo</a><ul>
+<li><a href="https://github.com/lc/gau">gau</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/hakluke">Luke Stephens</a><ul>
+<li><a href="https://github.com/hakluke/hakrawler">hakrawler</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/maurosoria">Mauro Soria</a><ul>
+<li><a href="https://github.com/maurosoria/dirsearch">dirsearch</a></li>
+</ul>
+</li>
+</ul>
                 
               
               
