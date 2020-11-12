@@ -20,6 +20,7 @@ copyright: Copyright &copy; 2020 reNgine
 # Extensions
 markdown_extensions:
   - admonition
+  - pymdownx.superfences
 
 # Nav Bar
 nav:
@@ -28,6 +29,7 @@ nav:
         - 'Introduction': 'pentester/install/#for-penetration-testers'
         - 'Prerequisites': 'pentester/install/#prerequisites'
         - 'Installation Instructions': '/pentester/install/#rengine-installation'
-        - 'Running reNgine': 'pentester/install/#run-rengine'
+        - 'Usage': '/pentester/usage/'
+        - 'Defining Scan Engines': '/pentester/scan_engine/'
     - For Developers:
         - 'Welcome': 'developer/index.md'
