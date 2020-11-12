@@ -31,5 +31,13 @@ nav:
         - 'Installation Instructions': '/pentester/install/#rengine-installation'
         - 'Usage': '/pentester/usage/'
         - 'Defining Scan Engines': '/pentester/scan_engine/'
+        - Adding and Importing Targets: '/pentester/usage/#targets'
+        - reNgine Configurations: '/pentester/usage/#configurations'
+        - Wordlist: '/pentester/usage/#wordlist'
+        - Notification: '/pentester/usage/#notification'
+        - Initiating Scan: '/pentester/usage/#initiating-scan'
+        - Scan Status: '/pentester/usage/#scan-status'
+        - Scheduling Scan: '/pentester/usage/#scheduling-scan'
+        - Vulnerability Scan (Beta): '/pentester/usage/#vulnerability-scan-beta'
     - For Developers:
         - 'Welcome': 'developer/index.md'
