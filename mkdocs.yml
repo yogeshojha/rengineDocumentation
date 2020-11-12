@@ -39,5 +39,6 @@ nav:
         - Scan Status: '/pentester/usage/#scan-status'
         - Scheduling Scan: '/pentester/usage/#scheduling-scan'
         - Vulnerability Scan (Beta): '/pentester/usage/#vulnerability-scan-beta'
+        - YAML configuration for Scan Engine: '/pentester/scan_engine/'
     - For Developers:
         - 'Welcome': 'developer/index.md'
