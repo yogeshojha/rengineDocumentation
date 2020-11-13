@@ -18,6 +18,20 @@ This documentation is designed for both Developers and Penetration Testers.
 * [I am a Developer](developer/)
 
 * [I am a Pentester](pentester/install.md)
+    * [Introduction](pentester/install/#for-penetration-testers)
+        * [Prerequisites](pentester/install/#prerequisites)
+        * [Installation Instructions](/pentester/install/#rengine-installation)
+    * [Usage](/pentester/usage/)
+    * [Defining Scan Engines](/pentester/scan_engine/)
+    * [Adding and Importing Targets](/pentester/usage/#targets)
+    * [reNgine Configurations](/pentester/usage/#configurations)
+    * [Wordlist](/pentester/usage/#wordlist)
+    * [Notification](/pentester/usage/#notification)
+    * [Initiating Scan](/pentester/usage/#initiating-scan)
+        * [Scan Status](/pentester/usage/#scan-status)
+    * [Scheduling Scan](/pentester/usage/#scheduling-scan)
+    * [Vulnerability Scan (Beta)](/pentester/usage/#vulnerability-scan-beta)
+    * [YAML configuration for Scan Engine](/pentester/scan_engine/)
 
 !!! warning ""
     This documentation is currently under construction. [Help me build this documentation](https://github.com/yogeshojha/rengineDocumentation).
