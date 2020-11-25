@@ -4,6 +4,37 @@
 
 **reNgine** is an automated reconnaissance framework meant information gathering during penetration testing of web applications. **reNgine** has pipeline of highly configurable reconnaissance steps. With the integration of various open source information gathering tools, **reNgine**, uses all or some of them depending upon the configuration and gathers the results at a single place.
 
+!!! check "What's new in reNgine v0.5?"
+    After months of work, reNgine is finally ready for v0.5 release. v0.5 brings some of the exciting features that you all have been asking for!
+
+    **++Nuclei Integration**: v0.5 is primarily focused on vulnerability scanner using Nuclei. This was a long pending due and we've finally integrated it.
+
+    **++Out of scope options**: Many of you have been asking for out of scope option.
+    Thanks to [Valerio Brussani](https://github.com/valbrux) for his pull request which made it possible for out of scope options.
+    Please check the documentation on [how to define out of scope](/pentester/scan_engine/#excluded_subdomains) options.
+
+    **++Official Documentation(WIP)**: We often get asked on how to use reNgine. For long, we had no official documentation. Finally, I've worked on it and we have the official documentation at [rengine.wiki](https://rengine.wiki)
+
+    *The documentation is divided into two parts, for Developers and for Penetration Testers. For developers, it's a work in progress. I will keep you all updated throughout the process.*
+
+    **++Redefined Dashboard**: We've also made some changes in the Dashboard. The additions include vulnerability scan results, **most vulnerable targets**, **most common vulnerabilities**.
+
+    **++Global Search**: This feature has been one of the most requested features for reNgine. Now you can search all the subdomains, endpoints, and vulnerabilities.
+
+    **++Configuration Support for subfinder**: You will now have ability to add configurations for subfinder as well.
+
+    **++Timeout option for aquatone**: We added timeout options in yaml configuration as a lot of screenshots were missing. You can now define timeout for http, scan and screenshots for timeout in milliseconds.
+
+    **++Design Changes**
+    A lot of design changes has happened in reNgine. Some of which are:
+
+    * Endpoints Results and Vulnerability Scan Results are now displayed as a separate page, this is to separate the results and decrease the page load time.
+    * Checkbox next to Subdomains and Vulnerability report list to change the status, this allows you to mark all subdomains and vulnerabilities that you've already completed working on.
+    * Sometimes due to timeout, aquatone was skipping the screenshots and due to that, navigations between screenshots was little annoying. We have fixed it as well.
+    * Ability to delete multiple targets and initiate multiple scans.
+
+    **--Subdomain Takeover**: As we decided to use Nuclei for Vulnerability Scanner, and also, since Subjack wasn't giving enough results, I decided to remove Subjack. The subdomain Takeover will now be part of Nuclei Vulnerability Scanner.
+
 ## reNgine current capabilities
 
 !!! example "reNgine capabilities"
