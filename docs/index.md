@@ -21,6 +21,8 @@
 
     **++Global Search**: This feature has been one of the most requested features for reNgine. Now you can search all the subdomains, endpoints, and vulnerabilities.
 
+    **++OneForAll Support**: reNgine now supports OneForAll for subdomain discovery, it is currently in beta. I am working on how to integrate OneForAll APIKeys and Configuration files.
+
     **++Configuration Support for subfinder**: You will now have ability to add configurations for subfinder as well.
 
     **++Timeout option for aquatone**: We added timeout options in yaml configuration as a lot of screenshots were missing. You can now define timeout for http, scan and screenshots for timeout in milliseconds.
