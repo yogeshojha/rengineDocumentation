@@ -9,6 +9,8 @@
 
     **++Nuclei Integration**: v0.5 is primarily focused on vulnerability scanner using Nuclei. This was a long pending due and we've finally integrated it.
 
+    **++Powerful search queries across endpoints, subdomains and vulnerability scan results**: reNgine reconnaissance data can now be queried using operators like <,>,&,| and !, namely greater than, less than, and, or, and not. This is extremely useful in querying the recon data. More details can be found at [Instructions to perform Queries on Recon data](/pentester/search)
+
     **++Out of scope options**: Many of you have been asking for out of scope option.
     Thanks to [Valerio Brussani](https://github.com/valbrux) for his pull request which made it possible for out of scope options.
     Please check the documentation on [how to define out of scope](/pentester/scan_engine/#excluded_subdomains) options.
@@ -64,6 +66,7 @@ This documentation is designed for both Developers and Penetration Testers.
         * [Scan Status](/pentester/usage/#scan-status)
     * [Scheduling Scan](/pentester/usage/#scheduling-scan)
     * [Vulnerability Scan (Beta)](/pentester/usage/#vulnerability-scan-beta)
+    * [Performing advanced lookup on recon results](/pentester/search/)
     * [YAML configuration for Scan Engine](/pentester/scan_engine/)
 
 !!! warning ""
