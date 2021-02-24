@@ -29,6 +29,7 @@ nav:
         - 'Introduction': 'pentester/install/#for-penetration-testers'
         - 'Prerequisites': 'pentester/install/#prerequisites'
         - 'Installation Instructions': '/pentester/install/#rengine-installation'
+        - 'Updating reNgine': '/pentester/update'
         - 'Usage': '/pentester/usage/'
         - 'Defining Scan Engines': '/pentester/scan_engine/'
         - Adding and Importing Targets: '/pentester/usage/#targets'
