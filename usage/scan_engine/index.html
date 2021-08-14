@@ -1,0 +1,1425 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information.">
+      
+      
+      
+        <meta name="author" content="Yogesh Ojha">
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
+    
+    
+      
+        <title>Scan Engines - reNgine Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a3f8f96a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Nunito Sans";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#yaml-configuration-for-scan-engine" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="reNgine Documentation" class="md-header__button md-logo" aria-label="reNgine Documentation">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            reNgine Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Scan Engines
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/yogeshojha/rengine/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="reNgine Documentation" class="md-nav__button md-logo" aria-label="reNgine Documentation">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    reNgine Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/yogeshojha/rengine/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        reNgine Installation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="reNgine Installation" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          reNgine Installation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/prerequisites/" class="md-nav__link">
+        Prerequisites
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/quick-install/" class="md-nav__link">
+        Quick Install(Only Ubuntu)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/install/" class="md-nav__link">
+        Detailed Installation Steps(Win/Mac)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/vps-installation/" class="md-nav__link">
+        Installing reNgine on VPS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/remotedb/" class="md-nav__link">
+        Run reNgine using remote Database
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      
+      <label class="md-nav__link" for="nav-3">
+        Using reNgine
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Using reNgine" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Using reNgine
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dark/" class="md-nav__link">
+        Dark Mode
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../targets/" class="md-nav__link">
+        Adding Targets
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scan_target/" class="md-nav__link">
+        Scaning Target
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../organization/" class="md-nav__link">
+        Tagging Targets to an Organization
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Scan Engines
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Scan Engines
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-write-your-rengine-scan-engine-yaml-configuration" class="md-nav__link">
+    How to write your reNgine Scan Engine YAML Configuration?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-yaml-config" class="md-nav__link">
+    Default YAML Config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-guide-on-configuring-scan-engines" class="md-nav__link">
+    Detailed guide on configuring Scan Engines
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed guide on configuring Scan Engines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subdomain_discovery" class="md-nav__link">
+    subdomain_discovery
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual_identification" class="md-nav__link">
+    visual_identification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osint" class="md-nav__link">
+    osint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port_scan" class="md-nav__link">
+    port_scan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dir_file_search" class="md-nav__link">
+    dir_file_search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch_url" class="md-nav__link">
+    fetch_url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability_scan" class="md-nav__link">
+    vulnerability_scan
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wordlist/" class="md-nav__link">
+        Wordlist
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interesting/" class="md-nav__link">
+        Interesting Subdomains Lookup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hackerone/" class="md-nav__link">
+        Automatic Vulnerability Reporting to Hackerone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-10" type="checkbox" id="nav-3-10" >
+      
+      <label class="md-nav__link" for="nav-3-10">
+        Settings
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Settings" data-md-level="2">
+        <label class="md-nav__title" for="nav-3-10">
+          <span class="md-nav__icon md-icon"></span>
+          Settings
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
+        reNgine Settings
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proxy/" class="md-nav__link">
+        Proxy Settings
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool_conf/" class="md-nav__link">
+        Tool Settings
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notification/" class="md-nav__link">
+        Notification Settings
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uninstall/" class="md-nav__link">
+        Uninstalling reNgine
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-write-your-rengine-scan-engine-yaml-configuration" class="md-nav__link">
+    How to write your reNgine Scan Engine YAML Configuration?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-yaml-config" class="md-nav__link">
+    Default YAML Config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-guide-on-configuring-scan-engines" class="md-nav__link">
+    Detailed guide on configuring Scan Engines
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed guide on configuring Scan Engines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subdomain_discovery" class="md-nav__link">
+    subdomain_discovery
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual_identification" class="md-nav__link">
+    visual_identification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osint" class="md-nav__link">
+    osint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port_scan" class="md-nav__link">
+    port_scan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dir_file_search" class="md-nav__link">
+    dir_file_search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch_url" class="md-nav__link">
+    fetch_url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vulnerability_scan" class="md-nav__link">
+    vulnerability_scan
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/usage/scan_engine.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="yaml-configuration-for-scan-engine">YAML Configuration for Scan Engine</h1>
+<h2 id="how-to-write-your-rengine-scan-engine-yaml-configuration">How to write your reNgine Scan Engine YAML Configuration?</h2>
+<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
+<p>reNgine provides the ability to customize scan engines via YAML based configuration. This configuration can be used to select the tools, choose the options provided by the tools etc.</p>
+<p>Currently YAML config is supported for</p>
+<div class="admonition example">
+<p class="admonition-title">YAML Support for</p>
+<ul>
+<li>Subdomain Discovery as <code>subdomain_discovery</code></li>
+<li>Visual Identification as <code>visual_identification</code></li>
+<li>OSINT as <code>osint</code></li>
+<li>Port Scan as <code>port_scan</code></li>
+<li>Directory and File Search as <code>dir_file_search</code></li>
+<li>Endpoint Gathering as <code>fetch_url</code></li>
+<li>Vulnerability Scan as <code>vulnerability_scan</code></li>
+</ul>
+</div>
+<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
+<h2 id="default-yaml-config">Default YAML Config</h2>
+<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span>
+  <span class="nt">uses_tools</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">amass-passive</span><span class="p p-Indicator">,</span> <span class="nv">assetfinder</span><span class="p p-Indicator">,</span> <span class="nv">sublist3r</span><span class="p p-Indicator">,</span> <span class="nv">subfinder</span><span class="p p-Indicator">,</span> <span class="nv">oneforall</span> <span class="p p-Indicator">]</span>
+  <span class="nt">threads</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+  <span class="nt">use_amass_config</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">use_subfinder_config</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="nt">visual_identification</span><span class="p">:</span>
+  <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+  <span class="nt">threads</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+
+<span class="nt">osint</span><span class="p">:</span>
+  <span class="nt">discover</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">emails</span><span class="p p-Indicator">,</span> <span class="nv">metainfo</span><span class="p p-Indicator">,</span> <span class="nv">employees</span> <span class="p p-Indicator">]</span>
+  <span class="nt">intensity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">normal</span>
+  <span class="c1"># intensity: deep</span>
+  <span class="nt">dork</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">stackoverflow</span><span class="p p-Indicator">,</span> <span class="nv">3rdparty</span><span class="p p-Indicator">,</span> <span class="nv">social_media</span><span class="p p-Indicator">,</span> <span class="nv">project_management</span><span class="p p-Indicator">,</span> <span class="nv">code_sharing</span><span class="p p-Indicator">,</span> <span class="nv">config_files</span><span class="p p-Indicator">,</span> <span class="nv">jenkins</span><span class="p p-Indicator">,</span> <span class="nv">wordpress_files</span><span class="p p-Indicator">,</span> <span class="nv">cloud_buckets</span><span class="p p-Indicator">,</span> <span class="nv">php_error</span><span class="p p-Indicator">,</span> <span class="nv">exposed_documents</span><span class="p p-Indicator">,</span> <span class="nv">struts_rce</span><span class="p p-Indicator">,</span> <span class="nv">db_files</span><span class="p p-Indicator">,</span> <span class="nv">traefik</span><span class="p p-Indicator">,</span> <span class="nv">git_exposed</span> <span class="p p-Indicator">]</span>
+
+<span class="nt">port_scan</span><span class="p">:</span>
+  <span class="nt">ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">top-1000</span> <span class="p p-Indicator">]</span>
+  <span class="nt">rate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+  <span class="nt">use_naabu_config</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="c1"># exclude_ports: [80, 8080]</span>
+
+<span class="nt">dir_file_search</span><span class="p">:</span>
+  <span class="nt">extensions</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">php</span><span class="p p-Indicator">,</span> <span class="nv">git</span><span class="p p-Indicator">,</span> <span class="nv">yaml</span><span class="p p-Indicator">,</span> <span class="nv">conf</span><span class="p p-Indicator">,</span> <span class="nv">db</span><span class="p p-Indicator">,</span> <span class="nv">mysql</span><span class="p p-Indicator">,</span> <span class="nv">bak</span><span class="p p-Indicator">,</span> <span class="nv">asp</span><span class="p p-Indicator">,</span> <span class="nv">aspx</span><span class="p p-Indicator">,</span> <span class="nv">txt</span><span class="p p-Indicator">,</span> <span class="nv">conf</span><span class="p p-Indicator">,</span> <span class="nv">sql</span><span class="p p-Indicator">,</span> <span class="nv">json</span> <span class="p p-Indicator">]</span>
+  <span class="nt">threads</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+  <span class="nt">recursive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">recursive_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">wordlist</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+
+<span class="nt">fetch_url</span><span class="p">:</span>
+  <span class="nt">uses_tools</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">gauplus</span><span class="p p-Indicator">,</span> <span class="nv">hakrawler</span><span class="p p-Indicator">,</span> <span class="nv">waybackurls</span><span class="p p-Indicator">,</span> <span class="nv">gospider</span> <span class="p p-Indicator">]</span>
+  <span class="nt">intensity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">normal</span>
+  <span class="c1"># intensity: deep</span>
+  <span class="nt">ignore_file_extension</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">jpg</span><span class="p p-Indicator">,</span> <span class="nv">png</span><span class="p p-Indicator">,</span> <span class="nv">jpeg</span><span class="p p-Indicator">,</span> <span class="nv">gif</span><span class="p p-Indicator">]</span>
+  <span class="nt">gf_patterns</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">debug_logic</span><span class="p p-Indicator">,</span> <span class="nv">idor</span><span class="p p-Indicator">,</span> <span class="nv">img-traversal</span><span class="p p-Indicator">,</span> <span class="nv">interestingEXT</span><span class="p p-Indicator">,</span> <span class="nv">interestingparams</span><span class="p p-Indicator">,</span> <span class="nv">interestingsubs</span><span class="p p-Indicator">,</span> <span class="nv">jsvar</span><span class="p p-Indicator">,</span> <span class="nv">lfi</span><span class="p p-Indicator">,</span> <span class="nv">rce</span><span class="p p-Indicator">,</span> <span class="nv">redirect</span><span class="p p-Indicator">,</span> <span class="nv">sqli</span><span class="p p-Indicator">,</span> <span class="nv">ssrf</span><span class="p p-Indicator">,</span> <span class="nv">ssti</span><span class="p p-Indicator">,</span> <span class="nv">xss</span><span class="p p-Indicator">]</span>
+
+<span class="nt">vulnerability_scan</span><span class="p">:</span>
+  <span class="nt">concurrency</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+  <span class="nt">rate_limit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">150</span>
+  <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+  <span class="nt">retries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">templates</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">all</span> <span class="p p-Indicator">]</span>
+  <span class="c1"># custom_templates: []</span>
+  <span class="nt">severity</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">critical</span><span class="p p-Indicator">,</span> <span class="nv">high</span><span class="p p-Indicator">,</span> <span class="nv">medium</span><span class="p p-Indicator">,</span> <span class="nv">low</span><span class="p p-Indicator">,</span> <span class="nv">info</span> <span class="p p-Indicator">]</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>While the above YAML config is <strong>good enough</strong> to run the scan against the targets, modifying the configurations can give better results.</p>
+</div>
+<div class="admonition danger">
+<p>Before you make any modifications to the YAML Configuration, please note that, wrong configuration may crash the scans. It is adviced that you <a href="https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/">learn about YAML</a> before you make any modifications.</p>
+</div>
+<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
+<h2 id="detailed-guide-on-configuring-scan-engines">Detailed guide on configuring Scan Engines</h2>
+<p>This document will discuss about the available options, possibilities and different configurations required for reNgine Scan Engine YAML configuration.</p>
+<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
+<h3 id="subdomain_discovery">subdomain_discovery</h3>
+<p><code>subdomain_discovery</code> currently supports five different options</p>
+<div class="admonition example">
+<p class="admonition-title">Available option for subdomain_discovery</p>
+<ul>
+<li><strong>uses_tools</strong> <strong>(required)</strong></li>
+<li>threads (optional)</li>
+<li>amass_wordlist (optional)</li>
+<li>use_amass_config (optional)</li>
+<li>use_subfinder_config (optional)</li>
+</ul>
+</div>
+<ul>
+<li><strong>uses_tools (required)</strong></li>
+</ul>
+<p>This option allows you to choose the tools required to gather the subdomains. You can use one or more combination of these tools to improve the results.</p>
+<ul>
+<li>Available options for <code>uses_tools</code> are:<ul>
+<li>all</li>
+<li>amass-passive</li>
+<li>amass-active</li>
+<li>subfinder</li>
+<li>sublist3r</li>
+<li>assetfinder</li>
+<li>oneforall</li>
+</ul>
+</li>
+</ul>
+<p>You can have one or more combination of these tools to improve the results.</p>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span>
+  <span class="nt">uses_tools</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">all</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span>
+  <span class="nt">uses_tools</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">amass-active</span><span class="p p-Indicator">,</span> <span class="nv">amass-passive</span><span class="p p-Indicator">,</span> <span class="nv">subfinder</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Not Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span>
+  <span class="nt">uses_tools</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">amass-active amass-passive subfinder</span><span class="p p-Indicator">]</span>
+<span class="c1"># Unsupported because comma is missing</span>
+</code></pre></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Not Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span>
+<span class="nt">uses_tools</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">all</span><span class="p p-Indicator">]</span>
+<span class="c1"># Unsupported because uses_tools is a property inside subdomain_discovery and must be indented</span>
+</code></pre></div>
+</div>
+<ul>
+<li><strong>threads (optional)</strong></li>
+</ul>
+<p>Number of threads to perform the subdomain discovery. <strong>By default the value for threads is 10.</strong></p>
+<ul>
+<li><strong>amass_wordlist (optional)</strong></li>
+</ul>
+<p>Wordlist for <code>amass-active</code> which performs brute-force of subdomains using a the wordlists.</p>
+<ul>
+<li>Available Options for <code>wordlist</code> are:<ul>
+<li>default</li>
+<li>short_name_for_wordlist</li>
+</ul>
+</li>
+</ul>
+<p>Please follow the guide on <a href="/usage/wordlist">uploading your own wordlist</a>. You need to enter the wordlist short_name here.</p>
+<div class="admonition info">
+<p class="admonition-title">Default Wordlist</p>
+<p>If <code>default</code> wordlist is choosed then <a href="https://github.com/danielmiessler/SecLists/blob/master/Discovery/DNS/deepmagic.com-prefixes-top50000.txt">Deepmagic top 50,000 prefix wordlist</a> will be used.</p>
+</div>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span>
+  <span class="nt">wordlist</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+</code></pre></div>
+</div>
+<div class="admonition danger">
+<p>reNgine currently does not support multiple wordlists. This feature maybe available in future updates.</p>
+</div>
+<ul>
+<li><strong>use_amass_config (optional)</strong> and <strong>use_subfinder_config (optional)</strong></li>
+</ul>
+<p>If set to true, reNgine will use configuration files for these tools. <a href="/usage/tool_conf">Find more about configuration files here.</a></p>
+<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
+<h3 id="visual_identification">visual_identification</h3>
+<p>Visual Identification will run <code>EyeWitness</code> for visual inspection.</p>
+<p>Currently supported options for <code>visual_identification</code> are</p>
+<div class="admonition example">
+<p class="admonition-title">Supported options for visual_identification</p>
+<ul>
+<li>threads</li>
+<li>timeout</li>
+</ul>
+</div>
+<ul>
+<li><strong>threads</strong></li>
+</ul>
+<p>Number of threads to run EyeWitness visual identification. <strong>By default the value for thread is 10.</strong> This is a integer value.</p>
+<ul>
+<li><strong>timeout</strong></li>
+</ul>
+<p>Timeout in seconds, <strong>default timeout value is 10.</strong></p>
+<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
+<h3 id="osint">osint</h3>
+<p>Currently supported options for osint are:</p>
+<div class="admonition example">
+<p class="admonition-title">Supported options for visual_identification</p>
+<ul>
+<li>discover</li>
+<li>intensity</li>
+<li>dork</li>
+</ul>
+</div>
+<ul>
+<li><strong>discover</strong></li>
+</ul>
+<p>reNgine can currently discover</p>
+<ul>
+<li>emails</li>
+<li>metainfo</li>
+<li>employees</li>
+</ul>
+<p>for any target.</p>
+<ul>
+<li><strong>dork</strong></li>
+</ul>
+<p>reNgine does not support custom dork as of now, and support is provided for these dorks:</p>
+<div class="admonition example">
+<p class="admonition-title">supported options for dork</p>
+<ul>
+<li>stackoverflow</li>
+<li>3rdparty</li>
+<li>social_media</li>
+<li>project_management</li>
+<li>code_sharing</li>
+<li>config_files</li>
+<li>jenkins</li>
+<li>wordpress_files</li>
+<li>cloud_buckets</li>
+<li>php_error</li>
+<li>exposed_documents</li>
+<li>struts_rce</li>
+<li>db_files</li>
+<li>traefik</li>
+<li>git_exposed</li>
+</ul>
+</div>
+<ul>
+<li><strong>intensity</strong></li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">supported options for intensity</p>
+<ul>
+<li>deep</li>
+<li>normal</li>
+</ul>
+</div>
+<p><strong>If intensity is set to deep, reNgine will perform dorking for all the subdomains.</strong></p>
+<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
+<h3 id="port_scan">port_scan</h3>
+<p>Port scan is currently being performed using <a href="https://github.com/projectdiscovery/naabu">naabu</a>, please refer <a href="https://github.com/projectdiscovery/naabu/blob/master/README.md">naabu documentation</a> as well.</p>
+<p><code>port_scan</code> currently supports three options</p>
+<div class="admonition example">
+<p class="admonition-title">Supported option for port_scan</p>
+<ul>
+<li><strong>ports</strong> <strong>(required)</strong></li>
+<li>rate (optional)</li>
+<li>use_naabu_config (Optional)</li>
+<li>exclude_ports (optional)</li>
+</ul>
+</div>
+<ul>
+<li><strong>ports (required)</strong></li>
+</ul>
+<p>Ports to Scan</p>
+<ul>
+<li>Available options for <code>ports</code> are<ul>
+<li>top-100</li>
+<li>top-1000</li>
+<li>full (will scan all 65k ports)</li>
+<li>custom like [80, 443]</li>
+</ul>
+</li>
+</ul>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">port_scan</span><span class="p">:</span>
+  <span class="nt">ports</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">80</span><span class="p p-Indicator">,</span> <span class="nv">443</span><span class="p p-Indicator">,</span> <span class="nv">8000</span><span class="p p-Indicator">,</span> <span class="nv">8080</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">port_scan</span><span class="p">:</span>
+  <span class="nt">ports</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">top-1000</span><span class="p p-Indicator">,</span> <span class="nv">9000</span><span class="p p-Indicator">,</span> <span class="nv">1234</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">port_scan</span><span class="p">:</span>
+  <span class="nt">ports</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">full</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<ul>
+<li><strong>rate (optional)</strong></li>
+</ul>
+<p>Rate of port scan probe requests, <strong>default is 1000</strong></p>
+<ul>
+<li><strong>exclude_ports (optional)</strong></li>
+</ul>
+<p>Ports which you would like to exclude from the scan.</p>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">port_scan</span><span class="p">:</span>
+  <span class="nt">exclude_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="nv">443</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<ul>
+<li><strong>use_naabu_config (optional)</strong></li>
+</ul>
+<p>If set to true, reNgine will use configuration files for Naabu. <a href="/usage/tool_conf">Find more about configuration files here.</a></p>
+<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
+<h3 id="dir_file_search">dir_file_search</h3>
+<p>This configuration will be used in Directory and file search. Currently supported options for <code>dir_file_search</code> are</p>
+<div class="admonition example">
+<p class="admonition-title">Supported options for dir_file_search</p>
+<ul>
+<li><strong>extensions (required)</strong></li>
+<li><strong>recursive (required)</strong></li>
+<li><strong>recursive_level (required)</strong></li>
+<li>threads (optional)</li>
+<li>wordlist (required)</li>
+</ul>
+</div>
+<ul>
+<li><strong>extensions (required)</strong></li>
+</ul>
+<p>This option will allow you to define the extensions for the file search. You can define as many file extensions as you wish. Please note that, more file extensions will take longer to complete the scan.</p>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span>
+  <span class="nt">extensions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">php</span><span class="p p-Indicator">,</span> <span class="nv">git</span><span class="p p-Indicator">,</span> <span class="nv">xml</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<div class="admonition error">
+<p class="admonition-title">Unsupported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span>
+  <span class="nt">extensions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">.php</span><span class="p p-Indicator">,</span> <span class="nv">.git</span><span class="p p-Indicator">,</span> <span class="nv">.xml</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<ul>
+<li><strong>recursive (required)</strong></li>
+</ul>
+<p>Enabling <code>recursive</code> option will bruteforce recursively inside all the directories. Turning on the bruteforce option will increase directories scan time exponentially but will gather more information.</p>
+<p><strong>Default value for <code>recursive</code> is <code>false</code></strong></p>
+<p><strong>recursive_level (required)</strong></p>
+<p><code>recursive_level</code> is the Max recursion depth into subdirectories.</p>
+<div class="admonition warning">
+<p>If <code>recursive_level</code> is set to 0, then it is infinity. Meaning it wil perform file search and direcory scan inside all the found subdirectories.</p>
+</div>
+<div class="admonition info">
+<p>Setting up a very high number for <code>recursive_level</code> will also increase the scan time.</p>
+</div>
+<ul>
+<li><strong>threads (optional)</strong></li>
+</ul>
+<p>Number of threads to run directory and file search. <strong>By default the value for threads is 100</strong></p>
+<ul>
+<li><strong>wordlist (required)</strong></li>
+</ul>
+<p>This option is used to supply wordlist to <code>dirsearch</code> for files and directory scan.</p>
+<ul>
+<li>Available Options for <code>wordlist</code> are:<ul>
+<li>default</li>
+<li>short_name_for_wordlist</li>
+</ul>
+</li>
+</ul>
+<p>Please follow the guide on <a href="/usage/wordlist">uploading your own wordlist</a>. You need to enter the wordlist short_name here.</p>
+<div class="admonition info">
+<p class="admonition-title">Default Wordlist</p>
+<p>If <code>default</code> wordlist is choosed then <a href="https://github.com/maurosoria/dirsearch/blob/master/db/dicc.txt">default dicc.txt</a> will be used.</p>
+</div>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span>
+  <span class="nt">wordlist</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+</code></pre></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Unsupported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span>
+  <span class="nt">wordlist</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">default</span><span class="p p-Indicator">,</span> <span class="nv">short_name</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<div class="admonition danger">
+<p>reNgine currently does not support multiple wordlists. This feature maybe available in future updates.</p>
+</div>
+<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
+<h3 id="fetch_url">fetch_url</h3>
+<p><code>fetch_url</code> uses tools like <code>gau</code> and <code>hakrawler</code> to gather the endpoints. Currently supported options for <code>fetch_url</code> are:</p>
+<div class="admonition check">
+<p class="admonition-title">Supported Options for fetch_url</p>
+<ul>
+<li>uses_tools <strong>(required)</strong></li>
+<li>intensity <strong>(required)</strong></li>
+<li>ignore_file_extension <strong>(optional)</strong></li>
+<li>gf_patterns <strong>(optional)</strong></li>
+</ul>
+</div>
+<ul>
+<li><strong>uses_tools</strong></li>
+</ul>
+<p>This option allows you to choose the tools required to gather the endpoints. You can use one or more combination of these tools to improve the results.</p>
+<ul>
+<li>Available options for <code>uses_tools</code> are:<ul>
+<li>gauplus</li>
+<li>hakrawler</li>
+<li>waybackurls</li>
+<li>gospider</li>
+</ul>
+</li>
+</ul>
+<p>You can have one or more combination of these tools to improve the results.</p>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">fetch_url</span><span class="p">:</span>
+  <span class="nt">uses_tools</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">all</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">fetch_url</span><span class="p">:</span>
+  <span class="nt">uses_tools</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">gauplus</span><span class="p p-Indicator">,</span> <span class="nv">hakrawler</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<ul>
+<li><strong>intensity</strong></li>
+</ul>
+<p>This option will allow you to set the intensity for gathering URLs. Available options are</p>
+<div class="admonition example">
+<p class="admonition-title">Available options for intensity</p>
+<ul>
+<li><strong>normal</strong> (default): This will only fetch the URLs for main domain. Suppose if your targets is example.com, the URLs associated with example.com are only fetched. <code>normal</code> intensity takes shorter time.</li>
+<li><strong>deep</strong>: This will fetch URLs for main domain as well as all the subdomains. This is likely to take very long time and will gather more endpoints compared to <code>normal</code> intensity.</li>
+</ul>
+</div>
+<ul>
+<li><strong>ignore_file_extension</strong></li>
+</ul>
+<p>This option will allow you to ignore certain file extensions while gathering URLs. You can use one or more combination of extensions to exclude.</p>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">fetch_url</span><span class="p">:</span>
+  <span class="nt">ignore_file_extension</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">jpg</span><span class="p p-Indicator">,</span> <span class="nv">png</span><span class="p p-Indicator">,</span> <span class="nv">jpeg</span><span class="p p-Indicator">,</span> <span class="nv">gif</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<ul>
+<li><strong>gf_patterns</strong></li>
+</ul>
+<p>You can now use gf patterns on the gathered URLs. Supported options are combination of these patterns.</p>
+<div class="admonition example">
+<p class="admonition-title">gf_patterns available options</p>
+<ul>
+<li>debug_logic</li>
+<li>idor</li>
+<li>img-traversal</li>
+<li>interestingEXT</li>
+<li>interestingparams</li>
+<li>interestingsubs</li>
+<li>jsvar</li>
+<li>lfi</li>
+<li>rce</li>
+<li>redirect</li>
+<li>sqli</li>
+<li>ssrf</li>
+<li>ssti</li>
+<li>xss</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Custom GF Pattern</p>
+<p>You can also upload custom gf patterns, and use filename here, without extension.</p>
+</div>
+<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
+<h3 id="vulnerability_scan">vulnerability_scan</h3>
+<p><code>vulnerability_scan</code> uses <a href="https://github.com/projectdiscovery/nuclei">nuclei</a> to perform the vulnerability scan. Please refer to <a href="https://github.com/projectdiscovery/nuclei">nuclei documentation</a> as well.</p>
+<p>Available options for <code>vulnerability_scan</code> are</p>
+<div class="admonition example">
+<p class="admonition-title">vulnerability_scan options</p>
+<ul>
+<li>concurrency (optional)</li>
+<li>rate_limit (optional)</li>
+<li>timeout (optional)</li>
+<li>retries (optional)</li>
+<li>custom_templates (optional)</li>
+<li><strong>template (required)</strong></li>
+<li><strong>severity (required)</strong></li>
+</ul>
+</div>
+<ul>
+<li><strong>concurrency (optional)</strong></li>
+</ul>
+<p>This option will specify the number of threads/go routines to perform vulnerability scan. <strong>Default value is 10</strong></p>
+<ul>
+<li><strong>rate_limit (optional)</strong></li>
+</ul>
+<p>Maximum number of requests to send per second <strong>(default 150)</strong></p>
+<ul>
+<li><strong>timeout (optional)</strong></li>
+</ul>
+<p>Time to wait in seconds before timeout <strong>(default 5)</strong></p>
+<ul>
+<li><strong>retries (optional)</strong></li>
+</ul>
+<p>Number of times to retry a failed request <strong>(default 1)</strong></p>
+<ul>
+<li><strong>template (required)</strong></li>
+</ul>
+<p>Please refer to <a href="https://github.com/projectdiscovery/nuclei">nuclei's documentation</a> to check which templates are supported. Nuclei may release any new templates which may not be possible to update here in the documentation, so it is adviced that you refer to [Nuclei's documentation]((https://github.com/projectdiscovery/nuclei).</p>
+<p>Some of the supported options for template are:</p>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span>
+  <span class="nt">templates</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">all</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p>We recommend using <code>all</code> options in <code>templates</code> for a detailed scan.</p>
+</div>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span>
+  <span class="nt">templates</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">files</span><span class="p p-Indicator">,</span> <span class="nv">cves</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span>
+  <span class="nt">templates</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">files/git-core.yaml</span><span class="p p-Indicator">,</span> <span class="nv">cves/CVE-2020-1234</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<ul>
+<li><strong>severity (required)</strong></li>
+</ul>
+<p>You can run the templates based on the specific severity of the template, single and multiple severity can be used for scan.</p>
+<p>Available options for <code>severity</code> are</p>
+<div class="admonition example">
+<p class="admonition-title">Available options for severity</p>
+<ul>
+<li>all</li>
+<li>critical</li>
+<li>high</li>
+<li>medium</li>
+<li>low</li>
+<li>info</li>
+</ul>
+</div>
+<p>This will only run the specific templates related to the severity. You can provide multiple options for severity as well.</p>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span>
+  <span class="nt">severity</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">all</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<p>Above will run all the templates.</p>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span>
+  <span class="nt">severity</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">low</span><span class="p p-Indicator">,</span> <span class="nv">info</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<p>This will only run the templates based on low and informational severity.</p>
+<ul>
+<li><strong>Recommended</strong></li>
+</ul>
+<div class="admonition check">
+<p class="admonition-title">Recommended</p>
+<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span>
+  <span class="nt">severity</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">critical</span><span class="p p-Indicator">,</span> <span class="nv">high</span><span class="p p-Indicator">,</span> <span class="nv">medium</span><span class="p p-Indicator">,</span> <span class="nv">low</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<p>This will exclude informational vulnerabilities from your scan results.</p>
+<ul>
+<li><strong>custom_templates</strong></li>
+</ul>
+<div class="admonition check">
+<p class="admonition-title">Recommended</p>
+<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span>
+  <span class="nt">custom_templates</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">my_templaete</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Custom Nuclei Templates</p>
+<p>You can also upload custom Nuclei Templates from Tool Settings, and use filename here, without extension.</p>
+</div>
+<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../organization/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Tagging Targets to an Organization
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../wordlist/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Wordlist
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.926459b3.min.js"></script>
+      
+    
+  </body>
+</html>
