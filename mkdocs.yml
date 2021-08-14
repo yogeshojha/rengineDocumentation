@@ -30,4 +30,21 @@ nav:
         - Detailed Installation Steps(Win/Mac): 'install/install.md'
         - Installing reNgine on VPS: 'install/vps-installation.md'
         - Run reNgine using remote Database: 'install/remotedb.md'
+    - Using reNgine:
+        - Introduction: 'usage/index.md'
+        - Dark Mode: 'usage/dark.md'
+        - Adding Targets: 'usage/targets.md'
+        - Tagging Targets to an Organization: 'usage/test.md'
+        - Scan Engines: 'usage/test.md'
+        - Initiating Scan: 'usage/test.md'
+        - Scheduling Scan: 'usage/test.md'
+        - Wordlist: 'usage/test.md'
+        - Interesting Lookup: 'usage/test.md'
+        - Automatic Vulnerability Reporting to Hackerone: 'usage/test.md'
+        - Settings:
+              - Proxy Settings: 'usage/settings.md'
+              - Tool Settings: 'usage/settings.md'
+              - Notification Settings: 'usage/settings.md'
+              - reNgine Settings: 'usage/settings.md'
+
     - Uninstalling reNgine: 'uninstall/index.md'
