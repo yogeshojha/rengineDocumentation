@@ -44,6 +44,5 @@ nav:
               - Proxy Settings: 'usage/proxy.md'
               - Tool Settings: 'usage/tool_conf.md'
               - Notification Settings: 'usage/notification.md'
-              - reNgine Settings: 'usage/settings.md'
 
     - Uninstalling reNgine: 'uninstall/index.md'

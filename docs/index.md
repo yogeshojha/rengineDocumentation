@@ -18,6 +18,8 @@ We also want our fellow hackers to stay ahead of the game, reNgine 1.0 introduce
 !!! check "What's new in reNgine 1.0?"
     After several months of work, I am excited to announce reNgine 1.0. In a nutshell, 1.0, is feature-packed with a lot of exciting features that are sure to ease your recon game.
 
+    [Watch the trailer here](https://www.youtube.com/watch?v=_jBf_9qEG3U)
+
     - **Introducing Dark Mode, a feature you all have been asking for, is finally here.**
     - **Recon Data visualization**
 
