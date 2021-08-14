@@ -22,7 +22,7 @@ Running reNgine on local machine is a very straight forward process. You'll neee
 
 [Quick Install reNgine on Ubuntu or Kali](quick-install)
 
-[Installing reNgine on Windows or Mac](install)
+[Installing reNgine on Windows or Mac](prerequisites)
 
 
 ## Running reNgine on VPS

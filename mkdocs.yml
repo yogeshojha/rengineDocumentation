@@ -25,9 +25,9 @@ nav:
     - Home: 'index.md'
     - reNgine Installation:
         - Introduction: 'install/index.md'
-        - Quick Install(Only Ubuntu): 'install/quick-install.md'
         - Prerequisites: 'install/prerequisites.md'
-        - Run reNgine using remote Database: 'install/remotedb.md'
+        - Quick Install(Only Ubuntu): 'install/quick-install.md'
         - Detailed Installation Steps(Win/Mac): 'install/install.md'
         - Installing reNgine on VPS: 'install/vps-installation.md'
+        - Run reNgine using remote Database: 'install/remotedb.md'
     - Uninstalling reNgine: 'uninstall/index.md'
