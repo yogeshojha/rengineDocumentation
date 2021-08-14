@@ -38,7 +38,7 @@ nav:
         - Tagging Targets to an Organization: 'usage/organization.md'
         - Scan Engines: 'usage/scan_engine.md'
         - Wordlist: 'usage/wordlist.md'
-        - Interesting Lookup: 'usage/interesting.md'
+        - Interesting Subdomains Lookup: 'usage/interesting.md'
         - Automatic Vulnerability Reporting to Hackerone: 'usage/hackerone.md'
         - Settings:
               - Proxy Settings: 'usage/proxy.md'
