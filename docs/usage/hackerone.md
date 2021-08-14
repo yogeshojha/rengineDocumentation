@@ -41,7 +41,7 @@ You can also test hackerone api token to see if it works correctly. Once you hav
 By default, reNgine will report only Critical and High severity Vulnerabilities. You can choose to select what severity to report among Critical, High and Medium Severities.
 
 
-# Vulnerability Report Template
+## Vulnerability Report Template
 
 You can customize the vulnerability report template using markdown. Replace the below syntax wherever you require. Curly braces are must!
 

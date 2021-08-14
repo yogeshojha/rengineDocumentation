@@ -6,47 +6,48 @@ Thank you for installing reNgine.
 
 This section is divided into several parts based on modules/features/FAQ in reNgine.
 
-- Dark Mode
+- [Dark Mode](/usage/dark)
 
-- Adding Targets
+- [Adding Targets](/usage/targets)
 
-    - How to add targets?
+    - [How to add targets?](/usage/targets/#adding-individual-targets)
 
-    - What is hackerone team-handle?
+    - [What is hackerone team-handle?](/usage/targets/#what-is-team-handle)
 
-- Tagging Targets to an Organization
+- [Tagging Targets to an Organization](/usage/organization)
 
-    - How to tag targets to an organization?
+    - [How to tag targets to an organization?](/usage/organization/#adding-organization)
 
-    - How to initiate scan for an organization?
+    - [How to initiate scan for an organization?](/usage/organization/#initiating-scan-on-organization)
 
-- Scan Engines
+- [Scan Engines](/usage/scan_engine)
 
-    - Scan Engine YAML configuration Explained
+    - [Scan Engine YAML configuration Explained](/usage/scan_engine/#detailed-guide-on-configuring-scan-engines)
 
-- Initiating Scan
+- [Initiating Scan](/usage/scan_target/#quick-scan)
 
-- Scheduling Scan
+- [Scheduling Scan](/usage/scan_target/#schedule-scan)
 
-- Wordlist
+- [Wordlist](/usage/wordlist/#adding-new-wordlist)
 
-- Interesting Lookup
+- [Interesting Lookup](/usage/interesting/)
 
-- Automatic Vulnerability Reporting to Hackerone
+- [Automatic Vulnerability Reporting to Hackerone](/usage/hackerone/)
 
-    - How to edit vulnerability report template?
+    - [How to edit vulnerability report template?](/usage/hackerone/#vulnerability-report-template)
 
-    - What is team handle?
+    - [What is team handle?](/usage/hackerone/#what-is-team_handle)
 
 - Settings
-      - Proxy Settings
+      - [Proxy Settings](/usage/proxy/)
 
-          How to add and use proxies?
+          [How to add and use proxies?](/usage/proxy/#adding-proxies)
 
       - Tool Settings
 
-          How to upload GF and Nuclei templates?
-          How to edit tool specific settings/configuration for subfinder, nuclei, amass and naabu
+        [How to upload GF and Nuclei templates?](/usage/tool_conf/#uploading-custom-gf-patterns-and-nuclei-templates)
 
-      - Notification Settings (Customizing Notifications)
-      - reNgine Settings (Cleaning the Scan Data and Screenshots)
+        [How to edit tool specific settings/configuration for subfinder, nuclei, amass and naabu](/usage/tool_conf/#editing-tool-configurations)
+
+      - [Notification Settings (Customizing Notifications)](/usage/notification/)
+      - [reNgine Settings (Cleaning the Scan Data and Screenshots)](/usage/settings/)

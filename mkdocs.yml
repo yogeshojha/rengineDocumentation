@@ -41,6 +41,7 @@ nav:
         - Interesting Subdomains Lookup: 'usage/interesting.md'
         - Automatic Vulnerability Reporting to Hackerone: 'usage/hackerone.md'
         - Settings:
+              - reNgine Settings: 'usage/settings.md'
               - Proxy Settings: 'usage/proxy.md'
               - Tool Settings: 'usage/tool_conf.md'
               - Notification Settings: 'usage/notification.md'
