@@ -820,6 +820,7 @@
   <span class="nt">recursive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
   <span class="nt">recursive_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="nt">wordlist</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+  <span class="nt">exclude_extensions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">jpg</span><span class="p p-Indicator">,</span> <span class="nv">png</span><span class="p p-Indicator">,</span> <span class="nv">jpeg</span><span class="p p-Indicator">,</span> <span class="nv">gif</span><span class="p p-Indicator">,</span> <span class="nv">tiff</span><span class="p p-Indicator">]</span>
 
 <span class="nt">fetch_url</span><span class="p">:</span>
   <span class="nt">uses_tools</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">gauplus</span><span class="p p-Indicator">,</span> <span class="nv">hakrawler</span><span class="p p-Indicator">,</span> <span class="nv">waybackurls</span><span class="p p-Indicator">,</span> <span class="nv">gospider</span> <span class="p p-Indicator">]</span>
@@ -1083,6 +1084,8 @@
 <li><strong>recursive (required)</strong></li>
 <li><strong>recursive_level (required)</strong></li>
 <li>threads (optional)</li>
+<li>exclude_extensions (optional)</li>
+<li>exclude_texts (optional)</li>
 <li>wordlist (required)</li>
 </ul>
 </div>
@@ -1119,6 +1122,26 @@
 <li><strong>threads (optional)</strong></li>
 </ul>
 <p>Number of threads to run directory and file search. <strong>By default the value for threads is 100</strong></p>
+<ul>
+<li><strong>exclude_extensions (optional)</strong></li>
+</ul>
+<p>This is to exclude any extensions that you do not want during directories bruteforce. Default values are [jpg, png, jpeg, gif, tiff]</p>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span>
+  <span class="nt">exclude_extensions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">jpg</span><span class="p p-Indicator">,</span> <span class="nv">png</span><span class="p p-Indicator">,</span> <span class="nv">jpeg</span><span class="p p-Indicator">,</span> <span class="nv">gif</span><span class="p p-Indicator">,</span> <span class="nv">tiff</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+<ul>
+<li><strong>exclude_texts (optional)</strong></li>
+</ul>
+<p>If there are certain texts like Error, 404, that you wish to skip during directory bruteforce, they can be placed here. Default values are [404, Not Found, Error ]</p>
+<div class="admonition check">
+<p class="admonition-title">Supported</p>
+<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span>
+  <span class="nt">exclude_texts</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">Error</span><span class="p p-Indicator">,</span> <span class="nv">404</span><span class="p p-Indicator">,</span> <span class="nv">Not Found</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
 <ul>
 <li><strong>wordlist (required)</strong></li>
 </ul>
