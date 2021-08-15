@@ -106,4 +106,6 @@
 
         Notification in the earlier version of reNgine was not very efficient, and support was only for slack. reNgine 1.0 comes with support for Slack, Discord, and Telegram. You will also have an option to customize what kind of notification to be sent, only want vulnerability-related notifications? You can choose that, only want subdomains changes? You can choose them as well. You also have an option to upload these scan data directly to your discord.
 
+    - You can view the complete changelog here: [https://github.com/yogeshojha/rengine/blob/master/CHANGELOG.md](https://github.com/yogeshojha/rengine/blob/master/CHANGELOG.md)
+
     There are a lot more tiny improvements that I worked on for several months that are sure to give you a better experience, and let you stay ahead in the recon game! I really appreciate any feedback and suggestions.

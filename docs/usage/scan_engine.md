@@ -48,6 +48,7 @@ dir_file_search:
   recursive: false
   recursive_level: 1
   wordlist: default
+  exclude_extensions: [jpg, png, jpeg, gif, tiff]
 
 fetch_url:
   uses_tools: [ gauplus, hakrawler, waybackurls, gospider ]
@@ -307,6 +308,8 @@ This configuration will be used in Directory and file search. Currently supporte
     * **recursive (required)**
     * **recursive_level (required)**
     * threads (optional)
+    * exclude_extensions (optional)
+    * exclude_texts (optional)
     * wordlist (required)
 
 * **extensions (required)**
@@ -344,6 +347,26 @@ Enabling `recursive` option will bruteforce recursively inside all the directori
 * **threads (optional)**
 
 Number of threads to run directory and file search. **By default the value for threads is 100**
+
+* **exclude_extensions (optional)**
+
+This is to exclude any extensions that you do not want during directories bruteforce. Default values are [jpg, png, jpeg, gif, tiff]
+
+!!! check "Supported"
+    ``` yaml
+    dir_file_search:
+      exclude_extensions: [jpg, png, jpeg, gif, tiff]
+    ```
+
+* **exclude_texts (optional)**
+
+If there are certain texts like Error, 404, that you wish to skip during directory bruteforce, they can be placed here. Default values are [404, Not Found, Error ]
+
+!!! check "Supported"
+    ``` yaml
+    dir_file_search:
+      exclude_texts: [Error, 404, Not Found]
+    ```
 
 * **wordlist (required)**
 
