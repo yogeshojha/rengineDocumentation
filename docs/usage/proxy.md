@@ -7,6 +7,10 @@ If you are looking for highly accurate recon results, it is recommended that you
 
 reNgine allows you to add as many proxies as possible, while during the scan, reNgine will pick one proxy randomly. There is no order to which a proxy will be selected.
 
+## Purchasing Proxies
+
+If you are looking to purchase Proxies, please use [this referral](https://app.privateproxy.me/from/27103) link to purchase. Or you can also use coupon `rengine` here on [PrivateProxy](https://privateproxy.me/), using coupon `rengine`, you'll get additional 25% off.
+
 ## Adding Proxies
 
 To add proxies, click 'Settings' on top navigation menu, and then click on 'Proxies'
