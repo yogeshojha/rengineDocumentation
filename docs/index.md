@@ -23,6 +23,7 @@ Our focus has always been on finding the right recon data with very minimal effo
 
 We also want our fellow hackers to stay ahead of the game, reNgine 1.0 introduces automatic vulnerability reporting (currently only Hackerone is supported, other platforms *may* come soon). This allows hackers to define their own vulnerability report template and reNgine will do the rest of the job to report vulnerability as soon as it is identified.
 
+![reNgine Logo](static/rengine_1.jpeg)
 
 ## Highlights
 
