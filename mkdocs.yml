@@ -30,6 +30,7 @@ nav:
         - Detailed Installation Steps(Win/Mac): 'install/install.md'
         - Installing reNgine on VPS: 'install/vps-installation.md'
         - Run reNgine using remote Database: 'install/remotedb.md'
+    - Updating reNgine: 'update/index.md'
     - Using reNgine:
         - Introduction: 'usage/index.md'
         - Dark Mode: 'usage/dark.md'
