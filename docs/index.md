@@ -52,7 +52,7 @@ We also want our fellow hackers to stay ahead of the game, reNgine 1.0 introduce
 
 ## 🚀 Getting Started
 
-* If this is your first time using reNgine, head to [🚀 Install reNgine](install/install.md) to install reNgine.
+* If this is your first time using reNgine, head to [🚀 Install reNgine](install/index.md) to install reNgine.
 
 * If are already using reNgine and wish to Update/Upgrade, head to [🔥 Update reNgine](update/index.md) to update reNgine.
 
@@ -60,10 +60,22 @@ We also want our fellow hackers to stay ahead of the game, reNgine 1.0 introduce
 
 If have already installed reNgine, and want to learn how to use reNgine, head to [⚡ Usage](usage/index.md).
 
+## 🙋 Need Help
+
+If [⚡ Usage](usage/index.md) documentation is not sufficient, and you still need help, head to [💁 Discord](community/discord.md) section. This section contains instructions on how to use reNgine discord server.
+
+## 🛡️ Reporting Security Issues
+
+If you have found any security issues with reNgine, we recommend reporting them immediately.reNgine also has it's bug bounty program!
+
+!!! danger
+    Please do not disclose any security vulnerabilities on Github issues.
+
+Guide on [How to report security issues](security/index.md) is available.
+
 ## 🤖 Changelogs
 
 If you want to know the latest changes in reNgine, head to [🤖 Changelog](changelog/index.md) to know the latest changes in reNgine.
-
 
 ## Help to keep this project alive
 

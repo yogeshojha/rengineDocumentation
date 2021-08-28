@@ -44,7 +44,9 @@ markdown_extensions:
 nav:
     - Overview:
         - Introduction: 'index.md'
-        - Community: 'community.md'
+        - Community:
+            - Discord: 'community/discord.md'
+            - Blogs/Videos: 'community/blog-videos.md'
     - reNgine Installation:
         - Introduction: 'install/index.md'
         - Prerequisites: 'install/prerequisites.md'
