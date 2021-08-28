@@ -11,6 +11,11 @@ This documentation is divided into several sections based on the frequently aske
 - [Running reNgine on VPS](#running-rengine-on-vps)
 - [Running reNgine with your own managed database](#running-rengine-with-your-own-managed-database)
 
+## ⚡ Quick Installation
+
+If you are on Ubuntu/VPS/Linux, install script is provided for quick installation.
+
+Follow [⚡ Quick Installation instructions](quick-install.md).
 
 ## Running reNgine on local machine
 
