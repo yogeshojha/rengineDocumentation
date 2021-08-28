@@ -47,8 +47,8 @@ nav:
         - Community:
             - Discord: 'community/discord.md'
             - Blogs/Videos: 'community/blog-videos.md'
-    - reNgine Installation:
-        - Introduction: 'install/index.md'
+    - Getting Started:
+        - Installing reNgine: 'install/index.md'
         - Prerequisites: 'install/prerequisites.md'
         - Quick Install(Only Ubuntu): 'install/quick-install.md'
         - Detailed Installation Steps(Win/Mac): 'install/install.md'

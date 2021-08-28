@@ -64,6 +64,10 @@ If have already installed reNgine, and want to learn how to use reNgine, head to
 
 If [⚡ Usage](usage/index.md) documentation is not sufficient, and you still need help, head to [💁 Discord](community/discord.md) section. This section contains instructions on how to use reNgine discord server.
 
+## 📹 Community published blogs/videos
+
+Community may have published blogs/videos on your own language. Please check the [community published blogs/videos here](community/blog-videos.md).
+
 ## 🛡️ Reporting Security Issues
 
 If you have found any security issues with reNgine, we recommend reporting them immediately.reNgine also has it's bug bounty program!
