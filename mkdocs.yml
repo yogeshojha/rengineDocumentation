@@ -70,5 +70,6 @@ nav:
               - Proxy Settings: 'usage/proxy.md'
               - Tool Settings: 'usage/tool_conf.md'
               - Notification Settings: 'usage/notification.md'
+    - Report Security Vulnerability: 'security/index.md'
 
     - Uninstall reNgine: 'uninstall/index.md'
