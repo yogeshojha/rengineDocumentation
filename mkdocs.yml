@@ -42,7 +42,9 @@ markdown_extensions:
 
 # Nav Bar
 nav:
-    - Home: 'index.md'
+    - Overview:
+        - Introduction: 'index.md'
+        - Community: 'community.md'
     - reNgine Installation:
         - Introduction: 'install/index.md'
         - Prerequisites: 'install/prerequisites.md'
