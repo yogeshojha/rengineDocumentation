@@ -1,19 +1,39 @@
-site_name: reNgine Documentation
+site_name: reNgine
+site_description: reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information.
+site_author: Yogesh Ojha
+repo_url: https://github.com/yogeshojha/rengine
+site_url: https://reNgine.wiki
 
 # Theme
 theme:
   name: material
+  icon:
+    logo: material/library
+    repo: fontawesome/brands/git-alt
+  language: en
+  feature:
+    tabs: false
   palette:
-    scheme: default
-    primary: blue
+    primary: black
+  favicon: static/favicon.ico
   font:
-    text: Nunito Sans
+    text: Roboto
     code: Roboto Mono
+  logo: static/logo.png
 
-repo_url: https://github.com/yogeshojha/rengine
+copyright: "Copyright &copy; 2021 reNgine Author(s)"
 
-site_description: reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information.
-site_author: Yogesh Ojha
+# Options
+extra:
+  search:
+    languages: "en"
+  social:
+    - icon: fontawesome/solid/globe-asia
+      link: https://www.rengine.wiki/
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/yogeshojha
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ojhayogesh11
 
 # Extensions
 markdown_extensions:
