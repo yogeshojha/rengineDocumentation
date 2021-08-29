@@ -54,7 +54,6 @@ nav:
         - Detailed Installation Steps(Win/Mac): 'install/install.md'
         - Installing reNgine on VPS: 'install/vps-installation.md'
         - Run reNgine using remote Database: 'install/remotedb.md'
-    - Update reNgine: 'update/index.md'
     - How to use reNgine:
         - Introduction: 'usage/index.md'
         - Dark Mode: 'usage/dark.md'
@@ -70,6 +69,8 @@ nav:
               - Proxy Settings: 'usage/proxy.md'
               - Tool Settings: 'usage/tool_conf.md'
               - Notification Settings: 'usage/notification.md'
+    - Changelog/What's new : 'changelog/index.md'
+    - Update reNgine: 'update/index.md'
     - Report Security Vulnerability: 'security/index.md'
 
     - Uninstall reNgine: 'uninstall/index.md'
