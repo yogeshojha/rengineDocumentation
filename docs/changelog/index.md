@@ -1,7 +1,30 @@
-## What's new in reNgine 1.0?
+# Changelog
+
+This section contains the changes happened in reNgine.
+
+## Backwards Compatibility Check
+
+Please ensure backwards compatibility before updating reNgine.
+
+| Version                                                      | Backwards Compatible |
+|--------------------------------------------------------------|----------------------|
+| 1.0                                                          | ❌ Not Compatible                  |
+| 0.5.3                                                          | ✔️ Compatible                  |
+| 0.5.2                                                          | ✔️ Compatible                  |
+| 0.5.1                                                          | ✔️ Compatible                  |
+| 0.5                                                          | ✔️ Compatible                  |
+| 0.4                                                          | ✔️ Compatible                  |
+| 0.3                                                          | ✔️ Compatible                  |
+| 0.2                                                          | ✔️ Compatible                  |
+| 0.1                                                          | ✔️ Compatible                  |
+
+## 🏷️ 1.0
+
+Release Date: Aug 15, 2021
+
 After several months of work, I am excited to announce reNgine 1.0. In a nutshell, 1.0, is feature-packed with a lot of exciting features that are sure to ease your recon game.
 
-[Watch the trailer here](https://www.youtube.com/watch?v=_jBf_9qEG3U)
+[You may watch the trailer here](https://www.youtube.com/watch?v=_jBf_9qEG3U)
 
 - **Introducing Dark Mode, a feature you all have been asking for, is finally here.**
 - **Recon Data visualization**
@@ -92,3 +115,104 @@ After several months of work, I am excited to announce reNgine 1.0. In a nutshel
 
 
 There are a lot more tiny improvements that I worked on for several months that are sure to give you a better experience, and let you stay ahead in the recon game! I really appreciate any feedback and suggestions.
+
+
+## 🏷️ 0.5.3
+
+**Release Date: Feb 25 2021**
+
+- Build error for Naabu v2 Fixed
+- Added rate support for Naabu
+
+## 🏷️ 0.5.2
+
+**Release Date: Feb 23 2021**
+
+- Fixed XSS https://github.com/yogeshojha/rengine/issues/347
+
+## 🏷️ 0.5.1
+
+**Release Date: Feb 19 2021**
+
+Features
+
+- Added Discord Support for Notification Web hooks
+
+## 🏷️ 0.5
+
+Release Date: 29 Nov 2020
+
+- Nuclei Integration: v0.5 is primarily focused on vulnerability scanner using Nuclei. This was a long pending due and we've finally integrated it.
+
+- Powerful search queries across endpoints, subdomains and vulnerability scan results: reNgine reconnaissance data can now be queried using operators like <,>,&,| and !, namely greater than, less than, and, or, and not. This is extremely useful in querying the recon data. More details can be found at Instructions to perform Queries on Recon data
+
+- Out of scope options: Many of you have been asking for out of scope option. Thanks to Valerio Brussani for his pull request which made it possible for out of scope options. Please check the documentation on how to define out of scope options.
+
+- Official Documentation(WIP): We often get asked on how to use reNgine. For long, we had no official documentation. Finally, I've worked on it and we have the official documentation at rengine.wiki
+
+    The documentation is divided into two parts, for Developers and for Penetration Testers. For developers, it's a work in progress. I will keep you all updated throughout the process.
+
+- Redefined Dashboard: We've also made some changes in the Dashboard. The additions include vulnerability scan results, most vulnerable targets, most common vulnerabilities.
+
+- Global Search: This feature has been one of the most requested features for reNgine. Now you can search all the subdomains, endpoints, and vulnerabilities.
+
+- OneForAll Support: reNgine now supports OneForAll for subdomain discovery, it is currently in beta. I am working on how to integrate OneForAll APIKeys and Configuration files.
+
+- Configuration Support for subfinder: You will now have ability to add configurations for subfinder as well.
+
+- Timeout option for aquatone: We added timeout options in yaml configuration as a lot of screenshots were missing. You can now define timeout for http, scan and screenshots for timeout in milliseconds.
+
+- Design Changes A lot of design changes has happened in reNgine. Some of which are:
+
+- Endpoints Results and Vulnerability Scan Results are now displayed as a separate page, this is to separate the results and decrease the page load time.
+- Checkbox next to Subdomains and Vulnerability report list to change the status, this allows you to mark all subdomains and vulnerabilities that you've already completed working on.
+- Sometimes due to timeout, aquatone was skipping the screenshots and due to that, navigations between screenshots was little annoying. We have fixed it as well.
+- Ability to delete multiple targets and initiate multiple scans.
+- Subdomain Takeover (Removed): As we decided to use Nuclei for Vulnerability Scanner, and also, since Subjack wasn't giving enough results, I decided to remove Subjack. The subdomain Takeover will now be part of Nuclei Vulnerability Scanner.
+
+## 🏷️ 0.4
+
+**Release Date: 2020-10-08**
+
+Features
+
+- Background tasks migrated to Celery and redis
+- Periodic and clocked scan added
+- Ability to Stop and delete the scan
+- CNAME and IP address added on detail scan
+- Content type added on Endpoints section
+- Ability to initiate multiple scans at a time
+
+## 🏷️ 0.3
+
+**Release Date: 2020-07-21**
+
+Features
+
+- YAML based Customization Engine
+- Ability to add wordlists
+- Login Feature
+
+## 🏷️ 0.2
+
+**Release Date: 2020-07-11**
+
+Features
+
+- Directory Search Enabled
+- Fetch URLS using hakrawler
+- Subdomain takeover using Subjack
+- Add Bulk urls
+- Delete Scan functionality
+
+Fix
+
+- Windows Installation issue fixed
+- Scrollbar Issue on small screens fixed
+
+
+## 🏷️ 0.1
+
+**Release Date: 2020-07-08**
+
+reNgine is released
