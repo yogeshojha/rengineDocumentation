@@ -658,6 +658,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    🏷️ 1.0.1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#10" class="md-nav__link">
     🏷️ 1.0
   </a>
@@ -805,6 +812,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    🏷️ 1.0.1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#10" class="md-nav__link">
     🏷️ 1.0
   </a>
@@ -897,6 +911,10 @@
 </thead>
 <tbody>
 <tr>
+<td>1.0.1</td>
+<td>✔️ Compatible upto 1.0</td>
+</tr>
+<tr>
 <td>1.0</td>
 <td>❌ Not Compatible</td>
 </tr>
@@ -934,6 +952,38 @@
 </tr>
 </tbody>
 </table>
+<h2 id="101">🏷️ 1.0.1</h2>
+<p><strong>Release Date: Aug 29, 2021</strong></p>
+<p><strong>Changelog</strong></p>
+<ul>
+<li>Fixed <a href="https://github.com/yogeshojha/rengine/issues/482">#482</a> Endpoints and Vulnerability Datatable were showing results of other targets due to the scan_id parameter</li>
+<li>Fixed <a href="https://github.com/yogeshojha/rengine/issues/479">#479</a> where the scan was failing due to recent httpx release, change was in the JSON output</li>
+<li>Fixed <a href="https://github.com/yogeshojha/rengine/issues/476">#476</a> where users were unable to click on Clocked Scan (Reported only on Firefox)</li>
+<li>Fixed <a href="https://github.com/yogeshojha/rengine/issues/442">#442</a> where an extra slash was added in Directory URLs</li>
+<li>Fixed <a href="https://github.com/yogeshojha/rengine/issues/337">#337</a> where users were unable to link custom wordlist</li>
+<li>Fixed <a href="https://github.com/yogeshojha/rengine/issues/436">#436</a> Checkbox in Notification Settings were not working due to same name attribute, now fixed</li>
+<li>Fixed <a href="https://github.com/yogeshojha/rengine/issues/439">#439</a> Hakrawler crashed if the deep mode was activated due to -plain flag</li>
+<li>Fixed <a href="https://github.com/yogeshojha/rengine/issues/437">#437</a> If Out of Scope subdomains were supplied, the scan was failing due to None value</li>
+<li>Fixed <a href="https://github.com/yogeshojha/rengine/issues/424">#424</a> Multiple Targets couldn't be scanned</li>
+</ul>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Enhanced install script, check for if docker is running service or not #468</li>
+</ul>
+<p><strong>Security</strong></p>
+<ul>
+<li>Fixed Cross Site Scripting<ul>
+<li><a href="https://github.com/yogeshojha/rengine/issues/460">#460</a></li>
+<li><a href="https://github.com/yogeshojha/rengine/issues/457">#457</a></li>
+<li><a href="https://github.com/yogeshojha/rengine/issues/454">#454</a></li>
+<li><a href="https://github.com/yogeshojha/rengine/issues/453">#453</a></li>
+<li><a href="https://github.com/yogeshojha/rengine/issues/459">#459</a></li>
+<li><a href="https://github.com/yogeshojha/rengine/issues/460">#460</a></li>
+</ul>
+</li>
+<li>Fixed Cross Site Scripting reported on Huntr <a href="https://github.com/yogeshojha/rengine/issues/478">#478</a>
+    <a href="https://www.huntr.dev/bounties/ac07ae2a-1335-4dca-8d55-64adf720bafb/">https://www.huntr.dev/bounties/ac07ae2a-1335-4dca-8d55-64adf720bafb/</a></li>
+</ul>
 <h2 id="10">🏷️ 1.0</h2>
 <p>Release Date: Aug 15, 2021</p>
 <p>After several months of work, I am excited to announce reNgine 1.0. In a nutshell, 1.0, is feature-packed with a lot of exciting features that are sure to ease your recon game.</p>
