@@ -73,4 +73,5 @@ nav:
     - Update reNgine: 'update/index.md'
     - Report Security Vulnerability: 'security/index.md'
 
+    - Backup/Restore: 'backup/index.md'
     - Uninstall reNgine: 'uninstall/index.md'
