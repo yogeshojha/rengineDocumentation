@@ -1,9 +1,12 @@
 # Backup reNgine
 
-### Dump database
+### Backup/Dump database
+
 ```bash
 sudo docker exec -t rengine_db_1 pg_dumpall -c -U {DB_USER} > rengine_dump_.sql
 ```
+
+You will be prompted for a database password. This is not your reNgine login password. Please consider checking your `.env` file.
 
 ### Backup data volumes [Optional]
 
@@ -15,6 +18,7 @@ Keep a copy of the following data volumes;
 - `rengine_wordlist/` : To keep custom wordlists
 
 # Restore reNgine
+
 After installation of reNgine, run the following commands;
 ```bash
 sudo docker stop rengine_web_1
@@ -25,7 +29,12 @@ cat {/path/to/rengine_dump_.sql} | sudo docker exec -i rengine_db_1 psql -U {DB_
 
 - Replace the data volumes, if available.  
 - Finally, run the following commands from inside the reNgine directory;
+
 ```bash
-sudo make down
+sudo make build && make up
 sudo make up
 ```
+
+<p align="right">
+Contributed by : <a href="https://github.com/nerrorsec">nerrorsec</a>
+</p>
