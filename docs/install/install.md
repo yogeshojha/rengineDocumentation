@@ -51,7 +51,7 @@ POSTGRES_HOST=db
 reNgine runs on https unless otherwise used for development purpose. Using https is recommended. To generate the certificates you can use
 
 ```
-make certs
+sudo make certs
 ```
 
 !!! danger ""
@@ -62,7 +62,7 @@ make certs
 To build the reNgine, use the following command
 
 ```
-make build
+sudo make build
 ```
 
 The build process is a lengthy process and expected to take some time.
@@ -75,7 +75,7 @@ The build process is a lengthy process and expected to take some time.
 Once the build process is successful, we're good to run reNgine. This can be done using below command
 
 ```
-make up
+sudo make up
 ```
 
 **reNgine can now be accessed from https://127.0.0.1 or if you're on the VPS https://your_vps_ip_address**
@@ -85,7 +85,7 @@ make up
 You will need to create a username and password in order to login to the reNgine. To register reNgine, please run the following command
 
 ```
-make username
+sudo make username
 ```
 
 You will now be prompted with some personal details(optional), username and password. **We highly recommend that you set a strong password for reNgine.**
@@ -99,7 +99,7 @@ You may now login to the reNgine web portal using the username and password that
 If you need to observe the logs, it can be done so by running the commmand
 
 ```
-make logs
+sudo make logs
 ```
 
 !!! note
@@ -110,7 +110,7 @@ make logs
 If you wish to stop the reNgine, it can be done so by using the command
 
 ```
-make stop
+sudo make stop
 ```
 
 ## Restarting the reNgine
@@ -118,7 +118,7 @@ make stop
 reNgine can be restarted using the command
 
 ```
-make restart
+sudo make restart
 ```
 
 ## Removing all the reNgine Data
@@ -130,5 +130,5 @@ If you wish to delete all your recon data, it can be done using
     Use with caution.
 
 ```
-make prune
+sudo make prune
 ```
