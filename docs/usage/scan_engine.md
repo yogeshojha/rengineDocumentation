@@ -508,7 +508,7 @@ Number of times to retry a failed request **(default 1)**
 
 * **template (required)**
 
-Please refer to [nuclei's documentation](https://github.com/projectdiscovery/nuclei) to check which templates are supported. Nuclei may release any new templates which may not be possible to update here in the documentation, so it is adviced that you refer to [Nuclei's documentation]((https://github.com/projectdiscovery/nuclei).
+Please refer to [nuclei's documentation](https://github.com/projectdiscovery/nuclei) to check which templates are supported. Nuclei may release any new templates which may not be possible to update here in the documentation, so it is adviced that you refer to [Nuclei's documentation](https://github.com/projectdiscovery/nuclei).
 
 Some of the supported options for template are:
 
