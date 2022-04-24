@@ -69,14 +69,9 @@
 
   .mdx-features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 3rem;
-    margin-bottom: 3rem;
-  }
-
-  .mdx-features img {
-    height: 160px;
-    object-fit: fixed;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 1rem;
+    margin-bottom: 1rem;
   }
 
   @media screen and (min-width: 960px) {
@@ -130,13 +125,16 @@
 </section>
 {% endblock %}
 {% block content %}
+<h1>Everything you would expect 🚀</h1>
 <div class="mdx-features">
   {% for feature in page.meta.features %}
   <div>
-    <img src="{{ feature.image }}" />
     <h2>{{ feature.title }}</h2>
     <p>{{ feature.description }}</p>
   </div>
   {% endfor %}
+  <div>
+    <h2>And More...</h2>
+  </div>
 </div>
 {{ super() }} {% endblock %}
