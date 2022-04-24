@@ -38,6 +38,8 @@ This section is divided into several parts based on modules/features/FAQ in reNg
 
     - [What is team handle?](/usage/hackerone/#what-is-team_handle)
 
+- [Adding External Tools <strong>New 🔥</strong>](/usage/external-tool)
+
 - Settings
       - [Proxy Settings](/usage/proxy/)
 
