@@ -1,77 +1,67 @@
 site_name: reNgine
-site_description: reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information.
 site_author: Yogesh Ojha
-repo_url: https://github.com/yogeshojha/rengine
-site_url: https://reNgine.wiki
+site_url: https://rengine.wiki
+site_description: reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information.
 
-# Theme
+copyright: "Copyright &copy; 2022 Yogesh Ojha"
+
+repo_url: https://github.com/yogeshojha/rengine
+repo_name: reNgine
+
 theme:
   name: material
-  icon:
-    logo: material/library
-    repo: fontawesome/brands/git-alt
-  language: en
-  feature:
-    tabs: false
-  palette:
-    primary: black
-  favicon: static/favicon.ico
-  font:
-    text: Roboto
-    code: Roboto Mono
+  custom_dir: docs/overrides
   logo: static/logo.png
+  icon:
+    repo: fontawesome/brands/github
+  favicon: static/favicon.ico
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: light
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.instant
 
-copyright: "Copyright &copy; 2021 reNgine Author(s)"
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - For Hackers: options.md
+  - For Developers: options.md
+  - API: api.md
 
-# Options
+markdown_extensions:
+  - meta
+  - toc:
+      permalink: true
+  - attr_list
+  - admonition
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.superfences
+
 extra:
-  search:
-    languages: "en"
   social:
-    - icon: fontawesome/solid/globe-asia
-      link: https://www.rengine.wiki/
-    - icon: fontawesome/brands/github-alt
-      link: https://github.com/yogeshojha
+    - icon: fontawesome/brands/github
+      link: https://github.com/yogeshojha/rengine
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/H6WzebwX3H
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/ojhayogesh11
 
-# Extensions
-markdown_extensions:
-  - admonition
-  - pymdownx.superfences
+extra_css:
+  - assets/style.css
 
-# Nav Bar
-nav:
-    - Overview:
-        - Introduction: 'index.md'
-        - Community:
-            - Discord: 'community/discord.md'
-            - Blogs/Videos: 'community/blog-videos.md'
-    - Getting Started:
-        - Installing reNgine: 'install/index.md'
-        - Prerequisites: 'install/prerequisites.md'
-        - Quick Install(Only Ubuntu): 'install/quick-install.md'
-        - Detailed Installation Steps(Win/Mac): 'install/install.md'
-        - Installing reNgine on VPS: 'install/vps-installation.md'
-        - Run reNgine using remote Database: 'install/remotedb.md'
-    - How to use reNgine:
-        - Introduction: 'usage/index.md'
-        - Dark Mode: 'usage/dark.md'
-        - Adding Targets: 'usage/targets.md'
-        - Scaning Target: 'usage/scan_target.md'
-        - Tagging Targets to an Organization: 'usage/organization.md'
-        - Scan Engines: 'usage/scan_engine.md'
-        - Wordlist: 'usage/wordlist.md'
-        - Interesting Subdomains Lookup: 'usage/interesting.md'
-        - Automatic Vulnerability Reporting to Hackerone: 'usage/hackerone.md'
-        - Settings:
-              - reNgine Settings: 'usage/settings.md'
-              - Proxy Settings: 'usage/proxy.md'
-              - Tool Settings: 'usage/tool_conf.md'
-              - Notification Settings: 'usage/notification.md'
-    - Changelog/What's new : 'changelog/index.md'
-    - Update reNgine: 'update/index.md'
-    - Report Security Vulnerability: 'security/index.md'
-
-    - Backup/Restore: 'backup/index.md'
-    - Uninstall reNgine: 'uninstall/index.md'
+plugins:
+  - search
