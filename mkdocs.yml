@@ -36,9 +36,9 @@ theme:
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
-  - For Hackers: options.md
-  - For Developers: options.md
+  - Getting Started For Hackers: getting-started.md
+  - Getting Started For Developers: options.md
+  - Usage Guide: api.md
   - API: api.md
 
 markdown_extensions:

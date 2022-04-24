@@ -90,13 +90,17 @@ We also want our fellow hackers to stay ahead of the game, reNgine also comes wi
 
 ## 🚀 Getting Started
 
-* If this is your first time visiting reNgine, here is a guide on [🚀 Installing ](install/index.md).
+* If this is your first time visiting reNgine, here is a guide on [🚀 Getting Started ](getting-started.md).
 
 * If are already using reNgine and wish to Update/Upgrade, head to [🔥 Update ](update/index.md).
 
 ## ⚡ Usage Guide
 
 If have already installed reNgine, and want to learn how to use, head to [⚡ Usage](usage/index.md).
+
+## 💻 Developer's Guide
+
+If you wish to add new features or want to contribute to reNgine, head to [Developer's Guide](developer/index.html)
 
 ## 🙋 Need Help
 
