@@ -33,7 +33,7 @@ features:
 
 reNgine is a web application reconnaissance suite with focus on highly configurable streamlined recon process via Engines, recon data correlation, continuous monitoring, recon data backed by database and simple yet intuitive User Interface.
 
-reNgine makes is easy for penetration testers and security auditos to gather reconnaissance data with minimal configuratio.
+reNgine makes it easy for penetration testers and security auditors to gather reconnaissance data with minimal configuration.
 
 <strong>reNgine just makes recon effortless.</strong>
 
