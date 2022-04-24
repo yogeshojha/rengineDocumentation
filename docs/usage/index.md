@@ -42,6 +42,7 @@ This section is divided into several parts based on modules/features/FAQ in reNg
 
 - [Generating PDF Report <strong>New 🔥</strong>](/usage/report)
 
+
 - Settings
       - [Proxy Settings](/usage/proxy/)
 
@@ -55,3 +56,8 @@ This section is divided into several parts based on modules/features/FAQ in reNg
 
       - [Notification Settings (Customizing Notifications)](/usage/notification/)
       - [reNgine Settings (Cleaning the Scan Data and Screenshots)](/usage/settings/)
+
+
+- [Updating reNgine ](../update/index.md)
+- [Uninstalling reNgine ](../uninstall/index.md)
+- [How to report Security Issues in reNgine](../security/index.md)

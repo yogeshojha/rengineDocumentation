@@ -121,7 +121,7 @@ Guide on [How to report security issues](security/index.md) is available.
 
 ## 🤖 Changelogs
 
-If you want to know the latest changes in reNgine, head to [🤖 Changelog](changelog/index.md).
+If you want to know the latest changes in reNgine, head to [🤖 Changelog](changelog.md).
 
 ## Related Projects
 
