@@ -16,18 +16,7 @@ theme:
     repo: fontawesome/brands/github
   favicon: static/favicon.ico
   palette:
-    # Light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: light
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    # Dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
+    scheme: light
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -38,7 +27,8 @@ nav:
   - Home: index.md
   - Getting Started For Hackers: getting-started.md
   - Getting Started For Developers: options.md
-  - Usage Guide: api.md
+  - Usage Guide: usage/index.md
+  - Changelog: changelog.md
   - API: api.md
 
 markdown_extensions:
