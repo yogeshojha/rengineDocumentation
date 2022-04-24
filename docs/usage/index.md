@@ -40,6 +40,8 @@ This section is divided into several parts based on modules/features/FAQ in reNg
 
 - [Adding External Tools <strong>New 🔥</strong>](/usage/external-tool)
 
+- [Generating PDF Report <strong>New 🔥</strong>](/usage/report)
+
 - Settings
       - [Proxy Settings](/usage/proxy/)
 

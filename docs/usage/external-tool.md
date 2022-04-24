@@ -66,5 +66,8 @@ Click on `Add New Tool` button.
     - {TARGET}, Use this for the command-line arg that takes in domain as input target. Example. subfinder -d {TARGET}
     - {OUTPUT}, Use this for the command-line arg that takes the output arg. Example. subfinder -d {TARGET} -o {OUTPUT}
     - {PROXY}, Use this if your tool supports proxy. Example. tool_name -p {PROXY}
-    
+
     You can use the combinations of the above syntax and also you can use any other command-line argument that your tool supports.
+
+
+To use this tool, simply use this toolname on Scan Engine `uses_tools` section.
