@@ -21,20 +21,15 @@ Currently YAML config is supported for
 
 ``` yaml
 subdomain_discovery:
-  uses_tools: [ amass-passive, assetfinder, sublist3r, subfinder, oneforall ]
+  uses_tools: [ amass-passive, assetfinder, sublist3r, subfinder ]
   threads: 10
   use_amass_config: false
   use_subfinder_config: false
+  # amass_wordlist: default
 
-visual_identification:
+screenshot:
   timeout: 10
   threads: 5
-
-osint:
-  discover: [ emails, metainfo, employees ]
-  intensity: normal
-  # intensity: deep
-  dork: [ stackoverflow, 3rdparty, social_media, project_management, code_sharing, config_files, jenkins, wordpress_files, cloud_buckets, php_error, exposed_documents, struts_rce, db_files, traefik, git_exposed ]
 
 port_scan:
   ports: [ top-1000 ]
@@ -42,13 +37,25 @@ port_scan:
   use_naabu_config: false
   # exclude_ports: [80, 8080]
 
-dir_file_search:
-  extensions: [ php, git, yaml, conf, db, mysql, bak, asp, aspx, txt, conf, sql, json ]
+osint:
+  discover: [ emails, metainfo, employees ]
+  intensity: normal
+  # intensity: deep
+  dork: [ stackoverflow, 3rdparty, social_media, project_management, code_sharing, config_files, jenkins, wordpress_files, cloud_buckets, php_error, exposed_documents, struts_rce, db_files, traefik, git_exposed ]
+
+dir_file_fuzz:
+  wordlist: default
+  use_extensions: [ php, git, yaml, conf, db, mysql, bak, asp, aspx, txt, conf, sql, json ]
   threads: 100
+  stop_on_error: false
+  follow_redirect: false
+  auto_calibration: false
+  timeout: 10
+  # delay: "0.1-0.2"
+  # match_http_status: '200, 204'
+  # max_time: 0
   recursive: false
   recursive_level: 1
-  wordlist: default
-  exclude_extensions: [jpg, png, jpeg, gif, tiff]
 
 fetch_url:
   uses_tools: [ gauplus, hakrawler, waybackurls, gospider ]
@@ -64,7 +71,9 @@ vulnerability_scan:
   retries: 1
   templates: [ all ]
   # custom_templates: []
-  severity: [ critical, high, medium, low, info ]
+  severity: [ critical, high, medium, low, info, unknown ]
+
+# custom_header: 'name: value'
 ```
 
 !!! info
