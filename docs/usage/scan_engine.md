@@ -9,12 +9,13 @@ Currently YAML config is supported for
 
 !!! example "YAML Support for"
     * Subdomain Discovery as `subdomain_discovery`
-    * Visual Identification as `visual_identification`
+    * Screenshot Gathering as `screenshot`
     * OSINT as `osint`
     * Port Scan as `port_scan`
-    * Directory and File Search as `dir_file_search`
+    * Directory and File Fuzzing as `dir_file_search`
     * Endpoint Gathering as `fetch_url`
     * Vulnerability Scan as `vulnerability_scan`
+    * Custom Header as `custom_header`
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 ## Default YAML Config
@@ -89,7 +90,6 @@ vulnerability_scan:
 This document will discuss about the available options, possibilities and different configurations required for reNgine Scan Engine YAML configuration.
 
 
-
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 ### subdomain_discovery
 
@@ -117,6 +117,16 @@ This option allows you to choose the tools required to gather the subdomains. Yo
     * assetfinder
     * oneforall
 
+#### Using Custom Tool
+
+!!! tip "TIP on using custom tools!"
+    reNgine supports custom tools. Instruction on installing custom tool can be [found here](/usage/external-tool.md). You can use the name of the tool that was entered earlier in `uses_tools`.
+
+    If your subdomain gathering tool was names as Turbo, you can uses as
+
+    `uses_tools: [subfinder, turbo]`
+
+
 You can have one or more combination of these tools to improve the results.
 
 !!! check "Supported"
@@ -129,6 +139,12 @@ You can have one or more combination of these tools to improve the results.
     ``` yaml
     subdomain_discovery:
       uses_tools: [amass-active, amass-passive, subfinder]
+    ```
+
+!!! check "Supported"
+    ``` yaml
+    subdomain_discovery:
+      uses_tools: [amass-active, amass-passive, subfinder, custom_tool]
     ```
 
 !!! danger "Not Supported"
@@ -147,7 +163,7 @@ You can have one or more combination of these tools to improve the results.
 
 * **threads (optional)**
 
-Number of threads to perform the subdomain discovery. **By default the value for threads is 10.**
+Number of threads to perform the subdomain discovery. **By default the value for threads is 10.** This option will be applied to all tools (if supported).
 
 * **amass_wordlist (optional)**
 
@@ -177,11 +193,11 @@ If set to true, reNgine will use configuration files for these tools. [Find more
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-### visual_identification
+### screenshot
 
 Visual Identification will run `EyeWitness` for visual inspection.
 
-Currently supported options for `visual_identification` are
+Currently supported options for `screenshot` are
 
 !!! example "Supported options for visual_identification"
     * threads
@@ -313,17 +329,22 @@ If set to true, reNgine will use configuration files for Naabu. [Find more about
 This configuration will be used in Directory and file search. Currently supported options for `dir_file_search` are
 
 !!! example "Supported options for dir_file_search"
-    * **extensions (required)**
-    * **recursive (required)**
-    * **recursive_level (required)**
+    * use_extensions (optional)
+    * recursive (optional)
+    * recursive_level (optional)
     * threads (optional)
     * exclude_extensions (optional)
-    * exclude_texts (optional)
     * wordlist (required)
+    * stop_on_error (optional)
+    * follow_redirect (optional)
+    * auto_calibration (optional)
+    * delay (optional)
+    * match_http_status (optional)
+    * max_time (optional)
 
-* **extensions (required)**
+* **use_extensions (optional)**
 
-This option will allow you to define the extensions for the file search. You can define as many file extensions as you wish. Please note that, more file extensions will take longer to complete the scan.
+This option will allow you to define the extensions for the file fuzzing. You can define as many file extensions as you wish. Please note that, more file extensions will take longer to complete fuzzing.
 
 !!! check "Supported"
     ``` yaml
@@ -337,49 +358,117 @@ This option will allow you to define the extensions for the file search. You can
       extensions: [.php, .git, .xml]
     ```
 
-* **recursive (required)**
+* **recursive (optional)**
 
 Enabling `recursive` option will bruteforce recursively inside all the directories. Turning on the bruteforce option will increase directories scan time exponentially but will gather more information.
 
 **Default value for `recursive` is `false`**
 
-**recursive_level (required)**
+!!! check "Supported"
+    ``` yaml
+    dir_file_search:
+      recursive_level: true
+    ```
+
+!!! check "Supported"
+    ``` yaml
+    dir_file_search:
+      recursive_level: false
+    ```
+
+**recursive_level (optional)**
 
 `recursive_level` is the Max recursion depth into subdirectories.
 
-!!! warning ""
-    If `recursive_level` is set to 0, then it is infinity. Meaning it wil perform file search and direcory scan inside all the found subdirectories.
+!!! check "Supported"
+    ``` yaml
+    dir_file_search:
+      recursive_level: 1
+    ```
 
 !!! info ""
     Setting up a very high number for `recursive_level` will also increase the scan time.
 
 * **threads (optional)**
 
-Number of threads to run directory and file search. **By default the value for threads is 100**
-
-* **exclude_extensions (optional)**
-
-This is to exclude any extensions that you do not want during directories bruteforce. Default values are [jpg, png, jpeg, gif, tiff]
+Number of threads to run directory and file fuzzing. **By default the value for threads is 100**
 
 !!! check "Supported"
     ``` yaml
     dir_file_search:
-      exclude_extensions: [jpg, png, jpeg, gif, tiff]
+      threads: 10
     ```
 
-* **exclude_texts (optional)**
+* **stop_on_error (optional)**
 
-If there are certain texts like Error, 404, that you wish to skip during directory bruteforce, they can be placed here. Default values are [404, Not Found, Error ]
+Stop on spurious errors (ffuf specific)
 
 !!! check "Supported"
     ``` yaml
     dir_file_search:
-      exclude_texts: [Error, 404, Not Found]
+      stop_on_error: false
     ```
 
-* **wordlist (required)**
+* **follow_redirect (optional)**
 
-This option is used to supply wordlist to `dirsearch` for files and directory scan.
+Follow redirects (ffuf specific)
+
+!!! check "Supported"
+    ``` yaml
+    dir_file_search:
+      follow_redirect: true
+    ```
+
+* **auto_calibration (optional)**
+
+Automatically calibrate filtering options (ffuf specific)
+
+!!! check "Supported"
+    ``` yaml
+    dir_file_search:
+      auto_calibration: true
+    ```
+
+* **delay (optional)**
+
+Seconds of `delay` between requests, or a range of random delay. For example "0.1" or "0.1-2.0"
+
+!!! check "Supported"
+    ``` yaml
+    dir_file_search:
+      delay: "0.1"
+    ```
+
+!!! check "Supported"
+    ``` yaml
+    dir_file_search:
+      delay: "0.1-0.2"
+    ```
+
+* **match_http_status (optional)**
+
+Match HTTP status codes, or "all" for everything. (default: 200,204)
+
+!!! check "Supported"
+    ``` yaml
+    dir_file_search:
+      match_http_status: [200, 204, 301, 302]
+    ```
+
+* **max_time (optional)**
+
+If you don't want ffuf to run indefinitely, you can use the max_time. This stops the entire process after a given time (in seconds).
+
+!!! check "Supported"
+    ``` yaml
+    dir_file_search:
+      max_time: 60
+    ```
+
+
+* **wordlist (optional)**
+
+This option is used to supply wordlist to `dirsearch` for files and directory fuzzing.
 
 * Available Options for `wordlist` are:
     * default
@@ -555,6 +644,7 @@ Available options for `severity` are
     * medium
     * low
     * info
+    * unknown
 
 This will only run the specific templates related to the severity. You can provide multiple options for severity as well.
 
@@ -576,7 +666,7 @@ This will only run the templates based on low and informational severity.
 
 * **Recommended**
 
-!!! check "Recommended"
+!!! check "Supported"
     ``` yaml
     vulnerability_scan:
       severity: [critical, high, medium, low]
@@ -587,13 +677,28 @@ This will exclude informational vulnerabilities from your scan results.
 
 * **custom_templates**
 
-!!! check "Recommended"
+!!! check "Supported"
     ``` yaml
     vulnerability_scan:
-      custom_templates: [my_templaete]
+      custom_templates: [my_template]
     ```
 
 !!! tip "Custom Nuclei Templates"
      You can also upload custom Nuclei Templates from Tool Settings, and use filename here, without extension.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+### custom_header
+
+Use this to add custom headers to every HTTP request reNgine sends.
+
+!!! check "Supported"
+    ``` yaml
+    custom_header: "foo:bar"
+    ```
+
+!!! check "Supported"
+    ``` yaml
+    custom_header: "foo:bar, jeez:peez"
+    ```
