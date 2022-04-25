@@ -13,14 +13,14 @@
         <meta name="author" content="Yogesh Ojha">
       
       
-        <link rel="canonical" href="https://rengine.wiki/install/remotedb/">
+        <link rel="canonical" href="https://rengine.wiki/usage/external-tool/">
       
       <link rel="icon" href="../../static/favicon.ico">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
-        <title>Using Remote Database with reNgine - reNgine</title>
+        <title>External tool - reNgine</title>
       
     
     
@@ -61,9 +61,9 @@
 
 <!-- Open graph meta tags -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="reNgine - Using Remote Database with reNgine" />
+<meta property="og:title" content="reNgine - External tool" />
 <meta property="og:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
-<meta property="og:url" content="https://rengine.wiki/install/remotedb/" />
+<meta property="og:url" content="https://rengine.wiki/usage/external-tool/" />
 <meta property="og:image" content="" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1080" />
@@ -73,7 +73,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@ojhayogesh11" />
 <meta name="twitter:creator" content="@ojhayogesh11" />
-<meta name="twitter:title" content="reNgine - Using Remote Database with reNgine" />
+<meta name="twitter:title" content="reNgine - External tool" />
 <meta name="twitter:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
 <meta name="twitter:image" content="" />
 
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-remote-database-with-rengine" class="md-skip">
+        <a href="#add-tool-fields" class="md-skip">
           Skip to content
         </a>
       
@@ -140,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using Remote Database with reNgine
+              External tool
             
           </span>
         </div>
@@ -239,7 +239,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../usage/" class="md-tabs__link">
+    <a href="../" class="md-tabs__link">
       Usage Guide
     </a>
   </li>
@@ -263,7 +263,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../usage/scan_engine/" class="md-tabs__link">
+    <a href="../scan_engine/" class="md-tabs__link">
       Scan Engine Configuration
     </a>
   </li>
@@ -362,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Usage Guide
       </a>
     </li>
@@ -392,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/scan_engine/" class="md-nav__link">
+      <a href="../scan_engine/" class="md-nav__link">
         Scan Engine Configuration
       </a>
     </li>
@@ -430,8 +430,21 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-tool-fields" class="md-nav__link">
+    Add tool Fields
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -443,116 +456,77 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/install/remotedb.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/usage/external-tool.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="using-remote-database-with-rengine">Using Remote Database with reNgine<a class="headerlink" href="#using-remote-database-with-rengine" title="Permanent link">&para;</a></h1>
-<p>Related to <a href="https://github.com/yogeshojha/rengine/issues/180">Github Issue</a></p>
-<p>If you plan to use remote database please follow the instructions. An example using DigitalOcean Managed database is below:</p>
-<p>Please consider joining DigitalOcean using my <a href="https://m.do.co/c/e353502d19fc">referral link</a> your profit is <strong>$100</strong> and I get $25 DO credit. This will help me test reNgine on VPS before I release any major features.</p>
-<p>Please note that reNgine is tested and built on top of postgreSQL database. I can not guarantee if reNgine works with other database. If you gave it a try and did work, please let me know, I'll update this section.</p>
-<p><strong>Please carry out these steps before installing reNgine</strong></p>
-<p>Create a database cluster.</p>
+                  <h1>External tool</h1>
+                
+                <p>reNgine supports adding external subdomain discovery tools. Tools can be fetched from either Github or Go.</p>
+<p>Click on Settings &gt; Tools Arsenal Section. Arsenal Section is dedicated for external tools that reNgine uses. You can use this section to update the tools or add any external tools.</p>
+<p><img alt="" src="../../static/usage/add_tool_0.png" /></p>
+<p>Click on <code>Add New Tool</code> button.</p>
+<p><img alt="" src="../../static/usage/add_tool_1.png" /></p>
+<h2 id="add-tool-fields">Add tool Fields<a class="headerlink" href="#add-tool-fields" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Login to your digitalocean account and click on Databases on left navigation menu.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/1.png" /></p>
-<ul>
-<li>Click on Create Database Cluster button.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/2.png" /></p>
-<ul>
-<li>Choose PostgreSQL</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/3.png" /></p>
-<ul>
-<li>Click on Create Database Cluster button.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/4.png" /></p>
-<ul>
-<li>Click on Get Started.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/5.png" /></p>
-<ul>
-<li>Choose your inbound connection to the database cluster. This must be either VPS IP address or IP address of your local machine wherever reNgine is running.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/6.png" /></p>
-<ul>
-<li>Note down your credentials, you'll need to put these details in .env file. Also, if your managed database only connects via SSL, please click on Download CA certificate.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/7.png" /></p>
-<ul>
+<li><strong>Tool Name:</strong> Your tool Name</li>
+<li><strong>Tool Category:</strong> If your tool is a subdomain gathering tool, you need to choose this yes.</li>
+<li><strong>Github URL:</strong> Tool Github URL</li>
+<li><strong>Tool Logo URL:</strong> Tool Logo URL Ex. https://toolname.com/logo.png</li>
+<li><strong>Tool License URL:</strong> Tool License URL Ex. https://github.com/yogeshojha/rengine/blob/master/LICENSE</li>
+<li><strong>Description:</strong> Tool Description, what this tool does.</li>
 <li>
-<p>Finish the steps.</p>
+<p><strong>Installation Command:</strong> Installation commands such as <code>git clone</code> or <code>curl</code> or <code>pip</code> or <code>go get</code>.</p>
+<p>If the tool has to be installed using github clone, then your installation command would be</p>
+<p><code>git clone https://github.com/user/tool</code></p>
+<p>If the tool has to be installed using go, the your installation command would be</p>
+<p><code>go install -v github.com/tool@latest</code></p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Please note that, <code>go get</code> command is no longer supported by go. Instead you should use go install. <a href="https://go.dev/doc/go-get-install-deprecation">Learn why!</a></p>
+</div>
 </li>
 <li>
-<p>Now you have a managed database cluster, and you need these credentials to put it in .env file.</p>
+<p><strong>Update Command:</strong> Update command for the tool.</p>
+<p>If the tool was installed using git clone, it is recommended to use <code>git pull</code> for updating.</p>
+<p>If the tool was installed using go, it is recommended to use the same command as go install.</p>
+<p>If the tool has any other update command, you can also use them here.</p>
+</li>
+<li>
+<p><strong>Version Lookup Command:</strong> This will be used for determining the current version and compare with the latest version and to notify if any tool update is available.</p>
+<p>Examples include</p>
+<ul>
+<li><code>python3 tool.py -v</code></li>
+<li><code>tool -v</code></li>
+<li><code>tool --version</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Version Match Regex:</strong></p>
+<p>reNgine needs version match regex to find out if there is any update available or not. You can check how the tool displays the version number and we can generate the regex for you, or you can do that manually as well.
+If version regex is not given, reNgine will not be able to check the updates automatically. However, you can still force update the tools.</p>
+<p>See, how the tool names the release version. https://github.com/user/tool/releases</p>
+<ul>
+<li>For version numbers like <code>v1.2/V1.2/1.2</code> use regex <code>[vV]*(d+.)?(d+.)</code></li>
+<li>For version numbers like <code>v1.2.3/V1.2.3/1.2.3</code> use regex <code>[vV]*(d+.)?(d+.)?(*|d+)</code></li>
+<li>For version numbers like <code>v1.2.3.4/V1.2.3.4/1.2.3.4</code> use regex <code>[vV]*(d+.)?(d+.)?(*|d+)?(*|d+)</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Subdomain Gathering Command:</strong>
+    reNgine needs to know how this tool accepts target and output the subdomain results.</p>
+<p>Use the below syntax wherever required.</p>
+<ul>
+<li>{PATH}, Use this if your tool is github cloned. Example. python3 {PATH}/subdomain.py</li>
+<li>{TARGET}, Use this for the command-line arg that takes in domain as input target. Example. subfinder -d {TARGET}</li>
+<li>{OUTPUT}, Use this for the command-line arg that takes the output arg. Example. subfinder -d {TARGET} -o {OUTPUT}</li>
+<li>{PROXY}, Use this if your tool supports proxy. Example. tool_name -p {PROXY}</li>
+</ul>
+<p>You can use the combinations of the above syntax and also you can use any other command-line argument that your tool supports.</p>
 </li>
 </ul>
-<p><strong>Sample .env file with managed database cluster credentials</strong></p>
-<div class="highlight"><pre><span></span><code>COMPOSE_PROJECT_NAME=rengine
-
-AUTHORITY_NAME=reNgine
-AUTHORITY_PASSWORD=nSrmNkwT
-COMPANY=reNgine
-DOMAIN_NAME=recon.example.com
-COUNTRY_CODE=US
-STATE=Georgia
-CITY=Atlanta
-
-POSTGRES_DB=defaultdb
-POSTGRES_USER=doadmin
-POSTGRES_PASSWORD=sfga69d121960is9cs9kc
-POSTGRES_PORT=5432
-POSTGRES_HOST=db-postgresql-nyc3-XXXXX-do-user-8362215-0.b.db.ondigitalocean.com
-
-MIN_CONCURRENCY=5
-MAX_CONCURRENCY=30
-</code></pre></div>
-<p><strong>That is all you need, You should now be able to connect to the database from reNgine, But, if you databases uses SSL connection, there is an extra step to be done.</strong></p>
-<ul>
-<li>Move your CA certificate to <strong>reNgine's web root directory</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><code>cd rengine/web &amp;&amp; mv ~/Downloads/ca-certificate.crt .
-</code></pre></div>
-<ul>
-<li>Open reNgine settings.py file inside rengine/web/reNgine</li>
-</ul>
-<p>Find this line</p>
-<div class="highlight"><pre><span></span><code>DATABASES = {
-    &#39;default&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.postgresql&#39;,
-        &#39;NAME&#39;: os.environ.get(&#39;POSTGRES_DB&#39;),
-        &#39;USER&#39;: os.environ.get(&#39;POSTGRES_USER&#39;),
-        &#39;PASSWORD&#39;: os.environ.get(&#39;POSTGRES_PASSWORD&#39;),
-        &#39;HOST&#39;: os.environ.get(&#39;POSTGRES_HOST&#39;),
-        &#39;PORT&#39;: os.environ.get(&#39;POSTGRES_PORT&#39;),
-        # &#39;OPTIONS&#39;:{
-        #     &#39;sslmode&#39;:&#39;verify-full&#39;,
-        #     &#39;sslrootcert&#39;: os.path.join(BASE_DIR, &#39;ca-certificate.crt&#39;)
-        # }
-    }
-}
-</code></pre></div>
-<p>and uncomment OPTIONS as below.</p>
-<div class="highlight"><pre><span></span><code>DATABASES = {
-    &#39;default&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.postgresql&#39;,
-        &#39;NAME&#39;: os.environ.get(&#39;POSTGRES_DB&#39;),
-        &#39;USER&#39;: os.environ.get(&#39;POSTGRES_USER&#39;),
-        &#39;PASSWORD&#39;: os.environ.get(&#39;POSTGRES_PASSWORD&#39;),
-        &#39;HOST&#39;: os.environ.get(&#39;POSTGRES_HOST&#39;),
-        &#39;PORT&#39;: os.environ.get(&#39;POSTGRES_PORT&#39;),
-        &#39;OPTIONS&#39;:{
-            &#39;sslmode&#39;:&#39;verify-full&#39;,
-            &#39;sslrootcert&#39;: os.path.join(BASE_DIR, &#39;ca-certificate.crt&#39;)
-        }
-    }
-}
-</code></pre></div>
-<p>Now you can continue with <a href="quick-install.md">Quick Installation</a> or <a href="install-win-mac.md">Detailed Installation Instructions</a></p>
+<p>To use this tool, simply use this toolname on Scan Engine <code>uses_tools</code> section.</p>
                 
               
               

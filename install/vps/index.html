@@ -13,14 +13,14 @@
         <meta name="author" content="Yogesh Ojha">
       
       
-        <link rel="canonical" href="https://rengine.wiki/install/remotedb/">
+        <link rel="canonical" href="https://rengine.wiki/install/vps/">
       
       <link rel="icon" href="../../static/favicon.ico">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
-        <title>Using Remote Database with reNgine - reNgine</title>
+        <title>Installing reNgine on VPS - reNgine</title>
       
     
     
@@ -61,9 +61,9 @@
 
 <!-- Open graph meta tags -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="reNgine - Using Remote Database with reNgine" />
+<meta property="og:title" content="reNgine - Installing reNgine on VPS" />
 <meta property="og:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
-<meta property="og:url" content="https://rengine.wiki/install/remotedb/" />
+<meta property="og:url" content="https://rengine.wiki/install/vps/" />
 <meta property="og:image" content="" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1080" />
@@ -73,7 +73,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@ojhayogesh11" />
 <meta name="twitter:creator" content="@ojhayogesh11" />
-<meta name="twitter:title" content="reNgine - Using Remote Database with reNgine" />
+<meta name="twitter:title" content="reNgine - Installing reNgine on VPS" />
 <meta name="twitter:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
 <meta name="twitter:image" content="" />
 
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-remote-database-with-rengine" class="md-skip">
+        <a href="#installing-rengine-on-vps" class="md-skip">
           Skip to content
         </a>
       
@@ -140,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using Remote Database with reNgine
+              Installing reNgine on VPS
             
           </span>
         </div>
@@ -443,116 +443,48 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/install/remotedb.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/install/vps.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="using-remote-database-with-rengine">Using Remote Database with reNgine<a class="headerlink" href="#using-remote-database-with-rengine" title="Permanent link">&para;</a></h1>
-<p>Related to <a href="https://github.com/yogeshojha/rengine/issues/180">Github Issue</a></p>
-<p>If you plan to use remote database please follow the instructions. An example using DigitalOcean Managed database is below:</p>
-<p>Please consider joining DigitalOcean using my <a href="https://m.do.co/c/e353502d19fc">referral link</a> your profit is <strong>$100</strong> and I get $25 DO credit. This will help me test reNgine on VPS before I release any major features.</p>
-<p>Please note that reNgine is tested and built on top of postgreSQL database. I can not guarantee if reNgine works with other database. If you gave it a try and did work, please let me know, I'll update this section.</p>
-<p><strong>Please carry out these steps before installing reNgine</strong></p>
-<p>Create a database cluster.</p>
+                <h1 id="installing-rengine-on-vps">Installing reNgine on VPS<a class="headerlink" href="#installing-rengine-on-vps" title="Permanent link">&para;</a></h1>
+<p>The installation steps for installing reNgine on any VPS should be very similar. An example using DigitalOcean is given below.</p>
+<p>Join DigitalOcean using my <a href="https://m.do.co/c/e353502d19fc">referral link</a> your profit is <strong>$100</strong> and I get $25 DO credit. This will help me test reNgine on VPS before I release any major features.</p>
 <ul>
-<li>Login to your digitalocean account and click on Databases on left navigation menu.</li>
+<li>Login to your DigitalOcean account.</li>
+<li>Click on Create on top right corner and Click on Droplets</li>
 </ul>
-<p><img alt="" src="../../static/remotedb/1.png" /></p>
+<p><img alt="" src="../../static/vps/1.png" /></p>
 <ul>
-<li>Click on Create Database Cluster button.</li>
+<li>Choose Ubuntu</li>
 </ul>
-<p><img alt="" src="../../static/remotedb/2.png" /></p>
+<p><img alt="" src="../../static/vps/2.png" /></p>
 <ul>
-<li>Choose PostgreSQL</li>
+<li>Depending on your monthly budget, choose a plan.</li>
 </ul>
-<p><img alt="" src="../../static/remotedb/3.png" /></p>
+<p>Consider atlease 80GB NVMe, 4GB RAM and 2 CPU.</p>
+<p>Recommended 160GB, 8GB RAM and 4 CPU.</p>
+<p><img alt="" src="../../static/vps/3.png" /></p>
 <ul>
-<li>Click on Create Database Cluster button.</li>
+<li>Choose Authentication of your choice. I recommend using SSH Keys, you may also use password.</li>
 </ul>
-<p><img alt="" src="../../static/remotedb/4.png" /></p>
+<p><img alt="" src="../../static/vps/4.png" /></p>
 <ul>
-<li>Click on Get Started.</li>
+<li>Click on Create Droplet</li>
 </ul>
-<p><img alt="" src="../../static/remotedb/5.png" /></p>
+<p><img alt="" src="../../static/vps/5.png" /></p>
 <ul>
-<li>Choose your inbound connection to the database cluster. This must be either VPS IP address or IP address of your local machine wherever reNgine is running.</li>
+<li>Your VPS has been created</li>
 </ul>
-<p><img alt="" src="../../static/remotedb/6.png" /></p>
+<p><img alt="" src="../../static/vps/6.png" /></p>
+<p><strong>Please note down the IP address. You will need this IP address to ssh into.</strong></p>
 <ul>
-<li>Note down your credentials, you'll need to put these details in .env file. Also, if your managed database only connects via SSL, please click on Download CA certificate.</li>
+<li>Open your terminal or putty and ssh into this IP address</li>
 </ul>
-<p><img alt="" src="../../static/remotedb/7.png" /></p>
-<ul>
-<li>
-<p>Finish the steps.</p>
-</li>
-<li>
-<p>Now you have a managed database cluster, and you need these credentials to put it in .env file.</p>
-</li>
-</ul>
-<p><strong>Sample .env file with managed database cluster credentials</strong></p>
-<div class="highlight"><pre><span></span><code>COMPOSE_PROJECT_NAME=rengine
-
-AUTHORITY_NAME=reNgine
-AUTHORITY_PASSWORD=nSrmNkwT
-COMPANY=reNgine
-DOMAIN_NAME=recon.example.com
-COUNTRY_CODE=US
-STATE=Georgia
-CITY=Atlanta
-
-POSTGRES_DB=defaultdb
-POSTGRES_USER=doadmin
-POSTGRES_PASSWORD=sfga69d121960is9cs9kc
-POSTGRES_PORT=5432
-POSTGRES_HOST=db-postgresql-nyc3-XXXXX-do-user-8362215-0.b.db.ondigitalocean.com
-
-MIN_CONCURRENCY=5
-MAX_CONCURRENCY=30
+<div class="highlight"><pre><span></span><code>ssh root@vps_ip
 </code></pre></div>
-<p><strong>That is all you need, You should now be able to connect to the database from reNgine, But, if you databases uses SSL connection, there is an extra step to be done.</strong></p>
-<ul>
-<li>Move your CA certificate to <strong>reNgine's web root directory</strong></li>
-</ul>
-<div class="highlight"><pre><span></span><code>cd rengine/web &amp;&amp; mv ~/Downloads/ca-certificate.crt .
-</code></pre></div>
-<ul>
-<li>Open reNgine settings.py file inside rengine/web/reNgine</li>
-</ul>
-<p>Find this line</p>
-<div class="highlight"><pre><span></span><code>DATABASES = {
-    &#39;default&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.postgresql&#39;,
-        &#39;NAME&#39;: os.environ.get(&#39;POSTGRES_DB&#39;),
-        &#39;USER&#39;: os.environ.get(&#39;POSTGRES_USER&#39;),
-        &#39;PASSWORD&#39;: os.environ.get(&#39;POSTGRES_PASSWORD&#39;),
-        &#39;HOST&#39;: os.environ.get(&#39;POSTGRES_HOST&#39;),
-        &#39;PORT&#39;: os.environ.get(&#39;POSTGRES_PORT&#39;),
-        # &#39;OPTIONS&#39;:{
-        #     &#39;sslmode&#39;:&#39;verify-full&#39;,
-        #     &#39;sslrootcert&#39;: os.path.join(BASE_DIR, &#39;ca-certificate.crt&#39;)
-        # }
-    }
-}
-</code></pre></div>
-<p>and uncomment OPTIONS as below.</p>
-<div class="highlight"><pre><span></span><code>DATABASES = {
-    &#39;default&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.postgresql&#39;,
-        &#39;NAME&#39;: os.environ.get(&#39;POSTGRES_DB&#39;),
-        &#39;USER&#39;: os.environ.get(&#39;POSTGRES_USER&#39;),
-        &#39;PASSWORD&#39;: os.environ.get(&#39;POSTGRES_PASSWORD&#39;),
-        &#39;HOST&#39;: os.environ.get(&#39;POSTGRES_HOST&#39;),
-        &#39;PORT&#39;: os.environ.get(&#39;POSTGRES_PORT&#39;),
-        &#39;OPTIONS&#39;:{
-            &#39;sslmode&#39;:&#39;verify-full&#39;,
-            &#39;sslrootcert&#39;: os.path.join(BASE_DIR, &#39;ca-certificate.crt&#39;)
-        }
-    }
-}
-</code></pre></div>
-<p>Now you can continue with <a href="quick-install.md">Quick Installation</a> or <a href="install-win-mac.md">Detailed Installation Instructions</a></p>
+<p>Once you are logged into your VPS, follow <a href="../quick/">Quick Installation instructions</a></p>
                 
               
               

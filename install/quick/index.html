@@ -13,14 +13,14 @@
         <meta name="author" content="Yogesh Ojha">
       
       
-        <link rel="canonical" href="https://rengine.wiki/install/remotedb/">
+        <link rel="canonical" href="https://rengine.wiki/install/quick/">
       
       <link rel="icon" href="../../static/favicon.ico">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
     
     
       
-        <title>Using Remote Database with reNgine - reNgine</title>
+        <title>Quick Install reNgine on Ubuntu - reNgine</title>
       
     
     
@@ -61,9 +61,9 @@
 
 <!-- Open graph meta tags -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="reNgine - Using Remote Database with reNgine" />
+<meta property="og:title" content="reNgine - Quick Install reNgine on Ubuntu" />
 <meta property="og:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
-<meta property="og:url" content="https://rengine.wiki/install/remotedb/" />
+<meta property="og:url" content="https://rengine.wiki/install/quick/" />
 <meta property="og:image" content="" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1080" />
@@ -73,7 +73,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@ojhayogesh11" />
 <meta name="twitter:creator" content="@ojhayogesh11" />
-<meta name="twitter:title" content="reNgine - Using Remote Database with reNgine" />
+<meta name="twitter:title" content="reNgine - Quick Install reNgine on Ubuntu" />
 <meta name="twitter:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
 <meta name="twitter:image" content="" />
 
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-remote-database-with-rengine" class="md-skip">
+        <a href="#quick-install-rengine-on-ubuntu" class="md-skip">
           Skip to content
         </a>
       
@@ -140,7 +140,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using Remote Database with reNgine
+              Quick Install reNgine on Ubuntu
             
           </span>
         </div>
@@ -433,6 +433,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#env-explained" class="md-nav__link">
+    .env Explained
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determining-concurrency-values" class="md-nav__link">
+    Determining CONCURRENCY Values
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -443,57 +465,33 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/install/remotedb.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/install/quick.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="using-remote-database-with-rengine">Using Remote Database with reNgine<a class="headerlink" href="#using-remote-database-with-rengine" title="Permanent link">&para;</a></h1>
-<p>Related to <a href="https://github.com/yogeshojha/rengine/issues/180">Github Issue</a></p>
-<p>If you plan to use remote database please follow the instructions. An example using DigitalOcean Managed database is below:</p>
-<p>Please consider joining DigitalOcean using my <a href="https://m.do.co/c/e353502d19fc">referral link</a> your profit is <strong>$100</strong> and I get $25 DO credit. This will help me test reNgine on VPS before I release any major features.</p>
-<p>Please note that reNgine is tested and built on top of postgreSQL database. I can not guarantee if reNgine works with other database. If you gave it a try and did work, please let me know, I'll update this section.</p>
-<p><strong>Please carry out these steps before installing reNgine</strong></p>
-<p>Create a database cluster.</p>
-<ul>
-<li>Login to your digitalocean account and click on Databases on left navigation menu.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/1.png" /></p>
-<ul>
-<li>Click on Create Database Cluster button.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/2.png" /></p>
-<ul>
-<li>Choose PostgreSQL</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/3.png" /></p>
-<ul>
-<li>Click on Create Database Cluster button.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/4.png" /></p>
-<ul>
-<li>Click on Get Started.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/5.png" /></p>
-<ul>
-<li>Choose your inbound connection to the database cluster. This must be either VPS IP address or IP address of your local machine wherever reNgine is running.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/6.png" /></p>
-<ul>
-<li>Note down your credentials, you'll need to put these details in .env file. Also, if your managed database only connects via SSL, please click on Download CA certificate.</li>
-</ul>
-<p><img alt="" src="../../static/remotedb/7.png" /></p>
-<ul>
+                <h1 id="quick-install-rengine-on-ubuntu">Quick Install reNgine on Ubuntu<a class="headerlink" href="#quick-install-rengine-on-ubuntu" title="Permanent link">&para;</a></h1>
+<ol>
 <li>
-<p>Finish the steps.</p>
+<p>Clone reNgine</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/yogeshojha/rengine &amp;&amp; cd rengine
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p><strong>please make sure to change the password for postgresql POSTGRES_PASSWORD !</strong></p>
+</div>
 </li>
 <li>
-<p>Now you have a managed database cluster, and you need these credentials to put it in .env file.</p>
-</li>
-</ul>
-<p><strong>Sample .env file with managed database cluster credentials</strong></p>
-<div class="highlight"><pre><span></span><code>COMPOSE_PROJECT_NAME=rengine
+<p>Edit the dotenv file using <code>nano .env</code> or <code>vi .env</code> or <code>vim .env</code>.</p>
+<p><strong>Sample .env file</strong></p>
+<div class="highlight"><pre><span></span><code>#
+# General
+#
+COMPOSE_PROJECT_NAME=rengine
 
+#
+# SSL specific configuration
+#
 AUTHORITY_NAME=reNgine
 AUTHORITY_PASSWORD=nSrmNkwT
 COMPANY=reNgine
@@ -502,57 +500,73 @@ COUNTRY_CODE=US
 STATE=Georgia
 CITY=Atlanta
 
-POSTGRES_DB=defaultdb
-POSTGRES_USER=doadmin
-POSTGRES_PASSWORD=sfga69d121960is9cs9kc
+#
+# Database configurations
+#
+POSTGRES_DB=rengine
+POSTGRES_USER=rengine
+POSTGRES_PASSWORD=hE2a5@K&amp;9nEY1fzgA6X
 POSTGRES_PORT=5432
-POSTGRES_HOST=db-postgresql-nyc3-XXXXX-do-user-8362215-0.b.db.ondigitalocean.com
+POSTGRES_HOST=db
 
+#
+# Celery CONCURRENCY Autoscaling
+# The number of CONCURRENCY defines how many scans will run in parallel
+# Please always keep minimum of 5
+#
 MIN_CONCURRENCY=5
 MAX_CONCURRENCY=30
 </code></pre></div>
-<p><strong>That is all you need, You should now be able to connect to the database from reNgine, But, if you databases uses SSL connection, there is an extra step to be done.</strong></p>
+<h2 id="env-explained">.env Explained<a class="headerlink" href="#env-explained" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Move your CA certificate to <strong>reNgine's web root directory</strong></li>
+<li>
+<p><strong>COMPOSE_PROJECT_NAME</strong>: This will help reNgine name docker containers as rengine_web_1, rengine_celery_1 etc. <small>(Making changes is Optional)</small></p>
+</li>
+<li>
+<p><strong>AUTHORITY_NAME</strong>: SSL Authority Name</p>
+</li>
+<li><strong>AUTHORITY_PASSWORD</strong>: SSL Authority Password</li>
+<li><strong>COMPANY</strong>: Company Name to generate SSL to</li>
+<li><strong>DOMAIN_NAME</strong>: Domain where reNgine is going to be installed</li>
+<li>
+<p><strong>COUNTRY_CODE, STATE, CITY</strong>: SSL Speciffc</p>
+</li>
+<li>
+<p><strong>POSTGRES_DB</strong>: DB name for Postgres <small>(Making changes is Optional)</small></p>
+</li>
+<li><strong>POSTGRES_USER</strong>: Postgres Username for DB auth purpose <small>(Making changes is Optional)</small></li>
+<li><strong>POSTGRES_PASSWORD</strong>: Postgres Password for DB auth purpose <strong>(Please change the default Postgres Password)</strong></li>
+<li><strong>POSTGRES_PORT</strong>: Postgres Port <small>(Making changes is Optional)</small></li>
+<li>
+<p><strong>POSTGRES_HOST</strong>: Postgres HOST <small>(Making changes is Optional)</small></p>
+</li>
+<li>
+<p><strong>MIN_CONCURRENCY</strong>: Minimum number of Concurrency for Celery.</p>
+</li>
+<li><strong>MAX_CONCURRENCY</strong>: Maximum number of Concurrency for Celery. This determines how many maximum number of scans to run in parallel.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>cd rengine/web &amp;&amp; mv ~/Downloads/ca-certificate.crt .
-</code></pre></div>
+<h2 id="determining-concurrency-values">Determining CONCURRENCY Values<a class="headerlink" href="#determining-concurrency-values" title="Permanent link">&para;</a></h2>
+<p>Here is the ideal value for MIN_CONCURRENCY and MAX_CONCURRENCY depending on the number of RAM your machine has:</p>
 <ul>
-<li>Open reNgine settings.py file inside rengine/web/reNgine</li>
+<li><strong>4GB</strong>: <code>MAX_CONCURRENCY=10</code></li>
+<li><strong>8GB</strong>: <code>MAX_CONCURRENCY=30</code></li>
+<li><strong>16GB</strong>: <code>MAX_CONCURRENCY=50</code></li>
 </ul>
-<p>Find this line</p>
-<div class="highlight"><pre><span></span><code>DATABASES = {
-    &#39;default&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.postgresql&#39;,
-        &#39;NAME&#39;: os.environ.get(&#39;POSTGRES_DB&#39;),
-        &#39;USER&#39;: os.environ.get(&#39;POSTGRES_USER&#39;),
-        &#39;PASSWORD&#39;: os.environ.get(&#39;POSTGRES_PASSWORD&#39;),
-        &#39;HOST&#39;: os.environ.get(&#39;POSTGRES_HOST&#39;),
-        &#39;PORT&#39;: os.environ.get(&#39;POSTGRES_PORT&#39;),
-        # &#39;OPTIONS&#39;:{
-        #     &#39;sslmode&#39;:&#39;verify-full&#39;,
-        #     &#39;sslrootcert&#39;: os.path.join(BASE_DIR, &#39;ca-certificate.crt&#39;)
-        # }
-    }
-}
+<p>This is just an ideal value which developers have tested and tried out and works! But feel free to play around with the values.</p>
+<p>Maximum number of scans is determined by various factors, your network bandwith, RAM, number of CPUs available. etc</p>
+</li>
+<li>
+<p>Run the installation script, Please keep an eye for any prompt, you will also be asked for username and password for reNgine UI.</p>
+<div class="highlight"><pre><span></span><code>sudo ./install.sh
 </code></pre></div>
-<p>and uncomment OPTIONS as below.</p>
-<div class="highlight"><pre><span></span><code>DATABASES = {
-    &#39;default&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.postgresql&#39;,
-        &#39;NAME&#39;: os.environ.get(&#39;POSTGRES_DB&#39;),
-        &#39;USER&#39;: os.environ.get(&#39;POSTGRES_USER&#39;),
-        &#39;PASSWORD&#39;: os.environ.get(&#39;POSTGRES_PASSWORD&#39;),
-        &#39;HOST&#39;: os.environ.get(&#39;POSTGRES_HOST&#39;),
-        &#39;PORT&#39;: os.environ.get(&#39;POSTGRES_PORT&#39;),
-        &#39;OPTIONS&#39;:{
-            &#39;sslmode&#39;:&#39;verify-full&#39;,
-            &#39;sslrootcert&#39;: os.path.join(BASE_DIR, &#39;ca-certificate.crt&#39;)
-        }
-    }
-}
-</code></pre></div>
-<p>Now you can continue with <a href="quick-install.md">Quick Installation</a> or <a href="install-win-mac.md">Detailed Installation Instructions</a></p>
+<p>if <code>./install.sh</code> does not have install permission, please add executable permission, <code>chmod +x install.sh</code></p>
+</li>
+<li>
+<p>You will be asked to create account for reNgine, please choose a strong password.</p>
+<p><img alt="" src="../../static/username.png" /></p>
+</li>
+</ol>
+<p><strong>reNgine can now be accessed from <a href="https://127.0.0.1">https://127.0.0.1</a> or if you're on the VPS https://your_vps_ip_address</strong></p>
                 
               
               
