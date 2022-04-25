@@ -2,15 +2,13 @@
 
 Thank you for installing reNgine.
 
-<!-- # ![](../static/usage/1.gif) -->
-
 This section is divided into several parts based on modules/features/FAQ in reNgine.
-
-- [Dark Mode](/usage/dark)
 
 - [Adding Targets](/usage/targets)
 
     - [How to add targets?](/usage/targets/#adding-individual-targets)
+
+    - [How to add targets using IP Address?](/usage/targets/#resolve-domains-from-ip-or-cidrs)
 
     - [What is hackerone team-handle?](/usage/targets/#what-is-team-handle)
 
@@ -26,6 +24,8 @@ This section is divided into several parts based on modules/features/FAQ in reNg
 
 - [Initiating Scan](/usage/scan_target/#quick-scan)
 
+- [Initiating SubScan <strong>New 🔥</strong>](/usage/subscan)
+
 - [Scheduling Scan](/usage/scan_target/#schedule-scan)
 
 - [Wordlist](/usage/wordlist/#adding-new-wordlist)
@@ -38,16 +38,26 @@ This section is divided into several parts based on modules/features/FAQ in reNg
 
     - [What is team handle?](/usage/hackerone/#what-is-team_handle)
 
+- [Adding External Tools <strong>New 🔥</strong>](/usage/external-tool)
+
+- [Generating PDF Report <strong>New 🔥</strong>](/usage/report)
+
+
 - Settings
       - [Proxy Settings](/usage/proxy/)
 
-          [How to add and use proxies?](/usage/proxy/#adding-proxies)
+          - [How to add and use proxies?](/usage/proxy/#adding-proxies)
 
       - Tool Settings
 
-        [How to upload GF and Nuclei templates?](/usage/tool_conf/#uploading-custom-gf-patterns-and-nuclei-templates)
+          - [How to upload GF and Nuclei templates?](/usage/tool_conf/#uploading-custom-gf-patterns-and-nuclei-templates)
 
-        [How to edit tool specific settings/configuration for subfinder, nuclei, amass and naabu](/usage/tool_conf/#editing-tool-configurations)
+          - [How to edit tool specific settings/configuration for subfinder, nuclei, amass and naabu](/usage/tool_conf/#editing-tool-configurations)
 
       - [Notification Settings (Customizing Notifications)](/usage/notification/)
       - [reNgine Settings (Cleaning the Scan Data and Screenshots)](/usage/settings/)
+
+
+- [Updating reNgine ](../update/index.md)
+- [Uninstalling reNgine ](../uninstall/index.md)
+- [How to report Security Issues in reNgine](../security/index.md)

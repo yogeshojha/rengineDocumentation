@@ -1,7 +1,5 @@
 # Blogs and Videos Published by the community
 
-This section contains blogs and videos published by the community.
-
 ## Community Published Blogs
 
 | Blog                                                         | Publisher               | Language |

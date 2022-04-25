@@ -1,6 +1,6 @@
 # Using Remote Database with reNgine
 
-Related to [https://github.com/yogeshojha/rengine/issues/180](https://github.com/yogeshojha/rengine/issues/180)
+Related to [Github Issue](https://github.com/yogeshojha/rengine/issues/180)
 
 If you plan to use remote database please follow the instructions. An example using DigitalOcean Managed database is below:
 
@@ -66,6 +66,9 @@ POSTGRES_USER=doadmin
 POSTGRES_PASSWORD=sfga69d121960is9cs9kc
 POSTGRES_PORT=5432
 POSTGRES_HOST=db-postgresql-nyc3-XXXXX-do-user-8362215-0.b.db.ondigitalocean.com
+
+MIN_CONCURRENCY=5
+MAX_CONCURRENCY=30
 ```
 
 **That is all you need, You should now be able to connect to the database from reNgine, But, if you databases uses SSL connection, there is an extra step to be done.**
@@ -116,4 +119,4 @@ DATABASES = {
 }
 ```
 
-Now you can continue with [Quick Installation](quick-install.md) or [Detailed Installation Instructions](install.md)
+Now you can continue with [Quick Installation](quick-install.md) or [Detailed Installation Instructions](install-win-mac.md)

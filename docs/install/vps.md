@@ -41,4 +41,4 @@ Recommended 160GB, 8GB RAM and 4 CPU.
 ssh root@vps_ip
 ```
 
-Once you are logged into your VPS, follow [Quick Installation instructions](quick-install.md)
+Once you are logged into your VPS, follow [Quick Installation instructions](quick.md)
