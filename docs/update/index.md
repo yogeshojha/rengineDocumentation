@@ -22,18 +22,28 @@ make down && git pull && make build && make up
 ## 📖 Detailed Update Instructions
 
 1. Bring all reNgine services down
+
 ```bash
 make down
 ```
+
 2. Get the latest changes
+
 ```bash
+git stash save
 git pull
+git stash apply
 ```
+
 3. Rebuild the latest changes
+
 ```bash
 make build
 ```
+
 4. Start reNgine services
+
 ```bash
 make up
 ```
+
