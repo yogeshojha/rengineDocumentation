@@ -487,19 +487,27 @@
 </code></pre></div>
 <h2 id="detailed-update-instructions">📖 Detailed Update Instructions<a class="headerlink" href="#detailed-update-instructions" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Bring all reNgine services down
-<div class="highlight"><pre><span></span><code>make down
-</code></pre></div></li>
-<li>Get the latest changes
-<div class="highlight"><pre><span></span><code>git pull
-</code></pre></div></li>
-<li>Rebuild the latest changes
-<div class="highlight"><pre><span></span><code>make build
-</code></pre></div></li>
-<li>Start reNgine services
-<div class="highlight"><pre><span></span><code>make up
-</code></pre></div></li>
+<li>Bring all reNgine services down</li>
 </ol>
+<div class="highlight"><pre><span></span><code>make down
+</code></pre></div>
+<ol>
+<li>Get the latest changes</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git stash save
+git pull
+git stash apply
+</code></pre></div>
+<ol>
+<li>Rebuild the latest changes</li>
+</ol>
+<div class="highlight"><pre><span></span><code>make build
+</code></pre></div>
+<ol>
+<li>Start reNgine services</li>
+</ol>
+<div class="highlight"><pre><span></span><code>make up
+</code></pre></div>
                 
               
               
