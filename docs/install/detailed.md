@@ -6,7 +6,7 @@ This document aims to provide detailed instructions on setting up and running th
 !!! info "Attention"
     If you wish to run reNgine on any debian Linux (like Ubuntu), there is a installation script that will ease your docker installation and does required setup for you. Consider using it. [Quick Installation](#quick-installation) You can skip prerequisites **if you are running Ubuntu**
 
-This document is firther divided into 3 parts:
+This document is further divided into 3 parts:
 
 1. [Prerequisites](#prerequisites)
 
