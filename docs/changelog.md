@@ -8,6 +8,7 @@ Please ensure backwards compatibility before updating reNgine.
 
 | Version                                                      | Backwards Compatible |
 |--------------------------------------------------------------|----------------------|
+| 1.2.0                                                          | ✔️ Compatible                  |
 | 1.1                                                          | ❌ Not Compatible            |
 | 1.0.1                                                          | ✔️ Compatible upto 1.0            |
 | 1.0                                                          | ❌ Not Compatible                  |
@@ -19,6 +20,26 @@ Please ensure backwards compatibility before updating reNgine.
 | 0.3                                                          | ✔️ Compatible                  |
 | 0.2                                                          | ✔️ Compatible                  |
 | 0.1                                                          | ✔️ Compatible                  |
+
+## 🏷️ 1.2.0
+
+**Release Date: May 27, 2022**
+
+Added
+
+- Naabu Exclude CDN Port Scanning
+- Added WAF Detection
+
+Fixes
+
+- Fix #630 Character Name too Long Issue
+- [Security] Fixed several instances of Command Injections, CVE-2022-28995, CVE-2022-1813
+- Hakrawler Fixed - #623
+- Fixed XSS on Hackerone report via Markdown
+- Fixed XSS on Import Target using malicious filename
+- Stop Scan Fixed #561
+- Fix installation issue due to missing curl
+- Updated docker-compose version
 
 ## 🏷️ 1.1
 **Release Date: Apr 24, 2022**
@@ -59,7 +80,6 @@ Please ensure backwards compatibility before updating reNgine.
 - Added option to fetch CVE_ID details
 - Added option to Delete Multiple Scans
 - Added ffuf as Directory and Files fuzzer
-- 
 - Added widgets such as Most vulnerable Targets, Most Common Vulnerabilities, Most Common CVE IDs, Most Common CWE IDs, Most Common Vulnerability Tags
 
 
