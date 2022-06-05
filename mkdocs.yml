@@ -29,7 +29,7 @@ nav:
   - Usage Guide: usage/index.md
   - Changelog: changelog.md
   - Scan Engine Configuration: usage/scan_engine.md
-  - API: api.md
+  - API: api/index.md
 
 markdown_extensions:
   - meta
