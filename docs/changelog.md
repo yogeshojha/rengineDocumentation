@@ -8,6 +8,7 @@ Please ensure backwards compatibility before updating reNgine.
 
 | Version                                                      | Backwards Compatible |
 |--------------------------------------------------------------|----------------------|
+| 1.3.0                                                          | ✔️ Compatible                  |
 | 1.2.0                                                          | ✔️ Compatible                  |
 | 1.1                                                          | ❌ Not Compatible            |
 | 1.0.1                                                          | ✔️ Compatible upto 1.0            |
@@ -20,6 +21,21 @@ Please ensure backwards compatibility before updating reNgine.
 | 0.3                                                          | ✔️ Compatible                  |
 | 0.2                                                          | ✔️ Compatible                  |
 | 0.1                                                          | ✔️ Compatible                  |
+
+
+## 🏷️ 1.3.0
+**Release Date: July 19, 2022**
+
+## Added
+
+- Geographic Distribution of Assets Map
+
+## Fixes
+
+- WHOIS Provider Changed
+- Fixed Dark UI Issues
+- Fix HTTPX Issue
+
 
 ## 🏷️ 1.2.0
 
