@@ -1,6 +1,6 @@
 # Proxy Settings
 
-Proxies are integral part of web scraping. Every website has a limit to certain number of requests for a certain period of time from an particular IP Address that it will allow, exceeding the limit will block any incoming requests from such IP Address for a specific period of time. This results in unreiliable recon results. Suppose if you were to run Nuclei on a particular target with all the templates, your IP is likely to get banned.
+Proxies are integral part of web scraping. Every website has a limit to certain number of requests for a certain period of time from an particular IP Address that it will allow, exceeding the limit will block any incoming requests from such IP Address for a specific period of time. This results in unreliable recon results. Suppose if you were to run Nuclei on a particular target with all the templates, your IP is likely to get banned.
 And this is especially true for dorking and other OSINT reNgine does. After certain dorking attempts Google is likely to ban your IP for certain period of time.
 
 If you are looking for highly accurate recon results, it is recommended that you use rotating proxies or proxy pool.
@@ -19,6 +19,5 @@ Click on 'Use Proxy' checkbox and the textarea should be visible. Enter as many 
 
 ![](../static/usage/proxy.png)
 
-
 !!! danger
-    Please make sure your proxies are working, otherwise reNgine will not be able to perform scan.
+Please make sure your proxies are working, otherwise reNgine will not be able to perform scan.

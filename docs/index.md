@@ -1,12 +1,12 @@
 ---
 template: index.html
-title: 'reNgine 1.1 More than just a recon!'
+title: "reNgine 1.1 More than just a recon!"
 hide:
   - navigation
 hero:
-  title: 'reNgine <small>1.1</small></br> More than just recon!'
-  subtitle: '<strong>The only web application recon tool</strong> you will ever need!'
-  description: Quickly discover the attack surface, identify vulnerabilities using extremely customizable and powerful scan engines. <br><br>Enjoy peace of mind with reNgine's continous monitoring, deeper reconnaissance and open-source powered Vulnerability Scanner.
+  title: "reNgine <small>1.1</small></br> More than just recon!"
+  subtitle: "<strong>The only web application recon tool</strong> you will ever need!"
+  description: Quickly discover the attack surface, identify vulnerabilities using extremely customizable and powerful scan engines. <br><br>Enjoy peace of mind with reNgine's continuous monitoring, deeper reconnaissance and open-source powered Vulnerability Scanner.
   install_button: Getting Started
 features:
   - title: Reconnaissance like no other!
@@ -45,7 +45,7 @@ Developers behind the reNgine understand that recon data can be huge, manually l
 
 reNgine is also focused on continuous monitoring. Penetration testers can choose to schedule the scan at periodic intervals, get notified on notification channels like Discord, Slack, and Telegram for any new subdomains or vulnerabilities identified, or any recon data changes.
 
-Interoperability is something every recon tool needs, and reNgine is no different. Beginning reNgine 1.0, we additionally developed features such as import and export subdomains, endpoints, GF pattern matched endpoints, etc. This will allow you to use your favourite recon workflow in conjunction with reNgine.
+Interoperability is something every recon tool needs, and reNgine is no different. Beginning reNgine 1.0, we additionally developed features such as import and export subdomains, endpoints, GF pattern matched endpoints, etc. This will allow you to use your favorite recon workflow in conjunction with reNgine.
 
 PDF reports are something every individual or a team needs. Beginning reNgine 1.1, reNgine also comes with option to download PDF reports. One can also choose the type of report, Full Scan Report or just reconnaissance report. Also, we understand that PDF reports needs to be customizable. Choose the color of report you like, customize the executive summary, etc.
 
@@ -86,13 +86,13 @@ We also want our fellow hackers to stay ahead of the game, reNgine also comes wi
 - Find actionable insights such as Most Common Vulnerability, Most Common CVE ID, Most Vulnerable Target/Subdomain etc.
 
 !!! tip
-    Follow [me on Twitter](//twitter.com/ojhayogesh11) to keep yourself updated about new features.
+Follow [me on Twitter](//twitter.com/ojhayogesh11) to keep yourself updated about new features.
 
 ## 🚀 Getting Started
 
-* If this is your first time visiting reNgine, here is a guide on [🚀 Getting Started ](getting-started.md).
+- If this is your first time visiting reNgine, here is a guide on [🚀 Getting Started](getting-started.md).
 
-* If are already using reNgine and wish to Update/Upgrade, head to [🔥 Update ](update/index.md).
+- If are already using reNgine and wish to Update/Upgrade, head to [🔥 Update](update/index.md).
 
 ## ⚡ Usage Guide
 
@@ -115,7 +115,7 @@ Community may have published blogs/videos on your own language. Please check the
 If you have found any security issues on reNgine, we recommend reporting them immediately. reNgine also has it's bug bounty program and is your chance to get paid for security issues.
 
 !!! danger
-    Please do not disclose any security vulnerabilities on Github issues.
+Please do not disclose any security vulnerabilities on Github issues.
 
 Guide on [How to report security issues](security/index.md) is available.
 
@@ -132,11 +132,11 @@ There are many other great reconnaissance framework, you may use reNgine in conj
 
 ## Support
 
-Over the last few years I have been working insane on reNgine to bring new features with the only goal to make this as De-facto standard for reconnaissance. Most of my out of office hours and weeknds are spent on working on reNgine. I do this with addition to my primary job. I am happy to have received such an overwhelming support from community. But to keep this project alive, I am seeking financial support.
+Over the last few years I have been working insane on reNgine to bring new features with the only goal to make this as De-facto standard for reconnaissance. Most of my out of office hours and weekends are spent on working on reNgine. I do this with addition to my primary job. I am happy to have received such an overwhelming support from community. But to keep this project alive, I am seeking financial support.
 
-|                                                                       Paypal                                                                       |                                                            Bitcoin                                                             |                                                            Ethereum                                                            |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-|[https://www.paypal.com/paypalme/yogeshojha11](https://www.paypal.com/paypalme/yogeshojha11)                                 |                                              `35AiKyNswNZ4TZUSdriHopSCjNMPi63BCX`                                              |                                          `0xe7A337Da6ff98A28513C26A7Fec8C9b42A63d346`                                          |
+|                                            Paypal                                            |               Bitcoin                |                   Ethereum                   |
+| :------------------------------------------------------------------------------------------: | :----------------------------------: | :------------------------------------------: |
+| [https://www.paypal.com/paypalme/yogeshojha11](https://www.paypal.com/paypalme/yogeshojha11) | `35AiKyNswNZ4TZUSdriHopSCjNMPi63BCX` | `0xe7A337Da6ff98A28513C26A7Fec8C9b42A63d346` |
 
 It takes a considerable amount of time to add new features and make sure everything is working. A donation is your way saying: **reNgine is awesome**
 

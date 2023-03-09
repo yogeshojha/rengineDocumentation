@@ -2,19 +2,16 @@
 
 You can now upload custom gf patterns, nuclei templated and edit tool configurations directly from UI.
 
-
-## Uploading custom gf patterns and nuclei templates.
+## Uploading custom gf patterns and nuclei templates
 
 Please visit GF Documentation and Nuclei documentation on what kind of templates are supported.
 
 GF supports json templates while nuclei allows only YAML to be uploaded.
 
-
 ![](../static/usage/tool.png)
 
-
 !!! danger "Visit Scan Engine Section"
-    Once you have uploaded custom patterns or templates, please visit [Scan Engine](/usage/scan_engine) section on how to use custom patterns and templates.
+Once you have uploaded custom patterns or templates, please visit [Scan Engine](/usage/scan_engine) section on how to use custom patterns and templates.
 
 ## Editing tool configurations
 

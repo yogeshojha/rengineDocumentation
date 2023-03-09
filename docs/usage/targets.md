@@ -10,24 +10,26 @@ Too add the targets click on **Add Targets** button.
 
 You have 3 options to add the Targets,
 
-- [Adding Individual targets](#adding-individual-targets)
-- [Resolve Domains from IP or CIDRs](#resolve-domain-from-ip-or-cidrs)
-- [Adding Multiple targets](#adding-multiple-targets)
-- [Import via Files](#import-via-targets)
+- [Targets in reNgine](#targets-in-rengine)
+  - [Adding Individual Targets](#adding-individual-targets)
+  - [What is team handle?](#what-is-team-handle)
+  - [Resolve Domains from IP or CIDRs](#resolve-domains-from-ip-or-cidrs)
+  - [Adding Multiple Targets](#adding-multiple-targets)
+  - [Importing Targets](#importing-targets)
+    - [Importing Targets from txt file](#importing-targets-from-txt-file)
+    - [Importing Targets from csv file](#importing-targets-from-csv-file)
 
-### Adding Individual Targets
+## Adding Individual Targets
 
 This allows you to add single Individual targets.
 
 ![](../static/usage/addindividual.png)
 
-
 ## What is team handle?
 
 !!! danger "What is team_handle?"
-    Team handle is used to automatically report vulnerability to a program on hackerone. This is the identifier of the program.
-    Also can be identified by the URL hackerone.com/team_handle, **Use this only if you want to report the vulnerability to Hackerone.** [More information on how to use automatic vulnerability reporting can be found here.](hackerone.md)
-
+Team handle is used to automatically report vulnerability to a program on hackerone. This is the identifier of the program.
+Also can be identified by the URL hackerone.com/team_handle, **Use this only if you want to report the vulnerability to Hackerone.** [More information on how to use automatic vulnerability reporting can be found here.](hackerone.md)
 
 ## Resolve Domains from IP or CIDRs
 
@@ -47,13 +49,12 @@ This feature allows you to add multiple targets at once. But remember that the d
 
 ![](../static/usage/addmul.png)
 
-
 ## Importing Targets
 
 reNgine provides the ability to import multiple targets.
 
 !!! info "File extension support"
-    reNgine currently supports importing targets only from **.txt** and **.csv** files.
+reNgine currently supports importing targets only from **.txt** and **.csv** files.
 
 ### Importing Targets from txt file
 
