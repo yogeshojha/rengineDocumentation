@@ -13,7 +13,7 @@ On the top navigation menu, click on Engine and then click on Interesting Lookup
 **Please separate keywords using comma**
 
 !!! check "Example"
-    phpmyadmin, ssh, another keyword
+phpmyadmin, ssh, another keyword
 
 If any of these keywords are matched, reNgine will classify them as interesting subdomains. You can also choose where to lookup, **Subdomain Name** or **Page Title** or both.
 

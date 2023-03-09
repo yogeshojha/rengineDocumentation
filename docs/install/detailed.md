@@ -2,16 +2,14 @@
 
 This document aims to provide detailed instructions on setting up and running the **reNgine**.
 
-
 !!! info "Attention"
-    If you wish to run reNgine on any debian Linux (like Ubuntu), there is a installation script that will ease your docker installation and does required setup for you. Consider using it. [Quick Installation](#quick-installation) You can skip prerequisites **if you are running Ubuntu**
+If you wish to run reNgine on any debian Linux (like Ubuntu), there is a installation script that will ease your docker installation and does required setup for you. Consider using it. [Quick Installation](#quick-installation) You can skip prerequisites **if you are running Ubuntu**
 
 This document is further divided into 3 parts:
 
 1. [Prerequisites](#prerequisites)
 
 2. [reNgine Installation](#rengine-installation)
-
 
 ## Prerequisites
 
@@ -20,14 +18,15 @@ This document is further divided into 3 parts:
 **reNgine** requires `docker`, `docker-compose` and `make` to be installed before you begin installing rengine.
 
 ### Docker
+
 Docker provides very good documentation on how to install docker based on your Operating System. You can [follow the documentation here.](https://docs.docker.com/get-docker/)
 
 #### Docker installation on Ubuntu/Linux Distributions
 
 !!! warning
-    The installation steps have been directly taken from [Docker Guide](https://docs.docker.com/engine/install/ubuntu/) with no modification.
+The installation steps have been directly taken from [Docker Guide](https://docs.docker.com/engine/install/ubuntu/) with no modification.
 
-* Update the `apt` package index and install the below packages
+- Update the `apt` package index and install the below packages
 
 ```
 sudo apt-get update
@@ -42,13 +41,13 @@ sudo apt-get install \
     software-properties-common
 ```
 
-* Add Docker official GPG key
+- Add Docker official GPG key
 
 ```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
-* Use the following commands to setup the stable repository
+- Use the following commands to setup the stable repository
 
 ```
 sudo add-apt-repository \
@@ -57,13 +56,13 @@ sudo add-apt-repository \
    stable"
 ```
 
-* Finally install Docker Engine
+- Finally install Docker Engine
 
 ```
 sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
-* Test the Docker by running `docker` command on your console/terminal.
+- Test the Docker by running `docker` command on your console/terminal.
 
 #### Docker installation on Windows
 
@@ -85,32 +84,32 @@ If you're using Linux distributions or WSL, you will still need to install `dock
 
 #### Installing `docker-compose` on Linux systems
 
-* Download the latest stable version of `docker-compose`
+- Download the latest stable version of `docker-compose`
 
 ```
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-* Apply executable permission
+- Apply executable permission
 
 ```
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-* Create a symbolic link
+- Create a symbolic link
 
 ```
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
 
-* Verify your installation by running
+- Verify your installation by running
 
 ```
 docker-compose --version
 ```
 
 !!! info
-    If `curl` is not working, there are [alternate installation steps](https://docs.docker.com/compose/install/#alternative-install-options) as well. You can use `pip` or install as a container. Follow the [alternate installation steps](https://docs.docker.com/compose/install/#alternative-install-options).
+If `curl` is not working, there are [alternate installation steps](https://docs.docker.com/compose/install/#alternative-install-options) as well. You can use `pip` or install as a container. Follow the [alternate installation steps](https://docs.docker.com/compose/install/#alternative-install-options).
 
 ### make
 
@@ -130,12 +129,12 @@ sudo apt install build-essential
 
 All prerequisites are now satisfied.
 
-
 **Let's begin by cloning reNgine**.
 
 ## Installation
 
 ### Clone reNgine
+
 ```
 git clone https://github.com/yogeshojha/rengine && cd rengine
 ```
@@ -143,7 +142,6 @@ git clone https://github.com/yogeshojha/rengine && cd rengine
 ### dotenv file
 
 Edit the dotenv file using `nano .env` or `vi .env` or `vim .env`.
-
 
 The sample [.env](https://github.com/yogeshojha/rengine/blob/master/.env) file can be found [here](https://github.com/yogeshojha/rengine/blob/master/.env).
 
@@ -184,30 +182,30 @@ MAX_CONCURRENCY=30
 
 #### .env Explained
 
-* **COMPOSE_PROJECT_NAME**: This will help reNgine name docker containers as rengine_web_1, rengine_celery_1 etc. <small>(Making changes is Optional)</small>
+- **COMPOSE_PROJECT_NAME**: This will help reNgine name docker containers as rengine_web_1, rengine_celery_1 etc. <small>(Making changes is Optional)</small>
 
-* **AUTHORITY_NAME**: SSL Authority Name
-* **AUTHORITY_PASSWORD**: SSL Authority Password
-* **COMPANY**: Company Name to generate SSL to
-* **DOMAIN_NAME**: Domain where reNgine is going to be installed
-* **COUNTRY_CODE, STATE, CITY**: SSL Speciffc
+- **AUTHORITY_NAME**: SSL Authority Name
+- **AUTHORITY_PASSWORD**: SSL Authority Password
+- **COMPANY**: Company Name to generate SSL to
+- **DOMAIN_NAME**: Domain where reNgine is going to be installed
+- **COUNTRY_CODE, STATE, CITY**: SSL Speciffc
 
-* **POSTGRES_DB**: DB name for Postgres <small>(Making changes is Optional)</small>
-* **POSTGRES_USER**: Postgres Username for DB auth purpose <small>(Making changes is Optional)</small>
-* **POSTGRES_PASSWORD**: Postgres Password for DB auth purpose <strong>(Please change the default Postgres Password)</strong>
-* **POSTGRES_PORT**: Postgres Port <small>(Making changes is Optional)</small>
-* **POSTGRES_HOST**: Postgres HOST <small>(Making changes is Optional)</small>
+- **POSTGRES_DB**: DB name for Postgres <small>(Making changes is Optional)</small>
+- **POSTGRES_USER**: Postgres Username for DB auth purpose <small>(Making changes is Optional)</small>
+- **POSTGRES_PASSWORD**: Postgres Password for DB auth purpose <strong>(Please change the default Postgres Password)</strong>
+- **POSTGRES_PORT**: Postgres Port <small>(Making changes is Optional)</small>
+- **POSTGRES_HOST**: Postgres HOST <small>(Making changes is Optional)</small>
 
-* **MIN_CONCURRENCY**: Minimum number of Concurrency for Celery.
-* **MAX_CONCURRENCY**: Maximum number of Concurrency for Celery. This determines how many maximum number of scans to run in parallel.
+- **MIN_CONCURRENCY**: Minimum number of Concurrency for Celery.
+- **MAX_CONCURRENCY**: Maximum number of Concurrency for Celery. This determines how many maximum number of scans to run in parallel.
 
 #### Determining CONCURRENCY Values
 
 Here is the ideal value for MIN_CONCURRENCY and MAX_CONCURRENCY depending on the number of RAM your machine has:
 
-* <strong>4GB</strong>: `MAX_CONCURRENCY=10`
-* <strong>8GB</strong>: `MAX_CONCURRENCY=30`
-* <strong>16GB</strong>: `MAX_CONCURRENCY=50`
+- <strong>4GB</strong>: `MAX_CONCURRENCY=10`
+- <strong>8GB</strong>: `MAX_CONCURRENCY=30`
+- <strong>16GB</strong>: `MAX_CONCURRENCY=50`
 
 This is just an ideal value which developers have tested and tried out and works! But feel free to play around with the values.
 
@@ -222,7 +220,7 @@ sudo make certs
 ```
 
 !!! danger ""
-    Please note, while running any `make` command, you must be inside the rengine/ directory.
+Please note, while running any `make` command, you must be inside the rengine/ directory.
 
 ### Build reNgine
 
@@ -235,7 +233,7 @@ sudo make build
 The build process is a lengthy process and expected to take some time.
 
 !!! info ""
-    Thanks to [Baptiste MOINE](https://github.com/Creased) for sending the PR that made build process so much simpler.
+Thanks to [Baptiste MOINE](https://github.com/Creased) for sending the PR that made build process so much simpler.
 
 ### Run reNgine
 
@@ -245,7 +243,7 @@ Once the build process is successful, we're good to run reNgine. This can be don
 sudo make up
 ```
 
-**reNgine can now be accessed from https://127.0.0.1 or if you're on the VPS https://your_vps_ip_address**
+**reNgine can now be accessed from <https://127.0.0.1> or if you're on the VPS <https://your_vps_ip_address>**
 
 ### Registering an account
 
@@ -270,7 +268,7 @@ sudo make logs
 ```
 
 !!! note
-    If you encounter any issues while setup or scan, we advice you to [raise an issue in Github](https://github.com/yogeshojha/rengine/issues) and attach the log. While raising any new issues on Github, it is also adviced that you to look for any open issues on Github as well.
+If you encounter any issues while setup or scan, we advice you to [raise an issue in Github](https://github.com/yogeshojha/rengine/issues) and attach the log. While raising any new issues on Github, it is also adviced that you to look for any open issues on Github as well.
 
 ### Stopping reNgine
 
@@ -293,8 +291,8 @@ sudo make restart
 If you wish to delete all your recon data, it can be done using
 
 !!! danger
-    This is a irreversible process and once pruned, you may never get back your recon data.
-    Use with caution.
+This is a irreversible process and once pruned, you may never get back your recon data.
+Use with caution.
 
 ```
 sudo make prune

@@ -6,21 +6,21 @@ This section is divided into several parts based on modules/features/FAQ in reNg
 
 - [Adding Targets](/usage/targets)
 
-    - [How to add targets?](/usage/targets/#adding-individual-targets)
+  - [How to add targets?](/usage/targets/#adding-individual-targets)
 
-    - [How to add targets using IP Address?](/usage/targets/#resolve-domains-from-ip-or-cidrs)
+  - [How to add targets using IP Address?](/usage/targets/#resolve-domains-from-ip-or-cidrs)
 
-    - [What is hackerone team-handle?](/usage/targets/#what-is-team-handle)
+  - [What is hackerone team-handle?](/usage/targets/#what-is-team-handle)
 
 - [Tagging Targets to an Organization](/usage/organization)
 
-    - [How to tag targets to an organization?](/usage/organization/#adding-organization)
+  - [How to tag targets to an organization?](/usage/organization/#adding-organization)
 
-    - [How to initiate scan for an organization?](/usage/organization/#initiating-scan-on-organization)
+  - [How to initiate scan for an organization?](/usage/organization/#initiating-scan-on-organization)
 
 - [Scan Engines](/usage/scan_engine)
 
-    - [Scan Engine YAML configuration Explained](/usage/scan_engine/#detailed-guide-on-configuring-scan-engines)
+  - [Scan Engine YAML configuration Explained](/usage/scan_engine/#detailed-guide-on-configuring-scan-engines)
 
 - [Initiating Scan](/usage/scan_target/#quick-scan)
 
@@ -34,17 +34,15 @@ This section is divided into several parts based on modules/features/FAQ in reNg
 
 - [Automatic Vulnerability Reporting to Hackerone](/usage/hackerone/)
 
-    - [How to edit vulnerability report template?](/usage/hackerone/#vulnerability-report-template)
+  - [How to edit vulnerability report template?](/usage/hackerone/#vulnerability-report-template)
 
-    - [What is team handle?](/usage/hackerone/#what-is-team_handle)
+  - [What is team handle?](/usage/hackerone/#what-is-team_handle)
 
 - [Adding External Tools <strong>New 🔥</strong>](/usage/external-tool)
 
 - [Generating PDF Report <strong>New 🔥</strong>](/usage/report)
 
-
-- Settings
-      - [Proxy Settings](/usage/proxy/)
+- Settings - [Proxy Settings](/usage/proxy/)
 
           - [How to add and use proxies?](/usage/proxy/#adding-proxies)
 
@@ -57,7 +55,6 @@ This section is divided into several parts based on modules/features/FAQ in reNg
       - [Notification Settings (Customizing Notifications)](/usage/notification/)
       - [reNgine Settings (Cleaning the Scan Data and Screenshots)](/usage/settings/)
 
-
-- [Updating reNgine ](../update/index.md)
-- [Uninstalling reNgine ](../uninstall/index.md)
+- [Updating reNgine](../update/index.md)
+- [Uninstalling reNgine](../uninstall/index.md)
 - [How to report Security Issues in reNgine](../security/index.md)

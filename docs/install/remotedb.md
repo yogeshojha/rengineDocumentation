@@ -24,11 +24,9 @@ Create a database cluster.
 
 ![](../static/remotedb/3.png)
 
-
 - Click on Create Database Cluster button.
 
 ![](../static/remotedb/4.png)
-
 
 - Click on Get Started.
 
@@ -42,9 +40,7 @@ Create a database cluster.
 
 ![](../static/remotedb/7.png)
 
-
 - Finish the steps.
-
 
 - Now you have a managed database cluster, and you need these credentials to put it in .env file.
 
