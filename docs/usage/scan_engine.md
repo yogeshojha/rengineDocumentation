@@ -10,7 +10,7 @@ reNgine provides the ability to customize scan engines via YAML based configurat
 
 
 !!! danger "Attention"
-    reNgine 2.0 does not provide switches to enable or disable tasks. The YAML configuraion decides which tasks to use. Any `task: {}` that is in YAML config will run, rest will not.
+    reNgine 2.0 does not provide switches to enable or disable tasks. The YAML configuration decides which tasks to use. Any `task: {}` that is in YAML config will run, rest will not.
 
 Currently YAML config is supported for
 
@@ -413,3 +413,37 @@ Screenshot gathering
 - `enable_http_crawl`: *(boolean)* If set to true, only alive URLs will be used for screenshot gathering.
 - `timeout`: *(int)* Timeout in seconds for screenshot gathering
 - `threads`: *(int)* Numbers of threads to use for EyeWitness
+
+
+## Shared Scan Configuration
+
+Some of the scan configurations such as threads or custom_header could be used across all the tasks. Instead of using them in individual task, you can also use them as shared configuration, outside the task object configuration.
+
+  - enable_http_crawl
+  - timeout
+  - rate_limit
+  - retries
+  - custom_header
+
+Example:
+
+```yaml
+subdomain_discovery: {}
+http_crawl: {}
+port_scan: {}
+osint: {}
+dir_file_fuzz: {}
+fetch_url: {}
+vulnerability_scan: {}
+waf_detection: {}
+screenshot: {}
+
+# shared scan config
+enable_http_crawl: true
+timeout: 10
+rate_limit: 5
+retries: 2
+custom_header: "Foo: bar"
+```
+
+These shared scan config will be used across all the tasks.

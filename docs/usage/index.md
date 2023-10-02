@@ -16,6 +16,7 @@ This section is divided into several parts based on modules/features/FAQ in reNg
     - [How to initiate scan for an organization?](/usage/organization/#initiating-scan-on-organization)
 - [Scan Engines](/usage/scan_engine)
     - [Scan Engine YAML configuration Explained](/usage/scan_engine/#detailed-guide-on-configuring-scan-engines)
+    - [Shared Configurations](/usage/scan_engine/#shared-scan-configuration)
 - [Initiating Scan](/usage/scan_target/#quick-scan)
 - [Initiating SubScan](/usage/subscan)
 - [Scheduling Scan](/usage/scan_target/#schedule-scan)
