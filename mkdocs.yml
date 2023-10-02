@@ -25,10 +25,10 @@ theme:
 
 nav:
   - Home: index.md
-  # - Getting Started: getting-started.md
-  # - Usage Guide: usage/index.md
+  - Getting Started: 2.0/getting-started.md
+  - Usage Guide: usage/index.md
+  - Scan Engine Configuration: usage/scan_engine.md
   - Changelog: changelog.md
-  # - Scan Engine Configuration: usage/scan_engine.md
   # - API: api/index.md
 
 markdown_extensions:
