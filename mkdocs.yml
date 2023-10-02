@@ -27,7 +27,7 @@ nav:
   - Home: index.md
   # - Getting Started: getting-started.md
   # - Usage Guide: usage/index.md
-  # - Changelog: changelog.md
+  - Changelog: changelog.md
   # - Scan Engine Configuration: usage/scan_engine.md
   # - API: api/index.md
 
