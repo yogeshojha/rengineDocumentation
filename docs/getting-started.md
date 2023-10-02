@@ -1,11 +1,9 @@
 # reNgine installation for Hackers
 
-If you are a developer and willing to reNgine for contributing or developing new features follow the [Getting Started Guidelines](dev/getting-started) for developers.
-
 This section aims to answer some of the most frequently asked questions on installing reNgine.
 
 !!! danger "Attention"
-    It is highly recommended that you follow each steps to avoid encountering any errors/issues during the setup.
+    It is recommended that you follow each steps to avoid encountering any errors/issues during the setup.
 
 This guide is divided into several sections based on the frequently asked questions:
 
@@ -21,7 +19,6 @@ Follow [⚡ Quick Installation instructions](install/quick.md).
 
 ## Running reNgine on local machine
 
-While you can run reNgine locally, it is recommended that you run it on VPS like digitalocean.
 Running reNgine on local machine is a very straight forward process. You'll neeed `docker`, `docker-compose` and `make` to build and run reNgine on local machine.
 
 !!! info "Quick Installation for Linux Debian like Ubuntu"
