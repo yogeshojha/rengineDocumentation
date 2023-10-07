@@ -12,14 +12,14 @@
         <meta name="author" content="Yogesh Ojha">
       
       
-        <link rel="canonical" href="https://rengine.wiki/usage/hackerone/">
+        <link rel="canonical" href="https://rengine.wiki/usage/roles_perms/">
       
       <link rel="icon" href="../../static/favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.3.2">
     
     
       
-        <title>Automatic Vulnerability Reporting to Hackerone - reNgine</title>
+        <title>Multiple Users, Roles and Permissions - reNgine</title>
       
     
     
@@ -63,9 +63,9 @@
 
 <!-- Open graph meta tags -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="reNgine - Automatic Vulnerability Reporting to Hackerone" />
+<meta property="og:title" content="reNgine - Multiple Users, Roles and Permissions" />
 <meta property="og:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
-<meta property="og:url" content="https://rengine.wiki/usage/hackerone/" />
+<meta property="og:url" content="https://rengine.wiki/usage/roles_perms/" />
 <meta property="og:image" content="" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1080" />
@@ -75,7 +75,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@ojhayogesh11" />
 <meta name="twitter:creator" content="@ojhayogesh11" />
-<meta name="twitter:title" content="reNgine - Automatic Vulnerability Reporting to Hackerone" />
+<meta name="twitter:title" content="reNgine - Multiple Users, Roles and Permissions" />
 <meta name="twitter:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
 <meta name="twitter:image" content="" />
 
@@ -97,7 +97,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#automatic-vulnerability-reporting-to-hackerone" class="md-skip">
+        <a href="#multiple-users-roles-and-permissions" class="md-skip">
           Skip to content
         </a>
       
@@ -146,7 +146,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Automatic Vulnerability Reporting to Hackerone
+              Multiple Users, Roles and Permissions
             
           </span>
         </div>
@@ -420,36 +420,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-generate-hackerone-api-token" class="md-nav__link">
-    How to generate hackerone api token?
+  <a href="#adding-multiple-users" class="md-nav__link">
+    Adding Multiple Users
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-team_handle" class="md-nav__link">
-    What is team_handle?
+  <a href="#available-roles" class="md-nav__link">
+    Available Roles
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-yout-hackerone-api-token" class="md-nav__link">
-    Testing yout hackerone api token
+  <a href="#disable-users" class="md-nav__link">
+    Disable Users
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#choosing-the-vulnerability-severity-to-report" class="md-nav__link">
-    Choosing the vulnerability severity to report
+  <a href="#changing-password" class="md-nav__link">
+    Changing Password
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vulnerability-report-template" class="md-nav__link">
-    Vulnerability Report Template
+  <a href="#changing-roles" class="md-nav__link">
+    Changing Roles
   </a>
   
 </li>
@@ -466,49 +466,42 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/usage/hackerone.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/usage/roles_perms.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="automatic-vulnerability-reporting-to-hackerone">Automatic Vulnerability Reporting to Hackerone<a class="headerlink" href="#automatic-vulnerability-reporting-to-hackerone" title="Permanent link">&para;</a></h1>
-<p>reNgine automatically sends vulnerability report to the Hackerone program which the target belongs to, if it finds Critical or High vulnerability.</p>
-<p>In order for reNgine to achieve this, it needs 3 things.</p>
-<ul>
-<li>Your HackerOne Username</li>
-<li>Hackerone API Token</li>
-<li>And Target team_handle</li>
-</ul>
-<h2 id="how-to-generate-hackerone-api-token">How to generate hackerone api token?<a class="headerlink" href="#how-to-generate-hackerone-api-token" title="Permanent link">&para;</a></h2>
-<p>To generate hackerone api token, visit the official documentation/instructions from Hackerone. <a href="https://docs.hackerone.com/hackers/api-token.html">https://docs.hackerone.com/hackers/api-token.html</a></p>
-<p>Once you have generated your hackerone api token, you can add them to Hackerone Setting, under Settings menu from top navigation bar.</p>
-<p><img alt="" src="../../static/usage/hackerone.png" /></p>
-<h2 id="what-is-team_handle">What is team_handle?<a class="headerlink" href="#what-is-team_handle" title="Permanent link">&para;</a></h2>
-<p>Team handle is a unique identifier for your target generated by hackerone. Suppose if your target belongs to a vulnerability program called 'Stripe', the target team_handle will be the 'stripe' generated from https://hackerone.com/stripe.</p>
-<p>You need to add the team_handle to your target when you add, you can also update the target later.</p>
-<p><img alt="" src="../../static/usage/addindividual.png" /></p>
-<p><a href="/usage/targets/#what-is-team-handle">How to add team_handle to your target?</a></p>
+<h1 id="multiple-users-roles-and-permissions">Multiple Users, Roles and Permissions<a class="headerlink" href="#multiple-users-roles-and-permissions" title="Permanent link">&para;</a></h1>
+<p>Roles and Permissions! Begining reNgine 2.0, we've taken your web application reconnaissance to a whole new level of control and security. Now, you can assign distinct roles to your team members—Sys Admin, Penetration Tester, and Auditor—each with precisely defined permissions to tailor their access and actions within the reNgine ecosystem.</p>
+<h2 id="adding-multiple-users">Adding Multiple Users<a class="headerlink" href="#adding-multiple-users" title="Permanent link">&para;</a></h2>
+<p>You can add multiple users from <strong>Admin Settings</strong> menu.</p>
 <div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>team_handle must be provided to the targets for reNgine to automatically report vulnerability.</p>
+<p class="admonition-title">Attention</p>
+<p>Please note that, the admin settings menu is only accesible to Sys Admin or root user!</p>
 </div>
-<h2 id="testing-yout-hackerone-api-token">Testing yout hackerone api token<a class="headerlink" href="#testing-yout-hackerone-api-token" title="Permanent link">&para;</a></h2>
-<p>You can also test hackerone api token to see if it works correctly. Once you have generated api token, you can verify by clicking on the button "Test my hackerone api key".</p>
-<p><img alt="" src="../../static/usage/hackerone_test_creds.png" /></p>
-<h2 id="choosing-the-vulnerability-severity-to-report">Choosing the vulnerability severity to report<a class="headerlink" href="#choosing-the-vulnerability-severity-to-report" title="Permanent link">&para;</a></h2>
-<p>By default, reNgine will report only Critical and High severity Vulnerabilities. You can choose to select what severity to report among Critical, High and Medium Severities.</p>
-<h2 id="vulnerability-report-template">Vulnerability Report Template<a class="headerlink" href="#vulnerability-report-template" title="Permanent link">&para;</a></h2>
-<p>You can customize the vulnerability report template using markdown. Replace the below syntax wherever you require. Curly braces are must!</p>
+<p><img alt="" src="https://github.com/yogeshojha/rengine/assets/17223002/aad1ab8d-3256-41f5-916e-e9064a7bf826" /></p>
+<p>Click on <strong>+ Add User</strong></p>
+<p><img alt="" src="https://github.com/yogeshojha/rengine/assets/17223002/cec733c7-4c65-4e94-b1c7-b195f1ebd074" /></p>
+<p>You can assign below mentioned roles.</p>
+<h2 id="available-roles">Available Roles<a class="headerlink" href="#available-roles" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>{vulnerability_name}</code> Vulnerability Title/Name.</li>
-<li><code>{vulnerable_url}</code> Vulnerable URL.</li>
-<li><code>{vulnerability_severity}</code> Vulnerability Severity.</li>
-<li><code>{vulnerability_description}</code> Description of vulnerability generated by Nuclei.</li>
-<li><code>{vulnerability_extracted_results}</code> Vulnerabty Results extracted by Nuclei.</li>
-<li><code>{vulnerability_reference}</code> Additional Reference to vulnerability.</li>
+<li>
+<p>Sys Admin: Sys Admin is a super user that has permission to modify system and scan related configurations, scan engines, create new users, add new tools etc. Super user can initiate scans and subscans effortlessly.</p>
+</li>
+<li>
+<p>Penetration Tester: Penetration Tester will be allowed to modify and initiate scans and subscans, add or update targets, etc. A penetration tester will not be allowed to modify system configurations. A penetration tester will also not be able to add or modify users.</p>
+</li>
+<li>
+<p>Auditor: Auditor can only view and download the report. An auditor can not change any system or scan related configurations nor can initiate any scans or subscans.</p>
+</li>
 </ul>
-<p><img alt="" src="../../static/usage/vuln_report.png" /></p>
+<h2 id="disable-users">Disable Users<a class="headerlink" href="#disable-users" title="Permanent link">&para;</a></h2>
+<p>You can also disable users from Admin Settings page. On every user accounts, you will see an action button called <strong>Disable User</strong>, clicking on it will disable the user. A disabled user will not be able to access reNgine.</p>
+<h2 id="changing-password">Changing Password<a class="headerlink" href="#changing-password" title="Permanent link">&para;</a></h2>
+<p>A Sys Admin can only change the password for other users. It is possible to change the password from the actions menu on each user.</p>
+<h2 id="changing-roles">Changing Roles<a class="headerlink" href="#changing-roles" title="Permanent link">&para;</a></h2>
+<p>A Sys Admin can also upgrade or downgrade the roles for any users from the same actions menu.</p>
 
               
             </article>

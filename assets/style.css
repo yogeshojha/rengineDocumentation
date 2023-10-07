@@ -15,3 +15,15 @@
 
   --md-typeset-a-color: var(--md-accent-fg-color);
 }
+
+.red_badge {
+  padding: 4px 8px;
+  border-radius: 10px;
+  background-color: #ff5733;
+  color: white;
+  font-size: 11pt;
+}
+
+.right-float {
+  float: right;
+}

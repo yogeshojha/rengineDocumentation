@@ -12,14 +12,14 @@
         <meta name="author" content="Yogesh Ojha">
       
       
-        <link rel="canonical" href="https://rengine.wiki/usage/hackerone/">
+        <link rel="canonical" href="https://rengine.wiki/usage/projects/">
       
       <link rel="icon" href="../../static/favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.3.2">
     
     
       
-        <title>Automatic Vulnerability Reporting to Hackerone - reNgine</title>
+        <title>Projects - reNgine</title>
       
     
     
@@ -63,9 +63,9 @@
 
 <!-- Open graph meta tags -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="reNgine - Automatic Vulnerability Reporting to Hackerone" />
+<meta property="og:title" content="reNgine - Projects" />
 <meta property="og:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
-<meta property="og:url" content="https://rengine.wiki/usage/hackerone/" />
+<meta property="og:url" content="https://rengine.wiki/usage/projects/" />
 <meta property="og:image" content="" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1080" />
@@ -75,7 +75,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@ojhayogesh11" />
 <meta name="twitter:creator" content="@ojhayogesh11" />
-<meta name="twitter:title" content="reNgine - Automatic Vulnerability Reporting to Hackerone" />
+<meta name="twitter:title" content="reNgine - Projects" />
 <meta name="twitter:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
 <meta name="twitter:image" content="" />
 
@@ -97,7 +97,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#automatic-vulnerability-reporting-to-hackerone" class="md-skip">
+        <a href="#what-is-shared-across-projects" class="md-skip">
           Skip to content
         </a>
       
@@ -146,7 +146,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Automatic Vulnerability Reporting to Hackerone
+              Projects
             
           </span>
         </div>
@@ -410,8 +410,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -420,36 +418,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-generate-hackerone-api-token" class="md-nav__link">
-    How to generate hackerone api token?
+  <a href="#what-is-shared-across-projects" class="md-nav__link">
+    What is shared across projects?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-team_handle" class="md-nav__link">
-    What is team_handle?
+  <a href="#what-is-not-shared-across-projects" class="md-nav__link">
+    What is not shared across projects?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-yout-hackerone-api-token" class="md-nav__link">
-    Testing yout hackerone api token
+  <a href="#adding-projects" class="md-nav__link">
+    Adding Projects
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#choosing-the-vulnerability-severity-to-report" class="md-nav__link">
-    Choosing the vulnerability severity to report
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vulnerability-report-template" class="md-nav__link">
-    Vulnerability Report Template
+  <a href="#switching-between-the-projects" class="md-nav__link">
+    Switching Between the Projects
   </a>
   
 </li>
@@ -466,49 +457,39 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/usage/hackerone.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/usage/projects.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="automatic-vulnerability-reporting-to-hackerone">Automatic Vulnerability Reporting to Hackerone<a class="headerlink" href="#automatic-vulnerability-reporting-to-hackerone" title="Permanent link">&para;</a></h1>
-<p>reNgine automatically sends vulnerability report to the Hackerone program which the target belongs to, if it finds Critical or High vulnerability.</p>
-<p>In order for reNgine to achieve this, it needs 3 things.</p>
+  <h1>Projects</h1>
+
+<p>reNgine 2.0 introduces a powerful addition that enables you to efficiently organize your web application reconnaissance efforts. With this feature, you can create distinct project spaces, each tailored to a specific purpose, such as personal bug bounty hunting, client engagements, or any other specialized recon task.</p>
+<p>Each projects will have separate dashboard, separate targets and all the scan results will be separated from each projects, while scan engines and configuration will be shared across all the projects.</p>
+<p>It's like having multiple instances of reNgine running. No scan data will be shared across projects.</p>
+<h2 id="what-is-shared-across-projects">What is shared across projects?<a class="headerlink" href="#what-is-shared-across-projects" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Your HackerOne Username</li>
-<li>Hackerone API Token</li>
-<li>And Target team_handle</li>
+<li>Scan Engines</li>
+<li>Tools and configurations</li>
+<li>Interesting Keywords</li>
+<li>Wordlist</li>
 </ul>
-<h2 id="how-to-generate-hackerone-api-token">How to generate hackerone api token?<a class="headerlink" href="#how-to-generate-hackerone-api-token" title="Permanent link">&para;</a></h2>
-<p>To generate hackerone api token, visit the official documentation/instructions from Hackerone. <a href="https://docs.hackerone.com/hackers/api-token.html">https://docs.hackerone.com/hackers/api-token.html</a></p>
-<p>Once you have generated your hackerone api token, you can add them to Hackerone Setting, under Settings menu from top navigation bar.</p>
-<p><img alt="" src="../../static/usage/hackerone.png" /></p>
-<h2 id="what-is-team_handle">What is team_handle?<a class="headerlink" href="#what-is-team_handle" title="Permanent link">&para;</a></h2>
-<p>Team handle is a unique identifier for your target generated by hackerone. Suppose if your target belongs to a vulnerability program called 'Stripe', the target team_handle will be the 'stripe' generated from https://hackerone.com/stripe.</p>
-<p>You need to add the team_handle to your target when you add, you can also update the target later.</p>
-<p><img alt="" src="../../static/usage/addindividual.png" /></p>
-<p><a href="/usage/targets/#what-is-team-handle">How to add team_handle to your target?</a></p>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>team_handle must be provided to the targets for reNgine to automatically report vulnerability.</p>
-</div>
-<h2 id="testing-yout-hackerone-api-token">Testing yout hackerone api token<a class="headerlink" href="#testing-yout-hackerone-api-token" title="Permanent link">&para;</a></h2>
-<p>You can also test hackerone api token to see if it works correctly. Once you have generated api token, you can verify by clicking on the button "Test my hackerone api key".</p>
-<p><img alt="" src="../../static/usage/hackerone_test_creds.png" /></p>
-<h2 id="choosing-the-vulnerability-severity-to-report">Choosing the vulnerability severity to report<a class="headerlink" href="#choosing-the-vulnerability-severity-to-report" title="Permanent link">&para;</a></h2>
-<p>By default, reNgine will report only Critical and High severity Vulnerabilities. You can choose to select what severity to report among Critical, High and Medium Severities.</p>
-<h2 id="vulnerability-report-template">Vulnerability Report Template<a class="headerlink" href="#vulnerability-report-template" title="Permanent link">&para;</a></h2>
-<p>You can customize the vulnerability report template using markdown. Replace the below syntax wherever you require. Curly braces are must!</p>
+<h2 id="what-is-not-shared-across-projects">What is not shared across projects?<a class="headerlink" href="#what-is-not-shared-across-projects" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>{vulnerability_name}</code> Vulnerability Title/Name.</li>
-<li><code>{vulnerable_url}</code> Vulnerable URL.</li>
-<li><code>{vulnerability_severity}</code> Vulnerability Severity.</li>
-<li><code>{vulnerability_description}</code> Description of vulnerability generated by Nuclei.</li>
-<li><code>{vulnerability_extracted_results}</code> Vulnerabty Results extracted by Nuclei.</li>
-<li><code>{vulnerability_reference}</code> Additional Reference to vulnerability.</li>
+<li>Targets</li>
+<li>Any scan related data such as Subdomains, Endpoints, Vulnerabilities etc</li>
+<li>Dashboard and Insights</li>
 </ul>
-<p><img alt="" src="../../static/usage/vuln_report.png" /></p>
+<h2 id="adding-projects">Adding Projects<a class="headerlink" href="#adding-projects" title="Permanent link">&para;</a></h2>
+<p>You will be prompted with an onboarding page once reNgine is installed.</p>
+<p><img src="https://github.com/yogeshojha/rengine/assets/17223002/c006469a-7034-4af9-82b6-dcf34a7912d0"></p>
+<p>Atleast one project is required to run reNgine. Later, if you wish to add new projects, you can click on 'Create New Project' from top menu</p>
+<p><img src="https://github.com/yogeshojha/rengine/assets/17223002/dba1a628-88b9-4d2a-85aa-d00bf5316499"></p>
+<p><img src="https://github.com/yogeshojha/rengine/assets/17223002/ebaa35aa-805c-4cf8-bc70-1dc04f19f0b6"></p>
+<h2 id="switching-between-the-projects">Switching Between the Projects<a class="headerlink" href="#switching-between-the-projects" title="Permanent link">&para;</a></h2>
+<p>If there are multiple projects and you wish to switch between them, lick on Projects menu, and click on the project name. You will be welcomed with the project's separate dashboard.</p>
+<p><img src="https://github.com/yogeshojha/rengine/assets/17223002/2496511c-50e7-48a7-8235-6a384bef9e62"></p>
 
               
             </article>

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://rengine.wiki/usage/scan_engine/">
       
       <link rel="icon" href="../../static/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.3.2">
     
     
       
@@ -43,6 +43,8 @@
     
     
       <link rel="stylesheet" href="../../assets/style.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/badge.css">
     
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -111,7 +113,7 @@
   }
 </style>
 <a class="announcement" href="https://discord.gg/H6WzebwX3H" target="_blank">
-  reNgine 1.1 has been announced! Join our Discord for support.
+  reNgine 2.0-jasper has been announced! Join our Discord for support.
 </a>
 
           </div>
@@ -238,19 +240,7 @@
 
   <li class="md-tabs__item">
     <a href="../" class="md-tabs__link">
-      Usage Guide
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="../../changelog/" class="md-tabs__link">
-      Changelog
+      Usage
     </a>
   </li>
 
@@ -275,8 +265,8 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../api/" class="md-tabs__link">
-      API
+    <a href="../../changelog/" class="md-tabs__link">
+      Changelog
     </a>
   </li>
 
@@ -369,22 +359,7 @@
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        Usage Guide
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
-        Changelog
+        Usage
       </a>
     </li>
   
@@ -462,8 +437,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#using-custom-tool" class="md-nav__link">
-    Using Custom Tool
+  <a href="#using-custom-subdomain-enum-tool" class="md-nav__link">
+    Using Custom Subdomain Enum Tool
   </a>
   
 </li>
@@ -473,57 +448,71 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#screenshot" class="md-nav__link">
-    screenshot
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http_crawl" class="md-nav__link">
+    http_crawl
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#osint" class="md-nav__link">
-    osint
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#port_scan" class="md-nav__link">
     port_scan
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#dir_file_search" class="md-nav__link">
-    dir_file_search
+      
+        <li class="md-nav__item">
+  <a href="#osint" class="md-nav__link">
+    osint
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#dir_file_fuzz" class="md-nav__link">
+    dir_file_fuzz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fetch_url" class="md-nav__link">
     fetch_url
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#vulnerability_scan" class="md-nav__link">
     vulnerability_scan
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#custom_header" class="md-nav__link">
-    custom_header
+      
+        <li class="md-nav__item">
+  <a href="#waf_detection" class="md-nav__link">
+    waf_detection
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#screenshot" class="md-nav__link">
+    screenshot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-scan-configuration" class="md-nav__link">
+    Shared Scan Configuration
+  </a>
   
 </li>
       
@@ -543,8 +532,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/" class="md-nav__link">
-        API
+      <a href="../../changelog/" class="md-nav__link">
+        Changelog
       </a>
     </li>
   
@@ -607,8 +596,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#using-custom-tool" class="md-nav__link">
-    Using Custom Tool
+  <a href="#using-custom-subdomain-enum-tool" class="md-nav__link">
+    Using Custom Subdomain Enum Tool
   </a>
   
 </li>
@@ -618,57 +607,71 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#screenshot" class="md-nav__link">
-    screenshot
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http_crawl" class="md-nav__link">
+    http_crawl
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#osint" class="md-nav__link">
-    osint
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#port_scan" class="md-nav__link">
     port_scan
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#dir_file_search" class="md-nav__link">
-    dir_file_search
+      
+        <li class="md-nav__item">
+  <a href="#osint" class="md-nav__link">
+    osint
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
+  <a href="#dir_file_fuzz" class="md-nav__link">
+    dir_file_fuzz
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fetch_url" class="md-nav__link">
     fetch_url
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#vulnerability_scan" class="md-nav__link">
     vulnerability_scan
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#custom_header" class="md-nav__link">
-    custom_header
+      
+        <li class="md-nav__item">
+  <a href="#waf_detection" class="md-nav__link">
+    waf_detection
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#screenshot" class="md-nav__link">
+    screenshot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-scan-configuration" class="md-nav__link">
+    Shared Scan Configuration
+  </a>
   
 </li>
       
@@ -694,80 +697,175 @@
 <h2 id="how-to-write-your-rengine-scan-engine-yaml-configuration">How to write your reNgine Scan Engine YAML Configuration?<a class="headerlink" href="#how-to-write-your-rengine-scan-engine-yaml-configuration" title="Permanent link">&para;</a></h2>
 <p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
 <p>reNgine provides the ability to customize scan engines via YAML based configuration. This configuration can be used to select the tools, choose the options provided by the tools etc.</p>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>reNgine 2.0 has new scan engine configuration. Configurations from reNgine &lt; 2.0.0 will not work in &gt;= 2.0.0</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Attention</p>
+<p>reNgine 2.0 does not provide switches to enable or disable tasks. The YAML configuration decides which tasks to use. Any <code>task: {}</code> that is in YAML config will run, rest will not.</p>
+</div>
 <p>Currently YAML config is supported for</p>
 <div class="admonition example">
 <p class="admonition-title">YAML Support for</p>
 <ul>
 <li>Subdomain Discovery as <code>subdomain_discovery</code></li>
+<li>HTTP Crawling as <code>http_crawl</code></li>
 <li>Screenshot Gathering as <code>screenshot</code></li>
 <li>OSINT as <code>osint</code></li>
 <li>Port Scan as <code>port_scan</code></li>
-<li>Directory and File Fuzzing as <code>dir_file_search</code></li>
+<li>Directory and File Fuzzing as <code>dir_file_fuzz</code></li>
 <li>Endpoint Gathering as <code>fetch_url</code></li>
 <li>Vulnerability Scan as <code>vulnerability_scan</code></li>
-<li>Custom Header as <code>custom_header</code></li>
 </ul>
 </div>
 <p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
 <h2 id="default-yaml-config">Default YAML Config<a class="headerlink" href="#default-yaml-config" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">uses_tools</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">amass-passive</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">assetfinder</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">sublist3r</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">subfinder</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-<span class="w">  </span><span class="nt">use_amass_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="nt">use_subfinder_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># amass_wordlist: default</span><span class="w"></span>
-
-<span class="nt">screenshot</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-<span class="w">  </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
-
-<span class="nt">port_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">top-1000</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">  </span><span class="nt">use_naabu_config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># exclude_ports: [80, 8080]</span><span class="w"></span>
-
-<span class="nt">osint</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">discover</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">emails</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">metainfo</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">employees</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">intensity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">normal</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># intensity: deep</span><span class="w"></span>
-<span class="w">  </span><span class="nt">dork</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">stackoverflow</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3rdparty</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">social_media</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">project_management</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">code_sharing</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">config_files</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">jenkins</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">wordpress_files</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">cloud_buckets</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">php_error</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">exposed_documents</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">struts_rce</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">db_files</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">traefik</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">git_exposed</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
-
-<span class="nt">dir_file_fuzz</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">wordlist</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span><span class="w"></span>
-<span class="w">  </span><span class="nt">use_extensions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">php</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">git</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">yaml</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">conf</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">db</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">mysql</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">bak</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">asp</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">aspx</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">txt</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">conf</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">sql</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">json</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
-<span class="w">  </span><span class="nt">stop_on_error</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="nt">follow_redirect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="nt">auto_calibration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># delay: &quot;0.1-0.2&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># match_http_status: &#39;200, 204&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># max_time: 0</span><span class="w"></span>
-<span class="w">  </span><span class="nt">recursive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">  </span><span class="nt">recursive_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-
-<span class="nt">fetch_url</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">uses_tools</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">gauplus</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">hakrawler</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">waybackurls</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gospider</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">intensity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">normal</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># intensity: deep</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ignore_file_extension</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">jpg</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">png</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">jpeg</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gif</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="nt">gf_patterns</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">debug_logic</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">idor</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">img-traversal</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">interestingEXT</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">interestingparams</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">interestingsubs</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">jsvar</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">lfi</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">rce</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">redirect</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">sqli</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">ssrf</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">ssti</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">xss</span><span class="p p-Indicator">]</span><span class="w"></span>
-
-<span class="nt">vulnerability_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">concurrency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-<span class="w">  </span><span class="nt">rate_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">150</span><span class="w"></span>
-<span class="w">  </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
-<span class="w">  </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="w">  </span><span class="nt">templates</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">all</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># custom_templates: []</span><span class="w"></span>
-<span class="w">  </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">critical</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">high</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">medium</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">low</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">info</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">unknown</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
-
-<span class="c1"># custom_header: &#39;name: value&#39;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="w">  </span><span class="s">&#39;uses_tools&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span>
+<span class="w">    </span><span class="s">&#39;subfinder&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;ctfr&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;sublist3r&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;tlsx&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;oneforall&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;netlas&#39;</span>
+<span class="w">  </span><span class="p p-Indicator">],</span>
+<span class="w">  </span><span class="s">&#39;enable_http_crawl&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;threads&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">30</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;timeout&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">5</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;use_amass_config&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;use_subfinder_config&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="p p-Indicator">}</span>
+<span class="nt">http_crawl</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nt">port_scan</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="w">  </span><span class="s">&#39;enable_http_crawl&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;timeout&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">5</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="c1"># &#39;exclude_ports&#39;: [],</span>
+<span class="w">  </span><span class="c1"># &#39;exclude_subdomains&#39;: true,</span>
+<span class="w">  </span><span class="s">&#39;ports&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;top-100&#39;</span><span class="p p-Indicator">],</span>
+<span class="w">  </span><span class="s">&#39;rate_limit&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">150</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;threads&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">30</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;passive&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="c1"># &#39;use_naabu_config&#39;: false,</span>
+<span class="w">  </span><span class="c1"># &#39;enable_nmap&#39;: true,</span>
+<span class="w">  </span><span class="c1"># &#39;nmap_cmd&#39;: &#39;&#39;,</span>
+<span class="w">  </span><span class="c1"># &#39;nmap_script&#39;: &#39;&#39;,</span>
+<span class="w">  </span><span class="c1"># &#39;nmap_script_args&#39;: &#39;&#39;</span>
+<span class="p p-Indicator">}</span>
+<span class="nt">osint</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="w">  </span><span class="s">&#39;discover&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span>
+<span class="w">      </span><span class="s">&#39;emails&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;metainfo&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;employees&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">],</span>
+<span class="w">  </span><span class="s">&#39;dorks&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span>
+<span class="w">    </span><span class="s">&#39;login_pages&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;admin_panels&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;dashboard_pages&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;stackoverflow&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;social_media&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;project_management&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;code_sharing&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;config_files&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;jenkins&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;wordpress_files&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;php_error&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;exposed_documents&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;db_files&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;git_exposed&#39;</span>
+<span class="w">  </span><span class="p p-Indicator">],</span>
+<span class="w">  </span><span class="s">&#39;custom_dorks&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span>
+<span class="w">    </span><span class="p p-Indicator">{</span>
+<span class="w">      </span><span class="s">&#39;lookup_site&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;google.com&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;lookup_keywords&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;/home/&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">},</span>
+<span class="w">    </span><span class="p p-Indicator">{</span>
+<span class="w">      </span><span class="s">&#39;lookup_site&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;_target_&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;lookup_extensions&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;jpg,png&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="p p-Indicator">],</span>
+<span class="w">  </span><span class="s">&#39;intensity&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;normal&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;documents_limit&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">50</span>
+<span class="p p-Indicator">}</span>
+<span class="nt">dir_file_fuzz</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="w">  </span><span class="s">&#39;auto_calibration&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;enable_http_crawl&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;rate_limit&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">150</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;extensions&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;html&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;php&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;git&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;yaml&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;conf&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;cnf&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;config&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;gz&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;env&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;log&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;db&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;mysql&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;bak&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;asp&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;aspx&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;txt&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;conf&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;sql&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;json&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;yml&#39;</span><span class="p p-Indicator">,</span><span class="s">&#39;pdf&#39;</span><span class="p p-Indicator">],</span>
+<span class="w">  </span><span class="s">&#39;follow_redirect&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;max_time&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;match_http_status&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">200</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">204</span><span class="p p-Indicator">],</span>
+<span class="w">  </span><span class="s">&#39;recursive_level&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;stop_on_error&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;timeout&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">5</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;threads&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">30</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;wordlist_name&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;dicc&#39;</span>
+<span class="p p-Indicator">}</span>
+<span class="nt">fetch_url</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="w">  </span><span class="s">&#39;uses_tools&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span>
+<span class="w">    </span><span class="s">&#39;gospider&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;hakrawler&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;waybackurls&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;gospider&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;katana&#39;</span>
+<span class="w">  </span><span class="p p-Indicator">],</span>
+<span class="w">  </span><span class="s">&#39;remove_duplicate_endpoints&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;duplicate_fields&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span>
+<span class="w">    </span><span class="s">&#39;content_length&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;page_title&#39;</span>
+<span class="w">  </span><span class="p p-Indicator">],</span>
+<span class="w">  </span><span class="s">&#39;enable_http_crawl&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;gf_patterns&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;debug_logic&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;idor&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;interestingEXT&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;interestingparams&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;interestingsubs&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;lfi&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;rce&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;redirect&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;sqli&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;ssrf&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;ssti&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;xss&#39;</span><span class="p p-Indicator">],</span>
+<span class="w">  </span><span class="s">&#39;ignore_file_extensions&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;png&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;jpg&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;jpeg&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;gif&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;mp4&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;mpeg&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;mp3&#39;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="c1"># &#39;exclude_subdomains&#39;: true</span>
+<span class="p p-Indicator">}</span>
+<span class="nt">vulnerability_scan</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="w">  </span><span class="s">&#39;run_nuclei&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;run_dalfox&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;run_crlfuzz&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;run_s3scanner&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;enable_http_crawl&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;concurrency&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">50</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;intensity&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;normal&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;rate_limit&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">150</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;retries&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;timeout&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">5</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;fetch_gpt_report&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;nuclei&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="w">    </span><span class="s">&#39;use_conf&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;severities&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span>
+<span class="w">      </span><span class="s">&#39;unknown&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;info&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;low&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;medium&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;high&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;critical&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">],</span>
+<span class="w">    </span><span class="c1"># &#39;tags&#39;: [],</span>
+<span class="w">    </span><span class="c1"># &#39;templates&#39;: [],</span>
+<span class="w">    </span><span class="c1"># &#39;custom_templates&#39;: [],</span>
+<span class="w">  </span><span class="p p-Indicator">},</span>
+<span class="w">  </span><span class="s">&#39;s3scanner&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="w">    </span><span class="s">&#39;threads&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">100</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&#39;providers&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span>
+<span class="w">      </span><span class="s">&#39;aws&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;gcp&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;digitalocean&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;dreamhost&#39;</span><span class="p p-Indicator">,</span>
+<span class="w">      </span><span class="s">&#39;linode&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">}</span>
+<span class="nt">waf_detection</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nt">screenshot</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="w">  </span><span class="s">&#39;enable_http_crawl&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;timeout&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">10</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&#39;threads&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">40</span>
+<span class="p p-Indicator">}</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>While the above YAML config is <strong>good enough</strong> to run the scan against the targets, modifying the configurations can give better results.</p>
+<p>While the above YAML config is <strong>good enough</strong> to run the scan against the targets, modifying the configurations may give better scan results.</p>
 </div>
 <div class="admonition danger">
 <p>Before you make any modifications to the YAML Configuration, please note that, wrong configuration may crash the scans. It is adviced that you <a href="https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/">learn about YAML</a> before you make any modifications.</p>
@@ -777,85 +875,30 @@
 <p>This document will discuss about the available options, possibilities and different configurations required for reNgine Scan Engine YAML configuration.</p>
 <p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
 <h3 id="subdomain_discovery">subdomain_discovery<a class="headerlink" href="#subdomain_discovery" title="Permanent link">&para;</a></h3>
-<p><code>subdomain_discovery</code> currently supports five different options</p>
-<div class="admonition example">
-<p class="admonition-title">Available option for subdomain_discovery</p>
 <ul>
-<li><strong>uses_tools</strong> <strong>(required)</strong></li>
-<li>threads (optional)</li>
-<li>amass_wordlist (optional)</li>
-<li>use_amass_config (optional)</li>
-<li>use_subfinder_config (optional)</li>
-</ul>
-</div>
-<ul>
-<li><strong>uses_tools (required)</strong></li>
-</ul>
-<p>This option allows you to choose the tools required to gather the subdomains. You can use one or more combination of these tools to improve the results.</p>
-<ul>
-<li>Available options for <code>uses_tools</code> are:<ul>
-<li>all</li>
-<li>amass-passive</li>
-<li>amass-active</li>
-<li>subfinder</li>
-<li>sublist3r</li>
-<li>assetfinder</li>
-<li>oneforall</li>
+<li><code>uses_tools</code>: <em>(list)</em> A list of subdomain discovery tools to use, such as 'subfinder', 'ctfr', 'sublist3r', etc. Available tools for subdomain_discovery are:<ul>
+<li><code>all</code> (will use all default and custom subdomain enum tools)</li>
+<li><code>subfinder</code></li>
+<li><code>ctfr</code></li>
+<li><code>sublist3r</code></li>
+<li><code>tlsx</code></li>
+<li><code>oneforall</code></li>
+<li><code>netlas</code></li>
+<li><code>amass-passive</code></li>
+<li><code>amass-active</code></li>
+<li><em>custom_tool: You can also install custom subdomain enum tool and use it here.</em></li>
 </ul>
 </li>
 </ul>
-<h4 id="using-custom-tool">Using Custom Tool<a class="headerlink" href="#using-custom-tool" title="Permanent link">&para;</a></h4>
-<div class="admonition tip">
-<p class="admonition-title">TIP on using custom tools!</p>
-<p>reNgine supports custom tools. Instruction on installing custom tool can be <a href="/usage/external-tool.md">found here</a>. You can use the name of the tool that was entered earlier in <code>uses_tools</code>.</p>
-<p>If your subdomain gathering tool was names as Turbo, you can uses as</p>
-<p><code>uses_tools: [subfinder, turbo]</code></p>
-</div>
-<p>You can have one or more combination of these tools to improve the results.</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">uses_tools</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">all</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">uses_tools</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">amass-active</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">amass-passive</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">subfinder</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">uses_tools</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">amass-active</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">amass-passive</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">subfinder</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">custom_tool</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">Not Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">uses_tools</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">amass-active amass-passive subfinder</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="c1"># Unsupported because comma is missing</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">Not Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span><span class="w"></span>
-<span class="nt">uses_tools</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">all</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="c1"># Unsupported because uses_tools is a property inside subdomain_discovery and must be indented</span><span class="w"></span>
-</code></pre></div>
-</div>
+<p>You can use one or more combination of these tools to improve the results.</p>
 <ul>
-<li><strong>threads (optional)</strong></li>
-</ul>
-<p>Number of threads to perform the subdomain discovery. <strong>By default the value for threads is 10.</strong> This option will be applied to all tools (if supported).</p>
-<ul>
-<li><strong>amass_wordlist (optional)</strong></li>
-</ul>
-<p>Wordlist for <code>amass-active</code> which performs brute-force of subdomains using a the wordlists.</p>
-<ul>
-<li>Available Options for <code>wordlist</code> are:<ul>
-<li>default</li>
-<li>short_name_for_wordlist</li>
+<li><code>threads</code>: <em>(int)</em> The number of threads or concurrent processes to use for subdomain discovery.</li>
+<li><code>timeout</code>: <em>(int)</em> The maximum time, in seconds, to wait for subdomain discovery to complete.</li>
+<li><code>use_amass_config</code>: <em>(boolean)</em> If set to true, reNgine will use configuration file for amass. <a href="/usage/tool_conf">Find more about configuration files here.</a></li>
+<li><code>use_subfinder_config</code>: <em>(boolean)</em> If set to true, reNgine will use configuration file for subfinder. <a href="/usage/tool_conf">Find more about configuration files here.</a></li>
+<li><code>amass_wordlist</code>: <em>(str)</em> Optional, Wordlist for <code>amass-active</code> which performs brute-force of subdomains using a the wordlists. Available Options for <code>amass_wordlist</code> are:<ul>
+<li><code>default</code></li>
+<li><code>short_name_for_wordlist</code></li>
 </ul>
 </li>
 </ul>
@@ -864,539 +907,262 @@
 <p class="admonition-title">Default Wordlist</p>
 <p>If <code>default</code> wordlist is choosed then <a href="https://github.com/danielmiessler/SecLists/blob/master/Discovery/DNS/deepmagic.com-prefixes-top50000.txt">Deepmagic top 50,000 prefix wordlist</a> will be used.</p>
 </div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">wordlist</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span><span class="w"></span>
-</code></pre></div>
-</div>
 <div class="admonition danger">
 <p>reNgine currently does not support multiple wordlists. This feature maybe available in future updates.</p>
 </div>
-<ul>
-<li><strong>use_amass_config (optional)</strong> and <strong>use_subfinder_config (optional)</strong></li>
-</ul>
-<p>If set to true, reNgine will use configuration files for these tools. <a href="/usage/tool_conf">Find more about configuration files here.</a></p>
-<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
-<h3 id="screenshot">screenshot<a class="headerlink" href="#screenshot" title="Permanent link">&para;</a></h3>
-<p>Visual Identification will run <code>EyeWitness</code> for visual inspection.</p>
-<p>Currently supported options for <code>screenshot</code> are</p>
-<div class="admonition example">
-<p class="admonition-title">Supported options for visual_identification</p>
-<ul>
-<li>threads</li>
-<li>timeout</li>
-</ul>
+<h4 id="using-custom-subdomain-enum-tool">Using Custom Subdomain Enum Tool<a class="headerlink" href="#using-custom-subdomain-enum-tool" title="Permanent link">&para;</a></h4>
+<div class="admonition tip">
+<p class="admonition-title">TIP on using custom tools!</p>
+<p>reNgine supports custom tools. Instruction on installing custom tool can be <a href="/usage/external-tool">found here</a>. You can use the name of the tool that was entered earlier.</p>
+<p>If your subdomain gathering tool was names as Turbo, you can use as</p>
+<p><code>uses_tools: ['subfinder', 'turbo']</code></p>
 </div>
-<ul>
-<li><strong>threads</strong></li>
-</ul>
-<p>Number of threads to run EyeWitness visual identification. <strong>By default the value for thread is 10.</strong> This is a integer value.</p>
-<ul>
-<li><strong>timeout</strong></li>
-</ul>
-<p>Timeout in seconds, <strong>default timeout value is 10.</strong></p>
-<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
-<h3 id="osint">osint<a class="headerlink" href="#osint" title="Permanent link">&para;</a></h3>
-<p>Currently supported options for osint are:</p>
-<div class="admonition example">
-<p class="admonition-title">Supported options for visual_identification</p>
-<ul>
-<li>discover</li>
-<li>intensity</li>
-<li>dork</li>
-</ul>
-</div>
-<ul>
-<li><strong>discover</strong></li>
-</ul>
-<p>reNgine can currently discover</p>
-<ul>
-<li>emails</li>
-<li>metainfo</li>
-<li>employees</li>
-</ul>
-<p>for any target.</p>
-<ul>
-<li><strong>dork</strong></li>
-</ul>
-<p>reNgine does not support custom dork as of now, and support is provided for these dorks:</p>
-<div class="admonition example">
-<p class="admonition-title">supported options for dork</p>
-<ul>
-<li>stackoverflow</li>
-<li>3rdparty</li>
-<li>social_media</li>
-<li>project_management</li>
-<li>code_sharing</li>
-<li>config_files</li>
-<li>jenkins</li>
-<li>wordpress_files</li>
-<li>cloud_buckets</li>
-<li>php_error</li>
-<li>exposed_documents</li>
-<li>struts_rce</li>
-<li>db_files</li>
-<li>traefik</li>
-<li>git_exposed</li>
-</ul>
-</div>
-<ul>
-<li><strong>intensity</strong></li>
-</ul>
-<div class="admonition example">
-<p class="admonition-title">supported options for intensity</p>
-<ul>
-<li>deep</li>
-<li>normal</li>
-</ul>
-</div>
-<p><strong>If intensity is set to deep, reNgine will perform dorking for all the subdomains.</strong></p>
-<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
-<h3 id="port_scan">port_scan<a class="headerlink" href="#port_scan" title="Permanent link">&para;</a></h3>
+<h2 id="http_crawl">http_crawl<a class="headerlink" href="#http_crawl" title="Permanent link">&para;</a></h2>
+<p>This option can be used to do http probing. Not using http_crawl will be a passive scan.</p>
+<h2 id="port_scan">port_scan<a class="headerlink" href="#port_scan" title="Permanent link">&para;</a></h2>
 <p>Port scan is currently being performed using <a href="https://github.com/projectdiscovery/naabu">naabu</a>, please refer <a href="https://github.com/projectdiscovery/naabu/blob/master/README.md">naabu documentation</a> as well.</p>
-<p><code>port_scan</code> currently supports three options</p>
-<div class="admonition example">
-<p class="admonition-title">Supported option for port_scan</p>
 <ul>
-<li><strong>ports</strong> <strong>(required)</strong></li>
-<li>rate (optional)</li>
-<li>use_naabu_config (Optional)</li>
-<li>exclude_ports (optional)</li>
-</ul>
-</div>
-<ul>
-<li><strong>ports (required)</strong></li>
-</ul>
-<p>Ports to Scan</p>
-<ul>
-<li>Available options for <code>ports</code> are<ul>
-<li>top-100</li>
-<li>top-1000</li>
-<li>full (will scan all 65k ports)</li>
-<li>custom like [80, 443]</li>
+<li><code>enable_http_crawl</code>: <em>(boolean)</em> A boolean indicating whether to enable HTTP crawling after port scanning.</li>
+<li><code>timeout</code>: <em>(int)</em> The maximum time, in seconds, to wait for port scanning to complete.</li>
+<li><code>ports</code>: <em>(list)</em> A list of ports to scan, such as 'top-100'. Available options are:<ul>
+<li><code>top-100</code></li>
+<li><code>top-1000</code></li>
+<li><code>full</code> (will scan all 65k ports)</li>
+<li>list of port numbers like <code>[80, 443, 8080]</code></li>
 </ul>
 </li>
+<li><code>rate_limit</code>: <em>(int)</em> The rate limit for port scanning.</li>
+<li><code>threads</code>: <em>(int)</em> The number of threads or concurrent processes to use for port scanning.</li>
+<li><code>passive</code>: <em>(boolean)</em> A boolean indicating whether to use passive naabu port scan.</li>
+<li><code>exclude_ports</code>: <em>(list)</em> Ports which you would like to exclude from the scan for example: <code>[8081, 443]</code></li>
+<li><code>exclude_subdomains</code>: <em>(boolean)</em> If set to true, port scanning will not be done on subdomains that are chosen to be ignored while starting scan.</li>
+<li><code>use_naabu_config</code>: <em>(boolean)</em> If set to true, reNgine will use configuration file for naabu. <a href="/usage/tool_conf">Find more about configuration files here.</a></li>
+<li><code>enable_nmap</code>: <em>(boolean)</em> If set to true, nmap will be used for scanning vulnerabilities on discovered ports.</li>
+<li><code>nmap_cmd</code>: <em>(str)</em> Custom Nmap Command</li>
+<li><code>nmap_script</code>: <em>(str)</em> Nmap Script to use: this will be passed in to nmap's <code>--script</code> option.</li>
+<li><code>nmap_script_args</code>: <em>(str)</em> Nmap Script Args to use: this will be passed in to nmap's <code>--script-args</code> option.</li>
 </ul>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">port_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">443</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">8000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">8080</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">port_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">top-1000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">9000</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1234</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">port_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">full</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
+<h2 id="osint">osint<a class="headerlink" href="#osint" title="Permanent link">&para;</a></h2>
+<p>Currently supported options for osint are:</p>
 <ul>
-<li><strong>rate (optional)</strong></li>
-</ul>
-<p>Rate of port scan probe requests, <strong>default is 1000</strong></p>
-<ul>
-<li><strong>exclude_ports (optional)</strong></li>
-</ul>
-<p>Ports which you would like to exclude from the scan.</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">port_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">exclude_ports</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">80</span><span class="p p-Indicator">,</span><span class="nv">443</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<ul>
-<li><strong>use_naabu_config (optional)</strong></li>
-</ul>
-<p>If set to true, reNgine will use configuration files for Naabu. <a href="/usage/tool_conf">Find more about configuration files here.</a></p>
-<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
-<h3 id="dir_file_search">dir_file_search<a class="headerlink" href="#dir_file_search" title="Permanent link">&para;</a></h3>
-<p>This configuration will be used in Directory and file search. Currently supported options for <code>dir_file_search</code> are</p>
-<div class="admonition example">
-<p class="admonition-title">Supported options for dir_file_search</p>
-<ul>
-<li>use_extensions (optional)</li>
-<li>recursive (optional)</li>
-<li>recursive_level (optional)</li>
-<li>threads (optional)</li>
-<li>exclude_extensions (optional)</li>
-<li>wordlist (required)</li>
-<li>stop_on_error (optional)</li>
-<li>follow_redirect (optional)</li>
-<li>auto_calibration (optional)</li>
-<li>delay (optional)</li>
-<li>match_http_status (optional)</li>
-<li>max_time (optional)</li>
-</ul>
-</div>
-<ul>
-<li><strong>use_extensions (optional)</strong></li>
-</ul>
-<p>This option will allow you to define the extensions for the file fuzzing. You can define as many file extensions as you wish. Please note that, more file extensions will take longer to complete fuzzing.</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">extensions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">php</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">git</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">xml</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition error">
-<p class="admonition-title">Unsupported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">extensions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">.php</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">.git</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">.xml</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<ul>
-<li><strong>recursive (optional)</strong></li>
-</ul>
-<p>Enabling <code>recursive</code> option will bruteforce recursively inside all the directories. Turning on the bruteforce option will increase directories scan time exponentially but will gather more information.</p>
-<p><strong>Default value for <code>recursive</code> is <code>false</code></strong></p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">recursive_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">recursive_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-</code></pre></div>
-</div>
-<p><strong>recursive_level (optional)</strong></p>
-<p><code>recursive_level</code> is the Max recursion depth into subdirectories.</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">recursive_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition info">
-<p>Setting up a very high number for <code>recursive_level</code> will also increase the scan time.</p>
-</div>
-<ul>
-<li><strong>threads (optional)</strong></li>
-</ul>
-<p>Number of threads to run directory and file fuzzing. <strong>By default the value for threads is 100</strong></p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-</code></pre></div>
-</div>
-<ul>
-<li><strong>stop_on_error (optional)</strong></li>
-</ul>
-<p>Stop on spurious errors (ffuf specific)</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">stop_on_error</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-</code></pre></div>
-</div>
-<ul>
-<li><strong>follow_redirect (optional)</strong></li>
-</ul>
-<p>Follow redirects (ffuf specific)</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">follow_redirect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-</code></pre></div>
-</div>
-<ul>
-<li><strong>auto_calibration (optional)</strong></li>
-</ul>
-<p>Automatically calibrate filtering options (ffuf specific)</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">auto_calibration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-</code></pre></div>
-</div>
-<ul>
-<li><strong>delay (optional)</strong></li>
-</ul>
-<p>Seconds of <code>delay</code> between requests, or a range of random delay. For example "0.1" or "0.1-2.0"</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.1&quot;</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.1-0.2&quot;</span><span class="w"></span>
-</code></pre></div>
-</div>
-<ul>
-<li><strong>match_http_status (optional)</strong></li>
-</ul>
-<p>Match HTTP status codes, or "all" for everything. (default: 200,204)</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">match_http_status</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">200</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">204</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">301</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">302</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<ul>
-<li><strong>max_time (optional)</strong></li>
-</ul>
-<p>If you don't want ffuf to run indefinitely, you can use the max_time. This stops the entire process after a given time (in seconds).</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">max_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span><span class="w"></span>
-</code></pre></div>
-</div>
-<ul>
-<li><strong>wordlist (optional)</strong></li>
-</ul>
-<p>This option is used to supply wordlist to <code>dirsearch</code> for files and directory fuzzing.</p>
-<ul>
-<li>Available Options for <code>wordlist</code> are:<ul>
-<li>default</li>
-<li>short_name_for_wordlist</li>
+<li><code>discover</code> <em>(list)</em>: A list of items to discover, for example <code>['emails', 'metainfo']</code>, available options are:<ul>
+<li><code>emails</code></li>
+<li><code>metainfo</code></li>
+<li><code>employees</code></li>
 </ul>
 </li>
+<li><code>intensity</code> <em>(int)</em>: The intensity of the OSINT scan, e.g., <code>normal</code> or <code>deep</code>.</li>
+<li><code>documents_limit</code> <em>(int)</em>: The maximum number of documents to retrieve.</li>
+<li><code>dorks</code> <em>(list)</em>: A list of dork types to search for. Available options are:<ul>
+<li><code>login_pages</code></li>
+<li><code>admin_panels</code></li>
+<li><code>dashboard_pages</code></li>
+<li><code>stackoverflow</code></li>
+<li><code>social_media</code></li>
+<li><code>project_management</code></li>
+<li><code>code_sharing</code></li>
+<li><code>config_files</code></li>
+<li><code>jenkins</code></li>
+<li><code>wordpress_files</code></li>
+<li><code>php_error</code></li>
+<li><code>exposed_documents</code></li>
+<li><code>db_files</code></li>
+<li><code>git_exposed</code></li>
+</ul>
+</li>
+<li>
+<p><code>custom_dorks</code> <em>(list)</em>: Custom dorks will be a list of dictionaries, for example:</p>
+<ul>
+<li><code>[{'lookup_site': 'google.com', 'lookup_keywords': '/home/'}]</code></li>
+<li><code>[{'lookup_site': '__target__', 'lookup_extensions': 'db, php, jpg'}]</code></li>
+</ul>
+<p><code>lookup_site</code> is where the information should be looked for. Example stackoverflow.com, or even the target, so the possible values for <code>lookup_site</code> could be any website or the target itself. Suppose, if you want to look for all db files in the target itself, <code>lookup_site</code> will be <code>__target__</code>. reNgine will automatically replace this with actual target. Do not put the target name here, rather <code>__target__</code>.</p>
+<p><code>lookup_keywords</code> or <code>lookup_extensions</code></p>
+<p><code>lookup_keywords</code> or <code>lookup_extensions</code> can not be used together, you can either search for specific path file in google or certain files that are indexed, so they can not be used together. You will need to use either <code>lookup_keywords</code> or <code>lookup_extensions</code>.</p>
+<p><code>lookup_keywords</code> could be certain keywords, paths, separated by comma.
+<code>lookup_extensions</code> could be file extensions separated by comma.</p>
+</li>
+</ul>
+<h2 id="dir_file_fuzz">dir_file_fuzz<a class="headerlink" href="#dir_file_fuzz" title="Permanent link">&para;</a></h2>
+<p>This configuration will be used in Directory and file fuzzing. Currently supported options for <code>dir_file_fuzz</code> are:</p>
+<ul>
+<li><code>auto_calibration</code>: <em>(boolean)</em> Automatically calibrate filtering options (ffuf specific)</li>
+<li><code>enable_http_crawl</code>: <em>(boolean)</em> If set to true, only alive URLs will be used for dir_file_fuzz gathering.</li>
+<li><code>rate_limit</code>: <em>(int)</em> The rate limit for fuzzing.</li>
+<li><code>extensions</code>: <em>(list)</em> This option will allow you to define the extensions for the file fuzzing. You can define as many file extensions as you wish. Please note that, more file extensions will take longer to complete fuzzing. For example: <code>['php', 'git', 'xml']</code></li>
+<li><code>follow_redirect</code>: <em>(boolean)</em> Follow redirects (ffuf specific)</li>
+<li><code>max_time</code>: <em>(int)</em> If you don't want ffuf to run indefinitely, you can use the max_time. This stops the entire process after a given time (in seconds).</li>
+<li><code>match_http_status</code>: <em>(list)</em> List of HTTP status codes to consider as a match.</li>
+<li><code>recursive_level</code>: <em>(int)</em> Enabling <code>recursive_level</code> option will bruteforce recursively inside all the directories. Turning on this option will increase scan time exponentially but will gather more information. Use it wisely.</li>
+<li><code>stop_on_error</code>: <em>(boolean)</em> Stop on spurious errors (ffuf specific)</li>
+<li><code>timeout</code>: <em>(int)</em> The maximum time, in seconds, to wait for fuzzing to complete.</li>
+<li><code>threads</code>: <em>(int)</em> The number of threads or concurrent processes to use for fuzzing.</li>
+<li><code>match_http_status</code>: <em>(list)</em> Match HTTP status codes, or "all" for everything. For example: <code>[200, 204]</code></li>
+<li>
+<p><code>wordlist_name</code>: <em>(str)</em> This option is used to supply wordlist for files and directory fuzzing. Available Options for <code>wordlist_name</code> are:</p>
+<ul>
+<li><code>default</code></li>
+<li><code>short_name_for_wordlist</code></li>
 </ul>
 <p>Please follow the guide on <a href="/usage/wordlist">uploading your own wordlist</a>. You need to enter the wordlist short_name here.</p>
 <div class="admonition info">
 <p class="admonition-title">Default Wordlist</p>
 <p>If <code>default</code> wordlist is choosed then <a href="https://github.com/maurosoria/dirsearch/blob/master/db/dicc.txt">default dicc.txt</a> will be used.</p>
 </div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">wordlist</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">Unsupported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">dir_file_search</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">wordlist</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">default</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">short_name</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
 <div class="admonition danger">
 <p>reNgine currently does not support multiple wordlists. This feature maybe available in future updates.</p>
 </div>
-<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
-<h3 id="fetch_url">fetch_url<a class="headerlink" href="#fetch_url" title="Permanent link">&para;</a></h3>
-<p><code>fetch_url</code> uses tools like <code>gau</code> and <code>hakrawler</code> to gather the endpoints. Currently supported options for <code>fetch_url</code> are:</p>
-<div class="admonition check">
-<p class="admonition-title">Supported Options for fetch_url</p>
-<ul>
-<li>uses_tools <strong>(required)</strong></li>
-<li>intensity <strong>(required)</strong></li>
-<li>ignore_file_extension <strong>(optional)</strong></li>
-<li>gf_patterns <strong>(optional)</strong></li>
-</ul>
-</div>
-<ul>
-<li><strong>uses_tools</strong></li>
-</ul>
-<p>This option allows you to choose the tools required to gather the endpoints. You can use one or more combination of these tools to improve the results.</p>
-<ul>
-<li>Available options for <code>uses_tools</code> are:<ul>
-<li>gauplus</li>
-<li>hakrawler</li>
-<li>waybackurls</li>
-<li>gospider</li>
-</ul>
 </li>
 </ul>
-<p>You can have one or more combination of these tools to improve the results.</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">fetch_url</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">uses_tools</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">all</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">fetch_url</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">uses_tools</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">gauplus</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">hakrawler</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
+<h2 id="fetch_url">fetch_url<a class="headerlink" href="#fetch_url" title="Permanent link">&para;</a></h2>
+<p><code>fetch_url</code> uses tools like <code>gau</code> and <code>hakrawler</code> to gather the endpoints. Currently supported options for <code>fetch_url</code> are:</p>
 <ul>
-<li><strong>intensity</strong></li>
-</ul>
-<p>This option will allow you to set the intensity for gathering URLs. Available options are</p>
-<div class="admonition example">
-<p class="admonition-title">Available options for intensity</p>
+<li>
+<p><code>uses_tools</code>: <em>(list)</em> A list of tools to use for URL fetching. Available tools are:</p>
 <ul>
-<li><strong>normal</strong> (default): This will only fetch the URLs for main domain. Suppose if your targets is example.com, the URLs associated with example.com are only fetched. <code>normal</code> intensity takes shorter time.</li>
-<li><strong>deep</strong>: This will fetch URLs for main domain as well as all the subdomains. This is likely to take very long time and will gather more endpoints compared to <code>normal</code> intensity.</li>
+<li><code>gospider</code></li>
+<li><code>hakrawler</code></li>
+<li><code>waybackurls</code></li>
+<li><code>gospider</code></li>
+<li><code>katana</code></li>
 </ul>
-</div>
+<p>It can be used as <code>'uses_tools': ['gospider', 'hakrawler', 'waybackurls', 'gospider']</code></p>
+</li>
+<li>
+<p><code>remove_duplicate_endpoints</code>: <em>(boolean)</em> A boolean indicating whether to remove duplicate endpoints.</p>
+</li>
+<li>
+<p><code>duplicate_fields</code>: <em>(list)</em> Fields used to identify duplicate endpoints. Available options are:</p>
 <ul>
-<li><strong>ignore_file_extension</strong></li>
+<li><code>content_length</code></li>
+<li><code>page_title</code></li>
+<li><code>http_status</code></li>
+<li><code>content_type</code></li>
+<li><code>webserver</code></li>
 </ul>
-<p>This option will allow you to ignore certain file extensions while gathering URLs. You can use one or more combination of extensions to exclude.</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">fetch_url</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ignore_file_extension</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">jpg</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">png</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">jpeg</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">gif</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
+<p>Use these available options as combination to identify duplicate endpoints, for example <code>['content_length', 'page_title']</code></p>
+</li>
+<li>
+<p><code>enable_http_crawl</code>: <em>(boolean)</em> If set to true, only alive URLs will be used for fetch_url gathering.</p>
+</li>
+<li>
+<p><code>gf_patterns</code>: <em>(list)</em> List of patterns to search for using Gf. Available patterns are:</p>
 <ul>
-<li><strong>gf_patterns</strong></li>
+<li><code>debug_logic</code></li>
+<li><code>idor</code></li>
+<li><code>interestingEXT</code></li>
+<li><code>interestingparams</code></li>
+<li><code>interestingsubs</code></li>
+<li><code>lfi</code></li>
+<li><code>rce</code></li>
+<li><code>redirect</code></li>
+<li><code>sqli</code></li>
+<li><code>ssrf</code></li>
+<li><code>ssti</code></li>
+<li><code>xss</code></li>
 </ul>
-<p>You can now use gf patterns on the gathered URLs. Supported options are combination of these patterns.</p>
-<div class="admonition example">
-<p class="admonition-title">gf_patterns available options</p>
-<ul>
-<li>debug_logic</li>
-<li>idor</li>
-<li>img-traversal</li>
-<li>interestingEXT</li>
-<li>interestingparams</li>
-<li>interestingsubs</li>
-<li>jsvar</li>
-<li>lfi</li>
-<li>rce</li>
-<li>redirect</li>
-<li>sqli</li>
-<li>ssrf</li>
-<li>ssti</li>
-<li>xss</li>
-</ul>
-</div>
+<p>Use the combination of GF patterns as: <code>['xss', 'lfi', 'rce']</code></p>
 <div class="admonition tip">
 <p class="admonition-title">Custom GF Pattern</p>
 <p>You can also upload custom gf patterns, and use filename here, without extension.</p>
 </div>
-<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
-<h3 id="vulnerability_scan">vulnerability_scan<a class="headerlink" href="#vulnerability_scan" title="Permanent link">&para;</a></h3>
-<p><code>vulnerability_scan</code> uses <a href="https://github.com/projectdiscovery/nuclei">nuclei</a> to perform the vulnerability scan. Please refer to <a href="https://github.com/projectdiscovery/nuclei">nuclei documentation</a> as well.</p>
-<p>Available options for <code>vulnerability_scan</code> are</p>
-<div class="admonition example">
-<p class="admonition-title">vulnerability_scan options</p>
-<ul>
-<li>concurrency (optional)</li>
-<li>rate_limit (optional)</li>
-<li>timeout (optional)</li>
-<li>retries (optional)</li>
-<li>custom_templates (optional)</li>
-<li><strong>template (required)</strong></li>
-<li><strong>severity (required)</strong></li>
+</li>
+<li>
+<p><code>ignore_file_extensions</code>: <em>(list)</em> This option will allow you to ignore certain file extensions while gathering URLs. You can use one or more combination of extensions to exclude. For example <code>['png', 'jpg', 'jpeg', 'gif', 'mp4', 'mpeg', 'mp3']</code></p>
+</li>
+<li><code>exclude_subdomains</code>: <em>(boolean)</em> If set to true, URLs will not be fetched for subdomains that are chosen to be ignored while initiating scan.</li>
 </ul>
-</div>
+<h2 id="vulnerability_scan">vulnerability_scan<a class="headerlink" href="#vulnerability_scan" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>concurrency (optional)</strong></li>
-</ul>
-<p>This option will specify the number of threads/go routines to perform vulnerability scan. <strong>Default value is 10</strong></p>
+<li><code>run_nuclei</code>: <em>(boolean)</em> If set to true, nuclei will be used for vulnerability scan.</li>
+<li><code>run_dalfox</code>: <em>(boolean)</em> If set to true, dalfox will be used for XSS scans.</li>
+<li><code>run_crlfuzz</code>: <em>(boolean)</em> If set to true, CRLFuzz will be used for CRLF vulnerability detection.</li>
+<li><code>run_s3scanner</code>: <em>(boolean)</em> If set to true, misconfigured s3 buckets will be used during vulnerability scan.</li>
+<li><code>concurrency</code>: <em>(int)</em> This option will specify the number of threads/go routines to perform vulnerability scan.</li>
+<li><code>rate_limit</code>: <em>(int)</em> Maximum number of requests to send per second</li>
+<li><code>retries</code>: <em>(int)</em> Number of times to retry a failed request</li>
+<li><code>timeout</code>: <em>(int)</em> Time to wait in seconds before timeout</li>
+<li>
+<p><code>fetch_gpt_report</code>: <em>(boolean)</em> If set to true, GPT will be used to fetch vulnerability details such as impact and remediation. <strong>OpenAiAPIKey is required.</strong></p>
 <ul>
-<li><strong>rate_limit (optional)</strong></li>
-</ul>
-<p>Maximum number of requests to send per second <strong>(default 150)</strong></p>
+<li>
+<p><code>nuclei</code>: Nuclei specific configurations</p>
 <ul>
-<li><strong>timeout (optional)</strong></li>
+<li><code>use_conf</code>: <em>(boolean)</em> If set to true, reNgine will use configuration file for nuclei. <a href="/usage/tool_conf">Find more about configuration files here.</a></li>
+<li><code>severities</code>: <em>(list)</em> You can run the templates based on the specific severity of the template, single or multiple severity can be used for scan. Available options are:<ul>
+<li><code>all</code></li>
+<li><code>critical</code></li>
+<li><code>high</code></li>
+<li><code>medium</code></li>
+<li><code>low</code></li>
+<li><code>info</code></li>
+<li><code>unknown</code></li>
 </ul>
-<p>Time to wait in seconds before timeout <strong>(default 5)</strong></p>
+</li>
+<li><code>tags</code>: <em>(list)</em> List of nuclei tags, refer to Nuclei's documentation.</li>
+<li><code>templates</code>: <em>(list)</em> Please refer to <a href="https://github.com/projectdiscovery/nuclei">nuclei's documentation</a> to check which templates are supported. Nuclei may release any new templates which may not be possible to update here in the documentation, so it is adviced that you refer to <a href="https://github.com/projectdiscovery/nuclei">Nuclei's documentation</a>. For example <code>['files', 'cve']</code></li>
+<li><code>custom_templates</code>: <em>(list)</em>
+    !!! tip "Custom Nuclei Templates"
+         You can also upload custom Nuclei Templates from Tool Settings, and use filename here, without extension.</li>
+</ul>
+</li>
+<li>
+<p><code>s3scanner</code>: s3scanner specific configurations</p>
 <ul>
-<li><strong>retries (optional)</strong></li>
-</ul>
-<p>Number of times to retry a failed request <strong>(default 1)</strong></p>
+<li><code>threads</code>: <em>(int)</em> s3scanner number of threads</li>
+<li>
+<p><code>providers</code>: <em>(list)</em> List of providers to look for misconfigured s3 buckets. Availble options are:</p>
 <ul>
-<li><strong>template (required)</strong></li>
+<li><code>aws</code></li>
+<li><code>gcp</code></li>
+<li><code>digitalocean</code></li>
+<li><code>dreamhost</code></li>
+<li><code>linode</code></li>
 </ul>
-<p>Please refer to <a href="https://github.com/projectdiscovery/nuclei">nuclei's documentation</a> to check which templates are supported. Nuclei may release any new templates which may not be possible to update here in the documentation, so it is adviced that you refer to <a href="https://github.com/projectdiscovery/nuclei">Nuclei's documentation</a>.</p>
-<p>Some of the supported options for template are:</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">templates</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">all</span><span class="p p-Indicator">]</span><span class="w"></span>
+<p>For example: <code>['aws', 'gcp']</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="waf_detection">waf_detection<a class="headerlink" href="#waf_detection" title="Permanent link">&para;</a></h2>
+<p>Use this to detect the WAF in subdomains, wafw00f will be used to identify WAF.</p>
+<h2 id="screenshot">screenshot<a class="headerlink" href="#screenshot" title="Permanent link">&para;</a></h2>
+<p>Screenshot gathering</p>
+<ul>
+<li><code>enable_http_crawl</code>: <em>(boolean)</em> If set to true, only alive URLs will be used for screenshot gathering.</li>
+<li><code>timeout</code>: <em>(int)</em> Timeout in seconds for screenshot gathering</li>
+<li><code>threads</code>: <em>(int)</em> Numbers of threads to use for EyeWitness</li>
+</ul>
+<h2 id="shared-scan-configuration">Shared Scan Configuration<a class="headerlink" href="#shared-scan-configuration" title="Permanent link">&para;</a></h2>
+<p>Some of the scan configurations such as threads or custom_header could be used across all the tasks. Instead of using them in individual task, you can also use them as shared configuration, outside the task object configuration.</p>
+<ul>
+<li>enable_http_crawl</li>
+<li>timeout</li>
+<li>rate_limit</li>
+<li>retries</li>
+<li>custom_header</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">subdomain_discovery</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nt">http_crawl</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nt">port_scan</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nt">osint</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nt">dir_file_fuzz</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nt">fetch_url</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nt">vulnerability_scan</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nt">waf_detection</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nt">screenshot</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+
+<span class="c1"># shared scan config</span>
+<span class="nt">enable_http_crawl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="nt">rate_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="nt">custom_header</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Foo:</span><span class="nv"> </span><span class="s">bar&quot;</span>
 </code></pre></div>
-</div>
-<div class="admonition info">
-<p>We recommend using <code>all</code> options in <code>templates</code> for a detailed scan.</p>
-</div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">templates</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">files</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">cves</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">templates</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">files/git-core.yaml</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">cves/CVE-2020-1234</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<ul>
-<li><strong>severity (required)</strong></li>
-</ul>
-<p>You can run the templates based on the specific severity of the template, single and multiple severity can be used for scan.</p>
-<p>Available options for <code>severity</code> are</p>
-<div class="admonition example">
-<p class="admonition-title">Available options for severity</p>
-<ul>
-<li>all</li>
-<li>critical</li>
-<li>high</li>
-<li>medium</li>
-<li>low</li>
-<li>info</li>
-<li>unknown</li>
-</ul>
-</div>
-<p>This will only run the specific templates related to the severity. You can provide multiple options for severity as well.</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">all</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<p>Above will run all the templates.</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">low</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">info</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<p>This will only run the templates based on low and informational severity.</p>
-<ul>
-<li><strong>Recommended</strong></li>
-</ul>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">critical</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">high</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">medium</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">low</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<p>This will exclude informational vulnerabilities from your scan results.</p>
-<ul>
-<li><strong>custom_templates</strong></li>
-</ul>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">vulnerability_scan</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">custom_templates</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">my_template</span><span class="p p-Indicator">]</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Custom Nuclei Templates</p>
-<p>You can also upload custom Nuclei Templates from Tool Settings, and use filename here, without extension.</p>
-</div>
-<p><img alt="-----------------------------------------------------" src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" /></p>
-<h3 id="custom_header">custom_header<a class="headerlink" href="#custom_header" title="Permanent link">&para;</a></h3>
-<p>Use this to add custom headers to every HTTP request reNgine sends.</p>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">custom_header</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;foo:bar&quot;</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="admonition check">
-<p class="admonition-title">Supported</p>
-<div class="highlight"><pre><span></span><code><span class="nt">custom_header</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;foo:bar,</span><span class="nv"> </span><span class="s">jeez:peez&quot;</span><span class="w"></span>
-</code></pre></div>
-</div>
+<p>These shared scan config will be used across all the tasks.</p>
 
               
             </article>
@@ -1417,7 +1183,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../../changelog/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Changelog" rel="prev">
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Usage" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1426,20 +1192,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Changelog
+              Usage
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../api/" class="md-footer__link md-footer__link--next" aria-label="Next: API" rel="next">
+        <a href="../../changelog/" class="md-footer__link md-footer__link--next" aria-label="Next: Changelog" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              API
+              Changelog
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1454,7 +1220,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022 Yogesh Ojha
+      Copyright &copy; 2023 Yogesh Ojha
     </div>
   
   
@@ -1508,6 +1274,8 @@
     
     
       <script src="../../assets/javascripts/bundle.7f366e99.min.js"></script>
+      
+        <script src="../../assets/javascripts/badge.js"></script>
       
     
   </body>

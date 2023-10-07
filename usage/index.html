@@ -15,11 +15,11 @@
         <link rel="canonical" href="https://rengine.wiki/usage/">
       
       <link rel="icon" href="../static/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.3.2">
     
     
       
-        <title>Usage Guide - reNgine</title>
+        <title>Usage - reNgine</title>
       
     
     
@@ -44,6 +44,8 @@
     
       <link rel="stylesheet" href="../assets/style.css">
     
+      <link rel="stylesheet" href="../assets/stylesheets/badge.css">
+    
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -61,7 +63,7 @@
 
 <!-- Open graph meta tags -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="reNgine - Usage Guide" />
+<meta property="og:title" content="reNgine - Usage" />
 <meta property="og:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
 <meta property="og:url" content="https://rengine.wiki/usage/" />
 <meta property="og:image" content="" />
@@ -73,7 +75,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@ojhayogesh11" />
 <meta name="twitter:creator" content="@ojhayogesh11" />
-<meta name="twitter:title" content="reNgine - Usage Guide" />
+<meta name="twitter:title" content="reNgine - Usage" />
 <meta name="twitter:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
 <meta name="twitter:image" content="" />
 
@@ -111,7 +113,7 @@
   }
 </style>
 <a class="announcement" href="https://discord.gg/H6WzebwX3H" target="_blank">
-  reNgine 1.1 has been announced! Join our Discord for support.
+  reNgine 2.0-jasper has been announced! Join our Discord for support.
 </a>
 
           </div>
@@ -144,7 +146,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Usage Guide
+              Usage
             
           </span>
         </div>
@@ -240,19 +242,7 @@
 
   <li class="md-tabs__item">
     <a href="./" class="md-tabs__link md-tabs__link--active">
-      Usage Guide
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="../changelog/" class="md-tabs__link">
-      Changelog
+      Usage
     </a>
   </li>
 
@@ -275,8 +265,8 @@
 
 
   <li class="md-tabs__item">
-    <a href="../api/" class="md-tabs__link">
-      API
+    <a href="../changelog/" class="md-tabs__link">
+      Changelog
     </a>
   </li>
 
@@ -378,24 +368,9 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Usage Guide
+        Usage
       </a>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../changelog/" class="md-nav__link">
-        Changelog
-      </a>
     </li>
   
 
@@ -423,8 +398,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/" class="md-nav__link">
-        API
+      <a href="../changelog/" class="md-nav__link">
+        Changelog
       </a>
     </li>
   
@@ -467,101 +442,59 @@
 
 
 <h1 id="using-rengine">Using reNgine<a class="headerlink" href="#using-rengine" title="Permanent link">&para;</a></h1>
-<p>Thank you for installing reNgine.</p>
+<p>Please refer to this section only after reNgine installation is successful.</p>
 <p>This section is divided into several parts based on modules/features/FAQ in reNgine.</p>
 <ul>
-<li>
-<p><a href="/usage/targets">Adding Targets</a></p>
-<ul>
-<li>
-<p><a href="/usage/targets/#adding-individual-targets">How to add targets?</a></p>
-</li>
-<li>
-<p><a href="/usage/targets/#resolve-domains-from-ip-or-cidrs">How to add targets using IP Address?</a></p>
-</li>
-<li>
-<p><a href="/usage/targets/#what-is-team-handle">What is hackerone team-handle?</a></p>
-</li>
+<li>Projects<ul>
+<li><a href="/usage/projects">What are projects and how to use projects?</a></li>
 </ul>
 </li>
-<li>
-<p><a href="/usage/organization">Tagging Targets to an Organization</a></p>
-<ul>
-<li>
-<p><a href="/usage/organization/#adding-organization">How to tag targets to an organization?</a></p>
-</li>
-<li>
-<p><a href="/usage/organization/#initiating-scan-on-organization">How to initiate scan for an organization?</a></p>
-</li>
+<li>Multiple Users, Roles and Permissions<ul>
+<li><a href="/usage/roles_perms">What are roles and permissions and how to add users and assign roles?</a></li>
 </ul>
 </li>
-<li>
-<p><a href="/usage/scan_engine">Scan Engines</a></p>
-<ul>
+<li><a href="/usage/targets">Adding Targets</a><ul>
+<li><a href="/usage/targets/#adding-individual-targets">How to add targets?</a></li>
+<li><a href="/usage/targets/#what-is-team-handle">What is hackerone team-handle?</a></li>
+</ul>
+</li>
+<li><a href="/usage/organization">Tagging Targets to an Organization</a><ul>
+<li><a href="/usage/organization/#adding-organization">How to tag targets to an organization?</a></li>
+<li><a href="/usage/organization/#initiating-scan-on-organization">How to initiate scan for an organization?</a></li>
+</ul>
+</li>
+<li><a href="/usage/scan_engine">Scan Engines</a><ul>
 <li><a href="/usage/scan_engine/#detailed-guide-on-configuring-scan-engines">Scan Engine YAML configuration Explained</a></li>
+<li><a href="/usage/scan_engine/#shared-scan-configuration">Shared Configurations</a></li>
 </ul>
 </li>
-<li>
-<p><a href="/usage/scan_target/#quick-scan">Initiating Scan</a></p>
-</li>
-<li>
-<p><a href="/usage/subscan">Initiating SubScan <strong>New 🔥</strong></a></p>
-</li>
-<li>
-<p><a href="/usage/scan_target/#schedule-scan">Scheduling Scan</a></p>
-</li>
-<li>
-<p><a href="/usage/wordlist/#adding-new-wordlist">Wordlist</a></p>
-</li>
-<li>
-<p><a href="/usage/interesting/">Interesting Lookup</a></p>
-</li>
-<li>
-<p><a href="/usage/hackerone/">Automatic Vulnerability Reporting to Hackerone</a></p>
-<ul>
-<li>
-<p><a href="/usage/hackerone/#vulnerability-report-template">How to edit vulnerability report template?</a></p>
-</li>
-<li>
-<p><a href="/usage/hackerone/#what-is-team_handle">What is team handle?</a></p>
-</li>
+<li><a href="/usage/scan_target/#quick-scan">Initiating Scan</a></li>
+<li><a href="/usage/subscan">Initiating SubScan</a></li>
+<li><a href="/usage/scan_target/#schedule-scan">Scheduling Scan</a></li>
+<li><a href="/usage/wordlist/#adding-new-wordlist">Wordlist</a></li>
+<li><a href="/usage/interesting/">Interesting Lookup</a></li>
+<li><a href="/usage/hackerone/">Automatic Vulnerability Reporting to Hackerone</a><ul>
+<li><a href="/usage/hackerone/#vulnerability-report-template">How to edit vulnerability report template?</a></li>
+<li><a href="/usage/hackerone/#what-is-team_handle">What is team handle?</a></li>
 </ul>
 </li>
-<li>
-<p><a href="/usage/external-tool">Adding External Tools <strong>New 🔥</strong></a></p>
-</li>
-<li>
-<p><a href="/usage/report">Generating PDF Report <strong>New 🔥</strong></a></p>
-</li>
-<li>
-<p>Settings</p>
-<ul>
-<li>
-<p><a href="/usage/proxy/">Proxy Settings</a></p>
-<ul>
+<li><a href="/usage/external-tool">Adding External Tools</a></li>
+<li><a href="/usage/report">Generating PDF Report</a></li>
+<li>Settings<ul>
+<li><a href="/usage/proxy/">Proxy Settings</a><ul>
 <li><a href="/usage/proxy/#adding-proxies">How to add and use proxies?</a></li>
 </ul>
 </li>
-<li>
-<p>Tool Settings</p>
-<ul>
-<li>
-<p><a href="/usage/tool_conf/#uploading-custom-gf-patterns-and-nuclei-templates">How to upload GF and Nuclei templates?</a></p>
-</li>
-<li>
-<p><a href="/usage/tool_conf/#editing-tool-configurations">How to edit tool specific settings/configuration for subfinder, nuclei, amass and naabu</a></p>
-</li>
+<li>Tool Settings<ul>
+<li><a href="/usage/tool_conf/#uploading-custom-gf-patterns-and-nuclei-templates">How to upload GF and Nuclei templates?</a></li>
+<li><a href="/usage/tool_conf/#editing-tool-configurations">How to edit tool specific settings/configuration for subfinder, nuclei, amass and naabu</a></li>
 </ul>
 </li>
-<li>
-<p><a href="/usage/notification/">Notification Settings (Customizing Notifications)</a></p>
-</li>
+<li><a href="/usage/notification/">Notification Settings (Customizing Notifications)</a></li>
 <li><a href="/usage/settings/">reNgine Settings (Cleaning the Scan Data and Screenshots)</a></li>
 </ul>
 </li>
-<li>
-<p><a href="../update/">Updating reNgine </a></p>
-</li>
+<li><a href="../update/">Updating reNgine </a></li>
 <li><a href="../uninstall/">Uninstalling reNgine </a></li>
 <li><a href="../security/">How to report Security Issues in reNgine</a></li>
 </ul>
@@ -601,13 +534,13 @@
       
       
         
-        <a href="../changelog/" class="md-footer__link md-footer__link--next" aria-label="Next: Changelog" rel="next">
+        <a href="scan_engine/" class="md-footer__link md-footer__link--next" aria-label="Next: Scan Engine Configuration" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Changelog
+              Scan Engine Configuration
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -622,7 +555,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022 Yogesh Ojha
+      Copyright &copy; 2023 Yogesh Ojha
     </div>
   
   
@@ -676,6 +609,8 @@
     
     
       <script src="../assets/javascripts/bundle.7f366e99.min.js"></script>
+      
+        <script src="../assets/javascripts/badge.js"></script>
       
     
   </body>
