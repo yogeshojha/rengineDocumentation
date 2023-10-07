@@ -5,80 +5,174 @@
 
 reNgine provides the ability to customize scan engines via YAML based configuration. This configuration can be used to select the tools, choose the options provided by the tools etc.
 
+!!! danger "Attention"
+    reNgine 2.0 has new scan engine configuration. Configurations from reNgine < 2.0.0 will not work in >= 2.0.0
+
+
+!!! danger "Attention"
+    reNgine 2.0 does not provide switches to enable or disable tasks. The YAML configuration decides which tasks to use. Any `task: {}` that is in YAML config will run, rest will not.
+
 Currently YAML config is supported for
 
 !!! example "YAML Support for"
     * Subdomain Discovery as `subdomain_discovery`
+    * HTTP Crawling as `http_crawl`
     * Screenshot Gathering as `screenshot`
     * OSINT as `osint`
     * Port Scan as `port_scan`
-    * Directory and File Fuzzing as `dir_file_search`
+    * Directory and File Fuzzing as `dir_file_fuzz`
     * Endpoint Gathering as `fetch_url`
     * Vulnerability Scan as `vulnerability_scan`
-    * Custom Header as `custom_header`
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 ## Default YAML Config
 
 ``` yaml
-subdomain_discovery:
-  uses_tools: [ amass-passive, assetfinder, sublist3r, subfinder ]
-  threads: 10
-  use_amass_config: false
-  use_subfinder_config: false
-  # amass_wordlist: default
-
-screenshot:
-  timeout: 10
-  threads: 5
-
-port_scan:
-  ports: [ top-1000 ]
-  rate: 1000
-  use_naabu_config: false
-  # exclude_ports: [80, 8080]
-
-osint:
-  discover: [ emails, metainfo, employees ]
-  intensity: normal
-  # intensity: deep
-  dork: [ stackoverflow, 3rdparty, social_media, project_management, code_sharing, config_files, jenkins, wordpress_files, cloud_buckets, php_error, exposed_documents, struts_rce, db_files, traefik, git_exposed ]
-
-dir_file_fuzz:
-  wordlist: default
-  use_extensions: [ php, git, yaml, conf, db, mysql, bak, asp, aspx, txt, conf, sql, json ]
-  threads: 100
-  stop_on_error: false
-  follow_redirect: false
-  auto_calibration: false
-  timeout: 10
-  # delay: "0.1-0.2"
-  # match_http_status: '200, 204'
-  # max_time: 0
-  recursive: false
-  recursive_level: 1
-
-fetch_url:
-  uses_tools: [ gauplus, hakrawler, waybackurls, gospider ]
-  intensity: normal
-  # intensity: deep
-  ignore_file_extension: [jpg, png, jpeg, gif]
-  gf_patterns: [ debug_logic, idor, img-traversal, interestingEXT, interestingparams, interestingsubs, jsvar, lfi, rce, redirect, sqli, ssrf, ssti, xss]
-
-vulnerability_scan:
-  concurrency: 10
-  rate_limit: 150
-  timeout: 5
-  retries: 1
-  templates: [ all ]
-  # custom_templates: []
-  severity: [ critical, high, medium, low, info, unknown ]
-
-# custom_header: 'name: value'
+subdomain_discovery: {
+  'uses_tools': [
+    'subfinder',
+    'ctfr',
+    'sublist3r',
+    'tlsx',
+    'oneforall',
+    'netlas'
+  ],
+  'enable_http_crawl': true,
+  'threads': 30,
+  'timeout': 5,
+  'use_amass_config': false,
+  'use_subfinder_config': false,
+}
+http_crawl: {}
+port_scan: {
+  'enable_http_crawl': true,
+  'timeout': 5,
+  # 'exclude_ports': [],
+  # 'exclude_subdomains': true,
+  'ports': ['top-100'],
+  'rate_limit': 150,
+  'threads': 30,
+  'passive': false,
+  # 'use_naabu_config': false,
+  # 'enable_nmap': true,
+  # 'nmap_cmd': '',
+  # 'nmap_script': '',
+  # 'nmap_script_args': ''
+}
+osint: {
+  'discover': [
+      'emails',
+      'metainfo',
+      'employees'
+    ],
+  'dorks': [
+    'login_pages',
+    'admin_panels',
+    'dashboard_pages',
+    'stackoverflow',
+    'social_media',
+    'project_management',
+    'code_sharing',
+    'config_files',
+    'jenkins',
+    'wordpress_files',
+    'php_error',
+    'exposed_documents',
+    'db_files',
+    'git_exposed'
+  ],
+  'custom_dorks': [
+    {
+      'lookup_site': 'google.com',
+      'lookup_keywords': '/home/'
+    },
+    {
+      'lookup_site': '_target_',
+      'lookup_extensions': 'jpg,png'
+    }
+  ],
+  'intensity': 'normal',
+  'documents_limit': 50
+}
+dir_file_fuzz: {
+  'auto_calibration': true,
+  'enable_http_crawl': true,
+  'rate_limit': 150,
+  'extensions': ['html', 'php','git','yaml','conf','cnf','config','gz','env','log','db','mysql','bak','asp','aspx','txt','conf','sql','json','yml','pdf'],
+  'follow_redirect': false,
+  'max_time': 0,
+  'match_http_status': [200, 204],
+  'recursive_level': 2,
+  'stop_on_error': false,
+  'timeout': 5,
+  'threads': 30,
+  'wordlist_name': 'dicc'
+}
+fetch_url: {
+  'uses_tools': [
+    'gospider',
+    'hakrawler',
+    'waybackurls',
+    'gospider',
+    'katana'
+  ],
+  'remove_duplicate_endpoints': true,
+  'duplicate_fields': [
+    'content_length',
+    'page_title'
+  ],
+  'enable_http_crawl': true,
+  'gf_patterns': ['debug_logic', 'idor', 'interestingEXT', 'interestingparams', 'interestingsubs', 'lfi', 'rce', 'redirect', 'sqli', 'ssrf', 'ssti', 'xss'],
+  'ignore_file_extensions': ['png', 'jpg', 'jpeg', 'gif', 'mp4', 'mpeg', 'mp3']
+  # 'exclude_subdomains': true
+}
+vulnerability_scan: {
+  'run_nuclei': false,
+  'run_dalfox': false,
+  'run_crlfuzz': false,
+  'run_s3scanner': true,
+  'enable_http_crawl': true,
+  'concurrency': 50,
+  'intensity': 'normal',
+  'rate_limit': 150,
+  'retries': 1,
+  'timeout': 5,
+  'fetch_gpt_report': true,
+  'nuclei': {
+    'use_conf': false,
+    'severities': [
+      'unknown',
+      'info',
+      'low',
+      'medium',
+      'high',
+      'critical'
+    ],
+    # 'tags': [],
+    # 'templates': [],
+    # 'custom_templates': [],
+  },
+  's3scanner': {
+    'threads': 100,
+    'providers': [
+      'aws',
+      'gcp',
+      'digitalocean',
+      'dreamhost',
+      'linode'
+    ]
+  }
+}
+waf_detection: {}
+screenshot: {
+  'enable_http_crawl': true,
+  'timeout': 10,
+  'threads': 40
+}
 ```
 
 !!! info
-    While the above YAML config is **good enough** to run the scan against the targets, modifying the configurations can give better results.
+    While the above YAML config is **good enough** to run the scan against the targets, modifying the configurations may give better scan results.
 
 !!! danger ""
     Before you make any modifications to the YAML Configuration, please note that, wrong configuration may crash the scans. It is adviced that you [learn about YAML](https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/) before you make any modifications.
@@ -91,614 +185,265 @@ This document will discuss about the available options, possibilities and differ
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 ### subdomain_discovery
 
+- `uses_tools`: *(list)* A list of subdomain discovery tools to use, such as 'subfinder', 'ctfr', 'sublist3r', etc. Available tools for subdomain_discovery are:
+    - `all` (will use all default and custom subdomain enum tools)
+    - `subfinder`
+    - `ctfr`
+    - `sublist3r`
+    - `tlsx`
+    - `oneforall`
+    - `netlas`
+    - `amass-passive`
+    - `amass-active`
+    - *custom_tool: You can also install custom subdomain enum tool and use it here.*
 
-`subdomain_discovery` currently supports five different options
+You can use one or more combination of these tools to improve the results.
 
-!!! example "Available option for subdomain_discovery"
-    * **uses_tools** **(required)**
-    * threads (optional)
-    * amass_wordlist (optional)
-    * use_amass_config (optional)
-    * use_subfinder_config (optional)
-
-
-* **uses_tools (required)**
-
-This option allows you to choose the tools required to gather the subdomains. You can use one or more combination of these tools to improve the results.
-
-* Available options for `uses_tools` are:
-    * all
-    * amass-passive
-    * amass-active
-    * subfinder
-    * sublist3r
-    * assetfinder
-    * oneforall
-
-#### Using Custom Tool
-
-!!! tip "TIP on using custom tools!"
-    reNgine supports custom tools. Instruction on installing custom tool can be [found here](/usage/external-tool.md). You can use the name of the tool that was entered earlier in `uses_tools`.
-
-    If your subdomain gathering tool was names as Turbo, you can uses as
-
-    `uses_tools: [subfinder, turbo]`
-
-
-You can have one or more combination of these tools to improve the results.
-
-!!! check "Supported"
-    ``` yaml
-    subdomain_discovery:
-      uses_tools: [all]
-    ```
-
-!!! check "Supported"
-    ``` yaml
-    subdomain_discovery:
-      uses_tools: [amass-active, amass-passive, subfinder]
-    ```
-
-!!! check "Supported"
-    ``` yaml
-    subdomain_discovery:
-      uses_tools: [amass-active, amass-passive, subfinder, custom_tool]
-    ```
-
-!!! danger "Not Supported"
-    ``` yaml
-    subdomain_discovery:
-      uses_tools: [amass-active amass-passive subfinder]
-    # Unsupported because comma is missing
-    ```
-
-!!! danger "Not Supported"
-    ``` yaml
-    subdomain_discovery:
-    uses_tools: [all]
-    # Unsupported because uses_tools is a property inside subdomain_discovery and must be indented
-    ```
-
-* **threads (optional)**
-
-Number of threads to perform the subdomain discovery. **By default the value for threads is 10.** This option will be applied to all tools (if supported).
-
-* **amass_wordlist (optional)**
-
-Wordlist for `amass-active` which performs brute-force of subdomains using a the wordlists.
-
-* Available Options for `wordlist` are:
-    * default
-    * short_name_for_wordlist
+- `threads`: *(int)* The number of threads or concurrent processes to use for subdomain discovery.
+- `timeout`: *(int)* The maximum time, in seconds, to wait for subdomain discovery to complete.
+- `use_amass_config`: *(boolean)* If set to true, reNgine will use configuration file for amass. [Find more about configuration files here.](/usage/tool_conf)
+- `use_subfinder_config`: *(boolean)* If set to true, reNgine will use configuration file for subfinder. [Find more about configuration files here.](/usage/tool_conf)
+- `amass_wordlist`: *(str)* Optional, Wordlist for `amass-active` which performs brute-force of subdomains using a the wordlists. Available Options for `amass_wordlist` are:
+    * `default`
+    * `short_name_for_wordlist`
 
 Please follow the guide on [uploading your own wordlist](/usage/wordlist). You need to enter the wordlist short_name here.
 
 !!! info "Default Wordlist"
     If `default` wordlist is choosed then [Deepmagic top 50,000 prefix wordlist](https://github.com/danielmiessler/SecLists/blob/master/Discovery/DNS/deepmagic.com-prefixes-top50000.txt) will be used.
 
-!!! check "Supported"
-    ``` yaml
-    subdomain_discovery:
-      wordlist: default
-    ```
-
 !!! danger ""
     reNgine currently does not support multiple wordlists. This feature maybe available in future updates.
 
-* **use_amass_config (optional)** and **use_subfinder_config (optional)**
+#### Using Custom Subdomain Enum Tool
 
-If set to true, reNgine will use configuration files for these tools. [Find more about configuration files here.](/usage/tool_conf)
+!!! tip "TIP on using custom tools!"
+    reNgine supports custom tools. Instruction on installing custom tool can be [found here](/usage/external-tool). You can use the name of the tool that was entered earlier.
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+    If your subdomain gathering tool was names as Turbo, you can use as
 
-### screenshot
+    `uses_tools: ['subfinder', 'turbo']`
 
-Visual Identification will run `EyeWitness` for visual inspection.
+## http_crawl
+This option can be used to do http probing. Not using http_crawl will be a passive scan.
 
-Currently supported options for `screenshot` are
-
-!!! example "Supported options for visual_identification"
-    * threads
-    * timeout
-
-* **threads**
-
-Number of threads to run EyeWitness visual identification. **By default the value for thread is 10.** This is a integer value.
-
-* **timeout**
-
-Timeout in seconds, **default timeout value is 10.**
-
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-### osint
-
-Currently supported options for osint are:
-
-!!! example "Supported options for visual_identification"
-    * discover
-    * intensity
-    * dork
-
-* **discover**
-
-reNgine can currently discover
-
-  * emails
-  * metainfo
-  * employees
-
-for any target.
-
-* **dork**
-
-reNgine does not support custom dork as of now, and support is provided for these dorks:
-
-!!! example "supported options for dork"
-    * stackoverflow
-    * 3rdparty
-    * social_media
-    * project_management
-    * code_sharing
-    * config_files
-    * jenkins
-    * wordpress_files
-    * cloud_buckets
-    * php_error
-    * exposed_documents
-    * struts_rce
-    * db_files
-    * traefik
-    * git_exposed
-
-
-* **intensity**
-
-!!! example "supported options for intensity"
-    * deep
-    * normal
-
- **If intensity is set to deep, reNgine will perform dorking for all the subdomains.**
-
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-### port_scan
-
+## port_scan
 Port scan is currently being performed using [naabu](https://github.com/projectdiscovery/naabu), please refer [naabu documentation](https://github.com/projectdiscovery/naabu/blob/master/README.md) as well.
 
-`port_scan` currently supports three options
-
-!!! example "Supported option for port_scan"
-    * **ports** **(required)**
-    * rate (optional)
-    * use_naabu_config (Optional)
-    * exclude_ports (optional)
-
-* **ports (required)**
-
-Ports to Scan
-
-* Available options for `ports` are
-    * top-100
-    * top-1000
-    * full (will scan all 65k ports)
-    * custom like [80, 443]
-
-!!! check "Supported"
-    ``` yaml
-    port_scan:
-      ports: [80, 443, 8000, 8080]
-    ```
-
-!!! check "Supported"
-    ``` yaml
-    port_scan:
-      ports: [top-1000, 9000, 1234]
-    ```
-
-!!! check "Supported"
-    ``` yaml
-    port_scan:
-      ports: [full]
-    ```
-
-* **rate (optional)**
-
-Rate of port scan probe requests, **default is 1000**
-
-* **exclude_ports (optional)**
-
-Ports which you would like to exclude from the scan.
-
-!!! check "Supported"
-    ``` yaml
-    port_scan:
-      exclude_ports: [80,443]
-    ```
-
-* **use_naabu_config (optional)**
-
-If set to true, reNgine will use configuration files for Naabu. [Find more about configuration files here.](/usage/tool_conf)
-
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-### dir_file_search
-
-This configuration will be used in Directory and file search. Currently supported options for `dir_file_search` are
-
-!!! example "Supported options for dir_file_search"
-    * use_extensions (optional)
-    * recursive (optional)
-    * recursive_level (optional)
-    * threads (optional)
-    * exclude_extensions (optional)
-    * wordlist (required)
-    * stop_on_error (optional)
-    * follow_redirect (optional)
-    * auto_calibration (optional)
-    * delay (optional)
-    * match_http_status (optional)
-    * max_time (optional)
-
-* **use_extensions (optional)**
-
-This option will allow you to define the extensions for the file fuzzing. You can define as many file extensions as you wish. Please note that, more file extensions will take longer to complete fuzzing.
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      extensions: [php, git, xml]
-    ```
-
-!!! error "Unsupported"
-    ``` yaml
-    dir_file_search:
-      extensions: [.php, .git, .xml]
-    ```
-
-* **recursive (optional)**
-
-Enabling `recursive` option will bruteforce recursively inside all the directories. Turning on the bruteforce option will increase directories scan time exponentially but will gather more information.
-
-**Default value for `recursive` is `false`**
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      recursive_level: true
-    ```
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      recursive_level: false
-    ```
-
-**recursive_level (optional)**
-
-`recursive_level` is the Max recursion depth into subdirectories.
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      recursive_level: 1
-    ```
-
-!!! info ""
-    Setting up a very high number for `recursive_level` will also increase the scan time.
-
-* **threads (optional)**
-
-Number of threads to run directory and file fuzzing. **By default the value for threads is 100**
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      threads: 10
-    ```
-
-* **stop_on_error (optional)**
-
-Stop on spurious errors (ffuf specific)
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      stop_on_error: false
-    ```
-
-* **follow_redirect (optional)**
-
-Follow redirects (ffuf specific)
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      follow_redirect: true
-    ```
-
-* **auto_calibration (optional)**
-
-Automatically calibrate filtering options (ffuf specific)
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      auto_calibration: true
-    ```
-
-* **delay (optional)**
-
-Seconds of `delay` between requests, or a range of random delay. For example "0.1" or "0.1-2.0"
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      delay: "0.1"
-    ```
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      delay: "0.1-0.2"
-    ```
-
-* **match_http_status (optional)**
-
-Match HTTP status codes, or "all" for everything. (default: 200,204)
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      match_http_status: [200, 204, 301, 302]
-    ```
-
-* **max_time (optional)**
-
-If you don't want ffuf to run indefinitely, you can use the max_time. This stops the entire process after a given time (in seconds).
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      max_time: 60
-    ```
-
-
-* **wordlist (optional)**
-
-This option is used to supply wordlist to `dirsearch` for files and directory fuzzing.
-
-* Available Options for `wordlist` are:
-    * default
-    * short_name_for_wordlist
-
-Please follow the guide on [uploading your own wordlist](/usage/wordlist). You need to enter the wordlist short_name here.
-
-!!! info "Default Wordlist"
-    If `default` wordlist is choosed then [default dicc.txt](https://github.com/maurosoria/dirsearch/blob/master/db/dicc.txt) will be used.
-
-!!! check "Supported"
-    ``` yaml
-    dir_file_search:
-      wordlist: default
-    ```
-
-!!! danger "Unsupported"
-    ``` yaml
-    dir_file_search:
-      wordlist: [default, short_name]
-    ```
-
-!!! danger ""
-    reNgine currently does not support multiple wordlists. This feature maybe available in future updates.
-
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-### fetch_url
+- `enable_http_crawl`: *(boolean)* A boolean indicating whether to enable HTTP crawling after port scanning.
+- `timeout`: *(int)* The maximum time, in seconds, to wait for port scanning to complete.
+- `ports`: *(list)* A list of ports to scan, such as 'top-100'. Available options are:
+    - `top-100`
+    - `top-1000`
+    - `full` (will scan all 65k ports)
+    - list of port numbers like `[80, 443, 8080]`
+- `rate_limit`: *(int)* The rate limit for port scanning.
+- `threads`: *(int)* The number of threads or concurrent processes to use for port scanning.
+- `passive`: *(boolean)* A boolean indicating whether to use passive naabu port scan.
+- `exclude_ports`: *(list)* Ports which you would like to exclude from the scan for example: `[8081, 443]`
+- `exclude_subdomains`: *(boolean)* If set to true, port scanning will not be done on subdomains that are chosen to be ignored while starting scan.
+- `use_naabu_config`: *(boolean)* If set to true, reNgine will use configuration file for naabu. [Find more about configuration files here.](/usage/tool_conf)
+- `enable_nmap`: *(boolean)* If set to true, nmap will be used for scanning vulnerabilities on discovered ports.
+- `nmap_cmd`: *(str)* Custom Nmap Command
+- `nmap_script`: *(str)* Nmap Script to use: this will be passed in to nmap's `--script` option.
+- `nmap_script_args`: *(str)* Nmap Script Args to use: this will be passed in to nmap's `--script-args` option.
+
+## osint
+Currently supported options for osint are:
+
+- `discover` *(list)*: A list of items to discover, for example `['emails', 'metainfo']`, available options are:
+    - `emails`
+    - `metainfo`
+    - `employees`
+- `intensity` *(int)*: The intensity of the OSINT scan, e.g., `normal` or `deep`.
+- `documents_limit` *(int)*: The maximum number of documents to retrieve.
+- `dorks` *(list)*: A list of dork types to search for. Available options are:
+    - `login_pages`
+    - `admin_panels`
+    - `dashboard_pages`
+    - `stackoverflow`
+    - `social_media`
+    - `project_management`
+    - `code_sharing`
+    - `config_files`
+    - `jenkins`
+    - `wordpress_files`
+    - `php_error`
+    - `exposed_documents`
+    - `db_files`
+    - `git_exposed`
+- `custom_dorks` *(list)*: Custom dorks will be a list of dictionaries, for example:
+    - `[{'lookup_site': 'google.com', 'lookup_keywords': '/home/'}]`
+    - `[{'lookup_site': '__target__', 'lookup_extensions': 'db, php, jpg'}]`
+
+    `lookup_site` is where the information should be looked for. Example stackoverflow.com, or even the target, so the possible values for `lookup_site` could be any website or the target itself. Suppose, if you want to look for all db files in the target itself, `lookup_site` will be `__target__`. reNgine will automatically replace this with actual target. Do not put the target name here, rather `__target__`.
+
+    `lookup_keywords` or `lookup_extensions`
+
+    `lookup_keywords` or `lookup_extensions` can not be used together, you can either search for specific path file in google or certain files that are indexed, so they can not be used together. You will need to use either `lookup_keywords` or `lookup_extensions`.
+
+    `lookup_keywords` could be certain keywords, paths, separated by comma.
+    `lookup_extensions` could be file extensions separated by comma.
+
+## dir_file_fuzz
+
+This configuration will be used in Directory and file fuzzing. Currently supported options for `dir_file_fuzz` are:
+
+- `auto_calibration`: *(boolean)* Automatically calibrate filtering options (ffuf specific)
+- `enable_http_crawl`: *(boolean)* If set to true, only alive URLs will be used for dir_file_fuzz gathering.
+- `rate_limit`: *(int)* The rate limit for fuzzing.
+- `extensions`: *(list)* This option will allow you to define the extensions for the file fuzzing. You can define as many file extensions as you wish. Please note that, more file extensions will take longer to complete fuzzing. For example: `['php', 'git', 'xml']`
+- `follow_redirect`: *(boolean)* Follow redirects (ffuf specific)
+- `max_time`: *(int)* If you don't want ffuf to run indefinitely, you can use the max_time. This stops the entire process after a given time (in seconds).
+- `match_http_status`: *(list)* List of HTTP status codes to consider as a match.
+- `recursive_level`: *(int)* Enabling `recursive_level` option will bruteforce recursively inside all the directories. Turning on this option will increase scan time exponentially but will gather more information. Use it wisely.
+- `stop_on_error`: *(boolean)* Stop on spurious errors (ffuf specific)
+- `timeout`: *(int)* The maximum time, in seconds, to wait for fuzzing to complete.
+- `threads`: *(int)* The number of threads or concurrent processes to use for fuzzing.
+- `match_http_status`: *(list)* Match HTTP status codes, or "all" for everything. For example: `[200, 204]`
+- `wordlist_name`: *(str)* This option is used to supply wordlist for files and directory fuzzing. Available Options for `wordlist_name` are:
+    - `default`
+    - `short_name_for_wordlist`
+
+    Please follow the guide on [uploading your own wordlist](/usage/wordlist). You need to enter the wordlist short_name here.
+
+    !!! info "Default Wordlist"
+        If `default` wordlist is choosed then [default dicc.txt](https://github.com/maurosoria/dirsearch/blob/master/db/dicc.txt) will be used.
+
+    !!! danger ""
+        reNgine currently does not support multiple wordlists. This feature maybe available in future updates.
+
+## fetch_url
 
 `fetch_url` uses tools like `gau` and `hakrawler` to gather the endpoints. Currently supported options for `fetch_url` are:
 
-!!! check "Supported Options for fetch_url"
-    * uses_tools **(required)**
-    * intensity **(required)**
-    * ignore_file_extension **(optional)**
-    * gf_patterns **(optional)**
+- `uses_tools`: *(list)* A list of tools to use for URL fetching. Available tools are:
+    - `gospider`
+    - `hakrawler`
+    - `waybackurls`
+    - `gospider`
+    - `katana`
 
-* **uses_tools**
+    It can be used as `'uses_tools': ['gospider', 'hakrawler', 'waybackurls', 'gospider']`
 
-This option allows you to choose the tools required to gather the endpoints. You can use one or more combination of these tools to improve the results.
+- `remove_duplicate_endpoints`: *(boolean)* A boolean indicating whether to remove duplicate endpoints.
+- `duplicate_fields`: *(list)* Fields used to identify duplicate endpoints. Available options are:
+      - `content_length`
+      - `page_title`
+      - `http_status`
+      - `content_type`
+      - `webserver`
 
-* Available options for `uses_tools` are:
-    * gauplus
-    * hakrawler
-    * waybackurls
-    * gospider
+      Use these available options as combination to identify duplicate endpoints, for example `['content_length', 'page_title']`
 
-You can have one or more combination of these tools to improve the results.
+- `enable_http_crawl`: *(boolean)* If set to true, only alive URLs will be used for fetch_url gathering.
+- `gf_patterns`: *(list)* List of patterns to search for using Gf. Available patterns are:
+      - `debug_logic`
+      - `idor`
+      - `interestingEXT`
+      - `interestingparams`
+      - `interestingsubs`
+      - `lfi`
+      - `rce`
+      - `redirect`
+      - `sqli`
+      - `ssrf`
+      - `ssti`
+      - `xss`
 
-!!! check "Supported"
-    ``` yaml
-    fetch_url:
-      uses_tools: [all]
-    ```
+    Use the combination of GF patterns as: `['xss', 'lfi', 'rce']`
 
-!!! check "Supported"
-    ``` yaml
-    fetch_url:
-      uses_tools: [gauplus, hakrawler]
-    ```
+    !!! tip "Custom GF Pattern"
+         You can also upload custom gf patterns, and use filename here, without extension.
 
-* **intensity**
-
-This option will allow you to set the intensity for gathering URLs. Available options are
-
-!!! example "Available options for intensity"
-    * **normal** (default): This will only fetch the URLs for main domain. Suppose if your targets is example.com, the URLs associated with example.com are only fetched. `normal` intensity takes shorter time.
-    * **deep**: This will fetch URLs for main domain as well as all the subdomains. This is likely to take very long time and will gather more endpoints compared to `normal` intensity.
-
-* **ignore_file_extension**
-
-This option will allow you to ignore certain file extensions while gathering URLs. You can use one or more combination of extensions to exclude.
-
-!!! check "Supported"
-    ``` yaml
-    fetch_url:
-      ignore_file_extension: [jpg, png, jpeg, gif]
-    ```
-
-* **gf_patterns**
-
-You can now use gf patterns on the gathered URLs. Supported options are combination of these patterns.
-
-!!! example "gf_patterns available options"
-    * debug_logic
-    * idor
-    * img-traversal
-    * interestingEXT
-    * interestingparams
-    * interestingsubs
-    * jsvar
-    * lfi
-    * rce
-    * redirect
-    * sqli
-    * ssrf
-    * ssti
-    * xss
-
-!!! tip "Custom GF Pattern"
-     You can also upload custom gf patterns, and use filename here, without extension.
-
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-### vulnerability_scan
-
-`vulnerability_scan` uses [nuclei](https://github.com/projectdiscovery/nuclei) to perform the vulnerability scan. Please refer to [nuclei documentation](https://github.com/projectdiscovery/nuclei) as well.
-
-Available options for `vulnerability_scan` are
-
-!!! example "vulnerability_scan options"
-    * concurrency (optional)
-    * rate_limit (optional)
-    * timeout (optional)
-    * retries (optional)
-    * custom_templates (optional)
-    * **template (required)**
-    * **severity (required)**
-
-* **concurrency (optional)**
-
-This option will specify the number of threads/go routines to perform vulnerability scan. **Default value is 10**
-
-* **rate_limit (optional)**
-
-Maximum number of requests to send per second **(default 150)**
-
-* **timeout (optional)**
-
-Time to wait in seconds before timeout **(default 5)**
-
-* **retries (optional)**
-
-Number of times to retry a failed request **(default 1)**
-
-* **template (required)**
-
-Please refer to [nuclei's documentation](https://github.com/projectdiscovery/nuclei) to check which templates are supported. Nuclei may release any new templates which may not be possible to update here in the documentation, so it is adviced that you refer to [Nuclei's documentation](https://github.com/projectdiscovery/nuclei).
-
-Some of the supported options for template are:
-
-!!! check "Supported"
-    ``` yaml
-    vulnerability_scan:
-      templates: [all]
-    ```
-
-!!! info ""
-    We recommend using `all` options in `templates` for a detailed scan.
-
-!!! check "Supported"
-    ``` yaml
-    vulnerability_scan:
-      templates: [files, cves]
-    ```
-
-!!! check "Supported"
-    ``` yaml
-    vulnerability_scan:
-      templates: [files/git-core.yaml, cves/CVE-2020-1234]
-    ```
-
-* **severity (required)**
-
-You can run the templates based on the specific severity of the template, single and multiple severity can be used for scan.
-
-Available options for `severity` are
-
-!!! example "Available options for severity"
-    * all
-    * critical
-    * high
-    * medium
-    * low
-    * info
-    * unknown
-
-This will only run the specific templates related to the severity. You can provide multiple options for severity as well.
-
-!!! check "Supported"
-    ``` yaml
-    vulnerability_scan:
-      severity: [all]
-    ```
-
-Above will run all the templates.
-
-!!! check "Supported"
-    ``` yaml
-    vulnerability_scan:
-      severity: [low, info]
-    ```
-
-This will only run the templates based on low and informational severity.
-
-* **Recommended**
-
-!!! check "Supported"
-    ``` yaml
-    vulnerability_scan:
-      severity: [critical, high, medium, low]
-    ```
-
-This will exclude informational vulnerabilities from your scan results.
+- `ignore_file_extensions`: *(list)* This option will allow you to ignore certain file extensions while gathering URLs. You can use one or more combination of extensions to exclude. For example `['png', 'jpg', 'jpeg', 'gif', 'mp4', 'mpeg', 'mp3']`
+- `exclude_subdomains`: *(boolean)* If set to true, URLs will not be fetched for subdomains that are chosen to be ignored while initiating scan.
 
 
-* **custom_templates**
+## vulnerability_scan
 
-!!! check "Supported"
-    ``` yaml
-    vulnerability_scan:
-      custom_templates: [my_template]
-    ```
+- `run_nuclei`: *(boolean)* If set to true, nuclei will be used for vulnerability scan.
+- `run_dalfox`: *(boolean)* If set to true, dalfox will be used for XSS scans.
+- `run_crlfuzz`: *(boolean)* If set to true, CRLFuzz will be used for CRLF vulnerability detection.
+- `run_s3scanner`: *(boolean)* If set to true, misconfigured s3 buckets will be used during vulnerability scan.
+- `concurrency`: *(int)* This option will specify the number of threads/go routines to perform vulnerability scan.
+- `rate_limit`: *(int)* Maximum number of requests to send per second
+- `retries`: *(int)* Number of times to retry a failed request
+- `timeout`: *(int)* Time to wait in seconds before timeout
+- `fetch_gpt_report`: *(boolean)* If set to true, GPT will be used to fetch vulnerability details such as impact and remediation. **OpenAiAPIKey is required.**
 
-!!! tip "Custom Nuclei Templates"
-     You can also upload custom Nuclei Templates from Tool Settings, and use filename here, without extension.
+    - `nuclei`: Nuclei specific configurations
+        - `use_conf`: *(boolean)* If set to true, reNgine will use configuration file for nuclei. [Find more about configuration files here.](/usage/tool_conf)
+        - `severities`: *(list)* You can run the templates based on the specific severity of the template, single or multiple severity can be used for scan. Available options are:
+            - `all`
+            - `critical`
+            - `high`
+            - `medium`
+            - `low`
+            - `info`
+            - `unknown`
+        - `tags`: *(list)* List of nuclei tags, refer to Nuclei's documentation.
+        - `templates`: *(list)* Please refer to [nuclei's documentation](https://github.com/projectdiscovery/nuclei) to check which templates are supported. Nuclei may release any new templates which may not be possible to update here in the documentation, so it is adviced that you refer to [Nuclei's documentation](https://github.com/projectdiscovery/nuclei). For example `['files', 'cve']`
+        - `custom_templates`: *(list)*
+            !!! tip "Custom Nuclei Templates"
+                 You can also upload custom Nuclei Templates from Tool Settings, and use filename here, without extension.
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+    - `s3scanner`: s3scanner specific configurations
+        - `threads`: *(int)* s3scanner number of threads
+        - `providers`: *(list)* List of providers to look for misconfigured s3 buckets. Availble options are:
+            - `aws`
+            - `gcp`
+            - `digitalocean`
+            - `dreamhost`
+            - `linode`
+
+            For example: `['aws', 'gcp']`
+
+## waf_detection
+
+Use this to detect the WAF in subdomains, wafw00f will be used to identify WAF.
+
+## screenshot
+
+Screenshot gathering
+
+- `enable_http_crawl`: *(boolean)* If set to true, only alive URLs will be used for screenshot gathering.
+- `timeout`: *(int)* Timeout in seconds for screenshot gathering
+- `threads`: *(int)* Numbers of threads to use for EyeWitness
 
 
-### custom_header
+## Shared Scan Configuration
 
-Use this to add custom headers to every HTTP request reNgine sends.
+Some of the scan configurations such as threads or custom_header could be used across all the tasks. Instead of using them in individual task, you can also use them as shared configuration, outside the task object configuration.
 
-!!! check "Supported"
-    ``` yaml
-    custom_header: "foo:bar"
-    ```
+  - enable_http_crawl
+  - timeout
+  - rate_limit
+  - retries
+  - custom_header
 
-!!! check "Supported"
-    ``` yaml
-    custom_header: "foo:bar, jeez:peez"
-    ```
+Example:
+
+```yaml
+subdomain_discovery: {}
+http_crawl: {}
+port_scan: {}
+osint: {}
+dir_file_fuzz: {}
+fetch_url: {}
+vulnerability_scan: {}
+waf_detection: {}
+screenshot: {}
+
+# shared scan config
+enable_http_crawl: true
+timeout: 10
+rate_limit: 5
+retries: 2
+custom_header: "Foo: bar"
+```
+
+These shared scan config will be used across all the tasks.
