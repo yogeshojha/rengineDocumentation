@@ -23,6 +23,7 @@ Currently YAML config is supported for
     * Directory and File Fuzzing as `dir_file_fuzz`
     * Endpoint Gathering as `fetch_url`
     * Vulnerability Scan as `vulnerability_scan`
+    * Global Variable custom_headers as `custom_headers`
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 ## Default YAML Config
@@ -395,7 +396,7 @@ Some of the scan configurations such as threads or custom_header could be used a
   - timeout
   - rate_limit
   - retries
-  - custom_header
+  - custom_headers
 
 Example:
 
@@ -415,7 +416,25 @@ enable_http_crawl: true
 timeout: 10
 rate_limit: 5
 retries: 2
-custom_header: "Foo: bar"
+custom_headers: ["Foo: bar"]
 ```
 
 These shared scan config will be used across all the tasks.
+
+## Passing cookies for authenticated scans
+
+reNgine can perform authenticated scans, in order to do so, you must pass the authenticated cookies using global variable called `custom_headers`
+
+For example the target website supports cookie based authentication, you will need to pass cookies as below in YAML configuration
+
+```yaml
+custom_headers: ['Cookies: foo=bar;bar=foo;another=cookie']
+```
+
+You can pass in multiple cookies and also multiple headers if required.
+
+For websites that uses Basic Headers for authentication, you can use
+
+```yaml
+custom_headers: ['Authorization: Basic yourtoken']
+```

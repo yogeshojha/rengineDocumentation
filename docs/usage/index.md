@@ -17,6 +17,7 @@ This section is divided into several parts based on modules/features/FAQ in reNg
 - [Scan Engines](/usage/scan_engine)
     - [Scan Engine YAML configuration Explained](/usage/scan_engine/#detailed-guide-on-configuring-scan-engines)
     - [Shared Configurations](/usage/scan_engine/#shared-scan-configuration)
+    - [Passing Cookies for Authenticated Scans](/usage/scan_engine/#passing-cookies-for-authenticated-scans)
 - [Initiating Scan](/usage/scan_target/#quick-scan)
 - [Initiating SubScan](/usage/subscan)
 - [Scheduling Scan](/usage/scan_target/#schedule-scan)
