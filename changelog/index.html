@@ -14,8 +14,13 @@
       
         <link rel="canonical" href="https://rengine.wiki/changelog/">
       
+      
+        <link rel="prev" href="../usage/scan_engine/">
+      
+      
+      
       <link rel="icon" href="../static/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.3.2">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
@@ -23,14 +28,17 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.5d38496d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.76a95c52.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
+
+
     
+    
+      
     
     
       
@@ -46,10 +54,11 @@
     
       <link rel="stylesheet" href="../assets/stylesheets/badge.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
 
@@ -87,9 +96,8 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -104,21 +112,6 @@
     </div>
     <div data-md-component="announce">
       
-        <aside class="md-banner">
-          <div class="md-banner__inner md-grid md-typeset">
-            
-<style>
-  .announcement {
-    color: #64B5F6 !important;
-  }
-</style>
-<a class="announcement" href="https://discord.gg/H6WzebwX3H" target="_blank">
-  reNgine 2.0-jasper has been announced! Join our Discord for support.
-</a>
-
-          </div>
-        </aside>
-      
     </div>
     
     
@@ -126,7 +119,7 @@
 
   
 
-<header class="md-header md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="reNgine" class="md-header__button md-logo" aria-label="reNgine" data-md-component="logo">
       
@@ -134,6 +127,7 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
+      
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
@@ -153,9 +147,13 @@
       </div>
     </div>
     
+      
+    
+    
     
     
       <label class="md-header__button md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
@@ -164,24 +162,27 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -193,7 +194,7 @@
         <a href="https://github.com/yogeshojha/rengine" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     reNgine
@@ -206,55 +207,75 @@
     
       
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
   
   
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
 
-
-  <li class="md-tabs__item">
-    <a href=".." class="md-tabs__link">
-      Home
-    </a>
-  </li>
+      </a>
+    </li>
+  
 
       
         
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../getting-started/" class="md-tabs__link">
+        
+  
+    
+  
+  Getting Started
 
-
-  <li class="md-tabs__item">
-    <a href="../getting-started/" class="md-tabs__link">
-      Getting Started
-    </a>
-  </li>
+      </a>
+    </li>
+  
 
       
         
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../usage/" class="md-tabs__link">
+        
+  
+    
+  
+  Usage
 
-
-  <li class="md-tabs__item">
-    <a href="../usage/" class="md-tabs__link">
-      Usage
-    </a>
-  </li>
+      </a>
+    </li>
+  
 
       
         
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../usage/scan_engine/" class="md-tabs__link">
+        
+  
+    
+  
+  Scan Engine Configuration
 
-
-  <li class="md-tabs__item">
-    <a href="../usage/scan_engine/" class="md-tabs__link">
-      Scan Engine Configuration
-    </a>
-  </li>
+      </a>
+    </li>
+  
 
       
         
@@ -262,13 +283,18 @@
   
     
   
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Changelog
 
-
-  <li class="md-tabs__item">
-    <a href="./" class="md-tabs__link md-tabs__link--active">
-      Changelog
-    </a>
-  </li>
+      </a>
+    </li>
+  
 
       
     </ul>
@@ -293,6 +319,7 @@
                   <div class="md-sidebar__inner">
                     
 
+
   
 
 
@@ -310,7 +337,7 @@
       <a href="https://github.com/yogeshojha/rengine" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     reNgine
@@ -322,14 +349,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
-        Home
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
       </a>
     </li>
   
@@ -337,14 +369,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../getting-started/" class="md-nav__link">
-        Getting Started
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
       </a>
     </li>
   
@@ -352,14 +389,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../usage/" class="md-nav__link">
-        Usage
+        
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
       </a>
     </li>
   
@@ -367,14 +409,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../usage/scan_engine/" class="md-nav__link">
-        Scan Engine Configuration
+        
+  
+  <span class="md-ellipsis">
+    Scan Engine Configuration
+  </span>
+  
+
       </a>
     </li>
   
@@ -382,28 +429,39 @@
     
       
       
-      
-
   
   
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Changelog
+          
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Changelog
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
       </a>
       
         
@@ -423,147 +481,261 @@
       
         <li class="md-nav__item">
   <a href="#backwards-compatibility-check" class="md-nav__link">
-    Backwards Compatibility Check
+    <span class="md-ellipsis">
+      Backwards Compatibility Check
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.1.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.1.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#206" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.6
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#205" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#204" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#203" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#201" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.1
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#200" class="md-nav__link">
-    🚀 2.0.0
+    <span class="md-ellipsis">
+      🏷️ 2.0.0
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#136" class="md-nav__link">
-    🏷️ 1.3.6
+    <span class="md-ellipsis">
+      🏷️ 1.3.6
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#135" class="md-nav__link">
-    🏷️ 1.3.5
+    <span class="md-ellipsis">
+      🏷️ 1.3.5
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#134" class="md-nav__link">
-    🏷️ 1.3.4
+    <span class="md-ellipsis">
+      🏷️ 1.3.4
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#133" class="md-nav__link">
-    🏷️ 1.3.3
+    <span class="md-ellipsis">
+      🏷️ 1.3.3
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#132" class="md-nav__link">
-    🏷️ 1.3.2
+    <span class="md-ellipsis">
+      🏷️ 1.3.2
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#131" class="md-nav__link">
-    🏷️ 1.3.1
+    <span class="md-ellipsis">
+      🏷️ 1.3.1
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#130" class="md-nav__link">
-    🏷️ 1.3.0
+    <span class="md-ellipsis">
+      🏷️ 1.3.0
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#120" class="md-nav__link">
-    🏷️ 1.2.0
+    <span class="md-ellipsis">
+      🏷️ 1.2.0
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#11" class="md-nav__link">
-    🏷️ 1.1
+    <span class="md-ellipsis">
+      🏷️ 1.1
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#101" class="md-nav__link">
-    🏷️ 1.0.1
+    <span class="md-ellipsis">
+      🏷️ 1.0.1
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#10" class="md-nav__link">
-    🏷️ 1.0
+    <span class="md-ellipsis">
+      🏷️ 1.0
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#053" class="md-nav__link">
-    🏷️ 0.5.3
+    <span class="md-ellipsis">
+      🏷️ 0.5.3
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#052" class="md-nav__link">
-    🏷️ 0.5.2
+    <span class="md-ellipsis">
+      🏷️ 0.5.2
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#051" class="md-nav__link">
-    🏷️ 0.5.1
+    <span class="md-ellipsis">
+      🏷️ 0.5.1
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#05" class="md-nav__link">
-    🏷️ 0.5
+    <span class="md-ellipsis">
+      🏷️ 0.5
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#04" class="md-nav__link">
-    🏷️ 0.4
+    <span class="md-ellipsis">
+      🏷️ 0.4
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#03" class="md-nav__link">
-    🏷️ 0.3
+    <span class="md-ellipsis">
+      🏷️ 0.3
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#02" class="md-nav__link">
-    🏷️ 0.2
+    <span class="md-ellipsis">
+      🏷️ 0.2
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#01" class="md-nav__link">
-    🏷️ 0.1
+    <span class="md-ellipsis">
+      🏷️ 0.1
+    </span>
   </a>
   
 </li>
@@ -604,147 +776,261 @@
       
         <li class="md-nav__item">
   <a href="#backwards-compatibility-check" class="md-nav__link">
-    Backwards Compatibility Check
+    <span class="md-ellipsis">
+      Backwards Compatibility Check
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.1.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.1.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#206" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.6
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#205" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#204" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#203" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#201" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏷️ 2.0.1
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#200" class="md-nav__link">
-    🚀 2.0.0
+    <span class="md-ellipsis">
+      🏷️ 2.0.0
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#136" class="md-nav__link">
-    🏷️ 1.3.6
+    <span class="md-ellipsis">
+      🏷️ 1.3.6
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#135" class="md-nav__link">
-    🏷️ 1.3.5
+    <span class="md-ellipsis">
+      🏷️ 1.3.5
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#134" class="md-nav__link">
-    🏷️ 1.3.4
+    <span class="md-ellipsis">
+      🏷️ 1.3.4
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#133" class="md-nav__link">
-    🏷️ 1.3.3
+    <span class="md-ellipsis">
+      🏷️ 1.3.3
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#132" class="md-nav__link">
-    🏷️ 1.3.2
+    <span class="md-ellipsis">
+      🏷️ 1.3.2
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#131" class="md-nav__link">
-    🏷️ 1.3.1
+    <span class="md-ellipsis">
+      🏷️ 1.3.1
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#130" class="md-nav__link">
-    🏷️ 1.3.0
+    <span class="md-ellipsis">
+      🏷️ 1.3.0
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#120" class="md-nav__link">
-    🏷️ 1.2.0
+    <span class="md-ellipsis">
+      🏷️ 1.2.0
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#11" class="md-nav__link">
-    🏷️ 1.1
+    <span class="md-ellipsis">
+      🏷️ 1.1
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#101" class="md-nav__link">
-    🏷️ 1.0.1
+    <span class="md-ellipsis">
+      🏷️ 1.0.1
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#10" class="md-nav__link">
-    🏷️ 1.0
+    <span class="md-ellipsis">
+      🏷️ 1.0
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#053" class="md-nav__link">
-    🏷️ 0.5.3
+    <span class="md-ellipsis">
+      🏷️ 0.5.3
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#052" class="md-nav__link">
-    🏷️ 0.5.2
+    <span class="md-ellipsis">
+      🏷️ 0.5.2
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#051" class="md-nav__link">
-    🏷️ 0.5.1
+    <span class="md-ellipsis">
+      🏷️ 0.5.1
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#05" class="md-nav__link">
-    🏷️ 0.5
+    <span class="md-ellipsis">
+      🏷️ 0.5
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#04" class="md-nav__link">
-    🏷️ 0.4
+    <span class="md-ellipsis">
+      🏷️ 0.4
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#03" class="md-nav__link">
-    🏷️ 0.3
+    <span class="md-ellipsis">
+      🏷️ 0.3
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#02" class="md-nav__link">
-    🏷️ 0.2
+    <span class="md-ellipsis">
+      🏷️ 0.2
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#01" class="md-nav__link">
-    🏷️ 0.1
+    <span class="md-ellipsis">
+      🏷️ 0.1
+    </span>
   </a>
   
 </li>
@@ -757,14 +1043,14 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-  <a href="https://github.com/yogeshojha/rengine/edit/master/docs/changelog.md" title="Edit this page" class="md-content__button md-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+                  
 
+  
+  
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
@@ -779,6 +1065,38 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>2.1.1</td>
+<td>✔️ Compatible</td>
+</tr>
+<tr>
+<td>2.1.0</td>
+<td>✔️ Compatible</td>
+</tr>
+<tr>
+<td>2.0.6</td>
+<td>✔️ Compatible</td>
+</tr>
+<tr>
+<td>2.0.5</td>
+<td>✔️ Compatible</td>
+</tr>
+<tr>
+<td>2.0.4</td>
+<td>✔️ Compatible</td>
+</tr>
+<tr>
+<td>2.0.3</td>
+<td>✔️ Compatible</td>
+</tr>
+<tr>
+<td>2.0.2</td>
+<td>✔️ Compatible</td>
+</tr>
+<tr>
+<td>2.0.1</td>
+<td>✔️ Compatible</td>
+</tr>
 <tr>
 <td>2.0.0</td>
 <td>❌ Not Compatible</td>
@@ -861,7 +1179,149 @@
 </tr>
 </tbody>
 </table>
-<h2 id="200">🚀 2.0.0<a class="headerlink" href="#200" title="Permanent link">&para;</a></h2>
+<h2 id="211">🏷️ 2.1.1<a class="headerlink" href="#211" title="Permanent link">&para;</a></h2>
+<p><strong>Release Date: July 20, 2024</strong></p>
+<ul>
+<li>Update contribution guidelines reference by @emmanuel-ferdman in https://github.com/yogeshojha/rengine/pull/1286</li>
+<li>fix xss on page title fix #1185 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1296</li>
+<li>fix context key error #1263 #1209 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1294</li>
+<li>fix xss on vulnerability description payloads #1262 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1298</li>
+<li>(bug) fix screenshot csv parser #1299 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1300</li>
+<li>(Security) Fixes #1202 bug risk of leaking the scan result files by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1301</li>
+<li>Fix #1291 Refactor Makefiles for windows/linux to accomodate both v1 and v2 of docker compose by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1302</li>
+<li>Fix custom_header to accept multiple headers using custom_headers by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1303</li>
+<li>Handle hash in url, added navigation for Tabs, Fixes #1155 bug href link with html id does not link to the expected url by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1306</li>
+<li>Optimize uninstall scripts to perform operations only related to reNgine Fixes # 1187 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1307</li>
+<li>Added validators to validate URL fixes #1176 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1308</li>
+<li>Fix LLM/langchain issue for fetching vulnerability report using local LLM model Fixed #1292  local model dont use fetch gpt vulnerability details by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1311</li>
+<li>Fixes for Clocked and Periodic Scans Fix #1287 Fixes #1015 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1313</li>
+<li>Fix Not able to add todo from All Subdomains Section Fixes #1310 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1314</li>
+<li>Fix #1315 Fix for todo URLs not compatible with slugs by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1316</li>
+<li>Fixes #1122 But in port service lookup that caused multiple entries of Port with same port number but different service name/description by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1317</li>
+</ul>
+<h2 id="210">🏷️ 2.1.0<a class="headerlink" href="#210" title="Permanent link">&para;</a></h2>
+<p><strong>Release Date: June 22, 2024</strong></p>
+<ul>
+<li>ARM support</li>
+<li>Add LLM Toolkit by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1259</li>
+<li>use django-env by @fopina in https://github.com/yogeshojha/rengine/pull/1230</li>
+<li>Add Lark to notifications. by @iuime in https://github.com/yogeshojha/rengine/pull/1137</li>
+<li>Added restart: always to redis container by @null-ref-0000 in https://github.com/yogeshojha/rengine/pull/1275</li>
+<li>Dockerfile cleanup: reduce image size 3x by @sa7mon in https://github.com/yogeshojha/rengine/pull/1212</li>
+<li>Support for ARM-based platforms and remove obsolete composer version by @metehan-arslan in https://github.com/yogeshojha/rengine/pull/1242</li>
+<li>Fix importing CIDR blocks by @pbehnke in https://github.com/yogeshojha/rengine/pull/1205</li>
+<li>Added SAN extension to the generated certs by @michschl in https://github.com/yogeshojha/rengine/pull/1282</li>
+<li>Release/2.1.0 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1147</li>
+<li>Dockerfile Build Multiple Platforms by @vncloudsco in https://github.com/yogeshojha/rengine/pull/1210</li>
+</ul>
+<h2 id="206">🏷️ 2.0.6<a class="headerlink" href="#206" title="Permanent link">&para;</a></h2>
+<p><strong>Release Date: May 11, 2024</strong></p>
+<ul>
+<li>Fix installation error and celery workers having issues with httpcore</li>
+<li>remove duplicate gospider references by @Talanor in https://github.com/yogeshojha/rengine/pull/1245</li>
+<li>Fix "subdomain" s3 bucket by @Talanor in https://github.com/yogeshojha/rengine/pull/1244</li>
+<li>Fix Txt File Var Declaration by @specters312 in https://github.com/yogeshojha/rengine/pull/1239</li>
+<li>Bug Correction: When dumping and loading customscanengines by @TH3xACE in https://github.com/yogeshojha/rengine/pull/1224</li>
+<li>Fix/infoga removal by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1249</li>
+<li>Fix #1241 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1251</li>
+</ul>
+<h2 id="205">🏷️ 2.0.5<a class="headerlink" href="#205" title="Permanent link">&para;</a></h2>
+<p><strong>Release Date: April 20, 2024</strong></p>
+<ul>
+<li>Fix #1234 reNgine unable to load celery tasks due to mismatched celery and redis versions</li>
+</ul>
+<h2 id="204">🏷️ 2.0.4<a class="headerlink" href="#204" title="Permanent link">&para;</a></h2>
+<p><strong>Release Date: April 18, 2024</strong></p>
+<ul>
+<li>chore: update version number to 2.0.3 by @AnonymousWP in https://github.com/yogeshojha/rengine/pull/1180</li>
+<li>Fix various ffuf bugs by @yarysp in https://github.com/yogeshojha/rengine/pull/1199</li>
+<li>Set and update default YAML config with all latest vars by @yarysp in https://github.com/yogeshojha/rengine/pull/1200</li>
+<li>Add checks for placeholder in custom tool task by @yarysp in https://github.com/yogeshojha/rengine/pull/1201</li>
+<li>Whatportis - Replace purge by truncate to prevent port import error by @yarysp in https://github.com/yogeshojha/rengine/pull/1203</li>
+<li>ops(installation): fix nano not being installed when absent by @AnonymousWP in https://github.com/yogeshojha/rengine/pull/1143</li>
+<li>Complete dev environment to debug/code easily by @yarysp in https://github.com/yogeshojha/rengine/pull/1196</li>
+<li>Revert "Complete dev environment to debug/code easily" by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1225</li>
+<li>Update README.md | Fixed 1 broken link to the regine.wiki by @jostasik in https://github.com/yogeshojha/rengine/pull/1226</li>
+<li>Fix uninitialised variable cmd in custom_subdomain_tools by @cpandya2909 in https://github.com/yogeshojha/rengine/pull/1207</li>
+<li>[FIX] security: OS Command Injection vulnerability (x2) #1219 by @0xtejas in https://github.com/yogeshojha/rengine/pull/1227</li>
+</ul>
+<h2 id="203">🏷️ 2.0.3<a class="headerlink" href="#203" title="Permanent link">&para;</a></h2>
+<p><strong>Release Date: January 25, 2024</strong></p>
+<ul>
+<li>CI: update GitHub action versions by @jxdv in https://github.com/yogeshojha/rengine/pull/1136</li>
+<li>Fixed (subdomain_discovery | ERROR | local variable 'use_amass_config' referenced before assignment) by @Deathpoolxrs in https://github.com/yogeshojha/rengine/pull/1149</li>
+<li>chore: update LICENSE by @jxdv in https://github.com/yogeshojha/rengine/pull/1153</li>
+<li>Fix subdomains list empty in Target by @psyray in https://github.com/yogeshojha/rengine/pull/1166</li>
+<li>Fix top menu text overflow in low resolution by @psyray in https://github.com/yogeshojha/rengine/pull/1167</li>
+<li>Update auto comment workflow due to deprecation warnings by @ErdemOzgen in https://github.com/yogeshojha/rengine/pull/1126</li>
+<li>Change Redirect URL after login to prevent 500 error by @psyray in https://github.com/yogeshojha/rengine/pull/1124</li>
+<li>fix-1030: Add missing slug on target summary link by @psyray in https://github.com/yogeshojha/rengine/pull/1123</li>
+</ul>
+<h2 id="202">🏷️ 2.0.2<a class="headerlink" href="#202" title="Permanent link">&para;</a></h2>
+<p><strong>Release Date: December 8, 2023</strong></p>
+<ul>
+<li>Added tooltip text to dashboard total vulnerabilities tooltip by @luizmlo in https://github.com/yogeshojha/rengine/pull/1029</li>
+<li>ops(<code>uninstall.sh</code>): add missing volumes and echo messages by @AnonymousWP in https://github.com/yogeshojha/rengine/pull/977</li>
+<li>Fix no results in target subdomain list by @psyray in https://github.com/yogeshojha/rengine/pull/1036</li>
+<li>Fix Tool Settings Broken Link by @aqhmal in https://github.com/yogeshojha/rengine/pull/1021</li>
+<li>Fix subdomains list empty in Target by @psyray in https://github.com/yogeshojha/rengine/pull/1053</li>
+<li>Raise page limit to 500 for popup list by @psyray in https://github.com/yogeshojha/rengine/pull/1051</li>
+<li>Add directories count on Directories list by @psyray in https://github.com/yogeshojha/rengine/pull/1050</li>
+<li>ops(docker-compose): upgrade to 2.23.0 by @AnonymousWP in https://github.com/yogeshojha/rengine/pull/1023</li>
+<li>Fix endpoints list and count by @psyray in https://github.com/yogeshojha/rengine/pull/1041</li>
+<li>Fix failing visualization when dorks are present by @psyray in https://github.com/yogeshojha/rengine/pull/1045</li>
+<li>Fix note not saving by @psyray in https://github.com/yogeshojha/rengine/pull/1047</li>
+<li>Count only not done todos in subdomains list by @psyray in https://github.com/yogeshojha/rengine/pull/1048</li>
+<li>Fix user agent definition keyword by @psyray in https://github.com/yogeshojha/rengine/pull/1054</li>
+<li>Upgrade project discovery tool at CT build by @psyray in https://github.com/yogeshojha/rengine/pull/1055</li>
+<li>Add a check to not load datatables twice by @psyray in https://github.com/yogeshojha/rengine/pull/1039</li>
+<li>Nmap port scan fails when Naabu return no port by @psyray in https://github.com/yogeshojha/rengine/pull/1067</li>
+<li>chore(issue-templates): incorrect label name by @AnonymousWP in https://github.com/yogeshojha/rengine/pull/1066</li>
+<li>Endpoints list popup empty by @psyray in https://github.com/yogeshojha/rengine/pull/1070</li>
+<li>Add missing domain id value in subscan by @psyray in https://github.com/yogeshojha/rengine/pull/1069</li>
+<li>Fixes for #1033, #1026, #1027 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1071</li>
+<li>Temporary fix to prevent celery beat crash by @psyray in https://github.com/yogeshojha/rengine/pull/1072</li>
+<li>fix: ffuf ANSI code processing preventing task to finish by @ocervell in https://github.com/yogeshojha/rengine/pull/1058</li>
+<li>Update views.py by @Vijayragha1 in https://github.com/yogeshojha/rengine/pull/1074</li>
+<li>Fix crash on saving endpoint (FFUF related only) by @psyray in https://github.com/yogeshojha/rengine/pull/1063</li>
+<li>chore(issue-templates): fix incorrect description by @AnonymousWP in https://github.com/yogeshojha/rengine/pull/1078</li>
+<li>IOError -&gt; OSError by @jxdv in https://github.com/yogeshojha/rengine/pull/1081</li>
+<li>Add directories count on Directories list by @psyray in https://github.com/yogeshojha/rengine/pull/1090</li>
+<li>chore(issue-template): don't allow blank issues by @AnonymousWP in https://github.com/yogeshojha/rengine/pull/1089</li>
+<li>Fix bad nuclei config name by @psyray in https://github.com/yogeshojha/rengine/pull/1098</li>
+<li>disallow empty password by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1105</li>
+<li>fix attribute error on scan history #1103 by @yogeshojha in https://github.com/yogeshojha/rengine/pull/1104</li>
+<li>issue-633: added already-in-org filter to target dropdown in org form by @SeanOverton in https://github.com/yogeshojha/rengine/pull/1106</li>
+<li>Update Dockerfile to fix silicon incompatability by @SubGlitch1 in https://github.com/yogeshojha/rengine/pull/1107</li>
+<li>Add source for nmap scan by @psyray in https://github.com/yogeshojha/rengine/pull/1108</li>
+<li>Spelling mistake in hackerone.html by @Linuxinet in https://github.com/yogeshojha/rengine/pull/1112</li>
+<li>fix(version): incorrect number in art by @AnonymousWP in https://github.com/yogeshojha/rengine/pull/1111</li>
+<li>Fix report generation when <code>Ignore Informational Vulnerabilities</code> checked by @psyray in https://github.com/yogeshojha/rengine/pull/1100</li>
+<li>fix(tool_arsenal): incorrect regex version numbers by @AnonymousWP in https://github.com/yogeshojha/rengine/pull/1086</li>
+</ul>
+<h2 id="201">🏷️ 2.0.1<a class="headerlink" href="#201" title="Permanent link">&para;</a></h2>
+<p><strong>Release Date: October 24, 2023</strong></p>
+<p>2.0.1 fixes a ton of issues in reNgine 2.0.</p>
+<p>Fixes: 
+1. Prevent duplicating Nuclei vulns for subdomain #1012 @psyray
+2. Fixes for empty subdomain returned during nuclei scan #1011 @psyray
+3. Add all the missing slug in scanEngine view &amp; other places #1005 @psyray
+4. Foxes for missing vulscan script #1004 @psyray
+5. Fixes for missing slug in report settings saving #1003
+6. Fixes for Nmap Parsing Error #1001 #1002 @psyray
+7. Fix nmap script ports iterable args #1000 @psyray
+8. Iterate over hostnames when multiple #1002 @psyray
+8. Gau install #998, change gauplus to gau @psyray
+9. Add missing slug parameter in schedule scan #996 @psyray
+10. Add missing slug parameter in schedule scan #996, fixes #940, #937, #897, #764 @psyray
+11. Add stack trace into make logs if DEBUG True #994 @psyray
+12. Fix dirfuzz base64 name display #993 #992 @psyray
+13. Fix target subdomains list not loading #991 @psyray
+14. Change WORDLIST constant value #987, fixes #986@psyray 
+15. fix(notification_settings): submitting results in error 502 #981 fixes #970 @psyray
+16. Fixes with documentation and installation/update/uninstall scripts @anonymousWP
+17. Fix file directory popup not showing in detailed scan #912 @psyray</p>
+<h2 id="200">🏷️ 2.0.0<a class="headerlink" href="#200" title="Permanent link">&para;</a></h2>
 <p><strong>Release Date: Sept 30, 2023</strong></p>
 <p><strong>Added</strong></p>
 <ul>
@@ -1247,41 +1707,34 @@ And this is especially true for Dorking and other OSINT reNgine does. After cert
 <p><strong>Release Date: 2020-07-08</strong></p>
 <p>reNgine is released</p>
 
-              
-            </article>
-            
-          </div>
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
-            Back to top
-          </a>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../usage/scan_engine/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Scan Engine Configuration" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Scan Engine Configuration
-            </div>
-          </div>
-        </a>
-      
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1303,29 +1756,35 @@ And this is especially true for Dorking and other OSINT reNgine does. After cert
   
     
     
+    
+    
       
       
     
     <a href="https://github.com/yogeshojha/rengine" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
+    
+    
     
     
       
       
     
     <a href="https://discord.gg/H6WzebwX3H" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"/></svg>
     </a>
   
+    
+    
     
     
       
       
     
     <a href="https://twitter.com/ojhayogesh11" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
     </a>
   
 </div>
@@ -1338,12 +1797,14 @@ And this is especially true for Dorking and other OSINT reNgine does. After cert
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.instant"], "search": "../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.7f366e99.min.js"></script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.instant"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="../assets/javascripts/badge.js"></script>
+        <script src="../assets/javascripts/badge.js" async></script>
       
     
   </body>
