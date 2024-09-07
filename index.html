@@ -295,6 +295,23 @@
   
 
       
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="whats-new/2_2_0/" class="md-tabs__link">
+        
+  
+    
+  
+  What's New
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -609,9 +626,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
+  <a href="#support-and-sponsoring" class="md-nav__link">
     <span class="md-ellipsis">
-      Support
+      Support and Sponsoring
     </span>
   </a>
   
@@ -706,6 +723,26 @@
   
   <span class="md-ellipsis">
     Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="whats-new/2_2_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New
   </span>
   
 
@@ -831,9 +868,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
+  <a href="#support-and-sponsoring" class="md-nav__link">
     <span class="md-ellipsis">
-      Support
+      Support and Sponsoring
     </span>
   </a>
   
@@ -860,6 +897,7 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
+<h1>reNgine 2.2.0 is released, <a href="/whats-new/2_2_0/">checkout what is new in 2.2.0!</a></h1>
 <h1>Everything you would expect 🚀</h1>
 <div class="mdx-features">
   
@@ -874,18 +912,23 @@
   </div>
   
   <div>
-    <h2>Multiple Users, Roles and Permissions <small class="red_badge">2.0</small></h2>
+    <h2>BountyHub! <small class="red_badge">NEW</small></h2>
+    <p>BountyHub is a central place to manage your bug bounty targets. As of reNgine 2.2.0 Hackerone is fully supported, you can import your hackerone programs directly into reNgine, you can also sync your favourite bookmarked programs to reNgine. All the targets in scope will be automatically imported.</p>
+  </div>
+  
+  <div>
+    <h2>Projects</h2>
+    <p>Say Hello to Projects! reNgine 2.0 introduces a powerful addition that enables you to efficiently organize your web application reconnaissance efforts. With this feature, you can create distinct project spaces, each tailored to a specific purpose, such as personal bug bounty hunting, client engagements, or any other specialized recon task. Each projects will have separate dashboard and all the scan results will be separated from each projects, while scan engines and configuration will be shared across all the projects.</p>
+  </div>
+  
+  <div>
+    <h2>Multiple Users, Roles and Permissions</h2>
     <p>Begining reNgine 2.0, we've taken your web application reconnaissance to a whole new level of control and security. Now, you can assign distinct roles to your team members—Sys Admin, Penetration Tester, and Auditor—each with precisely defined permissions to tailor their access and actions within the reNgine ecosystem. Sys Admin is a super user that has permission to modify system and scan related configurations, scan engines, create new users, add new tools etc. Super user can initiate scans and subscans effortlessly. Penetration Tester will be allowed to modify and initiate scans and subscans, add or update targets, etc. A penetration tester will not be allowed to modify system configurations. Auditor can only view and download the report. An auditor can not change any system or scan related configurations nor can initiate any scans or subscans.</p>
   </div>
   
   <div>
-    <h2>LLM Report Generation <small class="red_badge">2.0</small></h2>
+    <h2>LLM Report Generation</h2>
     <p>In addition to its robust reconnaissance capabilities, reNgine goes the extra mile by simplifying the report generation process, recognizing the crucial role that PDF reports play in the realm of end-to-end reconnaissance. Users can effortlessly generate and customize PDF reports to suit their exact needs. Whether it's a Full Scan Report, Vulnerability Report, or a concise reconnaissance report, reNgine provides the flexibility to choose the report type that best communicates your findings. Moreover, the level of customization is unparalleled, allowing users to select report colors, fine-tune executive summaries, and even add personalized touches like company names and footers. With LLM integration, your reports aren't just a report, with remediation steps, and impacts, you get 360-degree view of the vulnerabilities you've uncovered.</p>
-  </div>
-  
-  <div>
-    <h2>Projects <small class="red_badge">2.0</small></h2>
-    <p>Say Hello to Projects! reNgine 2.0 introduces a powerful addition that enables you to efficiently organize your web application reconnaissance efforts. With this feature, you can create distinct project spaces, each tailored to a specific purpose, such as personal bug bounty hunting, client engagements, or any other specialized recon task. Each projects will have separate dashboard and all the scan results will be separated from each projects, while scan engines and configuration will be shared across all the projects.</p>
   </div>
   
   <div>
@@ -899,7 +942,7 @@
   </div>
   
   <div>
-    <h2>LLM-Powered Attack Surface Generation <small class="red_badge">2.0</small></h2>
+    <h2>LLM-Powered Attack Surface Generation</h2>
     <p>With reNgine 2.0, reNgine seamlessly integrates with LLM to identify the attacks that you can likely perform on a subdomain. By making use of reconnaissance data such as page title, open ports, subdomain name etc, reNgine can advice you the attacks you could perform on a target. reNgine will also provide you the rationale on why the specific attack is likely to be successful.</p>
   </div>
   
@@ -996,6 +1039,8 @@
 <li>Toolbox: Comes bundled with most commonly used tools during penetration testing such as whois lookup, CMS detector, CVE lookup, etc.</li>
 <li>Identification of related domains and related TLDs for targets</li>
 <li>Find actionable insights such as Most Common Vulnerability, Most Common CVE ID, Most Vulnerable Target/Subdomain, etc.</li>
+<li>You can now use local LLMs for Attack surface identification and vulnerability description (NEW: reNgine 2.1.0)</li>
+<li>BountyHub, a central hub to manage your hackerone targets</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1027,26 +1072,16 @@
 <p>Guide on <a href="security/">How to report security issues</a> is available.</p>
 <h2 id="changelogs">🤖 Changelogs<a class="headerlink" href="#changelogs" title="Permanent link">&para;</a></h2>
 <p>If you want to know the latest changes in reNgine, head to <a href="changelog/">🤖 Changelog</a>.</p>
-<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
-<p>Over the last few years I have been working insane on reNgine to bring new features with the only goal to make this as De-facto standard for reconnaissance. Most of my out of office hours and weeknds are spent on working on reNgine. I do this with addition to my primary job. I am happy to have received such an overwhelming support from community. But to keep this project alive, I am seeking financial support.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Paypal</th>
-<th style="text-align: center;">Bitcoin</th>
-<th style="text-align: center;">Ethereum</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;"><a href="https://www.paypal.com/paypalme/yogeshojha11">https://www.paypal.com/paypalme/yogeshojha11</a></td>
-<td style="text-align: center;"><code>35AiKyNswNZ4TZUSdriHopSCjNMPi63BCX</code></td>
-<td style="text-align: center;"><code>0xe7A337Da6ff98A28513C26A7Fec8C9b42A63d346</code></td>
-</tr>
-</tbody>
-</table>
-<p>It takes a considerable amount of time to add new features and make sure everything is working. A donation is your way saying: <strong>reNgine is awesome</strong></p>
-<p>Any support is greatly appreciated! <em>Thank you!</em></p>
+<h2 id="support-and-sponsoring">Support and Sponsoring<a class="headerlink" href="#support-and-sponsoring" title="Permanent link">&para;</a></h2>
+<p>reNgine is a passion project developed in my free time, alongside my day job. Your support helps keep this project alive and growing. Here's how you can contribute:</p>
+<ul>
+<li>Add a <a href="https://github.com/yogeshojha/rengine">GitHub Star</a> to the project.</li>
+<li>Share about reNgine on social media or in blog posts</li>
+<li>Nominate me for <a href="https://stars.github.com/nominate/">GitHub Stars?</a></li>
+<li>Use my <a href="https://m.do.co/c/e353502d19fc">DigitalOcean referral link</a> to get $100 credit (I receive $25)</li>
+</ul>
+<p>Your support, whether through donations or simply giving a star, tells me that reNgine is valuable to you. It motivates me to continue improving and adding features to make reNgine the go-to tool for reconnaissance.</p>
+<p>Thank you for your support!</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
 <p>reNgine is licensed under the GNU General Public License v3.0</p>
 

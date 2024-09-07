@@ -22,7 +22,7 @@
     
     
       
-        <title>Report Security Vulnerabilities in reNgine - reNgine</title>
+        <title>Security Policy - reNgine</title>
       
     
     
@@ -70,7 +70,7 @@
 
 <!-- Open graph meta tags -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="reNgine - Report Security Vulnerabilities in reNgine" />
+<meta property="og:title" content="reNgine - Security Policy" />
 <meta property="og:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
 <meta property="og:url" content="https://rengine.wiki/security/" />
 <meta property="og:image" content="" />
@@ -82,7 +82,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@ojhayogesh11" />
 <meta name="twitter:creator" content="@ojhayogesh11" />
-<meta name="twitter:title" content="reNgine - Report Security Vulnerabilities in reNgine" />
+<meta name="twitter:title" content="reNgine - Security Policy" />
 <meta name="twitter:description" content="reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information." />
 <meta name="twitter:image" content="" />
 
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#report-security-vulnerabilities-in-rengine" class="md-skip">
+        <a href="#security-policy" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Report Security Vulnerabilities in reNgine
+              Security Policy
             
           </span>
         </div>
@@ -287,6 +287,23 @@
     
   
   Changelog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../whats-new/2_2_0/" class="md-tabs__link">
+        
+  
+    
+  
+  What's New
 
       </a>
     </li>
@@ -443,6 +460,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../whats-new/2_2_0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -470,42 +507,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#expectation-from-security-researchers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Expectation from Security Researchers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-do-security-researchers-get-in-return" class="md-nav__link">
-    <span class="md-ellipsis">
-      What do Security Researchers get in return
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-do-i-report" class="md-nav__link">
-    <span class="md-ellipsis">
-      How do I report?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#past-security-vulnerabilities" class="md-nav__link">
     <span class="md-ellipsis">
       Past Security Vulnerabilities
@@ -514,6 +515,15 @@
   
     <nav class="md-nav" aria-label="Past Security Vulnerabilities">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      2024
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#2022" class="md-nav__link">
@@ -556,34 +566,53 @@
   
 
 
-<h1 id="report-security-vulnerabilities-in-rengine">Report Security Vulnerabilities in reNgine<a class="headerlink" href="#report-security-vulnerabilities-in-rengine" title="Permanent link">&para;</a></h1>
-<p><a href="https://huntr.dev/bounties/disclose/?target=https%3A%2F%2Fgithub.com%2Fyogeshojha%2Frengine"><img alt="huntr" src="https://cdn.huntr.dev/huntr_security_badge_mono.svg" /></a></p>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Security Researchers, welcome onboard! I am excited to announce bug bounty program for reNgine in collaboration with <a href="https://huntr.dev">huntr.dev</a>, <strong>this means you'll be rewarded for any security vulnerabilities discovered in reNgine.</strong></p>
-<p>Thank you for your interest in reporting vulnerabilities to reNgine! If you are aware of potential security vulnerabilities within reNgine, we encourage you to report immediately via <a href="https://huntr.dev/bounties/disclose/?target=https%3A%2F%2Fgithub.com%2Fyogeshojha%2Frengine">huntr.dev</a></p>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p><strong>Please do not disclose any vulnerabilities via Github Issues/Blogs/Tweets after/before reporting on huntr.dev as it is explicitly against huntr.dev and reNgine disclosure policy and will not be eligible for monetary rewards.</strong></p>
-</div>
-<p>Please note that the maintainer of reNgine does not determine the bounty amount.
-The bounty reward is determined by industry-first equation from huntr.dev to understand the popularity, impact and value of repositories to the open source community.</p>
-<h2 id="expectation-from-security-researchers">Expectation from Security Researchers<a class="headerlink" href="#expectation-from-security-researchers" title="Permanent link">&para;</a></h2>
+<h1 id="security-policy">Security Policy<a class="headerlink" href="#security-policy" title="Permanent link">&para;</a></h1>
+<p>We appreciate your efforts to responsibly disclose your findings and will make every effort to acknowledge your contributions.</p>
+<p>To report a security vulnerability, please follow these steps:</p>
+<ol>
+<li>
+<p><strong>Do Not</strong> disclose the vulnerability publicly on GitHub issues or any other public forum.</p>
+</li>
+<li>
+<p>Go to the <a href="https://github.com/yogeshojha/rengine/security">Security tab</a> of the reNgine repository.</p>
+</li>
+<li>
+<p>Click on "Report a vulnerability" to open GitHub's private vulnerability reporting form.</p>
+</li>
+<li>
+<p>Provide a detailed description of the vulnerability, including:</p>
+</li>
+<li>Steps to reproduce</li>
+<li>Potential impact</li>
+<li>
+<p>Any suggested fixes or mitigations (if you have them)</p>
+</li>
+<li>
+<p>I will review your report and respond as quickly as possible, usually within 48-72 hours.</p>
+</li>
+<li>
+<p>Please allow some time to investigate and address the vulnerability before disclosing it to others.</p>
+</li>
+</ol>
+<p>We are committed to working with security researchers to verify and address any potential vulnerabilities reported to us. After fixing the issue, we will publicly acknowledge your responsible disclosure, unless you prefer to remain anonymous.</p>
+<p>Thank you for helping to keep reNgine and its users safe!</p>
+<p><strong>What do we expect from security researchers?</strong></p>
 <ul>
 <li>Patience: Please note that currently I am the only maintainer in reNgine and will take sometime to validate your report. I request your patience throughout the process.</li>
 <li>Respect Privacy and Security Reports: Please do not disclose any vulnerabilities in public (this also includes github issues) before or after reporting on huntr.dev! That is against the disclosure policy and will not be eligible for monetary rewards.</li>
-<li>Respect the rules</li>
 </ul>
-<h2 id="what-do-security-researchers-get-in-return">What do Security Researchers get in return<a class="headerlink" href="#what-do-security-researchers-get-in-return" title="Permanent link">&para;</a></h2>
+<p><strong>What do I get in return?</strong></p>
 <ul>
-<li>Much thanks from Maintainer</li>
-<li>Monetary Rewards</li>
+<li>Much thanks from Maintainer and the community</li>
 <li>CVE ID(s)</li>
 </ul>
-<p>Please find the <a href="https://www.huntr.dev/faq">FAQ</a> and <a href="https://www.huntr.dev/policy/">Responsible disclosure policy</a> from huntr.dev.</p>
-<h2 id="how-do-i-report">How do I report?<a class="headerlink" href="#how-do-i-report" title="Permanent link">&para;</a></h2>
-<p>You can <a href="https://huntr.dev/bounties/disclose/?target=https%3A%2F%2Fgithub.com%2Fyogeshojha%2Frengine">report the security vulnerabilities from here</a>.</p>
 <h2 id="past-security-vulnerabilities">Past Security Vulnerabilities<a class="headerlink" href="#past-security-vulnerabilities" title="Permanent link">&para;</a></h2>
 <p>Thanks to these individuals for reporting Security Issues in reNgine.</p>
+<h3 id="2024">2024<a class="headerlink" href="#2024" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[HIGH] <a href="https://github.com/yogeshojha/rengine/security/advisories/GHSA-fx7f-f735-vgh4">Command Injection</a> in Waf Detector, Reported by <a href="https://github.com/n-thumann">n-thumann</a></li>
+<li>[MEDIUM] <a href="https://github.com/yogeshojha/rengine/security/advisories/GHSA-96q4-fj2m-jqf7">Stored XSS</a> in in Vulnerability Page, Reported by <a href="https://github.com/touhidshaikh">Touhid M Shaikh</a></li>
+</ul>
 <h3 id="2022">2022<a class="headerlink" href="#2022" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -596,7 +625,7 @@ The bounty reward is determined by industry-first equation from huntr.dev to und
 <p>[HIGH] <a href="https://huntr.dev/bounties/7f1f9abb-a801-444d-bd58-97e1c0b2ddb9/">Command Injection</a> in via YAML Engine, Reported by <a href="https://github.com/k0enm">Koen Molenaar</a> and <a href="https://github.com/zongdeiqianxing">zongdeiqianxing</a></p>
 </li>
 <li>
-<p>[LOW] <a href="https://huntr.dev/bounties/dfd440ba-4330-413c-8b21-a3d8bf02a67e/">Stored XSS</a> on Import Targets via filename, Reported by <a href="https://github.com/V35HR4J">Veeshraj Ghimire</a></p>
+<p>[LOW] <a href="https://huntr.dev/bounties/dfd440ba-4330-413c-8b21-a3d8bf02a67e/">Stored XSS</a> on Import Targets via filename, Reported by <a href="https://github.com/V35HR4J">Veshraj Ghimire</a></p>
 </li>
 <li>
 <p>[LOW] <a href="https://huntr.dev/bounties/8ea5d3a6-f857-45e4-9473-e4d9cb8f7c77/">Stored XSS</a> on HackerOne Markdown template, Reported by <a href="https://github.com/smaranchand">Smaran Chand</a> and <a href="https://github.com/sicks3c">Ayoub Elaich</a></p>
@@ -629,7 +658,7 @@ The bounty reward is determined by industry-first equation from huntr.dev to und
 <p>[LOW] <a href="https://huntr.dev/bounties/693a7d23-c5d4-448e-bbf6-50b3f0ad8544/">Stored XSS</a> on Target Summary via Todo, Reported by <a href="https://github.com/thelabda">TheLabda</a></p>
 </li>
 <li>
-<p>[LOW] <a href="https://huntr.dev/bounties/81c48a07-9cb8-4da8-babc-28a4076a5e92/">Stored XSS</a> on Nuclei Template Summary via maliclous Nuclei Template, Reported by <a href="https://github.com/phor3nsic">Walleson Moura</a></p>
+<p>[LOW] <a href="https://huntr.dev/bounties/81c48a07-9cb8-4da8-babc-28a4076a5e92/">Stored XSS</a> on Nuclei Template Summary via malicious Nuclei Template, Reported by <a href="https://github.com/phor3nsic">Walleson Moura</a></p>
 </li>
 <li>
 <p>[MEDIUM] <a href="https://huntr.dev/bounties/5df1a485-7a1e-411d-9664-0f4343e8512a/">Path Traversal/LFI</a>, reported by <a href="https://github.com/k0enm">Koen Molenaar</a></p>
