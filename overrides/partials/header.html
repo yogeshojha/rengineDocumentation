@@ -1,0 +1,56 @@
+{% set surfaces = {"Pentesters": "UI", "Developers": "API", "Agents": "MCP"} %}
+<header class="md-header rn-header" data-md-component="header">
+  <nav class="md-header__inner md-grid rn-header__inner" aria-label="{{ lang.t('header') }}">
+    <label class="md-header__button md-icon rn-header__menu" for="__drawer" aria-label="Navigation">
+      {% set icon = config.theme.icon.menu or "material/menu" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </label>
+    <a href="{{ nav.homepage.url | url }}" class="rn-brand" aria-label="reNgine Documentation, home" data-md-component="logo">
+      {% include "partials/logo.html" %}
+      <span class="rn-brand__name">reNgine</span>
+      <span class="rn-brand__sub">Documentation</span>
+    </a>
+    <div class="rn-sections" role="navigation" aria-label="Sections">
+      <div class="rn-seg">
+        {% for item in nav.items %}
+          {% if item.title in surfaces %}
+            {% set first = item.children | first %}
+            <a href="{{ first.url | url }}" class="rn-seg__item{% if item.active %} is-active{% endif %}"{% if item.active %} aria-current="true"{% endif %}>{{ item.title }}<small>{{ surfaces[item.title] }}</small></a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% for item in nav.items %}
+        {% if item.title == "Reference" %}
+          {% set first = item.children | first %}
+          <a href="{{ first.url | url }}" class="rn-reflink{% if item.active %} is-active{% endif %}"{% if item.active %} aria-current="true"{% endif %}>Reference</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="rn-header__tools">
+      {% if "material/search" in config.plugins %}
+        {% set search = config.plugins["material/search"] | attr("config") %}
+        {% if search.enabled %}
+          <label class="md-header__button md-icon rn-header__search-btn" for="__search" aria-label="Search">
+            {% set icon = config.theme.icon.search or "material/magnify" %}
+            {% include ".icons/" ~ icon ~ ".svg" %}
+          </label>
+          {% include "partials/search.html" %}
+        {% endif %}
+      {% endif %}
+      <span class="rn-version" title="reNgine release this documentation applies to">{{ config.extra.rengine_version }}</span>
+      {% if config.theme.palette %}
+        {% if not config.theme.palette is mapping %}
+          {% include "partials/palette.html" %}
+        {% endif %}
+      {% endif %}
+      {% if config.repo_url %}
+        <a class="md-header__button md-icon rn-header__repo" href="{{ config.repo_url }}" aria-label="Source on GitHub" title="Source on GitHub">
+          {% include ".icons/fontawesome/brands/github.svg" %}
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+  {% if not config.theme.palette is mapping %}
+    {% include "partials/javascripts/palette.html" %}
+  {% endif %}
+</header>

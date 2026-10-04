@@ -1,0 +1,296 @@
+{
+ "surface_order": [
+  "web_assets",
+  "endpoints",
+  "services",
+  "ips",
+  "vulnerabilities",
+  "software",
+  "secrets"
+ ],
+ "dimension_keys": [
+  "web_assets",
+  "endpoints",
+  "services",
+  "ips",
+  "vulnerabilities",
+  "secrets"
+ ],
+ "dimensions": [
+  {
+   "key": "web_assets",
+   "label": "Web assets",
+   "noun": [
+    "web asset",
+    "web assets"
+   ],
+   "tab": "web-assets",
+   "columns": [
+    "name",
+    "http_status",
+    "page_title",
+    "http_url",
+    "tech",
+    "webserver",
+    "resolved_ips",
+    "cname",
+    "is_cdn",
+    "cdn_name",
+    "waf",
+    "asn_org",
+    "ports",
+    "tls_expired",
+    "endpoint_count",
+    "vuln_count",
+    "vuln_severity",
+    "vuln_kev"
+   ],
+   "paging": [
+    "limit",
+    "offset"
+   ]
+  },
+  {
+   "key": "endpoints",
+   "label": "Endpoints",
+   "noun": [
+    "endpoint",
+    "endpoints"
+   ],
+   "tab": "endpoints",
+   "columns": [
+    "url",
+    "host",
+    "path",
+    "status_code",
+    "content_type",
+    "content_length",
+    "title",
+    "methods",
+    "param_count",
+    "endpoint_class",
+    "interest",
+    "primary_source",
+    "is_probed",
+    "is_new"
+   ],
+   "paging": [
+    "size",
+    "page"
+   ]
+  },
+  {
+   "key": "services",
+   "label": "Services",
+   "noun": [
+    "service",
+    "services"
+   ],
+   "tab": "services",
+   "columns": [
+    "ip",
+    "port",
+    "protocol",
+    "service_name",
+    "service_class",
+    "product",
+    "version",
+    "is_http",
+    "tls",
+    "status_code",
+    "title",
+    "url",
+    "hosts",
+    "asn_org",
+    "country",
+    "is_cdn",
+    "is_sensitive",
+    "source",
+    "is_new"
+   ],
+   "paging": [
+    "limit",
+    "offset"
+   ]
+  },
+  {
+   "key": "ips",
+   "label": "IP addresses",
+   "noun": [
+    "address",
+    "addresses"
+   ],
+   "tab": "ips",
+   "columns": [
+    "ip",
+    "version",
+    "asn",
+    "asn_org",
+    "country",
+    "prefix",
+    "is_cdn",
+    "cdn_name",
+    "is_alive",
+    "ports",
+    "port_count",
+    "host_count",
+    "hosts",
+    "has_sensitive"
+   ],
+   "paging": [
+    "limit",
+    "offset"
+   ]
+  },
+  {
+   "key": "vulnerabilities",
+   "label": "Vulnerabilities",
+   "noun": [
+    "finding",
+    "findings"
+   ],
+   "tab": "vulnerabilities",
+   "columns": [
+    "fingerprint",
+    "template_id",
+    "template_name",
+    "severity",
+    "scanner",
+    "matched_at",
+    "host",
+    "ip",
+    "port",
+    "cve_ids",
+    "cvss_score",
+    "epss_score",
+    "is_kev",
+    "state",
+    "is_new",
+    "tags"
+   ],
+   "paging": [
+    "limit",
+    "offset"
+   ]
+  },
+  {
+   "key": "secrets",
+   "label": "Secrets",
+   "noun": [
+    "secret",
+    "secrets"
+   ],
+   "tab": "secrets",
+   "columns": [
+    "value",
+    "kind",
+    "group",
+    "vendor",
+    "state",
+    "subject",
+    "host",
+    "url",
+    "source",
+    "sightings",
+    "hosts",
+    "is_secret"
+   ],
+   "paging": [
+    "limit",
+    "offset"
+   ]
+  }
+ ],
+ "max_rows": 40,
+ "default_rows": 20,
+ "windows": [
+  "7d",
+  "14d",
+  "30d"
+ ],
+ "default_window": "7d",
+ "changes_limit": 40,
+ "intensities": [
+  "passive",
+  "normal",
+  "aggressive"
+ ],
+ "scan_live_statuses": [
+  "pending",
+  "running"
+ ],
+ "scan_open_statuses": [
+  "paused",
+  "pending",
+  "running"
+ ],
+ "hidden_clients": [
+  "telegram",
+  "ask"
+ ],
+ "rescan": {
+  "rescannable_stages": [
+   "http_probe",
+   "port_scan",
+   "screenshot",
+   "secret_mining",
+   "url_discovery",
+   "vhost",
+   "vulnerability_scan"
+  ],
+  "rescan_dimensions": [
+   {
+    "dimension": "web_assets",
+    "default_stages": [
+     "http_probe"
+    ],
+    "noun_plural": "web assets"
+   },
+   {
+    "dimension": "endpoints",
+    "default_stages": [
+     "http_probe",
+     "url_discovery"
+    ],
+    "noun_plural": "endpoints"
+   },
+   {
+    "dimension": "services",
+    "default_stages": [
+     "port_scan"
+    ],
+    "noun_plural": "services"
+   },
+   {
+    "dimension": "ips",
+    "default_stages": [
+     "port_scan"
+    ],
+    "noun_plural": "addresses"
+   },
+   {
+    "dimension": "vulnerabilities",
+    "default_stages": [
+     "http_probe",
+     "vulnerability_scan"
+    ],
+    "noun_plural": "findings"
+   },
+   {
+    "dimension": "software",
+    "default_stages": [
+     "http_probe"
+    ],
+    "noun_plural": "software CVEs"
+   },
+   {
+    "dimension": "secrets",
+    "default_stages": [
+     "http_probe",
+     "secret_mining"
+    ],
+    "noun_plural": "secrets"
+   }
+  ]
+ }
+}

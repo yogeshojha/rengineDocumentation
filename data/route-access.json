@@ -1,0 +1,3524 @@
+[
+ {
+  "method": "GET",
+  "path": "/",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/activity",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/ai/cache",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ai/calls",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ai/catalog",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ai/connections",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ai/connections",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/ai/connections/{connection_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/ai/connections/{connection_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ai/connections/{connection_id}/test",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ai/connections/{connection_id}/use",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ai/models",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/ai/settings",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ai/status",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ai/test",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/api-keys",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/api-keys",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/api-keys/providers",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/api-keys/{key_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/api-keys/{key_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/api-keys/{key_id}/reveal",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/api-keys/{key_id}/test",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ask/brief/web-asset",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ask/brief/{vulnerability_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/ask/threads",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ask/threads",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ask/threads",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/ask/threads/{thread_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ask/threads/{thread_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ask/threads/{thread_id}/messages",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/auth/2fa/disable",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/auth/2fa/login",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/auth/2fa/setup",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/auth/2fa/status",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/auth/2fa/verify",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/auth/change-password",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/auth/change-username",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/auth/login",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/auth/logout",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/auth/me",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/auth/refresh",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/events",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/bounty-programs/events/seen",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/settings",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PUT",
+  "path": "/api/v1/bounty-programs/settings",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/status",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/bounty-programs/sync",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/bounty-programs/sync-feed",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/vocabulary",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/watches",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/watches/stream",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/bounty-programs/watches/validate-query",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/bounty-programs/watches/{watch_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/watches/{watch_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/bounty-programs/watches/{watch_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/watches/{watch_id}/events",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/watches/{watch_id}/hosts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/watches/{watch_id}/hosts/counts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/bounty-programs/watches/{watch_id}/hosts/{host_id}/mute",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/bounty-programs/watches/{watch_id}/seen",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/{platform}/{handle}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/bounty-programs/{platform}/{handle}/import",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/bounty-programs/{platform}/{handle}/sync",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/bounty-programs/{platform}/{handle}/watch",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-programs/{platform}/{handle}/watch/preview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-reports/{platform}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-reports/{platform}/counts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-reports/{platform}/programs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/bounty-reports/{platform}/summary",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/bounty-reports/{platform}/sync",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/connectors",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/connectors",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/connectors/actions",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/connectors/catalog",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/connectors/client/{kind}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/connectors/findings",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/connectors/host",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/connectors/ingest",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/connectors/notices",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/connectors/scope",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/connectors/targets",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/connectors/{connector_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/connectors/{connector_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/connectors/{connector_id}/candidates",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/connectors/{connector_id}/candidates/state",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/connectors/{connector_id}/discovered",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/connectors/{connector_id}/discovered/add",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/connectors/{connector_id}/discovered/dismiss",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/connectors/{connector_id}/handoff",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/connectors/{connector_id}/handoff/preview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/connectors/{connector_id}/rotate",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/connectors/{connector_id}/scan",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/contexts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/contexts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/contexts/{id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/contexts/{id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/contexts/{id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/contexts/{id}/duplicate",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/cves",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/cves/{cve}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/dashboard/activity",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/dashboard/discovery",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/dashboard/overview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/dashboard/programs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/dashboard/readiness",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/dashboard/surface-risk",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/dashboard/window",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/datasets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/datasets/{kind}/sync",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/domain-posture",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/domain-posture/project",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/domain-posture/target/{target_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/endpoints/coverage",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/endpoints/facets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/endpoints/gone",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/endpoints/host",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/endpoints/search",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/endpoints/search/groups",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/endpoints/search/leads",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/endpoints/search/tabs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/endpoints/structure",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/endpoints/summary",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/endpoints/tree",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/endpoints/tree/hosts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/endpoints/tree/leaves",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/endpoints/verify",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/endpoints/{endpoint_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/engines",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/engines",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/engines/catalog",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/engines/import",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/engines/preview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/engines/{id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/engines/{id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/engines/{id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/engines/{id}/duplicate",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/engines/{id}/export",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/events/stream",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/exports",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/exports",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/exports/{export_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/exports/{export_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/exports/{export_id}/download",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/exports/{export_id}/rerun",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/health/health",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/health/queues",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/http-assets/{asset_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/instance-settings",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/instance-settings",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/interest/catalog",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/interest/dismiss",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/interest/dismiss/bulk",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/interest/dismissals",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/interest/dismissals/{dismissal_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/interest/project",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/interest/rules",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/interest/rules",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/interest/rules/preview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/interest/rules/{rule_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/interest/rules/{rule_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/interest/scan/{scan_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/interest/scan/{scan_id}/judge",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/interest/scan/{scan_id}/suggestions",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ips/facets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ips/search",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ips/search/groups",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ips/search/leads",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ips/search/tabs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/issue-trackers",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/issue-trackers",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/issue-trackers/issues",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/issue-trackers/issues",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/issue-trackers/issues/plan",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/issue-trackers/issues/{issue_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/issue-trackers/issues/{issue_id}/refresh",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/issue-trackers/issues/{issue_id}/retry",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/issue-trackers/routes",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PUT",
+  "path": "/api/v1/issue-trackers/routes",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/issue-trackers/routes/{route_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/issue-trackers/test",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/issue-trackers/{tracker_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/issue-trackers/{tracker_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/issue-trackers/{tracker_id}/destinations",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/issue-trackers/{tracker_id}/issue-types",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/issue-trackers/{tracker_id}/test",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/lookalikes",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/lookalikes/target/{target_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/lookalikes/triage",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/mcp",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/mcp/",
+  "access": "none",
+  "other_auth": []
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/mcp/calls",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/mcp/settings",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/mcp/status",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/mcp/tokens",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/mcp/tokens",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/mcp/tokens/{token_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/mcp/tokens/{token_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/mcp/tokens/{token_id}/revoke",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/mcp/tools",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/media/screenshot",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/notes",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/notes",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/notes/facets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/notes/tags",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/notes/{note_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/notes/{note_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/notes/{note_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/notification-channels",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/notification-channels",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/notification-channels/test",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/notification-channels/{id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/notification-channels/{id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/notification-channels/{id}/test",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/notifications",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/notifications",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/notifications/read-all",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/notifications/stats",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/notifications/{notification_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/notifications/{notification_id}/read",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/oast",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/oast",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/oast/reset",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/oast/test",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/onboarding/ai",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PUT",
+  "path": "/api/v1/onboarding/ai",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/onboarding/complete",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/onboarding/progress",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/onboarding/status",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/organizations",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/organizations",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/organizations/{organization_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/organizations/{organization_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ports/ai",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ports/exposure",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ports/facets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/ports/origins",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ports/search",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ports/search/groups",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ports/search/leads",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/ports/search/tabs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/projects",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/projects",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/proxies",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/proxies",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/proxies/{id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/proxies/{id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/proxies/{id}/set-default",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/proxies/{id}/test",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/remote-control/channels/{channel}/calls",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/remote-control/channels/{channel}/chats",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/remote-control/channels/{channel}/chats/{chat_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/remote-control/channels/{channel}/chats/{chat_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/remote-control/channels/{channel}/chats/{chat_id}/revoke",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/remote-control/channels/{channel}/commands",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/remote-control/channels/{channel}/connect",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/remote-control/channels/{channel}/disconnect",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/remote-control/channels/{channel}/pending",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/remote-control/channels/{channel}/pending/{code}/approve",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/remote-control/channels/{channel}/pending/{code}/block",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/remote-control/channels/{channel}/settings",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/remote-control/channels/{channel}/status",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/reports",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/reports",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/reports/catalog",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/reports/defaults",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PUT",
+  "path": "/api/v1/reports/defaults",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/reports/estimate",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/reports/fonts",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/reports/fonts/{slug}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/reports/templates",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/reports/templates",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/reports/templates/{template_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/reports/templates/{template_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/reports/themes",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/reports/themes/{slug}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/reports/themes/{slug}/source",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/reports/{report_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/reports/{report_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/reports/{report_id}/download",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/reports/{report_id}/preview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/reports/{report_id}/retry",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/scans/batch",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/scans/cancel-all",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/compare",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/compare/diff",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/compare/rows",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/daily",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/latest",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/scans/preview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/scans/rescan",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/scans/rescan/preview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/rescan/schema",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/stats",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/trends",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/scans/{id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/{id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/{id}/activities",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/scans/{id}/cancel",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/{id}/commands",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/{id}/commands/{command_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/{id}/comparable",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/scans/{id}/pause",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/scans/{id}/resume",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/scans/{scan_id}/rechecks",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/schedules",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/schedules",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/schedules/{id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/schedules/{id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/schedules/{id}/pause",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/schedules/{id}/resume",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/schedules/{id}/run-now",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/secrets/coverage",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/secrets/facets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/secrets/search",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/secrets/search/counts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/secrets/search/groups",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/secrets/{secret_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/software/coverage",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/software/facets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/software/search",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/software/search/counts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/subdomains/correlation",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/subdomains/correlation-graph",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/subdomains/facets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/subdomains/hosting",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/subdomains/hygiene",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/subdomains/insights",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/subdomains/posture",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/subdomains/search",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/subdomains/search/counts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/subdomains/search/groups",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/subdomains/search/leads",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/subdomains/search/renders",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/subdomains/search/tabs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/subdomains/tech",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/surface/delete",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/surface/overview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/surface/schemas",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tags",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/tags",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/tags/{tag_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/tags/{tag_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/bulk",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/counts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/enrich/bulk",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/estate",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/targets/estate/triage",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/ids",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/import/csv",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/import/json",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/organizations/bulk",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/search",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/stats",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/tags/bulk",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/validate",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/validate/batch",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/targets/{target_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/{target_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/targets/{target_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/{target_id}/assets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/{target_id}/bgp",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/{target_id}/bgp/refresh",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/{target_id}/detail",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/{target_id}/dns",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/{target_id}/dns/refresh",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/{target_id}/estate",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/{target_id}/programs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/{target_id}/relations",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/{target_id}/seeds",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PUT",
+  "path": "/api/v1/targets/{target_id}/seeds",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/targets/{target_id}/seeds/{seed_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/{target_id}/summary",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/{target_id}/whois/refresh",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PUT",
+  "path": "/api/v1/threat-intel/auto-sync",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/threat-intel/changes",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/threat-intel/finding/{vulnerability_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/threat-intel/signal/{kind}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/threat-intel/status",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/threat-intel/sync",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/toolbox/catalog",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/toolbox/run",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/toolbox/runs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/toolbox/runs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/toolbox/runs/{run_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/tools/viewdns/cached-counts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tools/viewdns/reverse-ip/{host}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tools/viewdns/reverse-ns/{nameserver}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tools/viewdns/reverse-whois",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tools/whois/correlations/nameserver",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tools/whois/correlations/network",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tools/whois/correlations/registrant",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tools/whois/correlations/registrar",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tools/whois/correlations/target/{target_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tools/whois/correlations/targets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tools/whois/records/{record_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/tools/whois/records/{record_id}/refresh",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tripwires",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/tripwires",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/tripwires/backtest",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tripwires/catalog",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/tripwires/preview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tripwires/runs/{run_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/tripwires/{tripwire_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/tripwires/{tripwire_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tripwires/{tripwire_id}/runs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/tripwires/{tripwire_id}/runs/counts",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/users",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/users",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/users/{user_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/users/{user_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/users/{user_id}/summary",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/vuln-templates/search",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/vuln-templates/seen",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/vuln-templates/selection",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/vuln-templates/stats",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/vuln-templates/sync",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/vuln-templates/upload",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/vuln-templates/{template_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/vuln-templates/{template_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/vuln-templates/{template_id}/source",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PUT",
+  "path": "/api/v1/vuln-templates/{template_id}/source",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/vulnerabilities/coverage",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/vulnerabilities/facets",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/vulnerabilities/overview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/vulnerabilities/search",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/vulnerabilities/search/groups",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/vulnerabilities/search/issues",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/vulnerabilities/search/leads",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/vulnerabilities/search/tabs",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/vulnerabilities/triage/bulk",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "PATCH",
+  "path": "/api/v1/vulnerabilities/triage/{fingerprint}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/vulnerabilities/{vulnerability_id}",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/whats-new",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/whats-new/seen",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/whats-new/unseen",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/whats-new/visual",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/wordlists",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/wordlists",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "DELETE",
+  "path": "/api/v1/wordlists/{wordlist_id}",
+  "access": "administrator",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/wordlists/{wordlist_id}/preview",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ }
+]

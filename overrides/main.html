@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block htmltitle %}
+  {% if page.is_homepage %}
+    <title>{{ config.site_name }}</title>
+  {% elif page.meta and page.meta.title %}
+    <title>{{ page.meta.title | striptags }} · {{ config.site_name }}</title>
+  {% elif page.title %}
+    <title>{{ page.title | striptags }} · {{ config.site_name }}</title>
+  {% else %}
+    <title>{{ config.site_name }}</title>
+  {% endif %}
+{% endblock %}
+
+{% block extrahead %}
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0b0f" media="(prefers-color-scheme: dark)">
+{% endblock %}
+
+{% block tabs %}{% endblock %}
+
+{% block container %}
+  {% set layout = (page.meta.layout if page and page.meta and page.meta.layout else "page") %}
+  <div class="md-content rn-layout-{{ layout }}" data-md-component="content">
+    <article class="md-content__inner md-typeset">
+      {% block content %}
+        {% include "partials/content.html" %}
+      {% endblock %}
+    </article>
+  </div>
+{% endblock %}

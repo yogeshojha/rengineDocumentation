@@ -1,2 +1,7 @@
 /site
 **/.DS_Store
+
+site/
+.venv/
+.study/
+__pycache__/

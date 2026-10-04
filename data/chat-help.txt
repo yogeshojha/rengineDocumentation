@@ -1,0 +1,250 @@
+===== /help =====
+reNgine commands
+
+Targets
+/targets <contains> · List targets
+/target <target> · Resolve target
+/add <targets> · Add targets · confirm
+
+Scans
+/scan <target> · Start a scan · confirm
+/scans · Running scans
+/progress <scan> · Scan status
+/pause <scan> · Pause a scan · confirm
+/resume <scan> · Resume a scan · confirm
+/cancel <scan> · Cancel a scan · confirm
+
+Results
+/vulns <target> · Findings
+/changes <window> · What changed
+
+Lookups
+/cve <cve> · CVE
+/dns <domain> · DNS records
+/http <target> · HTTP probe · confirm
+/ip <ip> · IP address
+/org <organization> · Domains by organization
+/subs <domain> · Subdomain finder
+/whois <query> · WHOIS
+
+Chat
+/help · Help
+/start · Start
+/project · Project
+/projects · Projects
+/whoami · Who am I
+/unpair · Unpair
+
+Send /help <command> for its arguments.
+----- utf16 length=792 messages=1 entities=[30]
+----- styled spans: ["bold:'reNgine commands'", "bold:'Targets'", "code:'/targets <contains>'", "code:'/target <target>'", "code:'/add <targets>'", "bold:'Scans'"] ...
+
+===== /help start =====
+/start
+Pair this chat, or show its status once paired.
+
+===== /help help =====
+/help
+The command list, or the usage of one command.
+
+===== /help project =====
+/project
+Show or switch the selected project.
+
+===== /help projects =====
+/projects
+The projects this account can select.
+
+===== /help whoami =====
+/whoami
+This chat's account, project and capabilities.
+
+===== /help unpair =====
+/unpair
+Remove this chat's access.
+
+===== /help add =====
+/add <targets> [key=value]
+Add targets to a project. Records each target and queues WHOIS, DNS and routing enrichment. Runs no scan. An existing value is reused.
+
+Arguments
+• targets (string[], required): The values to add, each a domain, IP address, CIDR range, URL or ASN. Existing values are reused.
+• project_id (string): Which project to add them to. Omit when the token is scoped to one.
+• tags (string[]): Tags applied to the targets this call creates. Existing targets keep theirs.
+• organizations (string[]): Organizations applied to the targets this call creates.
+
+Confirmed with the account's authenticator code.
+
+===== /help cancel =====
+/cancel <scan> [key=value]
+Stop a running scan. Stages in flight are aborted. Results written so far are kept. Takes effect immediately.
+
+Arguments
+• scan (string): The scan id to stop.
+• target (string): A target, to stop whichever run of it is live.
+
+Confirmed with the account's authenticator code.
+
+===== /help targets =====
+/targets <contains> [key=value]
+The targets this token can reach, with project and type.
+
+Arguments
+• contains (string): Only targets whose value contains this text.
+• limit (integer, default 50)
+
+===== /help pause =====
+/pause <scan> [key=value]
+Pause a running scan. Stages in flight stop and run again from the start when the scan resumes. Results written so far are kept.
+
+Arguments
+• scan (string): The scan id to pause.
+• target (string): A target, to pause its running scan.
+
+Confirmed with the account's authenticator code.
+
+===== /help target =====
+/target <target>
+For each of a target's result dimensions: whether it was scanned, what the most recent covering scan found, when, and the scan id other tools take. Call this first. covered=false means not scanned, not zero.
+
+Arguments
+• target (string, required): A domain, IP address, CIDR range, URL or ASN added as a target.
+
+===== /help resume =====
+/resume <scan> [key=value]
+Resume a paused scan. It restarts at its first unfinished stage. Stages that already succeeded are not run again.
+
+Arguments
+• scan (string): The scan id to resume.
+• target (string): A target, to resume its paused run.
+
+Confirmed with the account's authenticator code.
+
+===== /help progress =====
+/progress <scan> [key=value]
+Status of a scan: stages finished, running and failed, and counts found so far. Pass a scan id, a target for its most recent run, or neither for every running scan.
+
+Arguments
+• scan (string): A scan id, as returned by start_scan or focused_rescan.
+• target (string): A target, to report its most recent run.
+• limit (integer, default 5): How many runs to list when neither scan nor target is named.
+
+===== /help scan =====
+/scan <target> [key=value]
+Start a scan against a target in this token's project. Sends traffic to the target. Returns a scan id and a link. The scan runs in the background. Poll scan_status for progress.
+
+Arguments
+• target (string, required): The target to scan. A value not yet in the project is added when the token holds the write capability.
+• engine_id (string): A saved scan engine. Omit for an ad hoc plan.
+• stages (string[]): Capability stages to enable when no engine is named.
+• intensity (string): One of: passive, normal, aggressive.
+• context_id (string): A saved scan context for auth, scope and rate.
+• project_id (string): Project to act in. Omit when the token is scoped to one.
+
+Confirmed with the account's authenticator code.
+
+===== /help changes =====
+/changes <window> [key=value]
+New web assets, services, endpoints, addresses and findings per target over a window, plus targets not scanned or stale. Counts items first reported in the window against an earlier baseline. A target's first scan reports nothing as new.
+
+Arguments
+• window (string, default 7d): How far back to look. One of: 7d, 14d, 30d.
+• project_id (string): Project to report on. Omit when the token is scoped to one.
+
+===== /help cve =====
+/cve <cve>
+Exploitation likelihood, known-exploited status and published exploits.
+
+Arguments
+• cve (string, required): CVE-2021-44228
+
+===== /help dns =====
+/dns <domain>
+Address, mail, nameserver, text and CAA records published for a domain.
+
+Arguments
+• domain (string, required): Domain name to resolve
+
+===== /help http =====
+/http <target> [key=value]
+Status, title, server, technologies, certificate and CDN for a host.
+
+Arguments
+• target (string, required): example.com · https://example.com/login · 93.184.216.34
+• follow_redirects (boolean, default true): Report the final response in the redirect chain
+• screenshot (boolean, default true): Render the page in a headless browser
+
+Confirmed with the account's authenticator code.
+
+===== /help ip =====
+/ip <ip>
+Network, operator, country and reverse DNS for an address, with its scan history.
+
+Arguments
+• ip (string, required): 8.8.8.8 · 2606:4700::1111
+
+===== /help org =====
+/org <organization>
+Domains and networks registered to an organization, from certificate transparency, reverse WHOIS and the routing registry.
+
+Arguments
+• organization (string, required): Cloudflare, Inc. · github.com · hostmaster@example.com
+
+===== /help subs =====
+/subs <domain> [key=value]
+Hostnames for a domain from passive sources.
+
+Arguments
+• domain (string, required): Registrable domain to enumerate
+• sources (string[], default ['certificates', 'subfinder', 'assetfinder']): Passive sources to query
+
+===== /help whois =====
+/whois <query>
+Registration and allocation records for a domain, address block or autonomous system.
+
+Arguments
+• query (string, required): example.com · 8.8.8.8 · 1.1.1.0/24 · AS13335
+
+===== /help vulns =====
+/vulns <target> [key=value]
+Findings on a target or across the selected project.
+
+Arguments
+• target (string): The target to search within. Omit to search every target in the project.
+• query (string): A query, for example `is:live and not is:cdn`, `severity:critical or is:kev`, `port:22 and is:sensitive`. describe_query_language lists the fields per dimension. Omit to return everything in scope.
+• limit (integer, default 20): Rows to return.
+• offset (integer, default 0): Rows to skip.
+• project_id (string): Project to search. Omit when the token is scoped to one.
+
+===== /help scans =====
+/scans
+Scans running now.
+
+===== /help nosuch =====
+Unknown command /nosuch. Send /help for the command list.
+
+===== bot command menu (setMyCommands) =====
+start - Start
+help - Help
+project - Project
+projects - Projects
+whoami - Who am I
+unpair - Unpair
+add - Add targets
+cancel - Cancel a scan
+targets - List targets
+pause - Pause a scan
+target - Resolve target
+resume - Resume a scan
+progress - Scan status
+scan - Start a scan
+changes - What changed
+cve - CVE
+dns - DNS records
+http - HTTP probe
+ip - IP address
+org - Domains by organization
+subs - Subdomain finder
+whois - WHOIS
+vulns - Findings
+scans - Running scans

@@ -1,0 +1,28 @@
+{% set m = page.meta %}
+<div class="rn-crumbs">
+  <span class="rn-crumbs__path">
+    {% for c in (m.crumbs or []) %}<span>{{ c }}</span>{% if not loop.last %}<span class="rn-crumbs__sep" aria-hidden="true">›</span>{% endif %}{% endfor %}
+  </span>
+  {% if m.md_url %}
+    <span class="rn-actions">
+      <button type="button" class="rn-action rn-copy-page" data-md-url="{{ m.md_url | url }}">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg>
+        <span>Copy page</span>
+      </button>
+      <a class="rn-action" href="{{ m.md_url | url }}" type="text/markdown">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="M4.5 10V6l1.75 2L8 6v4M10.5 6v4M9.25 8.75 10.5 10l1.25-1.25"/></svg>
+        <span>View as Markdown</span>
+      </a>
+    </span>
+  {% endif %}
+</div>
+<h1>{{ page.title }}</h1>
+{% if m.endpoint %}
+  {% set ep = m.endpoint.split(" ", 1) %}
+  <div class="rn-ep"><span class="rn-ep__method rn-ep__method--{{ ep[0] | lower }}">{{ ep[0] }}</span><code>{{ ep[1] }}</code></div>
+{% endif %}
+{% if m.description_html %}
+  <p class="rn-lede">{{ m.description_html }}</p>
+{% endif %}
+{{ page.content }}
+{% include "partials/page-meta.html" %}

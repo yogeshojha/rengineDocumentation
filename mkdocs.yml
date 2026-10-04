@@ -1,58 +1,268 @@
-site_name: reNgine
+site_name: reNgine Documentation
+site_url: https://rengine.wiki/
 site_author: Yogesh Ojha
-site_url: https://rengine.wiki
-site_description: reNgine is an automated reconnaissance framework meant for information gathering during penetration testing of web applications. reNgine has customizable scan engines, which can be used to scan the websites, endpoints, and gather information.
-
-copyright: "Copyright &copy; 2023 Yogesh Ojha"
+site_description: >-
+  Documentation for reNgine 3.0, a self-hosted attack surface management platform:
+  install and operate an instance, query the attack surface, and use the HTTP API
+  and the MCP server.
+copyright: Copyright &copy; 2026 Yogesh Ojha. reNgine is released under the GPL-3.0 license.
 
 repo_url: https://github.com/yogeshojha/rengine
-repo_name: reNgine
+repo_name: yogeshojha/rengine
+edit_uri: ""
 
 theme:
   name: material
-  custom_dir: docs/overrides
-  logo: static/logo.png
+  custom_dir: overrides
+  language: en
+  favicon: assets/images/favicon.svg
+  font:
+    text: DM Sans
+    code: JetBrains Mono
   icon:
     repo: fontawesome/brands/github
-  favicon: static/favicon.ico
   palette:
-    scheme: light
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Follow the system preference
   features:
     - navigation.tabs
-    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
     - navigation.top
-    - navigation.instant
-
-nav:
-  - Home: index.md
-  - Getting Started: getting-started.md
-  - Usage: usage/index.md
-  - Scan Engine Configuration: usage/scan_engine.md
-  - Changelog: changelog.md
-  # - API: api/index.md
-
-markdown_extensions:
-  - meta
-  - toc:
-      permalink: true
-  - attr_list
-  - admonition
-  - pymdownx.tabbed
-  - pymdownx.details
-  - pymdownx.superfences
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - toc.follow
 
 extra:
+  rengine_version: 3.0.0
+  source_base: https://github.com/yogeshojha/rengine/blob/master/
+  docs_source_base: https://github.com/yogeshojha/rengineDocumentation/blob/master/
+  generator: false
+  redirects:
+    import/targets/: pentesters/targets/#target-types
+    import/json/: pentesters/targets/#import-formats
+    import/csv/: pentesters/targets/#import-formats
+    getting-started/: pentesters/install/
+    install/quick/: pentesters/install/
+    install/detailed/: pentesters/install/
+    install/vps/: pentesters/install/
+    install/remotedb/: pentesters/install/
+    usage/: pentesters/run-a-scan/
+    usage/scan_engine/: pentesters/scan-engines/
+    changelog/: reference/release-notes/
+    api/: developers/api/
+    backup/: pentesters/backup/
+    update/: pentesters/update/
+    uninstall/: pentesters/uninstall/
+    security/: developers/security-reporting/
+    community/discord/: ""
+    community/blog-videos/: ""
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/yogeshojha/rengine
     - icon: fontawesome/brands/discord
       link: https://discord.gg/H6WzebwX3H
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/ojhayogesh11
 
 extra_css:
-  - assets/style.css
+  - assets/stylesheets/rengine.css
+
+extra_javascript:
+  - assets/javascripts/rengine.js
+
+watch:
+  - overrides
+  - hooks
+  - data
+
+hooks:
+  - hooks/rengine.py
 
 plugins:
-  - search
-  - badges
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+not_in_nav: |
+  /index.md
+
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+    absolute_links: info
+  links:
+    not_found: warn
+    anchors: warn
+    absolute_links: info
+    unrecognized_links: warn
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: Link to this section
+      toc_depth: 3
+  - pymdownx.blocks.tab:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: false
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.superfences
+  - pymdownx.escapeall:
+      hardbreak: false
+      nbsp: false
+
+nav:
+  - Pentesters:
+      - pentesters/index.md
+      - Start:
+          - Install reNgine: pentesters/install.md
+          - Sign in and set up: pentesters/first-sign-in.md
+          - Bug bounty and corporate modes: pentesters/instance-modes.md
+          - What reNgine can do: pentesters/capabilities.md
+      - Scanning:
+          - Projects and targets: pentesters/targets.md
+          - Run a scan: pentesters/run-a-scan.md
+          - Scan engines and intensity: pentesters/scan-engines.md
+          - Scan contexts: pentesters/scan-contexts.md
+          - Schedule scans: pentesters/schedules.md
+          - Focused rescans: pentesters/focused-rescans.md
+      - Results:
+          - Your attack surface: pentesters/attack-surface.md
+          - Search the attack surface: pentesters/query.md
+          - Findings and triage: pentesters/findings.md
+          - Exploit intelligence: pentesters/exploit-intelligence.md
+          - Correlation: pentesters/correlation.md
+          - Exposures: pentesters/exposures.md
+          - Compare runs and What's new: pentesters/compare-runs.md
+          - Notes: pentesters/notes.md
+          - Reports and exports: pentesters/reports.md
+      - Detections:
+          - Secret mining: pentesters/secret-mining.md
+          - Lookalike domains: pentesters/lookalike-domains.md
+          - Tripwires: pentesters/tripwires.md
+          - AI detection: pentesters/ai-detection.md
+          - Broken link hijacking: pentesters/broken-links.md
+      - Integrations:
+          - Burp Suite: pentesters/burp-suite.md
+          - Control reNgine from Telegram: pentesters/telegram.md
+          - Notifications: pentesters/notifications.md
+          - Issue trackers: pentesters/issue-trackers.md
+          - AI providers: pentesters/ai-providers.md
+      - Bug bounty:
+          - Bounty Hub: pentesters/bounty-hub.md
+          - Program watches: pentesters/program-watches.md
+      - Administration:
+          - Users and two-factor authentication: pentesters/users.md
+          - Settings: pentesters/settings.md
+          - Back up and restore: pentesters/backup.md
+          - Update and roll back: pentesters/update.md
+          - Uninstall reNgine: pentesters/uninstall.md
+          - Troubleshooting: pentesters/troubleshooting.md
+          - Security model: pentesters/security-model.md
+  - Developers:
+      - developers/index.md
+      - Foundations:
+          - How reNgine works: developers/architecture.md
+          - Where the code lives: developers/repository-layout.md
+          - How data is stored: developers/data-model.md
+          - How reNgine is configured: developers/configuration.md
+      - HTTP API:
+          - Get started with the API: developers/api/index.md
+          - Sign in to the API: developers/api/authentication.md
+          - Errors, limits and counts: developers/api/errors.md
+          - Search web assets: developers/api/search-web-assets.md
+          - Search endpoints: developers/api/search-endpoints.md
+          - Search services: developers/api/search-services.md
+          - Search IP addresses: developers/api/search-ips.md
+          - Search vulnerabilities: developers/api/search-vulnerabilities.md
+          - Search software: developers/api/search-software.md
+          - Search secrets: developers/api/search-secrets.md
+          - Add a target: developers/api/create-target.md
+          - Start a scan: developers/api/start-scan.md
+          - Follow a scan: developers/api/get-scan.md
+          - Compare two runs: developers/api/compare-runs.md
+          - Export results: developers/api/export.md
+      - Extend:
+          - Write a stage: developers/write-a-stage.md
+          - Write a tool wrapper: developers/write-a-tool-wrapper.md
+          - Write a toolbox tool: developers/write-a-toolbox-tool.md
+          - Write an MCP tool: developers/write-an-mcp-tool.md
+          - Write a connector: developers/write-a-connector.md
+          - Write a report section: developers/write-a-report-section.md
+          - Write an exposure provider: developers/write-an-interest-provider.md
+      - Contribute:
+          - Set up a development environment: developers/development-environment.md
+          - Make commands: developers/make-targets.md
+          - Tests and CI: developers/tests-and-ci.md
+          - Product copy rules: developers/copy-rules.md
+          - Report a vulnerability: developers/security-reporting.md
+  - Agents:
+      - agents/index.md
+      - MCP server:
+          - Connect your agent: agents/mcp/connect.md
+          - Control what an agent can do: agents/mcp/capabilities.md
+          - Tools: agents/mcp/tools.md
+          - Server instructions: agents/mcp/server-instructions.md
+          - Limits and errors: agents/mcp/limits.md
+          - Triage a target: agents/mcp/recipe-triage.md
+          - Track what changed: agents/mcp/recipe-changes.md
+          - Plan and launch a scan: agents/mcp/recipe-launch.md
+      - Agent files:
+          - AGENTS.md: agents/files/agents-md.md
+          - CLAUDE.md: agents/files/claude-md.md
+          - Claude Code skill: agents/files/skill.md
+      - Machine-readable docs:
+          - Give these docs to your agent: agents/machine-readable.md
+  - Reference:
+      - reference/index.md
+      - Query language:
+          - Syntax: reference/query/index.md
+          - Web assets: reference/query/web-assets.md
+          - Endpoints: reference/query/endpoints.md
+          - Services: reference/query/services.md
+          - IP addresses: reference/query/ips.md
+          - Vulnerabilities: reference/query/vulnerabilities.md
+          - Software: reference/query/software.md
+          - Secrets: reference/query/secrets.md
+      - Scanning:
+          - Stages: reference/stages/
+          - Default scan engine: reference/default-engine.md
+      - Interfaces:
+          - MCP tools: reference/mcp-tools.md
+          - HTTP API paths: reference/http-api.md
+          - Remote control commands: reference/remote-control-commands.md
+          - Keyboard shortcuts: reference/keyboard-shortcuts.md
+      - Running reNgine:
+          - rengine CLI: reference/cli.md
+          - Installer flags: reference/installer.md
+          - Configuration variables: reference/configuration.md
+          - Pinned tool versions: reference/tool-versions.md
+      - Glossary and release notes:
+          - Glossary: reference/glossary.md
+          - Release notes 3.0.0: reference/release-notes.md

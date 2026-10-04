@@ -1,0 +1,789 @@
+[
+  {
+    "name": "targets",
+    "args": "<contains> [key=value]",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "The targets this token can reach, with project and type.",
+    "usage": "/targets <contains> [key=value]",
+    "title": "List targets",
+    "group": "targets",
+    "group_label": "Targets",
+    "source": "mcp",
+    "tool": "list_targets",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "contains",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "contains",
+        "type": "string",
+        "required": false,
+        "description": "Only targets whose value contains this text.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "limit",
+        "type": "integer",
+        "required": false,
+        "description": "",
+        "default": "50",
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "target",
+    "args": "<target>",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "For each of a target's result dimensions: whether it was scanned, what the most recent covering scan found, when, and the scan id other tools take. Call this first. covered=false means not scanned, not zero.",
+    "usage": "/target <target>",
+    "title": "Resolve target",
+    "group": "targets",
+    "group_label": "Targets",
+    "source": "mcp",
+    "tool": "resolve_target",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "target",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "target",
+        "type": "string",
+        "required": true,
+        "description": "A domain, IP address, CIDR range, URL or ASN added as a target.",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "add",
+    "args": "<targets> [key=value]",
+    "args_source": "registry",
+    "capability": "write",
+    "description": "Add targets to a project. Records each target and queues WHOIS, DNS and routing enrichment. Runs no scan. An existing value is reused.",
+    "usage": "/add <targets> [key=value]",
+    "title": "Add targets",
+    "group": "targets",
+    "group_label": "Targets",
+    "source": "mcp",
+    "tool": "add_target",
+    "touches_target": false,
+    "steps_up": true,
+    "value_field": "targets",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "targets",
+        "type": "string[]",
+        "required": true,
+        "description": "The values to add, each a domain, IP address, CIDR range, URL or ASN. Existing values are reused.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "required": false,
+        "description": "Which project to add them to. Omit when the token is scoped to one.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "tags",
+        "type": "string[]",
+        "required": false,
+        "description": "Tags applied to the targets this call creates. Existing targets keep theirs.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "organizations",
+        "type": "string[]",
+        "required": false,
+        "description": "Organizations applied to the targets this call creates.",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "scan",
+    "args": "<target> [key=value]",
+    "args_source": "registry",
+    "capability": "launch",
+    "description": "Start a scan against a target in this token's project. Sends traffic to the target. Returns a scan id and a link. The scan runs in the background. Poll scan_status for progress.",
+    "usage": "/scan <target> [key=value]",
+    "title": "Start a scan",
+    "group": "scans",
+    "group_label": "Scans",
+    "source": "mcp",
+    "tool": "start_scan",
+    "touches_target": true,
+    "steps_up": true,
+    "value_field": "target",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "target",
+        "type": "string",
+        "required": true,
+        "description": "The target to scan. A value not yet in the project is added when the token holds the write capability.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "engine_id",
+        "type": "string",
+        "required": false,
+        "description": "A saved scan engine. Omit for an ad hoc plan.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "stages",
+        "type": "string[]",
+        "required": false,
+        "description": "Capability stages to enable when no engine is named.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "intensity",
+        "type": "string",
+        "required": false,
+        "description": "One of: passive, normal, aggressive.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "context_id",
+        "type": "string",
+        "required": false,
+        "description": "A saved scan context for auth, scope and rate.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "required": false,
+        "description": "Project to act in. Omit when the token is scoped to one.",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "scans",
+    "args": "",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "Scans running now.",
+    "usage": "/scans",
+    "title": "Running scans",
+    "group": "scans",
+    "group_label": "Scans",
+    "source": "mcp",
+    "tool": "scan_status",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "scan",
+    "takes_args": false,
+    "presets": {},
+    "arguments": []
+  },
+  {
+    "name": "progress",
+    "args": "<scan> [key=value]",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "Status of a scan: stages finished, running and failed, and counts found so far. Pass a scan id, a target for its most recent run, or neither for every running scan.",
+    "usage": "/progress <scan> [key=value]",
+    "title": "Scan status",
+    "group": "scans",
+    "group_label": "Scans",
+    "source": "mcp",
+    "tool": "scan_status",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "scan",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "scan",
+        "type": "string",
+        "required": false,
+        "description": "A scan id, as returned by start_scan or focused_rescan.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "required": false,
+        "description": "A target, to report its most recent run.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "limit",
+        "type": "integer",
+        "required": false,
+        "description": "How many runs to list when neither scan nor target is named.",
+        "default": "5",
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "pause",
+    "args": "<scan> [key=value]",
+    "args_source": "registry",
+    "capability": "launch",
+    "description": "Pause a running scan. Stages in flight stop and run again from the start when the scan resumes. Results written so far are kept.",
+    "usage": "/pause <scan> [key=value]",
+    "title": "Pause a scan",
+    "group": "scans",
+    "group_label": "Scans",
+    "source": "mcp",
+    "tool": "pause_scan",
+    "touches_target": true,
+    "steps_up": true,
+    "value_field": "scan",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "scan",
+        "type": "string",
+        "required": false,
+        "description": "The scan id to pause.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "required": false,
+        "description": "A target, to pause its running scan.",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "resume",
+    "args": "<scan> [key=value]",
+    "args_source": "registry",
+    "capability": "launch",
+    "description": "Resume a paused scan. It restarts at its first unfinished stage. Stages that already succeeded are not run again.",
+    "usage": "/resume <scan> [key=value]",
+    "title": "Resume a scan",
+    "group": "scans",
+    "group_label": "Scans",
+    "source": "mcp",
+    "tool": "resume_scan",
+    "touches_target": true,
+    "steps_up": true,
+    "value_field": "scan",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "scan",
+        "type": "string",
+        "required": false,
+        "description": "The scan id to resume.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "required": false,
+        "description": "A target, to resume its paused run.",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "cancel",
+    "args": "<scan> [key=value]",
+    "args_source": "registry",
+    "capability": "launch",
+    "description": "Stop a running scan. Stages in flight are aborted. Results written so far are kept. Takes effect immediately.",
+    "usage": "/cancel <scan> [key=value]",
+    "title": "Cancel a scan",
+    "group": "scans",
+    "group_label": "Scans",
+    "source": "mcp",
+    "tool": "cancel_scan",
+    "touches_target": true,
+    "steps_up": true,
+    "value_field": "scan",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "scan",
+        "type": "string",
+        "required": false,
+        "description": "The scan id to stop.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "required": false,
+        "description": "A target, to stop whichever run of it is live.",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "vulns",
+    "args": "<target> [key=value]",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "Findings on a target or across the selected project.",
+    "usage": "/vulns <target> [key=value]",
+    "title": "Findings",
+    "group": "results",
+    "group_label": "Results",
+    "source": "mcp",
+    "tool": "query_assets",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "target",
+    "takes_args": true,
+    "presets": {
+      "dimension": "vulnerabilities"
+    },
+    "arguments": [
+      {
+        "name": "target",
+        "type": "string",
+        "required": false,
+        "description": "The target to search within. Omit to search every target in the project.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "query",
+        "type": "string",
+        "required": false,
+        "description": "A query, for example `is:live and not is:cdn`, `severity:critical or is:kev`, `port:22 and is:sensitive`. describe_query_language lists the fields per dimension. Omit to return everything in scope.",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "limit",
+        "type": "integer",
+        "required": false,
+        "description": "Rows to return.",
+        "default": "20",
+        "options": []
+      },
+      {
+        "name": "offset",
+        "type": "integer",
+        "required": false,
+        "description": "Rows to skip.",
+        "default": "0",
+        "options": []
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "required": false,
+        "description": "Project to search. Omit when the token is scoped to one.",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "changes",
+    "args": "<window> [key=value]",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "New web assets, services, endpoints, addresses and findings per target over a window, plus targets not scanned or stale. Counts items first reported in the window against an earlier baseline. A target's first scan reports nothing as new.",
+    "usage": "/changes <window> [key=value]",
+    "title": "What changed",
+    "group": "results",
+    "group_label": "Results",
+    "source": "mcp",
+    "tool": "what_changed",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "window",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "window",
+        "type": "string",
+        "required": false,
+        "description": "How far back to look. One of: 7d, 14d, 30d.",
+        "default": "7d",
+        "options": []
+      },
+      {
+        "name": "project_id",
+        "type": "string",
+        "required": false,
+        "description": "Project to report on. Omit when the token is scoped to one.",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "cve",
+    "args": "<cve>",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "Exploitation likelihood, known-exploited status and published exploits.",
+    "usage": "/cve <cve>",
+    "title": "CVE",
+    "group": "lookups",
+    "group_label": "Lookups",
+    "source": "toolbox",
+    "tool": "cve",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "cve",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "cve",
+        "type": "string",
+        "required": true,
+        "description": "CVE-2021-44228",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "dns",
+    "args": "<domain>",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "Address, mail, nameserver, text and CAA records published for a domain.",
+    "usage": "/dns <domain>",
+    "title": "DNS records",
+    "group": "lookups",
+    "group_label": "Lookups",
+    "source": "toolbox",
+    "tool": "dns",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "domain",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "domain",
+        "type": "string",
+        "required": true,
+        "description": "Domain name to resolve",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "http",
+    "args": "<target> [key=value]",
+    "args_source": "registry",
+    "capability": "launch",
+    "description": "Status, title, server, technologies, certificate and CDN for a host.",
+    "usage": "/http <target> [key=value]",
+    "title": "HTTP probe",
+    "group": "lookups",
+    "group_label": "Lookups",
+    "source": "toolbox",
+    "tool": "http",
+    "touches_target": true,
+    "steps_up": true,
+    "value_field": "target",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "target",
+        "type": "string",
+        "required": true,
+        "description": "example.com · https://example.com/login · 93.184.216.34",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "follow_redirects",
+        "type": "boolean",
+        "required": false,
+        "description": "Report the final response in the redirect chain",
+        "default": "true",
+        "options": []
+      },
+      {
+        "name": "screenshot",
+        "type": "boolean",
+        "required": false,
+        "description": "Render the page in a headless browser",
+        "default": "true",
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "ip",
+    "args": "<ip>",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "Network, operator, country and reverse DNS for an address, with its scan history.",
+    "usage": "/ip <ip>",
+    "title": "IP address",
+    "group": "lookups",
+    "group_label": "Lookups",
+    "source": "toolbox",
+    "tool": "ip",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "ip",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "ip",
+        "type": "string",
+        "required": true,
+        "description": "8.8.8.8 · 2606:4700::1111",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "org",
+    "args": "<organization>",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "Domains and networks registered to an organization, from certificate transparency, reverse WHOIS and the routing registry.",
+    "usage": "/org <organization>",
+    "title": "Domains by organization",
+    "group": "lookups",
+    "group_label": "Lookups",
+    "source": "toolbox",
+    "tool": "org_domains",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "organization",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "organization",
+        "type": "string",
+        "required": true,
+        "description": "Cloudflare, Inc. · github.com · hostmaster@example.com",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "subs",
+    "args": "<domain> [key=value]",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "Hostnames for a domain from passive sources.",
+    "usage": "/subs <domain> [key=value]",
+    "title": "Subdomain finder",
+    "group": "lookups",
+    "group_label": "Lookups",
+    "source": "toolbox",
+    "tool": "subdomains",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "domain",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "domain",
+        "type": "string",
+        "required": true,
+        "description": "Registrable domain to enumerate",
+        "default": null,
+        "options": []
+      },
+      {
+        "name": "sources",
+        "type": "string[]",
+        "required": false,
+        "description": "Passive sources to query",
+        "default": "['certificates', 'subfinder', 'assetfinder']",
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "whois",
+    "args": "<query>",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "Registration and allocation records for a domain, address block or autonomous system.",
+    "usage": "/whois <query>",
+    "title": "WHOIS",
+    "group": "lookups",
+    "group_label": "Lookups",
+    "source": "toolbox",
+    "tool": "whois",
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "query",
+    "takes_args": true,
+    "presets": {},
+    "arguments": [
+      {
+        "name": "query",
+        "type": "string",
+        "required": true,
+        "description": "example.com · 8.8.8.8 · 1.1.1.0/24 · AS13335",
+        "default": null,
+        "options": []
+      }
+    ]
+  },
+  {
+    "name": "help",
+    "args": "[command]",
+    "args_source": "dispatcher",
+    "capability": "read",
+    "description": "The command list, or the usage of one command.",
+    "usage": "/help",
+    "title": "Help",
+    "group": "chat",
+    "group_label": "Chat",
+    "source": "builtin",
+    "tool": null,
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "",
+    "takes_args": true,
+    "presets": {},
+    "arguments": []
+  },
+  {
+    "name": "start",
+    "args": "",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "Pair this chat, or show its status once paired.",
+    "usage": "/start",
+    "title": "Start",
+    "group": "chat",
+    "group_label": "Chat",
+    "source": "builtin",
+    "tool": null,
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "",
+    "takes_args": true,
+    "presets": {},
+    "arguments": []
+  },
+  {
+    "name": "project",
+    "args": "[name]",
+    "args_source": "dispatcher",
+    "capability": "read",
+    "description": "Show or switch the selected project.",
+    "usage": "/project",
+    "title": "Project",
+    "group": "chat",
+    "group_label": "Chat",
+    "source": "builtin",
+    "tool": null,
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "",
+    "takes_args": true,
+    "presets": {},
+    "arguments": []
+  },
+  {
+    "name": "projects",
+    "args": "",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "The projects this account can select.",
+    "usage": "/projects",
+    "title": "Projects",
+    "group": "chat",
+    "group_label": "Chat",
+    "source": "builtin",
+    "tool": null,
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "",
+    "takes_args": true,
+    "presets": {},
+    "arguments": []
+  },
+  {
+    "name": "whoami",
+    "args": "",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "This chat's account, project and capabilities.",
+    "usage": "/whoami",
+    "title": "Who am I",
+    "group": "chat",
+    "group_label": "Chat",
+    "source": "builtin",
+    "tool": null,
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "",
+    "takes_args": true,
+    "presets": {},
+    "arguments": []
+  },
+  {
+    "name": "unpair",
+    "args": "",
+    "args_source": "registry",
+    "capability": "read",
+    "description": "Remove this chat's access.",
+    "usage": "/unpair",
+    "title": "Unpair",
+    "group": "chat",
+    "group_label": "Chat",
+    "source": "builtin",
+    "tool": null,
+    "touches_target": false,
+    "steps_up": false,
+    "value_field": "",
+    "takes_args": true,
+    "presets": {},
+    "arguments": []
+  }
+]

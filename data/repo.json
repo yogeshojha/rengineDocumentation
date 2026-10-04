@@ -1,0 +1,922 @@
+{
+ "generated_by": "scripts/snapshot_repo.py",
+ "version": "3.0.0",
+ "cli": {
+  "source": "deploy/rengine",
+  "usage": "Usage: rengine <command>",
+  "help": "Usage: rengine <command>\n\n  start          start the stack\n  stop           stop the stack\n  restart        stop and start the stack\n  status         services and API health\n  logs [svc]     follow logs, all services or one\n  scale <n>      run n scan worker containers\n  update [tag]   move to a release, the latest when no tag is given\n                 --no-backup skips the database snapshot taken first\n  backup         write a backup archive to ./backups\n  restore <f>    replace this instance's data with an archive\n  uninstall      remove containers and data volumes\n  version        installed release",
+  "commands": [
+   {
+    "name": "start",
+    "args": "",
+    "description": "start the stack",
+    "options": []
+   },
+   {
+    "name": "stop",
+    "args": "",
+    "description": "stop the stack",
+    "options": []
+   },
+   {
+    "name": "restart",
+    "args": "",
+    "description": "stop and start the stack",
+    "options": []
+   },
+   {
+    "name": "status",
+    "args": "",
+    "description": "services and API health",
+    "options": []
+   },
+   {
+    "name": "logs",
+    "args": "[svc]",
+    "description": "follow logs, all services or one",
+    "options": []
+   },
+   {
+    "name": "scale",
+    "args": "<n>",
+    "description": "run n scan worker containers",
+    "options": []
+   },
+   {
+    "name": "update",
+    "args": "[tag]",
+    "description": "move to a release, the latest when no tag is given",
+    "options": [
+     {
+      "flag": "--no-backup",
+      "description": "skips the database snapshot taken first"
+     }
+    ]
+   },
+   {
+    "name": "backup",
+    "args": "",
+    "description": "write a backup archive to ./backups",
+    "options": []
+   },
+   {
+    "name": "restore",
+    "args": "<f>",
+    "description": "replace this instance's data with an archive",
+    "options": []
+   },
+   {
+    "name": "uninstall",
+    "args": "",
+    "description": "remove containers and data volumes",
+    "options": []
+   },
+   {
+    "name": "version",
+    "args": "",
+    "description": "installed release",
+    "options": []
+   }
+  ]
+ },
+ "installer": {
+  "source": "install.sh",
+  "usage": "Usage: install.sh [options]",
+  "help": "Usage: install.sh [options]\n\nRun without flags for the guided setup.\n\nReachability, one of\n  --domain <name>       public domain, HTTPS certificate from Let's Encrypt\n  --ip [address]        server address, self-signed certificate\n  --local               this machine only, no TLS\n\nOptions\n  --ui-port <port>      published UI port, fixed at 443 with --domain\n  --api-port <port>     publish the API over plain HTTP on 127.0.0.1\n  --no-api-port         stop publishing the API port\n  --admin-user <name>   first administrator, default rengine\n  --admin-email <mail>\n  --admin-password-stdin\n                        read the administrator password from stdin\n  --acme-email <mail>   Let's Encrypt account email\n  --dir <path>          install directory\n  --tag <tag>           release to install, default the latest\n  --image <prefix>      image repository prefix, default yogeshojha/rengine\n                        ghcr.io/yogeshojha/rengine holds the same images\n  --build               build images from this checkout instead of pulling\n  --no-start            write the configuration and stop\n  --no-backup           skip the database snapshot taken before an upgrade\n  --force               skip the memory, disk and port checks\n\nEnvironment\n  RENGINE_ADMIN_PASSWORD  administrator password, default a generated one",
+  "groups": [
+   {
+    "title": "Reachability, one of",
+    "items": [
+     {
+      "flag": "--domain",
+      "arg": "<name>",
+      "description": "public domain, HTTPS certificate from Let's Encrypt"
+     },
+     {
+      "flag": "--ip",
+      "arg": "[address]",
+      "description": "server address, self-signed certificate"
+     },
+     {
+      "flag": "--local",
+      "arg": "",
+      "description": "this machine only, no TLS"
+     }
+    ]
+   },
+   {
+    "title": "Options",
+    "items": [
+     {
+      "flag": "--ui-port",
+      "arg": "<port>",
+      "description": "published UI port, fixed at 443 with --domain"
+     },
+     {
+      "flag": "--api-port",
+      "arg": "<port>",
+      "description": "publish the API over plain HTTP on 127.0.0.1"
+     },
+     {
+      "flag": "--no-api-port",
+      "arg": "",
+      "description": "stop publishing the API port"
+     },
+     {
+      "flag": "--admin-user",
+      "arg": "<name>",
+      "description": "first administrator, default rengine"
+     },
+     {
+      "flag": "--admin-email",
+      "arg": "<mail>",
+      "description": ""
+     },
+     {
+      "flag": "--admin-password-stdin",
+      "arg": "",
+      "description": "read the administrator password from stdin"
+     },
+     {
+      "flag": "--acme-email",
+      "arg": "<mail>",
+      "description": "Let's Encrypt account email"
+     },
+     {
+      "flag": "--dir",
+      "arg": "<path>",
+      "description": "install directory"
+     },
+     {
+      "flag": "--tag",
+      "arg": "<tag>",
+      "description": "release to install, default the latest"
+     },
+     {
+      "flag": "--image",
+      "arg": "<prefix>",
+      "description": "image repository prefix, default yogeshojha/rengine\nghcr.io/yogeshojha/rengine holds the same images"
+     },
+     {
+      "flag": "--build",
+      "arg": "",
+      "description": "build images from this checkout instead of pulling"
+     },
+     {
+      "flag": "--no-start",
+      "arg": "",
+      "description": "write the configuration and stop"
+     },
+     {
+      "flag": "--no-backup",
+      "arg": "",
+      "description": "skip the database snapshot taken before an upgrade"
+     },
+     {
+      "flag": "--force",
+      "arg": "",
+      "description": "skip the memory, disk and port checks"
+     }
+    ]
+   },
+   {
+    "title": "Environment",
+    "items": [
+     {
+      "flag": "RENGINE_ADMIN_PASSWORD",
+      "arg": "",
+      "description": "administrator password, default a generated one"
+     }
+    ]
+   }
+  ],
+  "memory_gb": {
+   "minimum": 4,
+   "recommended": 8
+  },
+  "disk_gb": {
+   "minimum": 10,
+   "recommended": 25
+  }
+ },
+ "env": {
+  "source": ".env.example",
+  "sections": [
+   {
+    "title": "Application",
+    "variables": [
+     {
+      "name": "DEBUG",
+      "default": "true",
+      "comment": ""
+     },
+     {
+      "name": "LOG_LEVEL",
+      "default": "INFO",
+      "comment": ""
+     },
+     {
+      "name": "SQL_ECHO",
+      "default": "false",
+      "comment": "echo every SQL statement and its parameters"
+     }
+    ]
+   },
+   {
+    "title": "Database",
+    "variables": [
+     {
+      "name": "POSTGRES_HOST",
+      "default": "db",
+      "comment": ""
+     },
+     {
+      "name": "POSTGRES_PORT",
+      "default": "5432",
+      "comment": ""
+     },
+     {
+      "name": "POSTGRES_USER",
+      "default": "rengine",
+      "comment": ""
+     },
+     {
+      "name": "POSTGRES_PASSWORD",
+      "default": "rengine",
+      "comment": ""
+     },
+     {
+      "name": "POSTGRES_DB",
+      "default": "rengine",
+      "comment": ""
+     },
+     {
+      "name": "POSTGRES_SHARED_BUFFERS",
+      "default": "2GB",
+      "comment": "Postgres tuning, applied in the db service's command"
+     },
+     {
+      "name": "POSTGRES_EFFECTIVE_CACHE_SIZE",
+      "default": "6GB",
+      "comment": ""
+     },
+     {
+      "name": "POSTGRES_WORK_MEM",
+      "default": "32MB",
+      "comment": ""
+     },
+     {
+      "name": "POSTGRES_MAINTENANCE_WORK_MEM",
+      "default": "512MB",
+      "comment": ""
+     },
+     {
+      "name": "POSTGRES_MAX_CONNECTIONS",
+      "default": "250",
+      "comment": ""
+     },
+     {
+      "name": "POSTGRES_LOG_MIN_DURATION",
+      "default": "2000",
+      "comment": ""
+     },
+     {
+      "name": "POSTGRES_MAX_WAL_SIZE",
+      "default": "2GB",
+      "comment": "disk the write-ahead log may hold between checkpoints"
+     },
+     {
+      "name": "POSTGRES_SHM_SIZE",
+      "default": "1gb",
+      "comment": "/dev/shm of the db container"
+     }
+    ]
+   },
+   {
+    "title": "Connection pools",
+    "variables": [
+     {
+      "name": "DB_POOL_SIZE",
+      "default": "10",
+      "comment": "api: DB_POOL_SIZE + DB_MAX_OVERFLOW per process. worker: WORKER_DB_POOL_SIZE + WORKER_DB_MAX_OVERFLOW per prefork child"
+     },
+     {
+      "name": "DB_MAX_OVERFLOW",
+      "default": "20",
+      "comment": ""
+     },
+     {
+      "name": "DB_POOL_TIMEOUT",
+      "default": "10",
+      "comment": ""
+     },
+     {
+      "name": "DB_POOL_RECYCLE",
+      "default": "1800",
+      "comment": ""
+     },
+     {
+      "name": "DB_IDLE_TX_TIMEOUT",
+      "default": "120",
+      "comment": "seconds idle inside a transaction before Postgres ends the connection, 0 disables"
+     },
+     {
+      "name": "WORKER_DB_POOL_SIZE",
+      "default": "2",
+      "comment": ""
+     },
+     {
+      "name": "WORKER_DB_MAX_OVERFLOW",
+      "default": "3",
+      "comment": ""
+     },
+     {
+      "name": "WORKER_DB_POOL_TIMEOUT",
+      "default": "30",
+      "comment": ""
+     }
+    ]
+   },
+   {
+    "title": "Redis",
+    "variables": [
+     {
+      "name": "REDIS_HOST",
+      "default": "redis",
+      "comment": ""
+     },
+     {
+      "name": "REDIS_PORT",
+      "default": "6379",
+      "comment": ""
+     },
+     {
+      "name": "REDIS_DB",
+      "default": "0",
+      "comment": ""
+     },
+     {
+      "name": "REDIS_PASSWORD",
+      "default": "",
+      "comment": "optional, no whitespace, quotes or backslashes"
+     },
+     {
+      "name": "REDIS_MAXMEMORY",
+      "default": "1gb",
+      "comment": ""
+     },
+     {
+      "name": "REDIS_CACHE_HOST",
+      "default": "cache",
+      "comment": "cached aggregates, on an instance that evicts"
+     },
+     {
+      "name": "REDIS_CACHE_PORT",
+      "default": "6379",
+      "comment": ""
+     },
+     {
+      "name": "REDIS_CACHE_MAXMEMORY",
+      "default": "256mb",
+      "comment": ""
+     }
+    ]
+   },
+   {
+    "title": "Celery",
+    "variables": [
+     {
+      "name": "CELERY_SCAN_CONCURRENCY",
+      "default": "16",
+      "comment": "stage slots per worker-scans container, one tool each"
+     },
+     {
+      "name": "CELERY_CONTROL_CONCURRENCY",
+      "default": "8",
+      "comment": "launch, step hand-over, resume and finalize"
+     },
+     {
+      "name": "CELERY_DEFAULT_CONCURRENCY",
+      "default": "4",
+      "comment": "background jobs and toolbox runs"
+     },
+     {
+      "name": "TASK_SOFT_TIME_LIMIT",
+      "default": "21600",
+      "comment": "seconds"
+     },
+     {
+      "name": "TASK_HARD_TIME_LIMIT",
+      "default": "28800",
+      "comment": ""
+     }
+    ]
+   },
+   {
+    "title": "API",
+    "variables": [
+     {
+      "name": "SECRET_KEY",
+      "default": "",
+      "comment": "Generate one: openssl rand -hex 32"
+     },
+     {
+      "name": "JWT_SECRET_KEY",
+      "default": "",
+      "comment": "signs sessions; production keeps it in api.env for the api alone required unless DEBUG=true, where it is derived from SECRET_KEY when empty Generate one: openssl rand -hex 32"
+     },
+     {
+      "name": "ACCESS_TOKEN_EXPIRE_MINUTES",
+      "default": "30",
+      "comment": ""
+     },
+     {
+      "name": "REFRESH_TOKEN_EXPIRE_DAYS",
+      "default": "7",
+      "comment": ""
+     },
+     {
+      "name": "CORS_ORIGINS",
+      "default": "[\"http://localhost:5173\"]",
+      "comment": ""
+     },
+     {
+      "name": "API_RELOAD",
+      "default": "true",
+      "comment": "true: one process under --reload, false: API_WORKERS processes"
+     },
+     {
+      "name": "API_WORKERS",
+      "default": "4",
+      "comment": ""
+     },
+     {
+      "name": "GLOBAL_RATE_LIMIT_PER_MINUTE",
+      "default": "600",
+      "comment": ""
+     },
+     {
+      "name": "TRUSTED_PROXIES",
+      "default": "",
+      "comment": "comma-separated CIDRs whose X-Forwarded-For is believed"
+     }
+    ]
+   },
+   {
+    "title": "First administrator",
+    "variables": [
+     {
+      "name": "ADMIN_EMAIL",
+      "default": "admin@rengine.local",
+      "comment": ""
+     },
+     {
+      "name": "ADMIN_USERNAME",
+      "default": "rengine",
+      "comment": ""
+     },
+     {
+      "name": "ADMIN_PASSWORD",
+      "default": "rengine@123",
+      "comment": ""
+     }
+    ]
+   },
+   {
+    "title": "Published ports",
+    "variables": [
+     {
+      "name": "BIND_ADDR",
+      "default": "127.0.0.1",
+      "comment": "db, redis and flower are reachable from the host only"
+     },
+     {
+      "name": "APP_BIND_ADDR",
+      "default": "127.0.0.1",
+      "comment": "api and frontend, 0.0.0.0 for every interface"
+     }
+    ]
+   },
+   {
+    "title": "Flower, under the debug profile: docker compose --profile debug up -d flower",
+    "variables": [
+     {
+      "name": "FLOWER_USER",
+      "default": "admin",
+      "comment": ""
+     },
+     {
+      "name": "FLOWER_PASSWORD",
+      "default": "admin",
+      "comment": ""
+     }
+    ]
+   },
+   {
+    "title": "Outbound calls that are not scan traffic: intel feeds, RDAP, RIPEstat",
+    "variables": [
+     {
+      "name": "EGRESS_PROXY_URL",
+      "default": "",
+      "comment": ""
+     },
+     {
+      "name": "EGRESS_TIMEOUT",
+      "default": "30",
+      "comment": ""
+     }
+    ]
+   }
+  ],
+  "count": 55
+ },
+ "tools": {
+  "tools": [
+   {
+    "name": "Go toolchain",
+    "version": "1.25.7",
+    "module": "go.dev/dl",
+    "kind": "build",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "dnsx",
+    "version": "v1.3.1",
+    "module": "github.com/projectdiscovery/dnsx/cmd/dnsx",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "subfinder",
+    "version": "v2.16.0",
+    "module": "github.com/projectdiscovery/subfinder/v2/cmd/subfinder",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "tlsx",
+    "version": "v1.4.0",
+    "module": "github.com/projectdiscovery/tlsx/cmd/tlsx",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "alterx",
+    "version": "v0.1.0",
+    "module": "github.com/projectdiscovery/alterx/cmd/alterx",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "assetfinder",
+    "version": "v0.1.1",
+    "module": "github.com/tomnomnom/assetfinder",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "github-subdomains",
+    "version": "v1.2.2",
+    "module": "github.com/gwen001/github-subdomains",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "amass",
+    "version": "v4.2.0",
+    "module": "github.com/owasp-amass/amass/v4/...",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "naabu",
+    "version": "v2.6.1",
+    "module": "github.com/projectdiscovery/naabu/v2/cmd/naabu",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "httpx",
+    "version": "v1.12.0",
+    "module": "github.com/projectdiscovery/httpx/cmd/httpx",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "cdncheck",
+    "version": "v1.3.0",
+    "module": "github.com/projectdiscovery/cdncheck/cmd/cdncheck",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "ffuf",
+    "version": "v2.3.0",
+    "module": "github.com/ffuf/ffuf/v2",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "katana",
+    "version": "v1.7.0",
+    "module": "github.com/projectdiscovery/katana/cmd/katana",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "urlfinder",
+    "version": "v0.0.3",
+    "module": "github.com/projectdiscovery/urlfinder/cmd/urlfinder",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "nuclei",
+    "version": "v3.11.1",
+    "module": "github.com/projectdiscovery/nuclei/v3/cmd/nuclei",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "certspotter",
+    "version": "v0.24.2",
+    "module": "software.sslmate.com/src/certspotter/cmd/certspotter",
+    "kind": "go",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "dalfox",
+    "version": "v3.2.2",
+    "module": "release binary",
+    "kind": "binary",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "julius",
+    "version": "v1.4.19",
+    "module": "release binary",
+    "kind": "binary",
+    "source": "worker/Dockerfile"
+   },
+   {
+    "name": "wafw00f",
+    "version": "2.4.2",
+    "module": "PyPI",
+    "kind": "python",
+    "source": "worker/Dockerfile"
+   }
+  ],
+  "apt_packages": [
+   "chromium",
+   "libpcap0.8t64",
+   "libpango-1.0-0",
+   "libpangoft2-1.0-0",
+   "libharfbuzz-subset0",
+   "fontconfig"
+  ],
+  "images": [
+   {
+    "image": "python:3.13-slim",
+    "file": "api/Dockerfile",
+    "stage": "base"
+   },
+   {
+    "image": "node:22-slim",
+    "file": "frontend/Dockerfile",
+    "stage": "build"
+   },
+   {
+    "image": "node:22-slim",
+    "file": "frontend/Dockerfile",
+    "stage": "production"
+   },
+   {
+    "image": "node:22-slim",
+    "file": "frontend/Dockerfile.dev",
+    "stage": ""
+   },
+   {
+    "image": "python:3.13-slim",
+    "file": "worker/Dockerfile",
+    "stage": "base"
+   },
+   {
+    "image": "caddy:2-alpine",
+    "file": "docker-compose.prod.yml",
+    "stage": ""
+   },
+   {
+    "image": "postgres:16-alpine",
+    "file": "docker-compose.prod.yml",
+    "stage": ""
+   },
+   {
+    "image": "redis:8-alpine",
+    "file": "docker-compose.prod.yml",
+    "stage": ""
+   }
+  ]
+ },
+ "shortcuts": [
+  {
+   "title": "Targets list",
+   "source": "frontend/src/routes/(app)/targets/+page.svelte:376",
+   "rows": [
+    [
+     "j / k",
+     "Move between targets"
+    ],
+    [
+     "o",
+     "Expand or collapse the row"
+    ],
+    [
+     "Enter",
+     "Open target"
+    ],
+    [
+     "s",
+     "Scan"
+    ],
+    [
+     "x",
+     "Select target"
+    ],
+    [
+     "/",
+     "Search"
+    ],
+    [
+     "Esc",
+     "Collapse or clear selection"
+    ]
+   ]
+  },
+  {
+   "title": "Scans list",
+   "source": "frontend/src/lib/components/scans/scan-history-table.svelte:430",
+   "rows": [
+    [
+     "j / k",
+     "Move between runs"
+    ],
+    [
+     "o",
+     "Expand or collapse the run brief"
+    ],
+    [
+     "1 to 4",
+     "Switch brief tab"
+    ],
+    [
+     "Enter",
+     "Open results"
+    ],
+    [
+     "x",
+     "Select run"
+    ],
+    [
+     "c",
+     "Compare runs"
+    ],
+    [
+     "/",
+     "Search"
+    ],
+    [
+     "Esc",
+     "Collapse or clear selection"
+    ]
+   ]
+  },
+  {
+   "title": "Vulnerabilities table",
+   "source": "frontend/src/lib/components/scans/results/vulnerabilities-table.svelte:1072",
+   "rows": [
+    [
+     "j / k",
+     "Move between findings"
+    ],
+    [
+     "e",
+     "Expand or collapse the row"
+    ],
+    [
+     "1 to 5",
+     "Switch row tab"
+    ],
+    [
+     "Enter",
+     "Open finding"
+    ],
+    [
+     "x",
+     "Select finding"
+    ],
+    [
+     "b",
+     "Send the open finding to Burp Suite"
+    ],
+    [
+     "o / c / f / a",
+     "Open, Confirmed, False positive, Risk accepted"
+    ],
+    [
+     "/",
+     "Search"
+    ],
+    [
+     "Esc",
+     "Collapse or clear"
+    ]
+   ]
+  },
+  {
+   "title": "What's new, events",
+   "source": "frontend/src/lib/config/whats-new.ts:142",
+   "rows": [
+    [
+     "j / k",
+     "Move between events"
+    ],
+    [
+     "Enter or o",
+     "Expand or collapse the event"
+    ],
+    [
+     "g",
+     "Go to the run or program"
+    ],
+    [
+     "s",
+     "Scan the target"
+    ],
+    [
+     "1 2",
+     "Switch tab"
+    ],
+    [
+     "/",
+     "Filter"
+    ],
+    [
+     "Esc",
+     "Collapse or clear selection"
+    ]
+   ]
+  },
+  {
+   "title": "What's new, visual changes",
+   "source": "frontend/src/lib/config/whats-new.ts:152",
+   "rows": [
+    [
+     "j / k",
+     "Move between changes"
+    ],
+    [
+     "Enter",
+     "Compare the captures"
+    ],
+    [
+     "s",
+     "Scan the target"
+    ]
+   ]
+  },
+  {
+   "title": "Bounty reports",
+   "source": "frontend/src/routes/(app)/bounty-hub/[platform]/+page.svelte:368",
+   "rows": [
+    [
+     "j / k",
+     "Move between reports"
+    ],
+    [
+     "o",
+     "Expand or collapse the report"
+    ],
+    [
+     "p",
+     "Filter to the report program"
+    ],
+    [
+     "Enter",
+     "Open the report"
+    ],
+    [
+     "/",
+     "Search"
+    ],
+    [
+     "?",
+     "Keyboard shortcuts"
+    ],
+    [
+     "Esc",
+     "Collapse the report"
+    ]
+   ]
+  }
+ ]
+}

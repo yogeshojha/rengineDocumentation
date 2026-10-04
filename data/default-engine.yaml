@@ -1,0 +1,253 @@
+name: Default
+description: Subdomain discovery on subfinder and crt.name, HTTP probe, screenshots,
+  response mining and a nuclei vulnerability scan at Normal intensity.
+intensity: normal
+global_headers: []
+stages:
+  lookalike_domains:
+    enabled: true
+    tld_swap: true
+    page_similarity: true
+    registration: true
+    words:
+    - login
+    - secure
+    - account
+    - support
+    - portal
+    - verify
+    - auth
+    - sso
+    - mail
+    - online
+  seed_resolution:
+    enabled: true
+    asn_scan_mode: smart
+  target_enrichment:
+    enabled: true
+  session_check:
+    enabled: true
+  netblock_sweep:
+    enabled: true
+    max_sweep: 8192
+  reverse_dns:
+    enabled: true
+  subdomain_discovery:
+    enabled: true
+    passive_tools:
+    - subfinder
+    - crtname
+    tls_discovery: true
+    zone_transfer: false
+    bruteforce: false
+    wordlist: common-subdomains
+    wordlist_limit: 1000
+    permutations: false
+    skip_address_names: true
+  host_discovery:
+    enabled: true
+  cdn_check:
+    enabled: true
+  passive_ports:
+    enabled: true
+  port_scan:
+    enabled: false
+    profile: exposure
+    ports: ''
+    exclude_ports: ''
+    scan_type: connect
+    cdn_policy: web
+    scan_cloud: true
+    skip_private: true
+    http_on_every_port: false
+    max_addresses: 8192
+  vhost:
+    enabled: false
+    wordlist: common-vhosts
+  http_probe:
+    enabled: true
+  origin_probe:
+    enabled: true
+    max_addresses: 2048
+  service_fingerprint:
+    enabled: true
+    max_services: 2000
+  waf_detect:
+    enabled: true
+  screenshot:
+    enabled: true
+    max_screenshots: 0
+  dns_posture:
+    enabled: true
+    dkim_selectors:
+    - default
+    - google
+    - selector1
+    - selector2
+    - k1
+    - k2
+    - s1
+    - s2
+    - dkim
+    - mail
+    - smtp
+    - mandrill
+    - mailjet
+    - sendgrid
+    - zendesk1
+    - amazonses
+    - pm
+    - protonmail
+    - mimecast20190108
+    - fm1
+  takeover:
+    enabled: true
+  zone_transfer:
+    enabled: true
+  ai_detection:
+    enabled: true
+    mcp_paths: true
+    max_minutes: 30
+    max_assets: 5000
+  broken_links:
+    enabled: true
+  content_discovery:
+    enabled: false
+    wordlist: common-content
+    wordlist_limit: 1000
+    max_minutes: 20
+    max_hosts: 25
+  url_discovery:
+    enabled: true
+    providers:
+    - response_mining
+    crawl_depth: 3
+    headless: false
+    max_crawl_minutes: 20
+    crawl_scope: rdn
+    max_hosts: 500
+    drop_noise: true
+    static_extensions:
+    - png
+    - jpg
+    - jpeg
+    - gif
+    - svg
+    - webp
+    - avif
+    - bmp
+    - ico
+    - tif
+    - tiff
+    - css
+    - scss
+    - less
+    - map
+    - woff
+    - woff2
+    - ttf
+    - eot
+    - otf
+    - mp4
+    - webm
+    - mov
+    - avi
+    - mp3
+    - wav
+    - ogg
+    - m4a
+    - flac
+    ignored_params:
+    - utm_source
+    - utm_medium
+    - utm_campaign
+    - utm_term
+    - utm_content
+    - utm_id
+    - fbclid
+    - gclid
+    - dclid
+    - msclkid
+    - yclid
+    - mc_cid
+    - mc_eid
+    - _ga
+    - _gl
+    - _hsenc
+    - _hsmi
+    - ref
+    - v
+    - ver
+    - version
+    - _
+    - cb
+    - cache
+    - nocache
+    - rand
+    - random
+    - t
+    - ts
+    - timestamp
+    - hash
+    - rev
+    - build
+    - itok
+    - cachebuster
+    keep_per_family: 3
+    sibling_cap: 12
+  endpoint_probe:
+    enabled: true
+    skip_static: true
+    max_urls: 0
+  ip_enrichment:
+    enabled: true
+  name_ownership:
+    enabled: true
+  vulnerability_scan:
+    enabled: true
+    severities:
+    - critical
+    - high
+    - medium
+    - low
+    template_sets:
+    - kev
+    - cve
+    - panel
+    - exposure
+    - misconfiguration
+    - default-login
+    - takeover
+    - injection
+    custom_templates: []
+    surface: web
+    headless: false
+    max_minutes: 0
+    scanners:
+    - nuclei
+    include_tags: []
+    exclude_tags: []
+    exclude_templates: []
+    template_ids: []
+    blind_sweep: true
+    max_targets: 0
+    interactsh: true
+    store_evidence: true
+  dast_scan:
+    enabled: false
+    scanners:
+    - nuclei
+    severities:
+    - critical
+    - high
+    - medium
+    - low
+    directories: false
+    headless: false
+    max_minutes: 30
+    max_requests_per_origin: 50
+    max_requests: 1500
+  secret_mining:
+    enabled: true
+transport_overrides: {}
+tool_options: {}

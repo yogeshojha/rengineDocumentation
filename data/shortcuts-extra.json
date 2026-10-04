@@ -1,0 +1,58 @@
+{
+ "about": "Keyboard handlers without a shortcut dialog, curated from frontend/src on release/3.0.0. Each entry names its source file. The dialog tables come from data/repo.json.",
+ "groups": [
+  {"title": "Anywhere", "source": "frontend/src/lib/components/layout/command-search.svelte", "rows": [
+   ["Ctrl+K", "Open or close the command palette"],
+   ["Ctrl+Shift+K", "Open or close the Toolbox"],
+   ["Ctrl+B", "Show or hide the sidebar"],
+   ["Esc", "Close the Activity panel when it is open and not pinned"]
+  ], "sources": ["frontend/src/lib/components/layout/command-search.svelte", "frontend/src/lib/components/toolbox/toolbox-menu.svelte", "frontend/src/lib/components/ui/sidebar/constants.ts", "frontend/src/lib/components/activity/activity-panel.svelte"]},
+  {"title": "Query bar", "rows": [
+   ["/", "Focus the query bar of the table"],
+   ["Enter", "Search, or insert the highlighted suggestion"],
+   ["Up / Down", "Choose a suggestion"],
+   ["Tab", "Complete a field or a value"],
+   ["Esc", "Dismiss the suggestions, or clear the query when none are open"],
+   ["?", "Open the syntax guide, in an empty query bar"]
+  ], "sources": ["frontend/src/lib/components/scans/results/query-bar/query-bar.svelte"]},
+  {"title": "Result tables", "rows": [
+   ["j / k or Down / Up", "Move between rows"],
+   ["Enter", "Open the row"],
+   ["Esc", "Clear the cursor"],
+   ["r", "Rescan the selection, in the web assets table"],
+   ["[ / ]", "Previous or next host, inside a host in the endpoints table"],
+   ["Backspace", "Leave the host, in the endpoints table"],
+   ["1 to N", "Switch to the Nth tab of a run page or a target page"]
+  ], "sources": ["frontend/src/lib/components/scans/results/web-assets-table.svelte", "frontend/src/lib/components/scans/results/endpoints-table.svelte", "frontend/src/routes/(app)/scans/[id]/+page.svelte", "frontend/src/routes/(app)/targets/[id]/+page.svelte"]},
+  {"title": "Detail sheets", "rows": [
+   ["j or Down", "Next row"],
+   ["k or Up", "Previous row"],
+   ["1 to 9", "Switch the tab of the finding detail sheet"]
+  ], "sources": ["frontend/src/lib/components/scans/results/sheet.ts", "frontend/src/lib/components/scans/results/vulnerability-detail-sheet.svelte"]},
+  {"title": "Compare runs", "rows": [
+   ["j", "Open the first change, then the next"],
+   ["k", "Previous change"],
+   ["s", "Swap the two runs"]
+  ], "sources": ["frontend/src/routes/(app)/scans/compare/+page.svelte"]},
+  {"title": "Visual compare", "rows": [
+   ["Right or j", "Next change"],
+   ["Left or k", "Previous change"],
+   ["Space, held", "Show the earlier capture"],
+   ["1 / 2 / 3", "Switch the view mode"]
+  ], "sources": ["frontend/src/lib/components/whats-new/visual-compare-dialog.svelte"]},
+  {"title": "Editors and dialogs", "rows": [
+   ["Ctrl+S", "Save, in the scan engine editor and the scan context editor"],
+   ["Enter", "Start the scan, in the launch dialog"],
+   ["Ctrl+Enter", "Save a note, or send a request from the proxy request dialog"],
+   ["Esc", "Cancel an edit of a note"],
+   ["Enter", "Send a message in Ask. Shift+Enter adds a line."]
+  ], "sources": ["frontend/src/routes/(app)/automation/engines/[id]/+page.svelte", "frontend/src/routes/(app)/automation/contexts/[id]/+page.svelte", "frontend/src/lib/components/scans/launch/launch-dialog.svelte", "frontend/src/lib/components/notes/note-composer.svelte", "frontend/src/lib/components/scans/results/endpoints/proxy-request-dialog.svelte", "frontend/src/lib/components/scans/results/vulnerabilities/ask/ask-composer.svelte"]},
+  {"title": "Report preview", "rows": [
+   ["Right or PageDown", "Next page"],
+   ["Left or PageUp", "Previous page"],
+   ["+ or =", "Zoom in"],
+   ["-", "Zoom out"],
+   ["Home / End", "First or last page"]
+  ], "sources": ["frontend/src/lib/components/reports/preview/report-preview-dialog.svelte"]}
+ ]
+}

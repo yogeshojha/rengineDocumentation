@@ -1,0 +1,250 @@
+{% extends "main.html" %}
+
+{% block site_nav %}{% endblock %}
+
+{% block container %}
+{% set m = page.meta %}
+{% set counts = config.extra.counts %}
+<div class="md-content rn-home" data-md-component="content">
+  <article class="md-content__inner md-typeset rn-home__inner">
+
+    <section class="rn-hero" aria-labelledby="rn-hero-title">
+      <div class="rn-hero__text">
+        <div class="rn-hero__top">
+          <p class="rn-hero__eyebrow">reNgine {{ config.extra.rengine_version }} · Sirius</p>
+          <span class="rn-actions">
+            <button type="button" class="rn-action rn-copy-page" data-md-url="{{ m.md_url | url }}">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg>
+              <span>Copy page</span>
+            </button>
+            <a class="rn-action" href="{{ m.md_url | url }}" type="text/markdown">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="M4.5 10V6l1.75 2L8 6v4M10.5 6v4M9.25 8.75 10.5 10l1.25-1.25"/></svg>
+              <span>View as Markdown</span>
+            </a>
+          </span>
+        </div>
+        <h1 id="rn-hero-title">reNgine 3.0</h1>
+        <p class="rn-hero__lede">{{ m.description_html }}</p>
+        <nav class="rn-start" aria-label="Audiences">
+          {% for a in m.audiences %}
+            <a class="rn-start__row" href="{{ a.href | url }}">
+              <b>{{ a.title }}</b>
+              <span>{{ a.text }}</span>
+              <em>{{ a.surface }}</em>
+            </a>
+          {% endfor %}
+        </nav>
+      </div>
+
+      <div class="rn-pane rn-pane--home" aria-label="One task on three surfaces" data-autoplay="7000">
+        <div class="rn-pane-head"><b>Find live Jenkins servers</b><span>web assets</span></div>
+        <div class="tabbed-set tabbed-alternate" data-tabs="900:3">
+          <input checked="checked" id="__home_1" name="__home" type="radio">
+          <input id="__home_2" name="__home" type="radio">
+          <input id="__home_3" name="__home" type="radio">
+          <div class="tabbed-labels">
+            <label for="__home_1">Interface</label><label for="__home_2">HTTP API</label><label for="__home_3">MCP</label>
+          </div>
+          <div class="tabbed-content">
+            <div class="tabbed-block">
+              <div class="rn-ui" aria-label="Web assets table filtered by the query tech:jenkins is:live, three rows">
+                <div class="rn-ui-qb">
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+                  <span class="rn-q"><span class="f">tech:</span>jenkins <span class="f">is:</span>live</span>
+                  <span class="rn-ui-qb__count">3 web assets</span>
+                </div>
+                <div class="rn-ui-rows rn-ui-rows--web">
+                  <div class="rn-ui-rows__head"><span>Host</span><span>Status</span><span>Title</span><span>Tech</span></div>
+                  <div class="rn-ui-row"><span class="rn-ui-host">ci<i>.example.com</i></span><span class="rn-ui-status">200</span><span class="rn-ui-title">Dashboard [Jenkins]</span><span class="rn-ui-tech"><em>Jenkins</em><em>Jetty</em></span></div>
+                  <div class="rn-ui-row"><span class="rn-ui-host">build<i>.example.com</i></span><span class="rn-ui-status">200</span><span class="rn-ui-title">Sign in [Jenkins]</span><span class="rn-ui-tech"><em>Jenkins</em></span></div>
+                  <div class="rn-ui-row"><span class="rn-ui-host">jenkins.stg<i>.example.com</i></span><span class="rn-ui-status rn-ui-status--3xx">302</span><span class="rn-ui-title">Redirecting</span><span class="rn-ui-tech"><em>Jenkins</em><em>nginx</em></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tabbed-block">
+              <div class="rn-pane-label">request</div>
+<div class="highlight"><pre><code><span class="c"># RENGINE=https://asm.example.com, signed in with a cookie jar</span>
+<span class="nb">curl</span> -b jar -X POST \
+  <span class="s2">"$RENGINE/api/v1/subdomains/search?project_id=$PROJECT"</span> \
+  -H <span class="s2">"Content-Type: application/json"</span> \
+  -d <span class="s1">'{"q": "tech:jenkins is:live"}'</span></code></pre></div>
+              <div class="rn-pane-label">response · 200</div>
+<div class="highlight"><pre><code>{ <span class="nt">"items"</span>: [ … ], <span class="nt">"total"</span>: <span class="mi">3</span>, <span class="nt">"total_capped"</span>: <span class="kc">false</span>, <span class="nt">"error"</span>: <span class="kc">null</span> }</code></pre></div>
+            </div>
+            <div class="tabbed-block">
+              <div class="rn-pane-label">tools/call</div>
+<div class="highlight"><pre><code>{
+  <span class="nt">"name"</span>: <span class="s2">"query_assets"</span>,
+  <span class="nt">"arguments"</span>: {
+    <span class="nt">"target"</span>: <span class="s2">"example.com"</span>,
+    <span class="nt">"dimension"</span>: <span class="s2">"web_assets"</span>,
+    <span class="nt">"query"</span>: <span class="s2">"tech:jenkins is:live"</span>
+  }
+}</code></pre></div>
+              <div class="rn-pane-label">capability</div>
+<div class="highlight"><pre><code><span class="c">read · no traffic to the target</span></code></pre></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rn-home__section rn-burp" aria-labelledby="rn-burp-title">
+      <div class="rn-home__head">
+        <h2 id="rn-burp-title">Burp Suite connector <span class="rn-new">New in 3.0</span></h2>
+        <span class="rn-burp__links">
+          <button type="button" class="rn-action rn-burp__toggle" aria-pressed="false" hidden>
+            <svg class="rn-burp__ico-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
+            <svg class="rn-burp__ico-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+            <span>Pause</span>
+          </button>
+          <a href="{{ m.burp_href | url }}">Burp Suite connector guide</a>
+        </span>
+      </div>
+      <p class="rn-home__sub rn-burp__lede">Burp Suite and reNgine now work together. Send a finding to Burp Repeater in one click and test it by hand, starting from the exact request nuclei sent. What you find in Burp comes back to reNgine as endpoints, so your manual testing and your scans stay in one place.</p>
+
+      <div class="rn-burp__stage is-arrived is-responded" role="img" aria-label="A reflected XSS finding on shop.example.com is sent from reNgine to Burp Repeater, where the tester edits the payload and sends it again.">
+
+        <div class="rn-burp__win rn-burp__rn rn-pane" aria-hidden="true">
+          <div class="rn-burp__chrome"><i></i><i></i><i></i><span>reNgine · Vulnerabilities</span></div>
+          <div class="rn-burp__sheet">
+            <div class="rn-burp__chips"><span class="rn-burp__sev">Medium</span><span class="rn-burp__new">New</span></div>
+            <div class="rn-burp__title">Reflected Cross-Site Scripting</div>
+            <div class="rn-burp__meta"><span class="rn-burp__mono">reflected-xss</span><i>·</i><span class="rn-burp__mono rn-burp__host">shop.example.com</span><i>·</i><span>Seen 2h ago</span></div>
+            <div class="rn-burp__actions">
+              <span class="rn-burp__btn">Notes</span>
+              <span class="rn-burp__send" data-mark="send">
+                <span class="rn-burp__sendmain"><i class="rn-burp__dot"></i><span>Repeater</span><svg class="rn-burp__check" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg></span>
+                <span class="rn-burp__sendarrow"><svg viewBox="0 0 16 16"><path d="M4.5 6.5 8 10l3.5-3.5"/></svg></span>
+              </span>
+              <span class="rn-burp__btn rn-burp__more">···</span>
+            </div>
+            <div class="rn-burp__sec">Location</div>
+            <dl class="rn-burp__dl">
+              <dt>Matched on</dt><dd class="rn-burp__mono">https://shop.example.com/search?q=shoes'"&gt;&lt;38291&gt;</dd>
+              <dt>Scanner</dt><dd class="rn-burp__mono">nuclei</dd>
+            </dl>
+            <div class="rn-burp__sec">Proof</div>
+            <pre class="rn-burp__code">GET /search?q=shoes%27%22%3E%3C38291%3E HTTP/1.1
+Host: shop.example.com</pre>
+            <div class="rn-burp__toast"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg>1 request sent to Repeater.</div>
+          </div>
+        </div>
+
+        <span class="rn-burp__wire" aria-hidden="true"><i></i><em>connector</em><i></i></span>
+
+        <div class="rn-burp__win rn-burp__bs" aria-hidden="true">
+          <div class="rn-burp__chrome"><i></i><i></i><i></i><span>Burp Suite</span></div>
+          <div class="rn-burp__tabs">
+            <span>Dashboard</span><span>Target</span><span>Proxy</span><span>Intruder</span><span class="rn-burp__rep" data-mark="reptab">Repeater</span><span>Extensions</span><span>reNgine</span>
+          </div>
+          <div class="rn-burp__subtabs"><span class="rn-burp__sub1">1</span><span class="rn-burp__subnew">reNgine reflected-xss</span></div>
+          <div class="rn-burp__tool">
+            <span class="rn-burp__bsend" data-mark="bsend">Send</span><span class="rn-burp__bbtn">Cancel</span>
+            <span class="rn-burp__tgt">Target: https://shop.example.com</span>
+          </div>
+          <div class="rn-burp__panes">
+            <div class="rn-burp__pane">
+              <div class="rn-burp__ph"><b>Request</b><span><em>Pretty</em><em>Raw</em><em>Hex</em></span></div>
+              <pre class="rn-burp__req"><span class="rn-burp__ln">1</span>GET /search?q=<span class="rn-burp__pl" data-mark="payload" data-from="shoes%27%22%3E%3C38291%3E" data-to="%22%3E%3Csvg%2Fonload%3Dalert(1)%3E">%22%3E%3Csvg%2Fonload%3Dalert(1)%3E</span> HTTP/1.1
+<span class="rn-burp__ln">2</span>Host: shop.example.com
+<span class="rn-burp__ln">3</span>User-Agent: Mozilla/5.0 (X11; Linux x86_64)
+<span class="rn-burp__ln">4</span>Accept: */*
+<span class="rn-burp__ln">5</span>Connection: close</pre>
+            </div>
+            <div class="rn-burp__pane rn-burp__respane">
+              <div class="rn-burp__ph"><b>Response</b><span><em>Pretty</em><em>Raw</em><em>Hex</em></span></div>
+              <pre class="rn-burp__res"><span class="rn-burp__ln">1</span>HTTP/1.1 200 OK
+<span class="rn-burp__ln">2</span>Content-Type: text/html; charset=utf-8
+<span class="rn-burp__ln">3</span>Content-Length: 1834
+<span class="rn-burp__ln">4</span>
+<span class="rn-burp__ln">5</span>&lt;h1&gt;Results for <mark>"&gt;&lt;svg/onload=alert(1)&gt;</mark>&lt;/h1&gt;</pre>
+            </div>
+          </div>
+          <div class="rn-burp__status"><span>Done</span><span>1,834 bytes | 212 millis</span></div>
+        </div>
+
+        <span class="rn-burp__packet rn-burp__packet--out" aria-hidden="true"><b>GET</b> /search · reflected-xss</span>
+        <span class="rn-burp__packet rn-burp__packet--back" aria-hidden="true"><b>200</b> source:proxy</span>
+        <svg class="rn-burp__cursor" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 2.5v13.2l3.6-3.3 2.4 5.3 2.3-1-2.4-5.2h5z"/></svg>
+      </div>
+
+      <ol class="rn-burp__steps">
+        <li data-step="1"><b>A scan finds something</b><span>nuclei finds a reflected XSS on shop.example.com. reNgine keeps the exact request that triggered it.</span></li>
+        <li data-step="2"><b>Send it to Burp</b><span>Click <strong>Repeater</strong> on the finding, or press <kbd>b</kbd>. The request goes straight to Burp.</span></li>
+        <li data-step="3"><b>It opens in Repeater</b><span>Burp opens a new tab, <code>reNgine reflected-xss</code>, with the request ready to edit.</span></li>
+        <li data-step="4"><b>Test it by hand</b><span>Change the payload and send it. The traffic is captured back into reNgine, next to your scan results.</span></li>
+      </ol>
+    </section>
+
+    <section class="rn-home__section" aria-labelledby="rn-cap-title">
+      <div class="rn-home__head">
+        <h2 id="rn-cap-title">What you can do with reNgine</h2>
+        <a href="{{ m.capabilities_href | url }}">See every capability</a>
+      </div>
+      <ul class="rn-caps">
+        {% for c in m.capabilities %}
+          <li class="rn-cap">
+            <a href="{{ c.href | url }}">
+              <span class="rn-cap__kind">{{ c.kind }}</span>
+              <b>{{ c.title }}</b>
+              <span class="rn-cap__text">{{ c.text_html }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="rn-home__section" aria-labelledby="rn-ref-title">
+      <div class="rn-home__head">
+        <h2 id="rn-ref-title">Reference</h2>
+        <span class="rn-home__note">Built from the reNgine 3.0 source, so these lists match what you run</span>
+      </div>
+      <ul class="rn-counts">
+        {% for r in m.reference %}
+          <li><a href="{{ r.href | url }}"><b>{{ "{:,}".format(counts[r.count]) }}</b><span>{{ r.title }}</span></a></li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="rn-home__section rn-home__install" aria-labelledby="rn-install-title">
+      <div class="rn-home__head">
+        <h2 id="rn-install-title">Install reNgine</h2>
+        <a href="{{ m.install_href | url }}">Full install guide</a>
+      </div>
+      <p class="rn-home__sub">reNgine runs on a Linux server, x86_64 or aarch64. {{ m.install_note }}</p>
+<div class="rn-term" aria-label="Terminal: the install command and the installer output">
+        <div class="rn-term__bar"><i></i><i></i><i></i><span>bash</span>
+          <button type="button" class="rn-action rn-term__copy" data-copy="{{ m.install }}"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg><span>Copy command</span></button>
+        </div>
+<pre class="rn-term__body"><code><span class="rn-term__l" data-kind="cmd"><span class="rn-term__p">$ </span><span class="rn-term__t">curl -fsSL https://raw.githubusercontent.com/yogeshojha/rengine/master/install.sh -o install.sh</span></span>
+<span class="rn-term__l" data-kind="cmd"><span class="rn-term__p">$ </span><span class="rn-term__t">sudo bash install.sh --domain asm.example.com</span></span>
+<span class="rn-term__l" data-kind="out">
+<b>reNgine installer</b></span>
+<span class="rn-term__l" data-kind="out">
+<b>Fetching reNgine v{{ config.extra.rengine_version }}</b></span>
+<span class="rn-term__l" data-kind="out">
+<b>Writing /opt/rengine</b></span>
+<span class="rn-term__l" data-kind="out">
+<b>Pulling images</b></span>
+<span class="rn-term__l" data-kind="out">
+<b>Starting</b></span>
+<span class="rn-term__l" data-kind="dots">Waiting for the API<span class="rn-term__dots">..........</span></span>
+<span class="rn-term__l" data-kind="out">
+<b class="rn-term__ok">reNgine is running.</b>
+
+  URL       https://asm.example.com
+  Username  rengine
+  Password  ••••••••••••••••
+            Stored in /opt/rengine/api.env. Change it in Settings.
+
+  Manage    sudo rengine status, sudo rengine logs, sudo rengine update, sudo rengine backup
+  Files     /opt/rengine
+
+Setup continues in the browser after the first sign-in.</span></code></pre>
+      </div>
+    </section>
+
+  </article>
+</div>
+{% endblock %}

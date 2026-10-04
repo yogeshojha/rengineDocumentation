@@ -1,158 +1,130 @@
 ---
-template: index.html
-title: 'reNgine 2.0 Redefining the future of reconnaissance!!'
+template: home.html
+title: reNgine 3.0
+description: Everything you need to install reNgine, scan your targets, find what matters in the results, and connect reNgine to Burp Suite, your own scripts and your AI agents.
+sources:
+  - README.md
+  - VERSION
+revised: 2026-10-03
 hide:
   - navigation
-hero:
-  title: 'reNgine <small>2.0</small></br> Redefining the future of reconnaissance!'
-  subtitle: '<strong>The only web application recon tool</strong> you will ever need!'
-  description: Quickly discover the attack surface, identify vulnerabilities using highly customizable and powerful scan engines. <br><br>Enjoy peace of mind with reNgine's continous monitoring, deeper reconnaissance and open-source powered Vulnerability Scanner.
-  install_button: Getting Started
-features:
-  - title: Reconnaissance like no other!
-    description: reNgine has advanced reconnaissance capabilities, harnessing a range of open-source tools to deliver a comprehensive web application reconnaissance experience. With it's intuitive User Interface, it excels in subdomain discovery, pinpointing IP addresses and open ports, collecting endpoints, conducting directory and file fuzzing, capturing screenshots, and performing vulnerability scans. To summarize, it does end-to-end reconnaissance. With WHOIS identification and WAF detection, it offers deep insights into target domains. Additionally, it also identifies misconfigured S3 buckets and find interesting subdomains and URLS, based on specific keywords to helps you identify your next target, making it an go to tool for efficient reconnaissance.
-  - title: Configurable Scan Engines!
-    description: reNgine offers unparalleled flexibility through its highly configurable scan engines, based on a YAML-based configuration. It offers the freedom to create and customize recon scan engines based on any kind of requirement. Users can tailor them to their specific objectives and preferences, from thread management to timeout settings and rate-limit configurations, everything is customizable. Additionally, reNgine offers a range of pre-configured scan engines right out of the box, including Full Scan, Passive Scan, Screenshot Gathering, and the OSINT Scan Engine. These ready-to-use engines eliminate the need for extensive manual setup, aligning perfectly with reNgine's core mission of simplifying the reconnaissance process and enabling users to effortlessly access the right reconnaissance data with minimal effort.
-  - title: Multiple Users, Roles and Permissions <small class="red_badge">2.0</small>
-    description: Begining reNgine 2.0, we've taken your web application reconnaissance to a whole new level of control and security. Now, you can assign distinct roles to your team members—Sys Admin, Penetration Tester, and Auditor—each with precisely defined permissions to tailor their access and actions within the reNgine ecosystem. Sys Admin is a super user that has permission to modify system and scan related configurations, scan engines, create new users, add new tools etc. Super user can initiate scans and subscans effortlessly. Penetration Tester will be allowed to modify and initiate scans and subscans, add or update targets, etc. A penetration tester will not be allowed to modify system configurations. Auditor can only view and download the report. An auditor can not change any system or scan related configurations nor can initiate any scans or subscans.
-  - title: LLM Report Generation <small class="red_badge">2.0</small>
-    description: In addition to its robust reconnaissance capabilities, reNgine goes the extra mile by simplifying the report generation process, recognizing the crucial role that PDF reports play in the realm of end-to-end reconnaissance. Users can effortlessly generate and customize PDF reports to suit their exact needs. Whether it's a Full Scan Report, Vulnerability Report, or a concise reconnaissance report, reNgine provides the flexibility to choose the report type that best communicates your findings. Moreover, the level of customization is unparalleled, allowing users to select report colors, fine-tune executive summaries, and even add personalized touches like company names and footers. With LLM integration, your reports aren't just a report, with remediation steps, and impacts, you get 360-degree view of the vulnerabilities you've uncovered.
-  - title: Projects <small class="red_badge">2.0</small>
-    description: Say Hello to Projects! reNgine 2.0 introduces a powerful addition that enables you to efficiently organize your web application reconnaissance efforts. With this feature, you can create distinct project spaces, each tailored to a specific purpose, such as personal bug bounty hunting, client engagements, or any other specialized recon task. Each projects will have separate dashboard and all the scan results will be separated from each projects, while scan engines and configuration will be shared across all the projects.
-  - title: Support for Subscans!
-    description:  Subscan is a game-changing feature in reNgine, setting it apart as the only open-source tool of its kind to offer this capability. With Subscan, waiting for the entire pipeline to complete is a thing of the past. Now, users can swiftly respond to newfound discoveries during reconnaissance. Whether you've stumbled upon an intriguing subdomain and wish to conduct a focused port scan or want to delve deeper with a vulnerability assessment, reNgine has you covered.
-  - title: Continuous Monitoring
-    description:  Continuous monitoring is at the core of reNgine's mission, and it's robust continuous monitoring feature ensures that their targets are under constant scrutiny. With the flexibility to schedule scans at regular intervals, penetration testers can effortlessly stay informed about their targets. What sets reNgine apart is its seamless integration with popular notification channels such as Discord, Slack, and Telegram, delivering real-time alerts for newly discovered subdomains, vulnerabilities, or any changes in reconnaissance data. One can run clocked scan (Run reconnaissance exactly at X Hours and Y minutes) and Periodic Scans (Runs reconnaissance every X minutes/hours/days/week).
-  - title: LLM-Powered Attack Surface Generation <small class="red_badge">2.0</small>
-    description: With reNgine 2.0, reNgine seamlessly integrates with LLM to identify the attacks that you can likely perform on a subdomain. By making use of reconnaissance data such as page title, open ports, subdomain name etc, reNgine can advice you the attacks you could perform on a target. reNgine will also provide you the rationale on why the specific attack is likely to be successful.
-  - title: Tools Arsenal
-    description: Don't like our subdomain discovery tools? Wish to install any external tools? reNgine supports tools of your choice, update them, add them or remove simply from Tools Arsenal section.
-  - title: Powerful Recon filtering!
-    description: reNgine supports advanced recon lookup queries such as <code>name=admin&http_status=200</code> or <code>cve_id=CVE-1234-5678</code>! Combine multiple queries with operators such as &,| etc.
-  - title: Recon data changes!
-    description: reNgine can also identify recon data changes. If any new vulnerabilities has been identified, or any subdomain no longer found, reNgine can detect the changes. reNgine can also send recon data changes notifications on your favourite notification channels.
-  - title: Customizable Alerts!
-    description: Send scan related notifications on your favourite channel such as Discord, Slack or Telegram.
+  - toc
+audiences:
+  - title: Pentesters
+    text: Install reNgine, run scans and work through the results
+    surface: Interface
+    link: pentesters/index.md
+  - title: Developers
+    text: See how reNgine works, use the API and extend it
+    surface: HTTP API
+    link: developers/index.md
+  - title: Agents
+    text: Connect AI agents through MCP and give them these docs
+    surface: MCP
+    link: agents/index.md
+capabilities_link: pentesters/capabilities.md
+burp_link: pentesters/burp-suite.md
+capabilities:
+  - kind: Integration
+    title: Burp Suite connector
+    text: Send any finding, web asset or endpoint from reNgine to Burp Repeater, Intruder or Organizer and test it by hand. What you browse in Burp comes back to reNgine as endpoints.
+    link: pentesters/burp-suite.md
+  - kind: Agents
+    title: MCP server
+    text: "Let Claude, Cursor or any other MCP client ask questions about your attack surface and, if you allow it, start scans. {{ counts.mcp_tools }} tools, with permissions you choose for each token."
+    link: agents/mcp/connect.md
+  - kind: Results
+    title: Query language
+    text: Find exactly what you are looking for with one search syntax across all seven result types, for example `tech:jenkins is:live`. Every number on screen opens the rows behind it.
+    link: pentesters/query.md
+  - kind: Bug bounty
+    title: Bounty Hub and program watches
+    text: Bring your HackerOne and Intigriti programs and scopes into reNgine, and watch a program to hear about new in-scope domains as soon as their certificates appear.
+    link: pentesters/bounty-hub.md
+  - kind: Results
+    title: Correlation
+    text: See which web assets belong together because they share an IP address, a certificate, a favicon, a page title or a rendered page, within a scan and across your targets.
+    link: pentesters/correlation.md
+  - kind: Results
+    title: Compare runs and What's new
+    text: "See what changed since the last scan: what appeared, what changed and what disappeared, with a feed of new critical and high findings and changed screenshots."
+    link: pentesters/compare-runs.md
+  - kind: Results
+    title: Exploit intelligence
+    text: Decide what to fix first. Findings and software CVEs carry EPSS scores, CISA KEV status, NVD data, an exploitation rank from 0 to 100 and how strong the evidence is.
+    link: pentesters/exploit-intelligence.md
+  - kind: Detection
+    title: Secret mining
+    text: Find API keys, tokens and credentials that your targets leak in their responses. reNgine reads the responses it already stored, so this adds no traffic.
+    link: pentesters/secret-mining.md
+  - kind: Scanning
+    title: Scan contexts
+    text: Scan behind a login. Set authentication headers, scope exclusions, rate limits and a proxy once, and reNgine checks that the session works before the scan starts.
+    link: pentesters/scan-contexts.md
+  - kind: Scanning
+    title: Focused rescans
+    text: Re-test only what you care about. Pick up to 5,000 assets from finished scans and run the stages you choose, without enumerating the target again.
+    link: pentesters/focused-rescans.md
+  - kind: Integration
+    title: Remote control over Telegram
+    text: "Use reNgine from your phone. A paired Telegram chat gives you {{ counts.chat_commands }} commands to list targets, start and stop scans, read findings and run lookups. Anything beyond reading asks for your authenticator code."
+    link: pentesters/telegram.md
+  - kind: Results
+    title: Reports
+    text: Turn a scan or a target into a report your client or team can read, as PDF, HTML, Markdown or JSON, with your own sections and theme and an optional AI-written narrative.
+    link: pentesters/reports.md
+  - kind: Integration
+    title: Notifications and issue trackers
+    text: Hear about new results on Slack, Discord, Telegram, Microsoft Teams, email or a webhook, and file findings in Jira, GitHub or GitLab with their status shown back in reNgine.
+    link: pentesters/notifications.md
+  - kind: Detection
+    title: Lookalike domains
+    text: "Spot domains registered to imitate your targets: typos, homoglyphs, added words and other TLDs, each with its DNS records, page similarity, registration date and a verdict."
+    link: pentesters/lookalike-domains.md
+  - kind: Detection
+    title: Tripwires
+    text: Save a query and get alerted when a scan finds something that matches it, such as a new admin panel. A tripwire can also start a focused scan on what it found.
+    link: pentesters/tripwires.md
+  - kind: Detection
+    title: AI detection
+    text: "Find AI on your attack surface: model servers, AI gateways, AI applications, cloud AI endpoints and MCP servers, with the models they expose."
+    link: pentesters/ai-detection.md
+  - kind: Detection
+    title: Broken link hijacking
+    text: Find scripts, frames, stylesheets, images and links on your pages that point at domains that no longer resolve, which someone else could register and take over.
+    link: pentesters/broken-links.md
+reference:
+  - title: Query fields
+    count: query_fields
+    link: reference/query/index.md
+  - title: Query flags
+    count: query_flags
+    link: reference/query/index.md
+  - title: Stages
+    count: stages
+    link: reference/stages/index.md
+  - title: MCP tools
+    count: mcp_tools
+    link: reference/mcp-tools.md
+  - title: HTTP API paths
+    count: api_paths
+    link: reference/http-api.md
+  - title: rengine CLI commands
+    count: cli_commands
+    link: reference/cli.md
+  - title: Installer flags
+    count: installer_flags
+    link: reference/installer.md
+  - title: Configuration variables
+    count: env_variables
+    link: reference/configuration.md
+  - title: Remote control commands
+    count: chat_commands
+    link: reference/remote-control-commands.md
+  - title: Pinned tools
+    count: pinned_tools
+    link: reference/tool-versions.md
+install_link: pentesters/install.md
+install_note: The installer checks your server, offers to install Docker if it is missing, writes the configuration and starts reNgine.
+install: curl -fsSL https://raw.githubusercontent.com/yogeshojha/rengine/master/install.sh -o install.sh && sudo bash install.sh
 ---
-
-## 🥷 Introduction
-
-reNgine is your go-to web application reconnaissance suite that's designed to simplify and streamline the reconnaissance process for security professionals, penetration testers, and bug bounty hunters. With its highly configurable engines, data correlation capabilities, continuous monitoring, database-backed reconnaissance data, and an intuitive user interface, reNgine redefines how you gather critical information about your target web applications.
-
-Traditional reconnaissance tools often fall short in terms of configurability and efficiency. reNgine addresses these shortcomings and emerges as a excellent alternative to existing commercial tools.
-
-reNgine was created to address the limitations of traditional reconnaissance tools and provide a better alternative, even surpassing some commercial offerings. Whether you're a bug bounty hunter, a penetration tester, or a corporate security team, reNgine is your go-to solution for automating and enhancing your information-gathering efforts.
-
-reNgine is not an ordinary reconnaissance suite; it's a game-changer! With the 2.0 release we've turbocharged the traditional workflow with groundbreaking features that is sure to ease your reconnaissance game. reNgine redefines the art of reconnaissance!
-
-
-## 🧭 Workflow
-
-<img src="https://github.com/yogeshojha/rengine/assets/17223002/10c475b8-b4a8-440d-9126-77fe2038a386">
-
-## ⭐ Features
-
-**reNgine** is packed with features that no any open other source tool provides. Here are some list of cool features supported by reNgine:
-
-* Reconnaissance:
-  * Subdomain Discovery
-  * IP and Open Ports Identification
-  * Endpoints Discovery
-  * Directory/Files fuzzing
-  * Screenshot Gathering
-  * Vulnerability Scan
-    * Nuclei
-    * Dalfox XSS Scanner
-    * CRLFuzzer
-    * Misconfigured S3 Scanner
-  * WHOIS Identification
-  * WAF Detection
-* OSINT Capabilities
-  * Meta info Gathering
-  * Employees Gathering
-  * Email Address gathering
-  * Google Dorking for sensitive info and urls
-* Projects, create distinct project spaces, each tailored to a specific purpose, such as personal bug bounty hunting, client engagements, or any other specialized recon task.
-* Perform Advanced Query lookup using natural language alike and, or, not operations
-* Highly configurable YAML-based Scan Engines
-* Support for Parallel Scans
-* Support for Subscans
-* Recon Data visualization
-* LLM Vulnerability Description, Impact and Remediation generation
-* LLM Attack Surface Generator
-* LLM Toolkit to download and manage LLM models
-* Multiple Roles and Permissions to cater a team's need
-* Customizable Alerts/Notifications on Slack, Discord, and Telegram
-* Automatically report Vulnerabilities to HackerOne
-* Recon Notes and Todos
-* Clocked Scans (Run reconnaissance exactly at X Hours and Y minutes) and Periodic Scans (Runs reconnaissance every X minutes/- hours/days/week)
-* Proxy Support
-* Screenshot Gallery with Filters
-* Powerful recon data filtering with autosuggestions
-* Recon Data changes, find new/removed subdomains/endpoints
-* Tag targets into the Organization
-* Smart Duplicate endpoint removal based on page title and content length to cleanup the reconnaissance data
-* Identify Interesting Subdomains
-* Custom GF patterns and custom Nuclei Templates
-* Edit tool-related configuration files (Nuclei, Subfinder, Naabu, amass)
-* Add external tools from Github/Go
-* Interoperable with other tools, Import/Export Subdomains/Endpoints
-* Import Targets via IP and/or CIDRs
-* Report Generation
-* Toolbox: Comes bundled with most commonly used tools during penetration testing such as whois lookup, CMS detector, CVE lookup, etc.
-* Identification of related domains and related TLDs for targets
-* Find actionable insights such as Most Common Vulnerability, Most Common CVE ID, Most Vulnerable Target/Subdomain, etc.
-
-!!! tip
-    Follow [me on Twitter](//twitter.com/ojhayogesh11) to keep yourself updated about new features.
-
-## 🚀 Getting Started
-
-* If this is your first time visiting reNgine, here is a guide on [🚀 Getting Started ](getting-started.md).
-
-* If are already using reNgine and wish to Update/Upgrade, head to [🔥 Update ](update/index.md).
-
-## ⚡ Usage Guide
-
-If have already installed reNgine, and want to learn how to use, head to [⚡ Usage](usage/index.md).
-
-## 💻 Developer's Guide
-
-If you wish to add new features or want to contribute to reNgine, head to [Developer's Guide](developer/index.html)
-
-## 🙋 Need Help
-
-If [⚡ Usage](usage/index.md) documentation is not sufficient, and you still need help, head to [💁 Discord](community/discord.md) section. This section contains instructions on how to join reNgine discord server.
-
-## 📹 Community published blogs/videos
-
-Community may have published blogs/videos on your own language. Please check the [community published blogs/videos here](community/blog-videos.md).
-
-## 🛡️ Reporting Security Issues
-
-If you have found any security issues on reNgine, we recommend reporting them immediately. reNgine also has it's bug bounty program and is your chance to get paid for security issues.
-
-!!! danger
-    Please do not disclose any security vulnerabilities on Github issues.
-
-Guide on [How to report security issues](security/index.md) is available.
-
-## 🤖 Changelogs
-
-If you want to know the latest changes in reNgine, head to [🤖 Changelog](changelog.md).
-
-## Support
-
-Over the last few years I have been working insane on reNgine to bring new features with the only goal to make this as De-facto standard for reconnaissance. Most of my out of office hours and weeknds are spent on working on reNgine. I do this with addition to my primary job. I am happy to have received such an overwhelming support from community. But to keep this project alive, I am seeking financial support.
-
-|                                                                       Paypal                                                                       |                                                            Bitcoin                                                             |                                                            Ethereum                                                            |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-|[https://www.paypal.com/paypalme/yogeshojha11](https://www.paypal.com/paypalme/yogeshojha11)                                 |                                              `35AiKyNswNZ4TZUSdriHopSCjNMPi63BCX`                                              |                                          `0xe7A337Da6ff98A28513C26A7Fec8C9b42A63d346`                                          |
-
-It takes a considerable amount of time to add new features and make sure everything is working. A donation is your way saying: **reNgine is awesome**
-
-Any support is greatly appreciated! _Thank you!_
-
-## License
-
-reNgine is licensed under the GNU General Public License v3.0
