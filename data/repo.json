@@ -4,7 +4,7 @@
  "cli": {
   "source": "deploy/rengine",
   "usage": "Usage: rengine <command>",
-  "help": "Usage: rengine <command>\n\n  start          start the stack\n  stop           stop the stack\n  restart        stop and start the stack\n  status         services and API health\n  logs [svc]     follow logs, all services or one\n  scale <n>      run n scan worker containers\n  update [tag]   move to a release, the latest when no tag is given\n                 --no-backup skips the database snapshot taken first\n  backup         write a backup archive to ./backups\n  restore <f>    replace this instance's data with an archive\n  uninstall      remove containers and data volumes\n  version        installed release",
+  "help": "Usage: rengine <command>\n\n  start          start the stack\n  stop           stop the stack\n  restart        stop and start the stack\n  status         services and API health\n  logs [svc]     follow logs, all services or one\n  scale <n>      run n scan worker containers\n  update [tag]   move to a release, the latest when no tag is given\n                 --no-backup skips the database snapshot taken first\n  backup         write a backup archive to ./backups\n  restore <f>    replace this instance's data with an archive\n  reset-password <user>\n                 set a new password and sign the user out everywhere\n                 --remove-2fa removes two-factor authentication\n  uninstall      remove containers and data volumes\n  version        installed release",
   "commands": [
    {
     "name": "start",
@@ -64,6 +64,17 @@
     "args": "<f>",
     "description": "replace this instance's data with an archive",
     "options": []
+   },
+   {
+    "name": "reset-password",
+    "args": "<user>",
+    "description": "set a new password and sign the user out everywhere",
+    "options": [
+     {
+      "flag": "--remove-2fa",
+      "description": "removes two-factor authentication"
+     }
+    ]
    },
    {
     "name": "uninstall",
@@ -720,7 +731,7 @@
  "shortcuts": [
   {
    "title": "Targets list",
-   "source": "frontend/src/routes/(app)/targets/+page.svelte:376",
+   "source": "frontend/src/routes/(app)/targets/+page.svelte:377",
    "rows": [
     [
      "j / k",

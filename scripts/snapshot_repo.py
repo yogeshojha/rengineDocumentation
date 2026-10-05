@@ -24,9 +24,9 @@ def parse_cli(repo: Path) -> dict:
     for line in lines[2:]:
         if not line.strip():
             continue
-        m = re.match(r"^  (\S+(?: \S+)?)\s{2,}(.*)$", line)
+        m = re.match(r"^  (\S+(?: \S+)?)(?:\s{2,}(.*))?$", line)
         if m and not line.startswith("    "):
-            usage, desc = m.group(1), m.group(2)
+            usage, desc = m.group(1), m.group(2) or ""
             name, _, args = usage.partition(" ")
             commands.append({"name": name, "args": args, "description": desc, "options": []})
             continue
@@ -34,7 +34,7 @@ def parse_cli(repo: Path) -> dict:
         if m and commands:
             commands[-1]["options"].append({"flag": m.group(1), "description": m.group(2)})
         elif commands:
-            commands[-1]["description"] += " " + line.strip()
+            commands[-1]["description"] = f"{commands[-1]['description']} {line.strip()}".strip()
     return {"source": "deploy/rengine", "usage": lines[0], "help": "\n".join(lines), "commands": commands}
 
 

@@ -22,6 +22,10 @@ CLI_NOTES = {
                "`Already on <tag>.`, `Updated to <tag>.`, `Running scans: <n>. Stages in flight run again after the update.`"),
     "backup": ("`scripts/backup.sh dump`, into `./backups` or the directory given", ""),
     "restore": ("`scripts/backup.sh restore <archive>`", "`error: usage: rengine restore <archive>`"),
+    "reset-password": ("`docker compose exec api /app/.venv/bin/python -m app.reset_password`. It asks for the new password "
+                       "inside the api container, or reads it from stdin, and the api service must be running",
+                       "`Password reset for <user>.`, `Sessions signed out.`, `Two-factor authentication removed.`, "
+                       "`No user named <user>.`, `error: the api service is not running. Start it with: rengine start`"),
     "uninstall": ("Asks for confirmation, then `docker compose down --volumes --remove-orphans` and removes the `rengine` link",
                   "`Containers and data volumes are removed. Backups and .env stay in <dir>.`"),
     "version": ("Prints `RENGINE_TAG` from `.env`", ""),
@@ -30,6 +34,7 @@ CLI_PAGES = {
     "update": ("Update and roll back", "../pentesters/update.md"),
     "backup": ("Back up and restore", "../pentesters/backup.md"),
     "restore": ("Back up and restore", "../pentesters/backup.md"),
+    "reset-password": ("Reset a password from the server", "../pentesters/users.md#reset-password"),
     "uninstall": ("Uninstall reNgine", "../pentesters/uninstall.md"),
     "status": ("Troubleshooting", "../pentesters/troubleshooting.md"),
     "logs": ("Troubleshooting", "../pentesters/troubleshooting.md"),
@@ -40,7 +45,7 @@ CLI_PAGES = {
 def cli_page(repo: dict) -> str:
     cli = repo["cli"]
     out = front_matter("rengine CLI", "Use the `rengine` command on your server to start and stop reNgine, check its health, read its logs, "
-                       f"update it, and back it up or restore it. This page lists all {len(cli['commands'])} commands and what each one runs.",
+                       f"update it, back it up or restore it, and reset a password. This page lists all {len(cli['commands'])} commands and what each one runs.",
                        ["deploy/rengine", "scripts/backup.sh"], SCRIPT, layout="reference")
     out += gen_line(["repo.json"], SCRIPT)
     out += ("The installer puts the command in `bin/rengine` inside the install directory and links it into `/usr/local/bin` or `~/.local/bin`. "

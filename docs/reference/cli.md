@@ -1,6 +1,6 @@
 ---
 title: rengine CLI
-description: "Use the `rengine` command on your server to start and stop reNgine, check its health, read its logs, update it, and back it up or restore it. This page lists all 11 commands and what each one runs."
+description: "Use the `rengine` command on your server to start and stop reNgine, check its health, read its logs, update it, back it up or restore it, and reset a password. This page lists all 12 commands and what each one runs."
 sources:
   - deploy/rengine
   - scripts/backup.sh
@@ -29,6 +29,9 @@ Usage: rengine <command>
                  --no-backup skips the database snapshot taken first
   backup         write a backup archive to ./backups
   restore <f>    replace this instance's data with an archive
+  reset-password <user>
+                 set a new password and sign the user out everywhere
+                 --remove-2fa removes two-factor authentication
   uninstall      remove containers and data volumes
   version        installed release
 ```
@@ -48,6 +51,7 @@ Each command, with a link to its details below.
 | [`rengine update [tag]`](#update) | Move to a release, the latest when no tag is given. `--no-backup`: skips the database snapshot taken first. |
 | [`rengine backup`](#backup) | Write a backup archive to ./backups. |
 | [`rengine restore <f>`](#restore) | Replace this instance's data with an archive. |
+| [`rengine reset-password <user>`](#reset-password) | Set a new password and sign the user out everywhere. `--remove-2fa`: removes two-factor authentication. |
 | [`rengine uninstall`](#uninstall) | Remove containers and data volumes. |
 | [`rengine version`](#version) | Installed release. |
 
@@ -182,6 +186,26 @@ What it prints
 
 Guide
 :   [Back up and restore](../pentesters/backup.md)
+
+## reset-password { #reset-password }
+
+```bash
+rengine reset-password <user>
+```
+
+Set a new password and sign the user out everywhere.
+
+Runs
+:   `docker compose exec api /app/.venv/bin/python -m app.reset_password`. It asks for the new password inside the api container, or reads it from stdin, and the api service must be running.
+
+`--remove-2fa`
+:   Removes two-factor authentication.
+
+What it prints
+:   `Password reset for <user>.`, `Sessions signed out.`, `Two-factor authentication removed.`, `No user named <user>.`, `error: the api service is not running. Start it with: rengine start`
+
+Guide
+:   [Reset a password from the server](../pentesters/users.md#reset-password)
 
 ## uninstall { #uninstall }
 

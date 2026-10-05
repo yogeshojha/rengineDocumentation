@@ -8,7 +8,7 @@ sources:
   - .github/workflows/build.yml
   - install.sh
   - deploy/rengine
-revised: 2026-10-03
+revised: 2026-10-05
 ---
 
 Each item below links to the page that shows you how to use it.
@@ -36,7 +36,7 @@ To see how the parts fit together, read [How reNgine works](../developers/archit
 ## Install and run
 
 - An installer, `install.sh`, with three exposure modes: `--domain`, `--ip` and `--local`. It sizes the instance for the memory of your host. See [Install reNgine](../pentesters/install.md).
-- The `rengine` command to manage your instance, with {{ counts.cli_commands }} commands: start, stop, restart, status, logs, scale, update, backup, restore, uninstall and version. See [rengine CLI](cli.md).
+- The `rengine` command to manage your instance, with {{ counts.cli_commands }} commands: start, stop, restart, status, logs, scale, update, backup, restore, reset-password, uninstall and version. See [rengine CLI](cli.md).
 - Backup archives protected with a passphrase, database snapshots before each update, and rollback to a tagged release. See [Back up and restore](../pentesters/backup.md) and [Update and roll back](../pentesters/update.md).
 - Two instance modes, bug bounty and corporate. See [Bug bounty and corporate modes](../pentesters/instance-modes.md).
 - Two privilege levels, user and administrator, and two-factor authentication. See [Users and two-factor authentication](../pentesters/users.md).
