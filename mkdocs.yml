@@ -5,7 +5,7 @@ site_description: >-
   Documentation for reNgine 3.0, a self-hosted attack surface management platform:
   install and operate an instance, query the attack surface, and use the HTTP API
   and the MCP server.
-copyright: Copyright &copy; 2026 Yogesh Ojha. reNgine is released under the GPL-3.0 license.
+copyright: reNgine by <a href="https://github.com/yogeshojha">yogeshojha</a> and <a href="https://github.com/yogeshojha/rengine/graphs/contributors">contributors</a>
 
 repo_url: https://github.com/yogeshojha/rengine
 repo_name: yogeshojha/rengine
