@@ -529,78 +529,6 @@
     });
   }
 
-  // ---------- terminal: the install command types, then the installer prints ----------
-  function terminals() {
-    $$(".rn-term").forEach((term) => {
-      if (term.dataset.rnTerm) return;
-      term.dataset.rnTerm = "1";
-      const copy = term.querySelector(".rn-term__copy");
-      if (copy) {
-        const label = copy.querySelector("span");
-        copy.addEventListener("click", async () => {
-          try {
-            await navigator.clipboard.writeText(copy.dataset.copy);
-            copy.classList.add("is-done");
-            label.textContent = "Copied";
-          } catch (err) {
-            label.textContent = "Copy failed";
-          }
-          setTimeout(() => {
-            copy.classList.remove("is-done");
-            label.textContent = "Copy command";
-          }, 1800);
-        });
-      }
-      if (reduced()) return;
-      const lines = $$(".rn-term__l", term);
-      // keep each line's newline inside its span, so hidden lines leave no blank rows
-      lines.forEach((l) => {
-        const next = l.nextSibling;
-        if (next && next.nodeType === 3 && next.textContent.startsWith("\n")) {
-          l.appendChild(document.createTextNode("\n"));
-          next.textContent = next.textContent.slice(1);
-        }
-      });
-      term.classList.add("is-play");
-      const wait = gatedWait(term);
-      onView(term, async () => {
-        for (;;) {
-          lines.forEach((l) => l.classList.remove("is-shown"));
-          for (const l of lines) {
-            const kind = l.dataset.kind;
-            if (kind === "cmd") {
-              const t = l.querySelector(".rn-term__t");
-              if (t.dataset.full === undefined) t.dataset.full = t.textContent;
-              t.textContent = "";
-              t.classList.add("is-typing");
-              l.classList.add("is-shown");
-              await wait(400);
-              for (const ch of t.dataset.full) {
-                t.textContent += ch;
-                await wait(ch === " " ? 45 : 18);
-              }
-              await wait(350);
-              t.classList.remove("is-typing");
-            } else if (kind === "dots") {
-              const d = l.querySelector(".rn-term__dots");
-              if (d.dataset.full === undefined) d.dataset.full = d.textContent;
-              d.textContent = "";
-              l.classList.add("is-shown");
-              for (const ch of d.dataset.full) {
-                d.textContent += ch;
-                await wait(240);
-              }
-            } else {
-              l.classList.add("is-shown");
-              await wait(520);
-            }
-          }
-          await wait(7000);
-        }
-      }, 0.35);
-    });
-  }
-
   function init() {
     copyPage();
     searchShortcut();
@@ -609,7 +537,6 @@
     burpScene();
     heroAutoplay();
     countUp();
-    terminals();
     paneRecreations();
   }
 

@@ -213,36 +213,7 @@ Host: shop.example.com</pre>
         <a href="{{ m.install_href | url }}">Full install guide</a>
       </div>
       <p class="rn-home__sub">reNgine runs on a Linux server, x86_64 or aarch64. {{ m.install_note }}</p>
-<div class="rn-term" aria-label="Terminal: the install command and the installer output">
-        <div class="rn-term__bar"><i></i><i></i><i></i><span>bash</span>
-          <button type="button" class="rn-action rn-term__copy" data-copy="{{ m.install }}"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg><span>Copy command</span></button>
-        </div>
-<pre class="rn-term__body"><code><span class="rn-term__l" data-kind="cmd"><span class="rn-term__p">$ </span><span class="rn-term__t">curl -fsSL https://raw.githubusercontent.com/yogeshojha/rengine/master/install.sh -o install.sh</span></span>
-<span class="rn-term__l" data-kind="cmd"><span class="rn-term__p">$ </span><span class="rn-term__t">sudo bash install.sh --domain asm.example.com</span></span>
-<span class="rn-term__l" data-kind="out">
-<b>reNgine installer</b></span>
-<span class="rn-term__l" data-kind="out">
-<b>Fetching reNgine v{{ config.extra.rengine_version }}</b></span>
-<span class="rn-term__l" data-kind="out">
-<b>Writing /opt/rengine</b></span>
-<span class="rn-term__l" data-kind="out">
-<b>Pulling images</b></span>
-<span class="rn-term__l" data-kind="out">
-<b>Starting</b></span>
-<span class="rn-term__l" data-kind="dots">Waiting for the API<span class="rn-term__dots">..........</span></span>
-<span class="rn-term__l" data-kind="out">
-<b class="rn-term__ok">reNgine is running.</b>
-
-  URL       https://asm.example.com
-  Username  rengine
-  Password  ••••••••••••••••
-            Stored in /opt/rengine/api.env. Change it in Settings.
-
-  Manage    sudo rengine status, sudo rengine logs, sudo rengine update, sudo rengine backup
-  Files     /opt/rengine
-
-Setup continues in the browser after the first sign-in.</span></code></pre>
-      </div>
+      <div class="language-bash highlight"><pre><span></span><code>{{ m.install | e }}</code></pre></div>
     </section>
 
   </article>

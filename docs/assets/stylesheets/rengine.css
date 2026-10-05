@@ -1506,32 +1506,10 @@ body {
 /* hero pane: time to the next surface */
 .md-typeset .rn-autobar { position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--rn-a); transform: scaleX(0); transform-origin: left; z-index: 2; opacity: .85; }
 
-/* ---------- home: install terminal ---------- */
-
-.md-typeset .rn-term { border: 1px solid var(--rn-paneline); border-radius: .7rem; background: var(--rn-pane); overflow: hidden; box-shadow: var(--rn-paneshadow); }
-.md-typeset .rn-term__bar { display: flex; align-items: center; gap: .3rem; padding: .35rem .5rem .35rem .65rem; border-bottom: 1px solid #22262e; font-family: var(--md-code-font-family); font-size: .55rem; color: #858b99; }
-.md-typeset .rn-term__bar > i { width: .42rem; height: .42rem; border-radius: 50%; background: #2a2e37; }
-.md-typeset .rn-term__bar > span { margin-left: .35rem; }
-.md-typeset .rn-term__bar .rn-term__copy { margin-left: auto; background: transparent; border-color: #2a2e37; color: #c8cdd6; }
-.md-typeset .rn-term__bar .rn-term__copy:hover { color: #f2f4f8; border-color: #7ea6ff; }
-.md-typeset .rn-term__bar .rn-term__copy.is-done { color: #62bb78; }
-.md-typeset .rn-term__body { margin: 0; padding: .8rem 1rem .9rem; background: none; }
-.md-typeset .rn-term__body > code { display: block; padding: 0; border: 0; background: none; box-shadow: none; color: #c8cdd6; font-size: .6rem; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
-.md-typeset .rn-term__p { color: #5a606c; user-select: none; }
-.md-typeset .rn-term__t { color: #f2f4f8; }
-.md-typeset .rn-term__body b { color: #f2f4f8; font-weight: 600; }
-.md-typeset .rn-term__body b.rn-term__ok { color: #62bb78; }
-.md-typeset .rn-term.is-play .rn-term__l:not(.is-shown) { display: none; }
-.md-typeset .rn-term .md-clipboard, .md-typeset .rn-term .md-code__nav { display: none; }
-.md-typeset .rn-term__body > code { min-height: 3.4rem; }
-.md-typeset .rn-term__t.is-typing::after { content: ""; display: inline-block; width: .5em; height: 1.1em; margin-left: .1em; vertical-align: -.2em; background: #c8cdd6; animation: rn-blink 1s steps(1) infinite; }
-.md-typeset .rn-term__l.is-shown:not([data-kind="cmd"]) { animation: rn-fade .2s ease-out both; }
-
 @media (prefers-reduced-motion: reduce) {
   .md-typeset .rn-pane .tabbed-content > .tabbed-block,
   .md-typeset .rn-ui .is-marked,
-  .md-typeset .rn-ui .rn-in,
-  .md-typeset .rn-term__l.is-shown { animation: none; }
+  .md-typeset .rn-ui .rn-in { animation: none; }
 }
 
 /* ---------- "New in 3.0" badge ---------- */
