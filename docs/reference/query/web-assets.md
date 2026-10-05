@@ -75,6 +75,8 @@ Fields are the properties you search on, written `field:value`. An alias works t
 | [`posture`](#f-posture) | `dns_posture`, `mail` | enum | Hygiene | A domain posture check the web asset's zone fails: SPF, DMARC, DKIM, MTA-STS, DNSSEC or CAA. Also takes warning, info, any or none. |
 | [`ai`](#f-ai) | `ai_service` | enum | AI | AI service identified on any port of the web asset. Takes a service, a category, yes or no. |
 | [`ai.model`](#f-ai-model) |  | string | AI | Model an AI service on the web asset listed. yes or no filters on presence. |
+| [`infostealer`](#f-infostealer) | `stealer` | enum | Infostealers | Audience of a web asset login found in infostealer logs: employee or user. Also takes any or none. |
+| [`infostealer.credentials`](#f-infostealer-credentials) |  | number | Infostealers | Credentials for the web asset's logins found in infostealer logs. |
 | [`cert`](#f-cert) |  | enum | Certificates | Certificate state. |
 | [`cert.cn`](#f-cert-cn) |  | string | Certificates | Certificate subject common name. |
 | [`cert.san`](#f-cert-san) |  | string | Certificates | Subject alternative name on the certificate. |
@@ -992,6 +994,44 @@ Example
 
 Matching
 :   Yes/no words filter on presence.
+
+### infostealer { #f-infostealer }
+
+Audience of a web asset login found in infostealer logs: employee or user. Also takes any or none.
+
+Type
+:   `enum`
+
+Group
+:   Infostealers
+
+Aliases
+:   `stealer`
+
+Operators
+:   `:` `=` `!=`
+
+Values
+:   `employee`, `user`, `any`, `none`
+
+Example
+:   `infostealer:employee`{ .rn-q }
+
+### infostealer.credentials { #f-infostealer-credentials }
+
+Credentials for the web asset's logins found in infostealer logs.
+
+Type
+:   `number`
+
+Group
+:   Infostealers
+
+Operators
+:   `:` `=` `!=` `>` `>=` `<` `<=`
+
+Example
+:   `infostealer.credentials>10`{ .rn-q }
 
 ### cert { #f-cert }
 

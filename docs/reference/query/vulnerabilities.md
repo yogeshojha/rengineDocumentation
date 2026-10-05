@@ -70,7 +70,7 @@ Fields are the properties you search on, written `field:value`. An alias works t
 | [`country`](#f-country) |  | enum | Asset | Two-letter country of the address. |
 | [`state`](#f-state) |  | enum | Review | Review decision recorded for this finding. |
 | [`ticket`](#f-ticket) |  | enum | Review | Tracker status of the issue filed for this finding. |
-| [`evidence`](#f-evidence) |  | enum | Finding | How the finding was established: observed, corroborated or proven. |
+| [`evidence`](#f-evidence) |  | enum | Finding | How the finding was established: observed, cross-checked or proven. |
 | [`seen`](#f-seen) | `discovered`, `age` | date | Review | When the finding was recorded. |
 | [`is`](#f-is) | `has` | flag | Flags | Property of the finding. |
 
@@ -88,7 +88,7 @@ Flags are yes-or-no properties of a row. Write them with `is:` or `has:`, for ex
 | [`is:untestable`](#is-untestable) | No scanner template covers this CVE |
 | [`is:cve`](#is-cve) | Carries a published vulnerability identifier |
 | [`is:exploitable`](#is-exploitable) | Known exploited, or above the EPSS threshold |
-| [`is:corroborated`](#is-corroborated) | A second signal at the same location names the same CVE or weakness class |
+| [`is:cross-checked`](#is-cross-checked) | A second signal at the same location names the same CVE or weakness class |
 | [`is:proven`](#is-proven) | The asset produced an out-of-band interaction |
 | [`is:recorded`](#is-recorded) | The request and response that produced it were stored |
 | [`is:extracted`](#is-extracted) | The check pulled a value out of the response |
@@ -150,8 +150,8 @@ Start from one of these queries and adjust it to your target.
 |---|---|
 | `is:kev`{ .rn-q } | Weaknesses with confirmed exploitation in the wild |
 | `severity:critical`{ .rn-q } | Findings rated critical |
-| `is:corroborated`{ .rn-q } | Findings a second check confirms at the same location |
-| `is:corroborated and severity:[critical,high]`{ .rn-q } | Severe findings that more than one check agrees on |
+| `is:cross-checked`{ .rn-q } | Findings a second check confirms at the same location |
+| `is:cross-checked and severity:[critical,high]`{ .rn-q } | Severe findings that more than one check agrees on |
 | `evidence:proven`{ .rn-q } | Findings the asset answered with an out-of-band callback |
 | `is:exploitable and not is:suppressed`{ .rn-q } | Exploited or likely to be, and not suppressed |
 | `severity:[critical,high] and not is:cdn`{ .rn-q } | Severe findings on origin infrastructure |
@@ -736,7 +736,7 @@ Matching
 
 ### evidence { #f-evidence }
 
-How the finding was established: observed, corroborated or proven.
+How the finding was established: observed, cross-checked or proven.
 
 Type
 :   `enum`
@@ -748,10 +748,10 @@ Operators
 :   `:` `=` `!=`
 
 Values
-:   `observed`, `corroborated`, `proven`
+:   `observed`, `cross-checked`, `proven`
 
 Example
-:   `evidence:corroborated`{ .rn-q }
+:   `evidence:cross-checked`{ .rn-q }
 
 Matching
 :   Proven, corroborated (and not proven), observed (and not corroborated).
@@ -795,7 +795,7 @@ Operators
 :   `:`
 
 Values
-:   [`new`](#is-new), [`kev`](#is-kev), [`ransomware`](#is-ransomware), [`overdue`](#is-overdue), [`weaponised`](#is-weaponised), [`untestable`](#is-untestable), [`cve`](#is-cve), [`exploitable`](#is-exploitable), [`corroborated`](#is-corroborated), [`proven`](#is-proven), [`recorded`](#is-recorded), [`extracted`](#is-extracted), [`web`](#is-web), [`cdn`](#is-cdn), [`triaged`](#is-triaged), [`open`](#is-open), [`suppressed`](#is-suppressed), [`ticketed`](#is-ticketed)
+:   [`new`](#is-new), [`kev`](#is-kev), [`ransomware`](#is-ransomware), [`overdue`](#is-overdue), [`weaponised`](#is-weaponised), [`untestable`](#is-untestable), [`cve`](#is-cve), [`exploitable`](#is-exploitable), [`cross-checked`](#is-cross-checked), [`proven`](#is-proven), [`recorded`](#is-recorded), [`extracted`](#is-extracted), [`web`](#is-web), [`cdn`](#is-cdn), [`triaged`](#is-triaged), [`open`](#is-open), [`suppressed`](#is-suppressed), [`ticketed`](#is-ticketed)
 
 Example
 :   `is:kev`{ .rn-q }
@@ -884,15 +884,12 @@ Written as
 Matches when
 :   KEV-listed, or EPSS at or above 0.5.
 
-### is:corroborated { #is-corroborated }
+### is:cross-checked { #is-cross-checked }
 
 A second signal at the same location names the same CVE or weakness class.
 
 Written as
-:   `is:corroborated`, `has:corroborated`
-
-Matches when
-:   Another check at the same matched_at names the same CVE or CWE, or a software CVE on the same host names one of its CVEs. Informational and suppressed findings do not vouch.
+:   `is:cross-checked`, `has:cross-checked`
 
 ### is:proven { #is-proven }
 

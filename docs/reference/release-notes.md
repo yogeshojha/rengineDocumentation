@@ -40,6 +40,7 @@ To see how the parts fit together, read [How reNgine works](../developers/archit
 - Backup archives protected with a passphrase, database snapshots before each update, and rollback to a tagged release. See [Back up and restore](../pentesters/backup.md) and [Update and roll back](../pentesters/update.md).
 - Two instance modes, bug bounty and corporate. See [Bug bounty and corporate modes](../pentesters/instance-modes.md).
 - Two privilege levels, user and administrator, and two-factor authentication. See [Users and two-factor authentication](../pentesters/users.md).
+- An **About reNgine** dialog with the release and every pinned tool version, ready to paste into a bug report. See [Report an issue](../pentesters/troubleshooting.md#report-an-issue).
 
 ## Scanning
 
@@ -49,6 +50,7 @@ To see how the parts fit together, read [How reNgine works](../developers/archit
 - Scan contexts for scope, authentication, rate limits and a proxy. See [Scan contexts](../pentesters/scan-contexts.md).
 - One-off, interval, daily and cron schedules. See [Schedule scans](../pentesters/schedules.md).
 - Pause, resume and cancel for running scans, focused rescans of chosen assets, and daily runs that test your targets against new checks. See [Focused rescans](../pentesters/focused-rescans.md).
+- The source IP of each run, checked at the start and end of the scan through its proxy, to match a scan against the target's logs. See [Match the scan to the target's logs](../pentesters/run-a-scan.md#source-ip).
 
 ## Results
 

@@ -22,7 +22,7 @@ A dimension is one of the seven result types, and each has its own fields and fl
 
 | Dimension | One row | Fields | Flags | Search API |
 |---|---|---|---|---|
-| [Web assets](web-assets.md) | One hostname recorded by one scan (a subdomains row), with the HTTP response probed on it. | 50 | 18 | `POST /api/v1/subdomains/search` |
+| [Web assets](web-assets.md) | One hostname recorded by one scan (a subdomains row), with the HTTP response probed on it. | 52 | 18 | `POST /api/v1/subdomains/search` |
 | [Endpoints](endpoints.md) | One URL (host, path and parameter shape) recorded by one scan (an endpoints row). | 27 | 20 | `POST /api/v1/endpoints/search` |
 | [Services](services.md) | One open port on one address recorded by one scan (a ports row), joined to the address, its hostnames and the HTTP response on that port. | 22 | 14 | `POST /api/v1/ports/search` |
 | [IP addresses](ips.md) | One distinct IP address across the scans in scope, folded from resolved hostnames, ports, HTTP assets and ip_addresses rows. One row serves every target that shares the address. | 18 | 13 | `POST /api/v1/ips/search` |

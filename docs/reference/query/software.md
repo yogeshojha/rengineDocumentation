@@ -53,7 +53,7 @@ Fields are the properties you search on, written `field:value`. An alias works t
 | [`rank`](#f-rank) |  | number | Vulnerability | Exploitation rank built from the intelligence signals. |
 | [`confidence`](#f-confidence) |  | enum | Confidence | Verification level of the match. |
 | [`caveat`](#f-caveat) |  | enum | Confidence | A part of the match that is not verified. |
-| [`evidence`](#f-evidence) |  | enum | Confidence | Inferred from the version alone, or corroborated by a check at the same host. |
+| [`evidence`](#f-evidence) |  | enum | Confidence | Inferred from the version alone, or cross-checked against a check at the same host. |
 | [`target`](#f-target) |  | string | Asset | Target the asset belongs to. |
 | [`host`](#f-host) |  | string | Asset | Hostname running the software. |
 | [`ip`](#f-ip) |  | ip | Asset | Address running the software. |
@@ -79,7 +79,7 @@ Flags are yes-or-no properties of a row. Write them with `is:` or `has:`, for ex
 | [`is:stated`](#is-stated) | Version stated in a server header |
 | [`is:web`](#is-web) | Inferred from a web asset |
 | [`is:service`](#is-service) | Inferred from a service banner |
-| [`is:corroborated`](#is-corroborated) | A check at the same host names the same CVE |
+| [`is:cross-checked`](#is-cross-checked) | A check at the same host names the same CVE |
 | [`is:fixable`](#is-fixable) | A newer release on the same target is not affected |
 
 ## Group keys
@@ -155,7 +155,7 @@ Start from one of these queries and adjust it to your target.
 | `confidence:high`{ .rn-q } | Matches with no unverified part |
 | `caveat:backport`{ .rn-q } | Distribution builds that may patch without a version change |
 | `not caveat:conditional`{ .rn-q } | Matches NVD does not tie to a further component |
-| `evidence:corroborated`{ .rn-q } | Matches that a check at the same host also names |
+| `evidence:cross-checked`{ .rn-q } | Matches that a check at the same host also names |
 
 ## Field reference
 
@@ -391,7 +391,7 @@ Example
 
 ### evidence { #f-evidence }
 
-Inferred from the version alone, or corroborated by a check at the same host.
+Inferred from the version alone, or cross-checked against a check at the same host.
 
 Type
 :   `enum`
@@ -403,10 +403,10 @@ Operators
 :   `:` `=` `!=`
 
 Values
-:   `inferred`, `corroborated`
+:   `inferred`, `cross-checked`
 
 Example
-:   `evidence:corroborated`{ .rn-q }
+:   `evidence:cross-checked`{ .rn-q }
 
 Matching
 :   Values are matched as substrings.
@@ -517,7 +517,7 @@ Operators
 :   `:`
 
 Values
-:   [`new`](#is-new), [`kev`](#is-kev), [`ransomware`](#is-ransomware), [`overdue`](#is-overdue), [`likely`](#is-likely), [`firm`](#is-firm), [`conditional`](#is-conditional), [`backport`](#is-backport), [`fingerprinted`](#is-fingerprinted), [`stated`](#is-stated), [`web`](#is-web), [`service`](#is-service), [`corroborated`](#is-corroborated), [`fixable`](#is-fixable)
+:   [`new`](#is-new), [`kev`](#is-kev), [`ransomware`](#is-ransomware), [`overdue`](#is-overdue), [`likely`](#is-likely), [`firm`](#is-firm), [`conditional`](#is-conditional), [`backport`](#is-backport), [`fingerprinted`](#is-fingerprinted), [`stated`](#is-stated), [`web`](#is-web), [`service`](#is-service), [`cross-checked`](#is-cross-checked), [`fixable`](#is-fixable)
 
 Example
 :   `is:kev`{ .rn-q }
@@ -646,15 +646,12 @@ Written as
 Matches when
 :   Bound to a port.
 
-### is:corroborated { #is-corroborated }
+### is:cross-checked { #is-cross-checked }
 
 A check at the same host names the same CVE.
 
 Written as
-:   `is:corroborated`, `has:corroborated`
-
-Matches when
-:   Evidence is corroborated.
+:   `is:cross-checked`, `has:cross-checked`
 
 ### is:fixable { #is-fixable }
 

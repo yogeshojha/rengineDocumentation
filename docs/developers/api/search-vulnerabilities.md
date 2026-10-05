@@ -50,6 +50,7 @@ Send a JSON body of type `VulnerabilityFilter`. Put your query in `q`. Most othe
 | `cve` | boolean | `false` |  | A filter the interface sets from its controls. Combined with `q`. |
 | `new` | boolean | `false` |  | Only rows that are new in the run. |
 | `corroborated` | boolean | `false` |  | A filter the interface sets from its controls. Combined with `q`. |
+| `proven` | boolean | `false` |  | A filter the interface sets from its controls. Combined with `q`. |
 | `include_info` | boolean | `true` |  | A filter the interface sets from its controls. Combined with `q`. |
 | `include_suppressed` | boolean | `false` |  | A filter the interface sets from its controls. Combined with `q`. |
 | `sort` | string | `risk` | At most 20 characters | Sort key: `risk`, `severity`, `name`, `template`, `host`, `seen`, `cvss`, `epss`, `exploit`, `type`. |

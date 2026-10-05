@@ -387,7 +387,7 @@ compare_runs target=example.com dimension=vulnerabilities
 
 ### cve_exposure { #cve_exposure }
 
-Every asset in the estate that carries one CVE, across both findings dimensions, counted on one evidence ladder. Inferred: a version fell in the affected range. Observed: a check fired. Corroborated: two signals agree. Proven: an out-of-band artifact came back. Includes the NVD, EPSS and KEV record and how long the exposure has been held.
+Every asset in the estate that carries one CVE, across both findings dimensions, counted on one evidence ladder. Inferred: a version fell in the affected range. Observed: a check fired. Cross-checked: two signals agree. Proven: an out-of-band artifact came back. Includes the NVD, EPSS and KEV record and how long the exposure has been held.
 
 Title
 :   CVE exposure
@@ -402,7 +402,7 @@ Annotations
 :   `readOnlyHint`
 
 Context cost
-:   About 255 tokens for its entry in `tools/list`
+:   About 256 tokens for its entry in `tools/list`
 
 You can pass these parameters.
 

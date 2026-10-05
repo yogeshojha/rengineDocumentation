@@ -1,6 +1,6 @@
 ---
 title: HTTP API paths
-description: "All 377 paths and 442 operations of the reNgine HTTP API, in 57 tags, with the access each operation requires. Use it to find the operation you want to call and check who may call it."
+description: "All 379 paths and 444 operations of the reNgine HTTP API, in 58 tags, with the access each operation requires. Use it to find the operation you want to call and check who may call it."
 sources:
   - api/app/main.py
   - api/app/api/v1/
@@ -19,7 +19,7 @@ This is how the operations divide by access.
 
 | Access | Operations |
 |---|---|
-| Signed-in user | 336 |
+| Signed-in user | 338 |
 | Administrator | 93 |
 | Connector token | 7 |
 | None | 6 |
@@ -28,7 +28,13 @@ This is how the operations divide by access.
 
 Each tag below lists its operations, with a summary and the access each one requires. Where a path has its own page, the path links to it. Jump to a tag:
 
-[activity](#tag-activity), [ai](#tag-ai), [api-keys](#tag-api-keys), [ask](#tag-ask), [authentication](#tag-authentication), [bounty programs](#tag-bounty-programs), [bounty reports](#tag-bounty-reports), [connectors](#tag-connectors), [cves](#tag-cves), [dashboard](#tag-dashboard), [Datasets](#tag-datasets), [domain-posture](#tag-domain-posture), [endpoints](#tag-endpoints), [events](#tag-events), [exports](#tag-exports), [Health](#tag-health), [http-assets](#tag-http-assets), [instance-settings](#tag-instance-settings), [interest](#tag-interest), [ips](#tag-ips), [issue-trackers](#tag-issue-trackers), [lookalikes](#tag-lookalikes), [mcp](#tag-mcp), [media](#tag-media), [notes](#tag-notes), [notification-channels](#tag-notification-channels), [notifications](#tag-notifications), [onboarding](#tag-onboarding), [organizations](#tag-organizations), [out-of-band testing](#tag-out-of-band-testing), [ports](#tag-ports), [projects](#tag-projects), [proxies](#tag-proxies), [remote-control](#tag-remote-control), [reports](#tag-reports), [scan-contexts](#tag-scan-contexts), [scan-engines](#tag-scan-engines), [scans](#tag-scans), [schedules](#tag-schedules), [secrets](#tag-secrets), [software](#tag-software), [subdomains](#tag-subdomains), [surface](#tag-surface), [tags](#tag-tags), [targets](#tag-targets), [threat intelligence](#tag-threat-intelligence), [toolbox](#tag-toolbox), [tools/whois](#tag-tools-whois), [tripwires](#tag-tripwires), [two-factor](#tag-two-factor), [untagged](#tag-untagged), [users](#tag-users), [viewdns](#tag-viewdns), [vulnerabilities](#tag-vulnerabilities), [vulnerability templates](#tag-vulnerability-templates), [whats-new](#tag-whats-new), [wordlists](#tag-wordlists)
+[About](#tag-about), [activity](#tag-activity), [ai](#tag-ai), [api-keys](#tag-api-keys), [ask](#tag-ask), [authentication](#tag-authentication), [bounty programs](#tag-bounty-programs), [bounty reports](#tag-bounty-reports), [connectors](#tag-connectors), [cves](#tag-cves), [dashboard](#tag-dashboard), [Datasets](#tag-datasets), [domain-posture](#tag-domain-posture), [endpoints](#tag-endpoints), [events](#tag-events), [exports](#tag-exports), [Health](#tag-health), [http-assets](#tag-http-assets), [instance-settings](#tag-instance-settings), [interest](#tag-interest), [ips](#tag-ips), [issue-trackers](#tag-issue-trackers), [lookalikes](#tag-lookalikes), [mcp](#tag-mcp), [media](#tag-media), [notes](#tag-notes), [notification-channels](#tag-notification-channels), [notifications](#tag-notifications), [onboarding](#tag-onboarding), [organizations](#tag-organizations), [out-of-band testing](#tag-out-of-band-testing), [ports](#tag-ports), [projects](#tag-projects), [proxies](#tag-proxies), [remote-control](#tag-remote-control), [reports](#tag-reports), [scan-contexts](#tag-scan-contexts), [scan-engines](#tag-scan-engines), [scans](#tag-scans), [schedules](#tag-schedules), [secrets](#tag-secrets), [software](#tag-software), [subdomains](#tag-subdomains), [surface](#tag-surface), [tags](#tag-tags), [targets](#tag-targets), [threat intelligence](#tag-threat-intelligence), [toolbox](#tag-toolbox), [tools/whois](#tag-tools-whois), [tripwires](#tag-tripwires), [two-factor](#tag-two-factor), [untagged](#tag-untagged), [users](#tag-users), [viewdns](#tag-viewdns), [vulnerabilities](#tag-vulnerabilities), [vulnerability templates](#tag-vulnerability-templates), [whats-new](#tag-whats-new), [wordlists](#tag-wordlists)
+
+## About { #tag-about }
+
+| Method | Path | Summary | Access |
+|---|---|---|---|
+| `GET` | `/api/v1/about` | Read About | Signed-in user |
 
 ## activity { #tag-activity }
 
@@ -153,7 +159,6 @@ Each tag below lists its operations, with a summary and the access each one requ
 | `POST` | `/api/v1/connectors/{connector_id}/discovered/add` | Add Discovered Target | Signed-in user |
 | `POST` | `/api/v1/connectors/{connector_id}/discovered/dismiss` | Dismiss Discovered | Signed-in user |
 | `POST` | `/api/v1/connectors/{connector_id}/handoff` | Handoff To Proxy | Signed-in user |
-| `POST` | `/api/v1/connectors/{connector_id}/handoff/preview` | Preview Handoff | Signed-in user |
 | `POST` | `/api/v1/connectors/{connector_id}/rotate` | Rotate Token | Administrator |
 | `POST` | `/api/v1/connectors/{connector_id}/scan` | Scan Queue | Signed-in user |
 
@@ -616,6 +621,8 @@ Each tag below lists its operations, with a summary and the access each one requ
 | `GET` | `/api/v1/targets/{target_id}/dns` | Get Target Dns | Signed-in user |
 | `POST` | `/api/v1/targets/{target_id}/dns/refresh` | Refresh Target Dns | Signed-in user |
 | `GET` | `/api/v1/targets/{target_id}/estate` | Get Target Estate | Signed-in user |
+| `GET` | `/api/v1/targets/{target_id}/infostealer` | Get Target Infostealer | Signed-in user |
+| `POST` | `/api/v1/targets/{target_id}/infostealer/refresh` | Refresh Target Infostealer | Signed-in user |
 | `GET` | `/api/v1/targets/{target_id}/programs` | Get Target Programs | Signed-in user |
 | `GET` | `/api/v1/targets/{target_id}/relations` | Get Target Relations | Signed-in user |
 | `GET` | `/api/v1/targets/{target_id}/seeds` | List Target Seeds | Signed-in user |

@@ -7,6 +7,14 @@
  },
  {
   "method": "GET",
+  "path": "/api/v1/about",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
   "path": "/api/v1/activity",
   "access": "user",
   "other_auth": [
@@ -690,14 +698,6 @@
  {
   "method": "POST",
   "path": "/api/v1/connectors/{connector_id}/handoff",
-  "access": "user",
-  "other_auth": [
-   "get_token_from_request"
-  ]
- },
- {
-  "method": "POST",
-  "path": "/api/v1/connectors/{connector_id}/handoff/preview",
   "access": "user",
   "other_auth": [
    "get_token_from_request"
@@ -2924,6 +2924,22 @@
  {
   "method": "GET",
   "path": "/api/v1/targets/{target_id}/estate",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "GET",
+  "path": "/api/v1/targets/{target_id}/infostealer",
+  "access": "user",
+  "other_auth": [
+   "get_token_from_request"
+  ]
+ },
+ {
+  "method": "POST",
+  "path": "/api/v1/targets/{target_id}/infostealer/refresh",
   "access": "user",
   "other_auth": [
    "get_token_from_request"

@@ -431,6 +431,7 @@
         "Response",
         "Hygiene",
         "AI",
+        "Infostealers",
         "Network",
         "Certificates",
         "Findings",
@@ -480,7 +481,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Matches the target's value. source: compiler.py:301, terms.py:88-90",
-          "source": "shared/definitions/asset_query.py:192"
+          "source": "shared/definitions/asset_query.py:202"
         },
         {
           "name": "host",
@@ -506,7 +507,7 @@
           "sub_field": null,
           "match": "stored lowercase: ':' substring; '=' exact; '!=' not equal; '~' / '!~' regular expression",
           "note": "source: compiler.py:302, terms.py:76-85",
-          "source": "shared/definitions/asset_query.py:201"
+          "source": "shared/definitions/asset_query.py:211"
         },
         {
           "name": "url",
@@ -529,7 +530,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Matches the final URL after redirects, else the probed URL. As free text only the final URL is searched. source: compiler.py:213-214,303,379",
-          "source": "shared/definitions/asset_query.py:211"
+          "source": "shared/definitions/asset_query.py:221"
         },
         {
           "name": "path",
@@ -552,7 +553,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Read from the host's HTTP asset. source: compiler.py:359",
-          "source": "shared/definitions/asset_query.py:220"
+          "source": "shared/definitions/asset_query.py:230"
         },
         {
           "name": "cname",
@@ -575,7 +576,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: compiler.py:304",
-          "source": "shared/definitions/asset_query.py:228"
+          "source": "shared/definitions/asset_query.py:238"
         },
         {
           "name": "source",
@@ -596,7 +597,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "Values are not validated. source: compiler.py:305",
-          "source": "shared/definitions/asset_query.py:237"
+          "source": "shared/definitions/asset_query.py:247"
         },
         {
           "name": "discovered",
@@ -624,7 +625,7 @@
           "sub_field": null,
           "match": "calendar date or relative age; see grammar.dates",
           "note": "Past-facing. source: compiler.py:306-308",
-          "source": "shared/definitions/asset_query.py:247"
+          "source": "shared/definitions/asset_query.py:257"
         },
         {
           "name": "status",
@@ -658,7 +659,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Also accepts 1xx-5xx classes and none (no HTTP response); '!=' also matches rows with no status. source: compiler.py:138-168, values.py:21,64-69",
-          "source": "shared/definitions/asset_query.py:255"
+          "source": "shared/definitions/asset_query.py:265"
         },
         {
           "name": "title",
@@ -681,7 +682,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: compiler.py:310",
-          "source": "shared/definitions/asset_query.py:264"
+          "source": "shared/definitions/asset_query.py:274"
         },
         {
           "name": "server",
@@ -706,7 +707,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: compiler.py:311",
-          "source": "shared/definitions/asset_query.py:273"
+          "source": "shared/definitions/asset_query.py:283"
         },
         {
           "name": "tech",
@@ -727,7 +728,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: compiler.py:312",
-          "source": "shared/definitions/asset_query.py:283"
+          "source": "shared/definitions/asset_query.py:293"
         },
         {
           "name": "content_type",
@@ -753,7 +754,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: compiler.py:313",
-          "source": "shared/definitions/asset_query.py:293"
+          "source": "shared/definitions/asset_query.py:303"
         },
         {
           "name": "size",
@@ -781,7 +782,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Units b, k/kb, m/mb, gb (1024-based). source: compiler.py:314-316, values.py:14",
-          "source": "shared/definitions/asset_query.py:302"
+          "source": "shared/definitions/asset_query.py:312"
         },
         {
           "name": "words",
@@ -806,7 +807,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Read from the host's HTTP asset. source: compiler.py:360",
-          "source": "shared/definitions/asset_query.py:311"
+          "source": "shared/definitions/asset_query.py:321"
         },
         {
           "name": "paths",
@@ -833,7 +834,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Count of endpoint rows on the host in scope. source: compiler.py:217-224,320",
-          "source": "shared/definitions/asset_query.py:318"
+          "source": "shared/definitions/asset_query.py:328"
         },
         {
           "name": "lines",
@@ -858,7 +859,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Read from the host's HTTP asset. source: compiler.py:361",
-          "source": "shared/definitions/asset_query.py:326"
+          "source": "shared/definitions/asset_query.py:336"
         },
         {
           "name": "time",
@@ -886,7 +887,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Units ms, s, m, h. Stored in seconds. source: compiler.py:317-319, values.py:15",
-          "source": "shared/definitions/asset_query.py:333"
+          "source": "shared/definitions/asset_query.py:343"
         },
         {
           "name": "redirect",
@@ -911,7 +912,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Location header on the host's HTTP asset. source: compiler.py:362",
-          "source": "shared/definitions/asset_query.py:342"
+          "source": "shared/definitions/asset_query.py:352"
         },
         {
           "name": "favicon",
@@ -934,7 +935,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "As free text the hash must equal the word exactly. source: compiler.py:321,380",
-          "source": "shared/definitions/asset_query.py:352"
+          "source": "shared/definitions/asset_query.py:362"
         },
         {
           "name": "screenshot",
@@ -959,7 +960,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "16 hex digits (optional 0x). Matches every render within 2 bits of the hash. Only the first value is read. source: compiler.py:322-324, values.py:84-88, predicates.py:306-311, shared/definitions/correlation.py:13",
-          "source": "shared/definitions/asset_query.py:361"
+          "source": "shared/definitions/asset_query.py:371"
         },
         {
           "name": "body",
@@ -982,7 +983,7 @@
           "sub_field": null,
           "match": "text",
           "note": "Full-text over the stored body: a single unquoted word is a prefix match, several words are a phrase, a quoted value is matched as whole words. source: compiler.py:108-119,365, values.py:135-140",
-          "source": "shared/definitions/asset_query.py:372"
+          "source": "shared/definitions/asset_query.py:382"
         },
         {
           "name": "header",
@@ -1005,7 +1006,7 @@
           "sub_field": "header name",
           "match": "text",
           "note": "header:word is full-text over the headers; a quoted value is a substring of the raw header block; header.<name>:<value> is a substring of that one header (name lowercased, '-' read as '_'). source: compiler.py:122-130,366",
-          "source": "shared/definitions/asset_query.py:385"
+          "source": "shared/definitions/asset_query.py:395"
         },
         {
           "name": "ip",
@@ -1026,7 +1027,7 @@
           "sub_field": null,
           "match": "CIDR is containment; a full IPv4 or '=' is exact; anything else is a substring; '!=' negates",
           "note": "source: compiler.py:81-105",
-          "source": "shared/definitions/asset_query.py:399"
+          "source": "shared/definitions/asset_query.py:409"
         },
         {
           "name": "asn",
@@ -1051,7 +1052,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Accepts 13335 or AS13335. Maximum 4294967295. source: compiler.py:326-328, values.py:22,72-81",
-          "source": "shared/definitions/asset_query.py:408"
+          "source": "shared/definitions/asset_query.py:418"
         },
         {
           "name": "org",
@@ -1076,7 +1077,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: compiler.py:329",
-          "source": "shared/definitions/asset_query.py:415"
+          "source": "shared/definitions/asset_query.py:425"
         },
         {
           "name": "cdn",
@@ -1099,7 +1100,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "yes/true/1/any/present and no/false/0/none/absent filter on presence; anything else matches the CDN name. source: compiler.py:330, terms.py:39-40,197-224",
-          "source": "shared/definitions/asset_query.py:425"
+          "source": "shared/definitions/asset_query.py:435"
         },
         {
           "name": "waf",
@@ -1122,7 +1123,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "yes/no words filter on presence; anything else matches the WAF name. source: compiler.py:198-202",
-          "source": "shared/definitions/asset_query.py:434"
+          "source": "shared/definitions/asset_query.py:444"
         },
         {
           "name": "port",
@@ -1147,7 +1148,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "True when a resolved address has that port open in the row's scan. source: compiler.py:332-334, predicates.py:124-137",
-          "source": "shared/definitions/asset_query.py:443"
+          "source": "shared/definitions/asset_query.py:453"
         },
         {
           "name": "service",
@@ -1168,7 +1169,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum (':' '=' '!=' only) and compiled as a string match on the port's service name. source: compiler.py:335-337",
-          "source": "shared/definitions/asset_query.py:450"
+          "source": "shared/definitions/asset_query.py:460"
         },
         {
           "name": "hygiene",
@@ -1214,7 +1215,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "Validated: an unknown value is an error. warning / info expand to every check of that tone, any = fails at least one, none = checked and failing none. source: compiler.py:246-253, predicates.py:768-785",
-          "source": "shared/definitions/asset_query.py:458"
+          "source": "shared/definitions/asset_query.py:468"
         },
         {
           "name": "posture",
@@ -1261,7 +1262,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "Validated like hygiene, over the checks of the host's zone. source: compiler.py:256-263, predicates.py:806-823",
-          "source": "shared/definitions/asset_query.py:471"
+          "source": "shared/definitions/asset_query.py:481"
         },
         {
           "name": "ai",
@@ -1357,7 +1358,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "A service key, a category (self_hosted, gateway, mcp, application, cloud, generic), or a yes/no word. source: compiler.py:266-286",
-          "source": "shared/definitions/asset_query.py:484"
+          "source": "shared/definitions/asset_query.py:494"
         },
         {
           "name": "ai.model",
@@ -1380,7 +1381,60 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "yes/no words filter on presence. source: compiler.py:289-297",
-          "source": "shared/definitions/asset_query.py:496"
+          "source": "shared/definitions/asset_query.py:506"
+        },
+        {
+          "name": "infostealer",
+          "aliases": [
+            "stealer"
+          ],
+          "type": "enum",
+          "group": "Infostealers",
+          "operators": [
+            ":",
+            "=",
+            "!="
+          ],
+          "values": [
+            "employee",
+            "user",
+            "any",
+            "none"
+          ],
+          "description": "Audience of a web asset login found in infostealer logs: employee or user. Also takes any or none.",
+          "example": "infostealer:employee",
+          "free_text": false,
+          "facet": null,
+          "unit": null,
+          "sub_field": null,
+          "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
+          "note": "",
+          "source": "shared/definitions/asset_query.py:513"
+        },
+        {
+          "name": "infostealer.credentials",
+          "aliases": [],
+          "type": "number",
+          "group": "Infostealers",
+          "operators": [
+            ":",
+            "=",
+            "!=",
+            ">",
+            ">=",
+            "<",
+            "<="
+          ],
+          "values": [],
+          "description": "Credentials for the web asset's logins found in infostealer logs.",
+          "example": "infostealer.credentials>10",
+          "free_text": false,
+          "facet": null,
+          "unit": null,
+          "sub_field": null,
+          "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
+          "note": "",
+          "source": "shared/definitions/asset_query.py:525"
         },
         {
           "name": "cert",
@@ -1406,7 +1460,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "expired: flagged expired or not-after in the past. expiring: not expired and not-after within 30 days. self-signed. valid: not-after 30 days or more away and not self-signed. source: predicates.py:100-121, shared/definitions/dashboard.py:38",
-          "source": "shared/definitions/asset_query.py:503"
+          "source": "shared/definitions/asset_query.py:532"
         },
         {
           "name": "cert.cn",
@@ -1429,7 +1483,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: compiler.py:367",
-          "source": "shared/definitions/asset_query.py:511"
+          "source": "shared/definitions/asset_query.py:540"
         },
         {
           "name": "cert.san",
@@ -1452,7 +1506,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: compiler.py:368",
-          "source": "shared/definitions/asset_query.py:520"
+          "source": "shared/definitions/asset_query.py:549"
         },
         {
           "name": "cert.issuer",
@@ -1475,7 +1529,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Searches issuer, issuer organisation and issuer common name. source: compiler.py:205-210",
-          "source": "shared/definitions/asset_query.py:529"
+          "source": "shared/definitions/asset_query.py:558"
         },
         {
           "name": "cert.expires",
@@ -1500,7 +1554,7 @@
           "sub_field": null,
           "match": "calendar date or relative age; see grammar.dates",
           "note": "Future-facing: cert.expires:<30d is not-after earlier than 30 days from now (already expired certificates included). source: compiler.py:339-341, terms.py:121-136",
-          "source": "shared/definitions/asset_query.py:538"
+          "source": "shared/definitions/asset_query.py:567"
         },
         {
           "name": "tls.version",
@@ -1523,7 +1577,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: compiler.py:370",
-          "source": "shared/definitions/asset_query.py:545"
+          "source": "shared/definitions/asset_query.py:574"
         },
         {
           "name": "content_hash",
@@ -1548,7 +1602,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: compiler.py:363",
-          "source": "shared/definitions/asset_query.py:552"
+          "source": "shared/definitions/asset_query.py:581"
         },
         {
           "name": "tracking",
@@ -1571,7 +1625,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: compiler.py:364",
-          "source": "shared/definitions/asset_query.py:560"
+          "source": "shared/definitions/asset_query.py:589"
         },
         {
           "name": "jarm",
@@ -1594,7 +1648,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: compiler.py:371",
-          "source": "shared/definitions/asset_query.py:567"
+          "source": "shared/definitions/asset_query.py:596"
         },
         {
           "name": "cert.fingerprint",
@@ -1619,7 +1673,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: compiler.py:372",
-          "source": "shared/definitions/asset_query.py:574"
+          "source": "shared/definitions/asset_query.py:603"
         },
         {
           "name": "header_hash",
@@ -1642,7 +1696,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: compiler.py:373",
-          "source": "shared/definitions/asset_query.py:582"
+          "source": "shared/definitions/asset_query.py:611"
         },
         {
           "name": "is",
@@ -1682,7 +1736,7 @@
           "sub_field": null,
           "match": "one or more flag names; a list is any-of; unknown names are an error",
           "note": "is:interesting is accepted as an unlisted alias of is:exposed. source: compiler.py:171-195, walk.py:27-41",
-          "source": "shared/definitions/asset_query.py:589"
+          "source": "shared/definitions/asset_query.py:618"
         },
         {
           "name": "vuln",
@@ -1713,7 +1767,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Severity of any finding in scope whose host is this hostname; compiled as a substring match. source: compiler.py:342-344",
-          "source": "shared/definitions/asset_query.py:598"
+          "source": "shared/definitions/asset_query.py:627"
         },
         {
           "name": "cve",
@@ -1736,7 +1790,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "CVE ids on any finding on this hostname. source: compiler.py:351-353",
-          "source": "shared/definitions/asset_query.py:608"
+          "source": "shared/definitions/asset_query.py:637"
         },
         {
           "name": "exposure",
@@ -1782,7 +1836,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "source: compiler.py:227-231",
-          "source": "shared/definitions/asset_query.py:615"
+          "source": "shared/definitions/asset_query.py:644"
         },
         {
           "name": "flagged",
@@ -1808,7 +1862,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "source: compiler.py:234-238",
-          "source": "shared/definitions/asset_query.py:625"
+          "source": "shared/definitions/asset_query.py:654"
         },
         {
           "name": "exposure_band",
@@ -1836,7 +1890,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "source: compiler.py:241-243",
-          "source": "shared/definitions/asset_query.py:634"
+          "source": "shared/definitions/asset_query.py:663"
         }
       ],
       "flags": [
@@ -1931,109 +1985,109 @@
           "rule": "interest_score above 0"
         }
       ],
-      "flags_source": "shared/definitions/asset_query.py:170",
+      "flags_source": "shared/definitions/asset_query.py:180",
       "group_by": [
         {
           "key": "target",
           "label": "Target",
           "description": "Rows belonging to the same target",
-          "source": "shared/definitions/asset_query.py:675"
+          "source": "shared/definitions/asset_query.py:704"
         },
         {
           "key": "ip",
           "label": "IP address",
           "description": "Names sharing a resolved address",
-          "source": "shared/definitions/asset_query.py:680"
+          "source": "shared/definitions/asset_query.py:709"
         },
         {
           "key": "favicon",
           "label": "Favicon",
           "description": "Names serving the same favicon",
-          "source": "shared/definitions/asset_query.py:685"
+          "source": "shared/definitions/asset_query.py:714"
         },
         {
           "key": "screenshot",
           "label": "Rendered page",
           "description": "Names whose screenshots render the same page",
-          "source": "shared/definitions/asset_query.py:690"
+          "source": "shared/definitions/asset_query.py:719"
         },
         {
           "key": "title",
           "label": "Page title",
           "description": "Names serving the same page title",
-          "source": "shared/definitions/asset_query.py:695"
+          "source": "shared/definitions/asset_query.py:724"
         },
         {
           "key": "cname",
           "label": "CNAME target",
           "description": "Names pointing at the same alias",
-          "source": "shared/definitions/asset_query.py:700"
+          "source": "shared/definitions/asset_query.py:729"
         },
         {
           "key": "tech",
           "label": "Technology",
           "description": "Names running the same technology",
-          "source": "shared/definitions/asset_query.py:705"
+          "source": "shared/definitions/asset_query.py:734"
         },
         {
           "key": "content_hash",
           "label": "Identical content",
           "description": "Names serving a byte-identical response",
-          "source": "shared/definitions/asset_query.py:710"
+          "source": "shared/definitions/asset_query.py:739"
         },
         {
           "key": "jarm",
           "label": "TLS fingerprint",
           "description": "Names sharing a JARM TLS fingerprint",
-          "source": "shared/definitions/asset_query.py:715"
+          "source": "shared/definitions/asset_query.py:744"
         },
         {
           "key": "cert.fingerprint",
           "label": "Certificate",
           "description": "Names presenting the same certificate",
-          "source": "shared/definitions/asset_query.py:720"
+          "source": "shared/definitions/asset_query.py:749"
         },
         {
           "key": "cert.issuer",
           "label": "Certificate issuer",
           "description": "Names whose certificate has the same issuer",
-          "source": "shared/definitions/asset_query.py:725"
+          "source": "shared/definitions/asset_query.py:754"
         },
         {
           "key": "header_hash",
           "label": "Header set",
           "description": "Names returning an identical set of response headers",
-          "source": "shared/definitions/asset_query.py:730"
+          "source": "shared/definitions/asset_query.py:759"
         },
         {
           "key": "server",
           "label": "Server banner",
           "description": "Names reporting the same server header",
-          "source": "shared/definitions/asset_query.py:735"
+          "source": "shared/definitions/asset_query.py:764"
         },
         {
           "key": "cdn",
           "label": "CDN",
           "description": "Names fronted by the same CDN",
-          "source": "shared/definitions/asset_query.py:740"
+          "source": "shared/definitions/asset_query.py:769"
         },
         {
           "key": "status",
           "label": "Status class",
           "description": "Names by HTTP response class",
-          "source": "shared/definitions/asset_query.py:745"
+          "source": "shared/definitions/asset_query.py:774"
         },
         {
           "key": "hygiene",
           "label": "Hygiene check",
           "description": "Names failing the same hardening check",
-          "source": "shared/definitions/asset_query.py:750"
+          "source": "shared/definitions/asset_query.py:779"
         },
         {
           "key": "posture",
           "label": "Posture check",
           "description": "Names whose zone fails the same posture check",
-          "source": "shared/definitions/asset_query.py:755"
+          "source": "shared/definitions/asset_query.py:784"
         }
       ],
       "sort": {
@@ -2076,402 +2130,402 @@
           "description": "Resolving hostnames with no HTTP service",
           "group": "Takeover risk",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:789"
+          "source": "shared/definitions/asset_query.py:818"
         },
         {
           "query": "cname:. and not is:web",
           "description": "CNAME records with no HTTP service",
           "group": "Takeover risk",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:795"
+          "source": "shared/definitions/asset_query.py:824"
         },
         {
           "query": "cname:elb.amazonaws.com and status:404",
           "description": "Load balancer aliases returning 404",
           "group": "Takeover risk",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:800"
+          "source": "shared/definitions/asset_query.py:829"
         },
         {
           "query": "cname:[myshopify.com,github.io,herokuapp.com,azurewebsites.net,netlify.app,pantheonsite.io,wpengine.com,ghost.io]",
           "description": "Aliases pointing to third-party hosting",
           "group": "Takeover risk",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:805"
+          "source": "shared/definitions/asset_query.py:834"
         },
         {
           "query": "cname:. and not is:resolved",
           "description": "CNAME records that fail to resolve",
           "group": "Takeover risk",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:813"
+          "source": "shared/definitions/asset_query.py:842"
         },
         {
           "query": "is:wildcard",
           "description": "Hostnames matched only by a wildcard record",
           "group": "Takeover risk",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:818"
+          "source": "shared/definitions/asset_query.py:847"
         },
         {
           "query": "is:sensitive",
           "description": "Administrative or database ports exposed",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:823"
+          "source": "shared/definitions/asset_query.py:852"
         },
         {
           "query": "port:[3306,5432,27017,6379,9200,11211,5984]",
           "description": "Database ports reachable from the internet",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:828"
+          "source": "shared/definitions/asset_query.py:857"
         },
         {
           "query": "port:[22,23,3389,5900]",
           "description": "Remote administration ports reachable",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:833"
+          "source": "shared/definitions/asset_query.py:862"
         },
         {
           "query": "body:\"index of\" and status:200",
           "description": "Directory listings enabled",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:838"
+          "source": "shared/definitions/asset_query.py:867"
         },
         {
           "query": "body:\"begin rsa private key\" or body:\"begin private key\" or body:aws_secret_access_key",
           "description": "Private key material in a response body",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:843"
+          "source": "shared/definitions/asset_query.py:872"
         },
         {
           "query": "body:traceback or body:\"stack trace\" or title:exception",
           "description": "Application stack traces in responses",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:851"
+          "source": "shared/definitions/asset_query.py:880"
         },
         {
           "query": "body:\"sql syntax\" or body:\"odbc driver\"",
           "description": "Database error messages in responses",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:856"
+          "source": "shared/definitions/asset_query.py:885"
         },
         {
           "query": "title:phpinfo or body:phpinfo",
           "description": "phpinfo diagnostic pages exposed",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:861"
+          "source": "shared/definitions/asset_query.py:890"
         },
         {
           "query": "body:swagger or url:swagger or title:swagger",
           "description": "API documentation publicly accessible",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:866"
+          "source": "shared/definitions/asset_query.py:895"
         },
         {
           "query": "tech:[jenkins,gitlab,grafana,kibana,prometheus,sonarqube,jira,confluence] and status:200",
           "description": "Developer tooling exposed to the internet",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:871"
+          "source": "shared/definitions/asset_query.py:900"
         },
         {
           "query": "host:[jenkins,gitlab,grafana,kibana,jira,confluence,vault,consul]",
           "description": "Hostnames indicating internal tooling",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:879"
+          "source": "shared/definitions/asset_query.py:908"
         },
         {
           "query": "content_type:json and status:200",
           "description": "JSON endpoints served directly",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:884"
+          "source": "shared/definitions/asset_query.py:913"
         },
         {
           "query": "host:[staging,dev,test,uat,qa,sandbox,preprod,demo]",
           "description": "Non-production hostnames publicly resolvable",
           "group": "Non-production",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:889"
+          "source": "shared/definitions/asset_query.py:918"
         },
         {
           "query": "host:[staging,dev,test,uat,qa,sandbox,preprod] and is:live and not is:auth",
           "description": "Non-production web assets served without authentication",
           "group": "Non-production",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:895"
+          "source": "shared/definitions/asset_query.py:924"
         },
         {
           "query": "(host:admin or host:portal or host:console) and is:live and not is:auth",
           "description": "Administrative interfaces without authentication",
           "group": "Non-production",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:902"
+          "source": "shared/definitions/asset_query.py:931"
         },
         {
           "query": "is:auth and is:live",
           "description": "Authenticated interfaces currently serving",
           "group": "Access control",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:907"
+          "source": "shared/definitions/asset_query.py:936"
         },
         {
           "query": "is:auth",
           "description": "Web assets requiring authentication",
           "group": "Access control",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:912"
+          "source": "shared/definitions/asset_query.py:941"
         },
         {
           "query": "header.access-control-allow-origin:*",
           "description": "Wildcard cross-origin policy on responses",
           "group": "Access control",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:917"
+          "source": "shared/definitions/asset_query.py:946"
         },
         {
           "query": "cert:expired and is:live",
           "description": "Reachable web assets serving an expired certificate",
           "group": "Certificates",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:922"
+          "source": "shared/definitions/asset_query.py:951"
         },
         {
           "query": "cert:expiring",
           "description": "Certificates expiring within 30 days",
           "group": "Certificates",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:927"
+          "source": "shared/definitions/asset_query.py:956"
         },
         {
           "query": "cert:self-signed",
           "description": "Self-signed certificates in use",
           "group": "Certificates",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:933"
+          "source": "shared/definitions/asset_query.py:962"
         },
         {
           "query": "cert.cn:internal or cert.san:internal or cert.san:local",
           "description": "Internal hostnames disclosed in certificates",
           "group": "Certificates",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:938"
+          "source": "shared/definitions/asset_query.py:967"
         },
         {
           "query": "cert.san:*. and is:live",
           "description": "Wildcard certificates in use",
           "group": "Certificates",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:943"
+          "source": "shared/definitions/asset_query.py:972"
         },
         {
           "query": "tls.version:[tls10,tls11]",
           "description": "Obsolete TLS versions negotiated",
           "group": "Certificates",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:948"
+          "source": "shared/definitions/asset_query.py:977"
         },
         {
           "query": "is:live and not cdn:yes and waf:no",
           "description": "Web assets served without CDN or WAF",
           "group": "Origin exposure",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:953"
+          "source": "shared/definitions/asset_query.py:982"
         },
         {
           "query": "server:[apache,nginx,iis] and not cdn:yes",
           "description": "Origin server banners disclosed",
           "group": "Origin exposure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:959"
+          "source": "shared/definitions/asset_query.py:988"
         },
         {
           "query": "tech:[php,tomcat,jboss,weblogic,coldfusion] and status:200",
           "description": "Runtimes with significant CVE history",
           "group": "Origin exposure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:964"
+          "source": "shared/definitions/asset_query.py:993"
         },
         {
           "query": "hygiene:warning",
           "description": "Web assets failing a warning-level hardening check",
           "group": "Hygiene",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:969"
+          "source": "shared/definitions/asset_query.py:998"
         },
         {
           "query": "hygiene:cors_credentials",
           "description": "CORS credentials allowed with a wildcard or null origin",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:975"
+          "source": "shared/definitions/asset_query.py:1004"
         },
         {
           "query": "hygiene:cookie_no_secure",
           "description": "Cookies set over https without Secure",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:980"
+          "source": "shared/definitions/asset_query.py:1009"
         },
         {
           "query": "hygiene:cookie_no_httponly",
           "description": "Session cookies readable by scripts",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:985"
+          "source": "shared/definitions/asset_query.py:1014"
         },
         {
           "query": "hygiene:no_frame_protection and is:live",
           "description": "Pages that can be framed by another site",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:990"
+          "source": "shared/definitions/asset_query.py:1019"
         },
         {
           "query": "hygiene:[csp_unsafe_inline,csp_wildcard_script]",
           "description": "Content-Security-Policy that does not restrict scripts",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:995"
+          "source": "shared/definitions/asset_query.py:1024"
         },
         {
           "query": "hygiene:no_https_redirect",
           "description": "Plaintext http with no redirect to https",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1000"
+          "source": "shared/definitions/asset_query.py:1029"
         },
         {
           "query": "hygiene:[server_version,runtime_disclosed] and not cdn:yes",
           "description": "Origin software versions disclosed in headers",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1005"
+          "source": "shared/definitions/asset_query.py:1034"
         },
         {
           "query": "hygiene:none and is:live",
           "description": "Reachable web assets passing every hardening check",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1010"
+          "source": "shared/definitions/asset_query.py:1039"
         },
         {
           "query": "is:new and (status:2xx or status:3xx)",
           "description": "Reachable web assets absent from every earlier scan",
           "group": "Change",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1015"
+          "source": "shared/definitions/asset_query.py:1044"
         },
         {
           "query": "is:new and is:auth",
           "description": "Authenticated interfaces absent from every earlier scan",
           "group": "Change",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1021"
+          "source": "shared/definitions/asset_query.py:1050"
         },
         {
           "query": "is:new and cert:expired",
           "description": "New web assets serving an expired certificate",
           "group": "Change",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1026"
+          "source": "shared/definitions/asset_query.py:1055"
         },
         {
           "query": "is:new",
           "description": "Web assets absent from every earlier scan",
           "group": "Change",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1031"
+          "source": "shared/definitions/asset_query.py:1060"
         },
         {
           "query": "discovered:<7d and is:live",
           "description": "Reachable web assets discovered in the last 7 days",
           "group": "Change",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1036"
+          "source": "shared/definitions/asset_query.py:1065"
         },
         {
           "query": "status:>=500 or title:exception",
           "description": "Server-side errors returned",
           "group": "Health",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1041"
+          "source": "shared/definitions/asset_query.py:1070"
         },
         {
           "query": "not is:resolved",
           "description": "Hostnames that no longer resolve",
           "group": "Health",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1047"
+          "source": "shared/definitions/asset_query.py:1076"
         },
         {
           "query": "size:<500 and status:200",
           "description": "Minimal-content responses returning 200",
           "group": "Health",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1052"
+          "source": "shared/definitions/asset_query.py:1081"
         },
         {
           "query": "time:>5s",
           "description": "Responses slower than 5 seconds",
           "group": "Health",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1057"
+          "source": "shared/definitions/asset_query.py:1086"
         },
         {
           "query": "is:redirect and not is:live",
           "description": "Redirects terminating in an error",
           "group": "Health",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1062"
+          "source": "shared/definitions/asset_query.py:1091"
         },
         {
           "query": "is:exposed",
           "description": "Everything flagged as an exposure",
           "group": "Exposures",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1067"
+          "source": "shared/definitions/asset_query.py:1096"
         },
         {
           "query": "is:exposed and is:new",
           "description": "New web assets flagged as an exposure",
           "group": "Exposures",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1073"
+          "source": "shared/definitions/asset_query.py:1102"
         },
         {
           "query": "flagged:ai",
           "description": "Flagged by AI judgement",
           "group": "Exposures",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1078"
+          "source": "shared/definitions/asset_query.py:1107"
         },
         {
           "query": "exposure_band:critical",
           "description": "Exposures in the critical band",
           "group": "Exposures",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1083"
+          "source": "shared/definitions/asset_query.py:1112"
         },
         {
           "query": "exposure:admin_interface and not is:auth",
           "description": "Administrative surfaces answering without a login",
           "group": "Exposures",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1088"
+          "source": "shared/definitions/asset_query.py:1117"
         }
       ],
-      "registry_source": "shared/definitions/asset_query.py:1126"
+      "registry_source": "shared/definitions/asset_query.py:1155"
     },
     {
       "id": "endpoints",
@@ -2576,7 +2630,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2416"
+          "source": "shared/definitions/asset_query.py:2445"
         },
         {
           "name": "url",
@@ -2599,7 +2653,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2425"
+          "source": "shared/definitions/asset_query.py:2454"
         },
         {
           "name": "path",
@@ -2622,7 +2676,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2433"
+          "source": "shared/definitions/asset_query.py:2462"
         },
         {
           "name": "dir",
@@ -2648,7 +2702,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "dir: matches the directory and everything below it; dir= only that directory. A leading and trailing '/' are added. source: endpoint_compiler.py:85-97",
-          "source": "shared/definitions/asset_query.py:2441"
+          "source": "shared/definitions/asset_query.py:2470"
         },
         {
           "name": "file",
@@ -2673,7 +2727,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2450"
+          "source": "shared/definitions/asset_query.py:2479"
         },
         {
           "name": "ext",
@@ -2698,7 +2752,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2458"
+          "source": "shared/definitions/asset_query.py:2487"
         },
         {
           "name": "host",
@@ -2721,7 +2775,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2467"
+          "source": "shared/definitions/asset_query.py:2496"
         },
         {
           "name": "port",
@@ -2746,7 +2800,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2476"
+          "source": "shared/definitions/asset_query.py:2505"
         },
         {
           "name": "scheme",
@@ -2770,7 +2824,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: endpoint_compiler.py:138",
-          "source": "shared/definitions/asset_query.py:2483"
+          "source": "shared/definitions/asset_query.py:2512"
         },
         {
           "name": "depth",
@@ -2795,7 +2849,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2491"
+          "source": "shared/definitions/asset_query.py:2520"
         },
         {
           "name": "class",
@@ -2829,7 +2883,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: endpoint_compiler.py:140",
-          "source": "shared/definitions/asset_query.py:2498"
+          "source": "shared/definitions/asset_query.py:2527"
         },
         {
           "name": "param",
@@ -2854,7 +2908,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: endpoint_compiler.py:141",
-          "source": "shared/definitions/asset_query.py:2508"
+          "source": "shared/definitions/asset_query.py:2537"
         },
         {
           "name": "params",
@@ -2879,7 +2933,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2517"
+          "source": "shared/definitions/asset_query.py:2546"
         },
         {
           "name": "interest",
@@ -2919,7 +2973,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: endpoint_compiler.py:143",
-          "source": "shared/definitions/asset_query.py:2524"
+          "source": "shared/definitions/asset_query.py:2553"
         },
         {
           "name": "status",
@@ -2944,7 +2998,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Also accepts 2xx, 3xx, 4xx, 5xx and none. source: endpoint_compiler.py:100-114",
-          "source": "shared/definitions/asset_query.py:2533"
+          "source": "shared/definitions/asset_query.py:2562"
         },
         {
           "name": "type",
@@ -2970,7 +3024,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2541"
+          "source": "shared/definitions/asset_query.py:2570"
         },
         {
           "name": "title",
@@ -2993,7 +3047,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2549"
+          "source": "shared/definitions/asset_query.py:2578"
         },
         {
           "name": "length",
@@ -3020,7 +3074,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Units b, k/kb, m/mb, gb. source: endpoint_compiler.py:147-149",
-          "source": "shared/definitions/asset_query.py:2557"
+          "source": "shared/definitions/asset_query.py:2586"
         },
         {
           "name": "words",
@@ -3045,7 +3099,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2566"
+          "source": "shared/definitions/asset_query.py:2595"
         },
         {
           "name": "tech",
@@ -3068,7 +3122,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: endpoint_compiler.py:151",
-          "source": "shared/definitions/asset_query.py:2573"
+          "source": "shared/definitions/asset_query.py:2602"
         },
         {
           "name": "method",
@@ -3091,7 +3145,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: endpoint_compiler.py:152",
-          "source": "shared/definitions/asset_query.py:2581"
+          "source": "shared/definitions/asset_query.py:2610"
         },
         {
           "name": "source",
@@ -3128,7 +3182,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: endpoint_compiler.py:153",
-          "source": "shared/definitions/asset_query.py:2588"
+          "source": "shared/definitions/asset_query.py:2617"
         },
         {
           "name": "from",
@@ -3154,7 +3208,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2597"
+          "source": "shared/definitions/asset_query.py:2626"
         },
         {
           "name": "seen",
@@ -3179,7 +3233,7 @@
           "sub_field": null,
           "match": "calendar date or relative age; see grammar.dates",
           "note": "Past-facing. source: endpoint_compiler.py:155",
-          "source": "shared/definitions/asset_query.py:2605"
+          "source": "shared/definitions/asset_query.py:2634"
         },
         {
           "name": "vuln",
@@ -3207,7 +3261,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "A finding in scope on the endpoint's HTTP asset or on its host. source: endpoint_compiler.py:117-119, predicates.py:683-696",
-          "source": "shared/definitions/asset_query.py:2612"
+          "source": "shared/definitions/asset_query.py:2641"
         },
         {
           "name": "cve",
@@ -3230,7 +3284,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: endpoint_compiler.py:122-126",
-          "source": "shared/definitions/asset_query.py:2620"
+          "source": "shared/definitions/asset_query.py:2649"
         },
         {
           "name": "is",
@@ -3270,7 +3324,7 @@
           "sub_field": null,
           "match": "one or more flag names; a list is any-of; unknown names are an error",
           "note": "source: endpoint_compiler.py:53-82",
-          "source": "shared/definitions/asset_query.py:2627"
+          "source": "shared/definitions/asset_query.py:2656"
         }
       ],
       "flags": [
@@ -3375,67 +3429,67 @@
           "rule": "such a finding is KEV-listed"
         }
       ],
-      "flags_source": "shared/definitions/asset_query.py:2392",
+      "flags_source": "shared/definitions/asset_query.py:2421",
       "group_by": [
         {
           "key": "target",
           "label": "Target",
           "description": "Rows belonging to the same target",
-          "source": "shared/definitions/asset_query.py:2638"
+          "source": "shared/definitions/asset_query.py:2667"
         },
         {
           "key": "dir",
           "label": "Directory",
           "description": "Endpoints in the same directory",
-          "source": "shared/definitions/asset_query.py:2643"
+          "source": "shared/definitions/asset_query.py:2672"
         },
         {
           "key": "host",
           "label": "Host",
           "description": "Endpoints on the same host",
-          "source": "shared/definitions/asset_query.py:2648"
+          "source": "shared/definitions/asset_query.py:2677"
         },
         {
           "key": "class",
           "label": "Kind",
           "description": "Endpoints of the same kind",
-          "source": "shared/definitions/asset_query.py:2653"
+          "source": "shared/definitions/asset_query.py:2682"
         },
         {
           "key": "ext",
           "label": "Extension",
           "description": "Endpoints with the same file extension",
-          "source": "shared/definitions/asset_query.py:2658"
+          "source": "shared/definitions/asset_query.py:2687"
         },
         {
           "key": "status",
           "label": "Status",
           "description": "Endpoints answering with the same status",
-          "source": "shared/definitions/asset_query.py:2663"
+          "source": "shared/definitions/asset_query.py:2692"
         },
         {
           "key": "source",
           "label": "Source",
           "description": "Endpoints found the same way",
-          "source": "shared/definitions/asset_query.py:2668"
+          "source": "shared/definitions/asset_query.py:2697"
         },
         {
           "key": "param",
           "label": "Parameter",
           "description": "Endpoints accepting the same parameter",
-          "source": "shared/definitions/asset_query.py:2673"
+          "source": "shared/definitions/asset_query.py:2702"
         },
         {
           "key": "interest",
           "label": "Interest",
           "description": "Endpoints flagged for the same reason",
-          "source": "shared/definitions/asset_query.py:2678"
+          "source": "shared/definitions/asset_query.py:2707"
         },
         {
           "key": "tech",
           "label": "Technology",
           "description": "Endpoints running the same technology",
-          "source": "shared/definitions/asset_query.py:2683"
+          "source": "shared/definitions/asset_query.py:2712"
         }
       ],
       "sort": {
@@ -3477,157 +3531,157 @@
           "description": "Live endpoints that accept input",
           "group": "Attack surface",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2700"
+          "source": "shared/definitions/asset_query.py:2729"
         },
         {
           "query": "interest:open_redirect or interest:ssrf",
           "description": "Parameters carrying a destination URL",
           "group": "Attack surface",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2706"
+          "source": "shared/definitions/asset_query.py:2735"
         },
         {
           "query": "interest:traversal and is:live",
           "description": "Live endpoints taking a file or path parameter",
           "group": "Attack surface",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2711"
+          "source": "shared/definitions/asset_query.py:2740"
         },
         {
           "query": "is:sensitive",
           "description": "Credential, backup and version control paths",
           "group": "Attack surface",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2716"
+          "source": "shared/definitions/asset_query.py:2745"
         },
         {
           "query": "ext:[bak,old,sql,zip,tar,gz]",
           "description": "Archive and backup files in the web root",
           "group": "Attack surface",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2722"
+          "source": "shared/definitions/asset_query.py:2751"
         },
         {
           "query": "interest:admin and status:200",
           "description": "Administrative paths answering without authentication",
           "group": "Attack surface",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2727"
+          "source": "shared/definitions/asset_query.py:2756"
         },
         {
           "query": "is:orphan",
           "description": "Endpoints not linked from any crawled page",
           "group": "Hidden surface",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2732"
+          "source": "shared/definitions/asset_query.py:2761"
         },
         {
           "query": "is:archive-only",
           "description": "Recorded by an archive and unreachable when requested",
           "group": "Hidden surface",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2738"
+          "source": "shared/definitions/asset_query.py:2767"
         },
         {
           "query": "source:archive and is:live",
           "description": "Archived endpoints that respond",
           "group": "Hidden surface",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2743"
+          "source": "shared/definitions/asset_query.py:2772"
         },
         {
           "query": "depth:>4 and is:live",
           "description": "Deeply nested live endpoints",
           "group": "Hidden surface",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2748"
+          "source": "shared/definitions/asset_query.py:2777"
         },
         {
           "query": "is:new",
           "description": "Endpoints absent from every earlier scan",
           "group": "Change",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2753"
+          "source": "shared/definitions/asset_query.py:2782"
         },
         {
           "query": "is:new and is:param",
           "description": "Input surface absent from every earlier scan",
           "group": "Change",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2759"
+          "source": "shared/definitions/asset_query.py:2788"
         },
         {
           "query": "class:api",
           "description": "API routes",
           "group": "API",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2764"
+          "source": "shared/definitions/asset_query.py:2793"
         },
         {
           "query": "interest:api_doc",
           "description": "Swagger, OpenAPI and GraphQL descriptions of the API",
           "group": "API",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2770"
+          "source": "shared/definitions/asset_query.py:2799"
         },
         {
           "query": "class:api and is:param and not is:auth",
           "description": "API routes taking input with no auth wall",
           "group": "API",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2775"
+          "source": "shared/definitions/asset_query.py:2804"
         },
         {
           "query": "not is:probed",
           "description": "Endpoints not requested directly",
           "group": "Evidence",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2780"
+          "source": "shared/definitions/asset_query.py:2809"
         },
         {
           "query": "source:response_mining",
           "description": "Found in stored responses",
           "group": "Evidence",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2786"
+          "source": "shared/definitions/asset_query.py:2815"
         },
         {
           "query": "source:robots or source:sitemap",
           "description": "Paths declared in robots.txt or a sitemap",
           "group": "Evidence",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2791"
+          "source": "shared/definitions/asset_query.py:2820"
         },
         {
           "query": "is:vulnerable",
           "description": "Endpoints a vulnerability scan reported a finding on",
           "group": "Evidence",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2796"
+          "source": "shared/definitions/asset_query.py:2825"
         },
         {
           "query": "interest:debug_endpoint",
           "description": "Actuator, metrics and diagnostic routes",
           "group": "Hygiene",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2801"
+          "source": "shared/definitions/asset_query.py:2830"
         },
         {
           "query": "status:500..599",
           "description": "Endpoints answering with a server error",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2807"
+          "source": "shared/definitions/asset_query.py:2836"
         },
         {
           "query": "type:json and not class:api",
           "description": "JSON served outside the API surface",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2812"
+          "source": "shared/definitions/asset_query.py:2841"
         }
       ],
-      "registry_source": "shared/definitions/asset_query.py:2819"
+      "registry_source": "shared/definitions/asset_query.py:2848"
     },
     {
       "id": "services",
@@ -3736,7 +3790,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1507"
+          "source": "shared/definitions/asset_query.py:1536"
         },
         {
           "name": "port",
@@ -3761,7 +3815,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1516"
+          "source": "shared/definitions/asset_query.py:1545"
         },
         {
           "name": "seen",
@@ -3788,7 +3842,7 @@
           "sub_field": null,
           "match": "calendar date or relative age; see grammar.dates",
           "note": "Past-facing. source: service_compiler.py:118-120",
-          "source": "shared/definitions/asset_query.py:1524"
+          "source": "shared/definitions/asset_query.py:1553"
         },
         {
           "name": "service",
@@ -3811,7 +3865,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1532"
+          "source": "shared/definitions/asset_query.py:1561"
         },
         {
           "name": "class",
@@ -3841,7 +3895,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: service_compiler.py:122",
-          "source": "shared/definitions/asset_query.py:1541"
+          "source": "shared/definitions/asset_query.py:1570"
         },
         {
           "name": "protocol",
@@ -3865,7 +3919,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: service_compiler.py:123",
-          "source": "shared/definitions/asset_query.py:1551"
+          "source": "shared/definitions/asset_query.py:1580"
         },
         {
           "name": "source",
@@ -3892,7 +3946,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: service_compiler.py:124",
-          "source": "shared/definitions/asset_query.py:1559"
+          "source": "shared/definitions/asset_query.py:1588"
         },
         {
           "name": "product",
@@ -3915,7 +3969,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1568"
+          "source": "shared/definitions/asset_query.py:1597"
         },
         {
           "name": "version",
@@ -3938,7 +3992,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1576"
+          "source": "shared/definitions/asset_query.py:1605"
         },
         {
           "name": "banner",
@@ -3959,7 +4013,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared text (':' '=' '!=' only); compiled as a substring match. source: service_compiler.py:127",
-          "source": "shared/definitions/asset_query.py:1584"
+          "source": "shared/definitions/asset_query.py:1613"
         },
         {
           "name": "ai",
@@ -4055,7 +4109,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "source: service_compiler.py:61-81",
-          "source": "shared/definitions/asset_query.py:1592"
+          "source": "shared/definitions/asset_query.py:1621"
         },
         {
           "name": "ai.model",
@@ -4078,7 +4132,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: service_compiler.py:84-91",
-          "source": "shared/definitions/asset_query.py:1603"
+          "source": "shared/definitions/asset_query.py:1632"
         },
         {
           "name": "ip",
@@ -4102,7 +4156,7 @@
           "sub_field": null,
           "match": "CIDR is containment; a full IPv4 or '=' is exact; anything else is a substring; '!=' negates",
           "note": "source: service_compiler.py:128, terms.py:206-217",
-          "source": "shared/definitions/asset_query.py:1610"
+          "source": "shared/definitions/asset_query.py:1639"
         },
         {
           "name": "asn",
@@ -4127,7 +4181,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Accepts AS13335. source: service_compiler.py:129-131",
-          "source": "shared/definitions/asset_query.py:1619"
+          "source": "shared/definitions/asset_query.py:1648"
         },
         {
           "name": "org",
@@ -4153,7 +4207,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1627"
+          "source": "shared/definitions/asset_query.py:1656"
         },
         {
           "name": "country",
@@ -4174,7 +4228,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: service_compiler.py:133",
-          "source": "shared/definitions/asset_query.py:1636"
+          "source": "shared/definitions/asset_query.py:1665"
         },
         {
           "name": "cdn",
@@ -4197,7 +4251,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "yes/no words filter on presence. source: service_compiler.py:134",
-          "source": "shared/definitions/asset_query.py:1644"
+          "source": "shared/definitions/asset_query.py:1673"
         },
         {
           "name": "host",
@@ -4223,7 +4277,7 @@
           "sub_field": null,
           "match": "stored lowercase: ':' substring; '=' exact; '!=' not equal; '~' / '!~' regular expression",
           "note": "True when a hostname in scope resolving to the address matches. source: service_compiler.py:51-58,135",
-          "source": "shared/definitions/asset_query.py:1652"
+          "source": "shared/definitions/asset_query.py:1681"
         },
         {
           "name": "status",
@@ -4248,7 +4302,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "HTTP status on this port. No status classes here. source: service_compiler.py:136",
-          "source": "shared/definitions/asset_query.py:1661"
+          "source": "shared/definitions/asset_query.py:1690"
         },
         {
           "name": "is",
@@ -4284,7 +4338,7 @@
           "sub_field": null,
           "match": "one or more flag names; a list is any-of; unknown names are an error",
           "note": "source: service_compiler.py:94-113",
-          "source": "shared/definitions/asset_query.py:1668"
+          "source": "shared/definitions/asset_query.py:1697"
         },
         {
           "name": "vuln",
@@ -4314,7 +4368,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "A finding in scope on the same address and port. source: service_compiler.py:137-142",
-          "source": "shared/definitions/asset_query.py:1677"
+          "source": "shared/definitions/asset_query.py:1706"
         },
         {
           "name": "cve",
@@ -4337,7 +4391,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: service_compiler.py:143-148",
-          "source": "shared/definitions/asset_query.py:1686"
+          "source": "shared/definitions/asset_query.py:1715"
         }
       ],
       "flags": [
@@ -4412,67 +4466,67 @@
           "rule": "such a finding is KEV-listed"
         }
       ],
-      "flags_source": "shared/definitions/asset_query.py:1489",
+      "flags_source": "shared/definitions/asset_query.py:1518",
       "group_by": [
         {
           "key": "target",
           "label": "Target",
           "description": "Rows belonging to the same target",
-          "source": "shared/definitions/asset_query.py:1696"
+          "source": "shared/definitions/asset_query.py:1725"
         },
         {
           "key": "service",
           "label": "Service",
           "description": "Ports running the same service",
-          "source": "shared/definitions/asset_query.py:1701"
+          "source": "shared/definitions/asset_query.py:1730"
         },
         {
           "key": "class",
           "label": "Service class",
           "description": "Services of the same class",
-          "source": "shared/definitions/asset_query.py:1706"
+          "source": "shared/definitions/asset_query.py:1735"
         },
         {
           "key": "port",
           "label": "Port",
           "description": "Services on the same port number",
-          "source": "shared/definitions/asset_query.py:1711"
+          "source": "shared/definitions/asset_query.py:1740"
         },
         {
           "key": "product",
           "label": "Software",
           "description": "Services running the same software",
-          "source": "shared/definitions/asset_query.py:1716"
+          "source": "shared/definitions/asset_query.py:1745"
         },
         {
           "key": "ip",
           "label": "Address",
           "description": "Services on the same address",
-          "source": "shared/definitions/asset_query.py:1721"
+          "source": "shared/definitions/asset_query.py:1750"
         },
         {
           "key": "asn",
           "label": "Autonomous system",
           "description": "Services in the same announced network",
-          "source": "shared/definitions/asset_query.py:1726"
+          "source": "shared/definitions/asset_query.py:1755"
         },
         {
           "key": "org",
           "label": "Network operator",
           "description": "Services on the same operator's network",
-          "source": "shared/definitions/asset_query.py:1731"
+          "source": "shared/definitions/asset_query.py:1760"
         },
         {
           "key": "country",
           "label": "Country",
           "description": "Services in the same country",
-          "source": "shared/definitions/asset_query.py:1736"
+          "source": "shared/definitions/asset_query.py:1765"
         },
         {
           "key": "source",
           "label": "Evidence",
           "description": "Services with the same evidence",
-          "source": "shared/definitions/asset_query.py:1741"
+          "source": "shared/definitions/asset_query.py:1770"
         }
       ],
       "sort": {
@@ -4514,143 +4568,143 @@
           "description": "Data stores reachable from the internet",
           "group": "Critical exposure",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1758"
+          "source": "shared/definitions/asset_query.py:1787"
         },
         {
           "query": "service:[redis,memcached,mongodb,elasticsearch]",
           "description": "Data stores with no authentication by default",
           "group": "Critical exposure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1764"
+          "source": "shared/definitions/asset_query.py:1793"
         },
         {
           "query": "service:docker",
           "description": "Container runtime API exposed",
           "group": "Critical exposure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1769"
+          "source": "shared/definitions/asset_query.py:1798"
         },
         {
           "query": "is:sensitive and not is:cdn",
           "description": "Administrative ports on an origin address",
           "group": "Critical exposure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1774"
+          "source": "shared/definitions/asset_query.py:1803"
         },
         {
           "query": "is:new",
           "description": "Ports not open in any earlier scan",
           "group": "Change",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1779"
+          "source": "shared/definitions/asset_query.py:1808"
         },
         {
           "query": "is:new and is:sensitive",
           "description": "Administrative ports not open in any earlier scan",
           "group": "Change",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1785"
+          "source": "shared/definitions/asset_query.py:1814"
         },
         {
           "query": "class:remote",
           "description": "Interactive administration reachable",
           "group": "Remote access",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1790"
+          "source": "shared/definitions/asset_query.py:1819"
         },
         {
           "query": "service:ssh and not port:22",
           "description": "SSH on a non-standard port",
           "group": "Remote access",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1796"
+          "source": "shared/definitions/asset_query.py:1825"
         },
         {
           "query": "service:[telnet,ftp,rlogin,rexec]",
           "description": "Protocols that carry credentials in the clear",
           "group": "Remote access",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1801"
+          "source": "shared/definitions/asset_query.py:1830"
         },
         {
           "query": "service:rdp or service:vnc",
           "description": "Remote desktop reachable from the internet",
           "group": "Remote access",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1806"
+          "source": "shared/definitions/asset_query.py:1835"
         },
         {
           "query": "is:http and not port:[80,443]",
           "description": "Web services on a non-standard port",
           "group": "Web surface",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1811"
+          "source": "shared/definitions/asset_query.py:1840"
         },
         {
           "query": "is:http and not is:tls",
           "description": "Web services without TLS",
           "group": "Web surface",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1817"
+          "source": "shared/definitions/asset_query.py:1846"
         },
         {
           "query": "class:web and not is:http",
           "description": "Web ports with no HTTP response",
           "group": "Web surface",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1822"
+          "source": "shared/definitions/asset_query.py:1851"
         },
         {
           "query": "status:401 or status:403",
           "description": "Services requiring authentication",
           "group": "Web surface",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1827"
+          "source": "shared/definitions/asset_query.py:1856"
         },
         {
           "query": "is:passive",
           "description": "Ports reported by external scanners, not confirmed",
           "group": "Evidence",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1832"
+          "source": "shared/definitions/asset_query.py:1861"
         },
         {
           "query": "is:named",
           "description": "Services with identified software",
           "group": "Evidence",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1838"
+          "source": "shared/definitions/asset_query.py:1867"
         },
         {
           "query": "is:confirmed and not is:named",
           "description": "Open ports with no service identified",
           "group": "Evidence",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1844"
+          "source": "shared/definitions/asset_query.py:1873"
         },
         {
           "query": "class:mail and not is:tls",
           "description": "Mail services without transport encryption",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1849"
+          "source": "shared/definitions/asset_query.py:1878"
         },
         {
           "query": "not is:hosted",
           "description": "Services on addresses with no known hostname",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1854"
+          "source": "shared/definitions/asset_query.py:1883"
         },
         {
           "query": "class:infra",
           "description": "Directory, file and management services",
           "group": "Hygiene",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1859"
+          "source": "shared/definitions/asset_query.py:1888"
         }
       ],
-      "registry_source": "shared/definitions/asset_query.py:1867"
+      "registry_source": "shared/definitions/asset_query.py:1896"
     },
     {
       "id": "ips",
@@ -4756,7 +4810,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "True when any target the address serves matches. source: ip_compiler.py:87, terms.py:93-102",
-          "source": "shared/definitions/asset_query.py:1171"
+          "source": "shared/definitions/asset_query.py:1200"
         },
         {
           "name": "ip",
@@ -4780,7 +4834,7 @@
           "sub_field": null,
           "match": "CIDR is containment; a full IPv4 or '=' is exact; anything else is a substring; '!=' negates",
           "note": "source: ip_compiler.py:88",
-          "source": "shared/definitions/asset_query.py:1180"
+          "source": "shared/definitions/asset_query.py:1209"
         },
         {
           "name": "ptr",
@@ -4806,7 +4860,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: ip_compiler.py:89",
-          "source": "shared/definitions/asset_query.py:1189"
+          "source": "shared/definitions/asset_query.py:1218"
         },
         {
           "name": "seen",
@@ -4833,7 +4887,7 @@
           "sub_field": null,
           "match": "calendar date or relative age; see grammar.dates",
           "note": "Past-facing. source: ip_compiler.py:90-92",
-          "source": "shared/definitions/asset_query.py:1198"
+          "source": "shared/definitions/asset_query.py:1227"
         },
         {
           "name": "asn",
@@ -4858,7 +4912,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Accepts AS13335. source: ip_compiler.py:93-95",
-          "source": "shared/definitions/asset_query.py:1206"
+          "source": "shared/definitions/asset_query.py:1235"
         },
         {
           "name": "org",
@@ -4884,7 +4938,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1213"
+          "source": "shared/definitions/asset_query.py:1242"
         },
         {
           "name": "country",
@@ -4905,7 +4959,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: ip_compiler.py:97",
-          "source": "shared/definitions/asset_query.py:1222"
+          "source": "shared/definitions/asset_query.py:1251"
         },
         {
           "name": "prefix",
@@ -4928,7 +4982,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1230"
+          "source": "shared/definitions/asset_query.py:1259"
         },
         {
           "name": "cdn",
@@ -4951,7 +5005,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "yes/no words filter on presence. source: ip_compiler.py:99",
-          "source": "shared/definitions/asset_query.py:1238"
+          "source": "shared/definitions/asset_query.py:1267"
         },
         {
           "name": "port",
@@ -4976,7 +5030,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "source: ip_compiler.py:100-102",
-          "source": "shared/definitions/asset_query.py:1246"
+          "source": "shared/definitions/asset_query.py:1275"
         },
         {
           "name": "service",
@@ -4997,7 +5051,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match on a port's service name. source: ip_compiler.py:103",
-          "source": "shared/definitions/asset_query.py:1254"
+          "source": "shared/definitions/asset_query.py:1283"
         },
         {
           "name": "ports",
@@ -5024,7 +5078,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1263"
+          "source": "shared/definitions/asset_query.py:1292"
         },
         {
           "name": "host",
@@ -5050,7 +5104,7 @@
           "sub_field": null,
           "match": "stored lowercase: ':' substring; '=' exact; '!=' not equal; '~' / '!~' regular expression",
           "note": "source: ip_compiler.py:105",
-          "source": "shared/definitions/asset_query.py:1271"
+          "source": "shared/definitions/asset_query.py:1300"
         },
         {
           "name": "hosts",
@@ -5077,7 +5131,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1280"
+          "source": "shared/definitions/asset_query.py:1309"
         },
         {
           "name": "assets",
@@ -5104,7 +5158,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1288"
+          "source": "shared/definitions/asset_query.py:1317"
         },
         {
           "name": "is",
@@ -5139,7 +5193,7 @@
           "sub_field": null,
           "match": "one or more flag names; a list is any-of; unknown names are an error",
           "note": "source: ip_compiler.py:68-84",
-          "source": "shared/definitions/asset_query.py:1296"
+          "source": "shared/definitions/asset_query.py:1325"
         },
         {
           "name": "vuln",
@@ -5169,7 +5223,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "A finding in scope on the address. source: ip_compiler.py:108-110",
-          "source": "shared/definitions/asset_query.py:1305"
+          "source": "shared/definitions/asset_query.py:1334"
         },
         {
           "name": "cve",
@@ -5192,7 +5246,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: ip_compiler.py:111-113",
-          "source": "shared/definitions/asset_query.py:1314"
+          "source": "shared/definitions/asset_query.py:1343"
         }
       ],
       "flags": [
@@ -5262,55 +5316,55 @@
           "rule": "such a finding is KEV-listed"
         }
       ],
-      "flags_source": "shared/definitions/asset_query.py:1148",
+      "flags_source": "shared/definitions/asset_query.py:1177",
       "group_by": [
         {
           "key": "target",
           "label": "Target",
           "description": "Rows belonging to the same target",
-          "source": "shared/definitions/asset_query.py:1324"
+          "source": "shared/definitions/asset_query.py:1353"
         },
         {
           "key": "asn",
           "label": "Autonomous system",
           "description": "Addresses announced by the same AS",
-          "source": "shared/definitions/asset_query.py:1329"
+          "source": "shared/definitions/asset_query.py:1358"
         },
         {
           "key": "org",
           "label": "Network operator",
           "description": "Addresses run by the same operator",
-          "source": "shared/definitions/asset_query.py:1334"
+          "source": "shared/definitions/asset_query.py:1363"
         },
         {
           "key": "prefix",
           "label": "Announced prefix",
           "description": "Addresses inside the same announced prefix",
-          "source": "shared/definitions/asset_query.py:1339"
+          "source": "shared/definitions/asset_query.py:1368"
         },
         {
           "key": "country",
           "label": "Country",
           "description": "Addresses registered in the same country",
-          "source": "shared/definitions/asset_query.py:1344"
+          "source": "shared/definitions/asset_query.py:1373"
         },
         {
           "key": "cdn",
           "label": "CDN",
           "description": "Addresses fronted by the same CDN",
-          "source": "shared/definitions/asset_query.py:1349"
+          "source": "shared/definitions/asset_query.py:1378"
         },
         {
           "key": "port",
           "label": "Open port",
           "description": "Addresses exposing the same port",
-          "source": "shared/definitions/asset_query.py:1354"
+          "source": "shared/definitions/asset_query.py:1383"
         },
         {
           "key": "service",
           "label": "Service",
           "description": "Addresses running the same service",
-          "source": "shared/definitions/asset_query.py:1359"
+          "source": "shared/definitions/asset_query.py:1388"
         }
       ],
       "sort": {
@@ -5346,122 +5400,122 @@
           "description": "Administrative or database ports exposed",
           "group": "Exposed services",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1375"
+          "source": "shared/definitions/asset_query.py:1404"
         },
         {
           "query": "is:new",
           "description": "Addresses absent from every earlier scan",
           "group": "Change",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1381"
+          "source": "shared/definitions/asset_query.py:1410"
         },
         {
           "query": "is:new and is:sensitive",
           "description": "Administrative ports on new addresses",
           "group": "Change",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1387"
+          "source": "shared/definitions/asset_query.py:1416"
         },
         {
           "query": "port:[3306,5432,27017,6379,9200,11211,5984]",
           "description": "Database ports reachable from the internet",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1392"
+          "source": "shared/definitions/asset_query.py:1421"
         },
         {
           "query": "port:[22,23,3389,5900]",
           "description": "Remote administration ports reachable",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1397"
+          "source": "shared/definitions/asset_query.py:1426"
         },
         {
           "query": "service:[ftp,telnet,rlogin,vnc]",
           "description": "Cleartext remote-access services running",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1402"
+          "source": "shared/definitions/asset_query.py:1431"
         },
         {
           "query": "ports:>10",
           "description": "Addresses exposing more than ten ports",
           "group": "Exposed services",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1407"
+          "source": "shared/definitions/asset_query.py:1436"
         },
         {
           "query": "is:open and not is:cdn",
           "description": "Open ports on addresses without a CDN",
           "group": "Origin exposure",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1412"
+          "source": "shared/definitions/asset_query.py:1441"
         },
         {
           "query": "is:web and not is:cdn",
           "description": "HTTP served directly from the origin address",
           "group": "Origin exposure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1418"
+          "source": "shared/definitions/asset_query.py:1447"
         },
         {
           "query": "is:cdn and is:open",
           "description": "Open ports on CDN-fronted addresses",
           "group": "Origin exposure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1423"
+          "source": "shared/definitions/asset_query.py:1452"
         },
         {
           "query": "hosts:>10",
           "description": "Addresses shared by more than ten hostnames",
           "group": "Hosting",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1428"
+          "source": "shared/definitions/asset_query.py:1457"
         },
         {
           "query": "is:open and not is:hosted",
           "description": "Open ports on addresses with no hostname",
           "group": "Hosting",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1434"
+          "source": "shared/definitions/asset_query.py:1463"
         },
         {
           "query": "is:v6",
           "description": "IPv6 addresses in the attack surface",
           "group": "Hosting",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1439"
+          "source": "shared/definitions/asset_query.py:1468"
         },
         {
           "query": "is:alive and not is:ptr",
           "description": "Responding addresses with no PTR record",
           "group": "Hosting",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1444"
+          "source": "shared/definitions/asset_query.py:1473"
         },
         {
           "query": "is:private",
           "description": "Private addresses published in public DNS",
           "group": "Hygiene",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:1449"
+          "source": "shared/definitions/asset_query.py:1478"
         },
         {
           "query": "is:hosted and not is:alive",
           "description": "Hostnames resolving to an unresponsive address",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1455"
+          "source": "shared/definitions/asset_query.py:1484"
         },
         {
           "query": "ptr:. and not is:hosted",
           "description": "Addresses with a PTR record but no known hostname",
           "group": "Hygiene",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:1460"
+          "source": "shared/definitions/asset_query.py:1489"
         }
       ],
-      "registry_source": "shared/definitions/asset_query.py:1467"
+      "registry_source": "shared/definitions/asset_query.py:1496"
     },
     {
       "id": "vulnerabilities",
@@ -5566,7 +5620,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1911"
+          "source": "shared/definitions/asset_query.py:1940"
         },
         {
           "name": "name",
@@ -5591,7 +5645,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1920"
+          "source": "shared/definitions/asset_query.py:1949"
         },
         {
           "name": "template",
@@ -5618,7 +5672,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1929"
+          "source": "shared/definitions/asset_query.py:1958"
         },
         {
           "name": "severity",
@@ -5648,7 +5702,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: vuln_compiler.py:128",
-          "source": "shared/definitions/asset_query.py:1939"
+          "source": "shared/definitions/asset_query.py:1968"
         },
         {
           "name": "type",
@@ -5682,7 +5736,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: vuln_compiler.py:129",
-          "source": "shared/definitions/asset_query.py:1949"
+          "source": "shared/definitions/asset_query.py:1978"
         },
         {
           "name": "scanner",
@@ -5708,7 +5762,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: vuln_compiler.py:130",
-          "source": "shared/definitions/asset_query.py:1959"
+          "source": "shared/definitions/asset_query.py:1988"
         },
         {
           "name": "tag",
@@ -5733,7 +5787,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: vuln_compiler.py:131",
-          "source": "shared/definitions/asset_query.py:1968"
+          "source": "shared/definitions/asset_query.py:1997"
         },
         {
           "name": "matcher",
@@ -5756,7 +5810,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1977"
+          "source": "shared/definitions/asset_query.py:2006"
         },
         {
           "name": "extracted",
@@ -5779,7 +5833,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Matches the extracted values as text. source: vuln_compiler.py:133-135",
-          "source": "shared/definitions/asset_query.py:1984"
+          "source": "shared/definitions/asset_query.py:2013"
         },
         {
           "name": "author",
@@ -5802,7 +5856,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: vuln_compiler.py:136",
-          "source": "shared/definitions/asset_query.py:1992"
+          "source": "shared/definitions/asset_query.py:2021"
         },
         {
           "name": "exploit",
@@ -5829,7 +5883,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:1999"
+          "source": "shared/definitions/asset_query.py:2028"
         },
         {
           "name": "poc",
@@ -5856,7 +5910,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2007"
+          "source": "shared/definitions/asset_query.py:2036"
         },
         {
           "name": "signal",
@@ -5889,7 +5943,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: vuln_compiler.py:145",
-          "source": "shared/definitions/asset_query.py:2015"
+          "source": "shared/definitions/asset_query.py:2044"
         },
         {
           "name": "cve",
@@ -5912,7 +5966,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: vuln_compiler.py:137",
-          "source": "shared/definitions/asset_query.py:2024"
+          "source": "shared/definitions/asset_query.py:2053"
         },
         {
           "name": "cwe",
@@ -5935,7 +5989,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "source: vuln_compiler.py:138",
-          "source": "shared/definitions/asset_query.py:2033"
+          "source": "shared/definitions/asset_query.py:2062"
         },
         {
           "name": "cvss",
@@ -5960,7 +6014,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Decimal. source: vuln_compiler.py:139",
-          "source": "shared/definitions/asset_query.py:2040"
+          "source": "shared/definitions/asset_query.py:2069"
         },
         {
           "name": "epss",
@@ -5985,7 +6039,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Decimal 0 to 1. source: vuln_compiler.py:140",
-          "source": "shared/definitions/asset_query.py:2047"
+          "source": "shared/definitions/asset_query.py:2076"
         },
         {
           "name": "host",
@@ -6011,7 +6065,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2054"
+          "source": "shared/definitions/asset_query.py:2083"
         },
         {
           "name": "location",
@@ -6038,7 +6092,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2064"
+          "source": "shared/definitions/asset_query.py:2093"
         },
         {
           "name": "ip",
@@ -6062,7 +6116,7 @@
           "sub_field": null,
           "match": "CIDR is containment; a full IPv4 or '=' is exact; anything else is a substring; '!=' negates",
           "note": "source: vuln_compiler.py:148-150",
-          "source": "shared/definitions/asset_query.py:2073"
+          "source": "shared/definitions/asset_query.py:2102"
         },
         {
           "name": "port",
@@ -6087,7 +6141,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2081"
+          "source": "shared/definitions/asset_query.py:2110"
         },
         {
           "name": "status",
@@ -6112,7 +6166,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "HTTP status of the asset the finding sits on. source: vuln_compiler.py:152-157",
-          "source": "shared/definitions/asset_query.py:2088"
+          "source": "shared/definitions/asset_query.py:2117"
         },
         {
           "name": "tech",
@@ -6135,7 +6189,7 @@
           "sub_field": null,
           "match": "list-valued: ':' substring of any element; '=' exact element (case-sensitive); '!=' no element contains the value; '~' / '!~' regular expression on any element",
           "note": "Technology on the finding's HTTP asset or host. source: vuln_compiler.py:56-62,158",
-          "source": "shared/definitions/asset_query.py:2095"
+          "source": "shared/definitions/asset_query.py:2124"
         },
         {
           "name": "asn",
@@ -6160,7 +6214,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "source: vuln_compiler.py:159-161",
-          "source": "shared/definitions/asset_query.py:2102"
+          "source": "shared/definitions/asset_query.py:2131"
         },
         {
           "name": "country",
@@ -6181,7 +6235,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "source: vuln_compiler.py:162",
-          "source": "shared/definitions/asset_query.py:2109"
+          "source": "shared/definitions/asset_query.py:2138"
         },
         {
           "name": "state",
@@ -6207,7 +6261,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "'-' and spaces are read as '_'. Defaults to open when nobody has decided. source: vuln_compiler.py:105-109, predicates.py:629-642",
-          "source": "shared/definitions/asset_query.py:2116"
+          "source": "shared/definitions/asset_query.py:2145"
         },
         {
           "name": "ticket",
@@ -6232,7 +6286,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "'-' and spaces are read as '_'. Matches findings held by a filed tracker issue in that category. source: vuln_compiler.py:112-115, predicates.py:609-626",
-          "source": "shared/definitions/asset_query.py:2125"
+          "source": "shared/definitions/asset_query.py:2154"
         },
         {
           "name": "evidence",
@@ -6246,18 +6300,18 @@
           ],
           "values": [
             "observed",
-            "corroborated",
+            "cross-checked",
             "proven"
           ],
-          "description": "How the finding was established: observed, corroborated or proven.",
-          "example": "evidence:corroborated",
+          "description": "How the finding was established: observed, cross-checked or proven.",
+          "example": "evidence:cross-checked",
           "free_text": false,
           "facet": "evidence",
           "unit": null,
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "proven, corroborated (and not proven), observed (and not corroborated). source: vuln_compiler.py:118-121, predicates.py:595-606",
-          "source": "shared/definitions/asset_query.py:2133"
+          "source": "shared/definitions/asset_query.py:2162"
         },
         {
           "name": "seen",
@@ -6285,7 +6339,7 @@
           "sub_field": null,
           "match": "calendar date or relative age; see grammar.dates",
           "note": "Past-facing. source: vuln_compiler.py:166-168",
-          "source": "shared/definitions/asset_query.py:2142"
+          "source": "shared/definitions/asset_query.py:2171"
         },
         {
           "name": "is",
@@ -6306,7 +6360,7 @@
             "untestable",
             "cve",
             "exploitable",
-            "corroborated",
+            "cross-checked",
             "proven",
             "recorded",
             "extracted",
@@ -6325,7 +6379,7 @@
           "sub_field": null,
           "match": "one or more flag names; a list is any-of; unknown names are an error",
           "note": "source: vuln_compiler.py:72-102",
-          "source": "shared/definitions/asset_query.py:2150"
+          "source": "shared/definitions/asset_query.py:2179"
         }
       ],
       "flags": [
@@ -6370,9 +6424,9 @@
           "rule": "KEV-listed, or EPSS at or above 0.5"
         },
         {
-          "name": "corroborated",
+          "name": "cross-checked",
           "description": "A second signal at the same location names the same CVE or weakness class",
-          "rule": "another check at the same matched_at names the same CVE or CWE, or a software CVE on the same host names one of its CVEs; informational and suppressed findings do not vouch"
+          "rule": ""
         },
         {
           "name": "proven",
@@ -6420,79 +6474,79 @@
           "rule": "held by a tracker issue in a ticketed state"
         }
       ],
-      "flags_source": "shared/definitions/asset_query.py:1889",
+      "flags_source": "shared/definitions/asset_query.py:1918",
       "group_by": [
         {
           "key": "severity",
           "label": "Severity",
           "description": "Findings of the same severity",
-          "source": "shared/definitions/asset_query.py:2162"
+          "source": "shared/definitions/asset_query.py:2191"
         },
         {
           "key": "template",
           "label": "Check",
           "description": "The same weakness across every asset it was found on",
-          "source": "shared/definitions/asset_query.py:2167"
+          "source": "shared/definitions/asset_query.py:2196"
         },
         {
           "key": "tag",
           "label": "Category",
           "description": "Findings the checks categorise the same way",
-          "source": "shared/definitions/asset_query.py:2172"
+          "source": "shared/definitions/asset_query.py:2201"
         },
         {
           "key": "cve",
           "label": "CVE",
           "description": "Findings sharing a published identifier",
-          "source": "shared/definitions/asset_query.py:2177"
+          "source": "shared/definitions/asset_query.py:2206"
         },
         {
           "key": "evidence",
           "label": "Evidence",
           "description": "Findings with the same evidence",
-          "source": "shared/definitions/asset_query.py:2182"
+          "source": "shared/definitions/asset_query.py:2211"
         },
         {
           "key": "state",
           "label": "Review state",
           "description": "Findings at the same point in review",
-          "source": "shared/definitions/asset_query.py:2187"
+          "source": "shared/definitions/asset_query.py:2216"
         },
         {
           "key": "scanner",
           "label": "Scanner",
           "description": "Findings from the same tool",
-          "source": "shared/definitions/asset_query.py:2192"
+          "source": "shared/definitions/asset_query.py:2221"
         },
         {
           "key": "type",
           "label": "Protocol",
           "description": "Findings on the same protocol",
-          "source": "shared/definitions/asset_query.py:2197"
+          "source": "shared/definitions/asset_query.py:2226"
         },
         {
           "key": "host",
           "label": "Web asset",
           "description": "Everything found on one hostname",
-          "source": "shared/definitions/asset_query.py:2202"
+          "source": "shared/definitions/asset_query.py:2231"
         },
         {
           "key": "location",
           "label": "Location",
           "description": "Every check that fired at the same place",
-          "source": "shared/definitions/asset_query.py:2207"
+          "source": "shared/definitions/asset_query.py:2236"
         },
         {
           "key": "port",
           "label": "Port",
           "description": "Findings on the same port",
-          "source": "shared/definitions/asset_query.py:2212"
+          "source": "shared/definitions/asset_query.py:2241"
         },
         {
           "key": "target",
           "label": "Target",
           "description": "Rows belonging to the same target",
-          "source": "shared/definitions/asset_query.py:2217"
+          "source": "shared/definitions/asset_query.py:2246"
         }
       ],
       "sort": {
@@ -6545,178 +6599,178 @@
           "description": "Weaknesses with confirmed exploitation in the wild",
           "group": "Priority",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2234"
+          "source": "shared/definitions/asset_query.py:2263"
         },
         {
           "query": "severity:critical",
           "description": "Findings rated critical",
           "group": "Priority",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2240"
+          "source": "shared/definitions/asset_query.py:2269"
         },
         {
-          "query": "is:corroborated",
+          "query": "is:cross-checked",
           "description": "Findings a second check confirms at the same location",
           "group": "Priority",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2246"
+          "source": "shared/definitions/asset_query.py:2275"
         },
         {
-          "query": "is:corroborated and severity:[critical,high]",
+          "query": "is:cross-checked and severity:[critical,high]",
           "description": "Severe findings that more than one check agrees on",
           "group": "Priority",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2252"
+          "source": "shared/definitions/asset_query.py:2281"
         },
         {
           "query": "evidence:proven",
           "description": "Findings the asset answered with an out-of-band callback",
           "group": "Priority",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2257"
+          "source": "shared/definitions/asset_query.py:2286"
         },
         {
           "query": "is:exploitable and not is:suppressed",
           "description": "Exploited or likely to be, and not suppressed",
           "group": "Priority",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2262"
+          "source": "shared/definitions/asset_query.py:2291"
         },
         {
           "query": "severity:[critical,high] and not is:cdn",
           "description": "Severe findings on origin infrastructure",
           "group": "Priority",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2267"
+          "source": "shared/definitions/asset_query.py:2296"
         },
         {
           "query": "cvss>=9",
           "description": "Findings scored 9.0 or above",
           "group": "Priority",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2272"
+          "source": "shared/definitions/asset_query.py:2301"
         },
         {
           "query": "is:new",
           "description": "Findings absent from every earlier scan of this target",
           "group": "Change",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2277"
+          "source": "shared/definitions/asset_query.py:2306"
         },
         {
           "query": "is:new and severity:[critical,high]",
           "description": "Severe findings absent from every earlier scan",
           "group": "Change",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2283"
+          "source": "shared/definitions/asset_query.py:2312"
         },
         {
           "query": "seen:<24h and is:cve",
           "description": "Published vulnerabilities recorded in the last day",
           "group": "Change",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2288"
+          "source": "shared/definitions/asset_query.py:2317"
         },
         {
           "query": "tag:default-login",
           "description": "Default credentials accepted",
           "group": "Access control",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2293"
+          "source": "shared/definitions/asset_query.py:2322"
         },
         {
           "query": "tag:panel and severity:[critical,high,medium]",
           "description": "Administrative interfaces reachable from the internet",
           "group": "Access control",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2299"
+          "source": "shared/definitions/asset_query.py:2328"
         },
         {
           "query": "tag:[unauth,auth-bypass]",
           "description": "Protected functionality reachable without credentials",
           "group": "Access control",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2304"
+          "source": "shared/definitions/asset_query.py:2333"
         },
         {
           "query": "tag:[exposure,disclosure]",
           "description": "Files and data disclosed over HTTP",
           "group": "Data exposure",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2309"
+          "source": "shared/definitions/asset_query.py:2338"
         },
         {
           "query": "tag:[backup,config,files]",
           "description": "Source, configuration and backups reachable over HTTP",
           "group": "Data exposure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2315"
+          "source": "shared/definitions/asset_query.py:2344"
         },
         {
           "query": "is:extracted",
           "description": "Findings that pulled a concrete value out of the response",
           "group": "Data exposure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2320"
+          "source": "shared/definitions/asset_query.py:2349"
         },
         {
           "query": "tag:takeover",
           "description": "Hostnames pointing at claimable third-party infrastructure",
           "group": "Infrastructure",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2325"
+          "source": "shared/definitions/asset_query.py:2354"
         },
         {
           "query": "type:ssl",
           "description": "Transport security defects",
           "group": "Infrastructure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2331"
+          "source": "shared/definitions/asset_query.py:2360"
         },
         {
           "query": "type:[network,dns]",
           "description": "Findings outside the web surface",
           "group": "Infrastructure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2336"
+          "source": "shared/definitions/asset_query.py:2365"
         },
         {
           "query": "tag:misconfig",
           "description": "Misconfigured services",
           "group": "Infrastructure",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2341"
+          "source": "shared/definitions/asset_query.py:2370"
         },
         {
           "query": "is:open and severity:[critical,high]",
           "description": "Severe findings not reviewed",
           "group": "Review",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:2346"
+          "source": "shared/definitions/asset_query.py:2375"
         },
         {
           "query": "state:false_positive",
           "description": "Findings a reviewer rejected",
           "group": "Review",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2352"
+          "source": "shared/definitions/asset_query.py:2381"
         },
         {
           "query": "is:triaged",
           "description": "Findings with a review decision",
           "group": "Review",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2357"
+          "source": "shared/definitions/asset_query.py:2386"
         },
         {
           "query": "ticket:done",
           "description": "Findings whose issue is done",
           "group": "Review",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:2362"
+          "source": "shared/definitions/asset_query.py:2391"
         }
       ],
-      "registry_source": "shared/definitions/asset_query.py:2369"
+      "registry_source": "shared/definitions/asset_query.py:2398"
     },
     {
       "id": "software",
@@ -6818,7 +6872,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2862"
+          "source": "shared/definitions/asset_query.py:2891"
         },
         {
           "name": "software",
@@ -6843,7 +6897,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2870"
+          "source": "shared/definitions/asset_query.py:2899"
         },
         {
           "name": "product",
@@ -6866,7 +6920,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2879"
+          "source": "shared/definitions/asset_query.py:2908"
         },
         {
           "name": "vendor",
@@ -6889,7 +6943,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2886"
+          "source": "shared/definitions/asset_query.py:2915"
         },
         {
           "name": "version",
@@ -6912,7 +6966,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2893"
+          "source": "shared/definitions/asset_query.py:2922"
         },
         {
           "name": "source",
@@ -6936,7 +6990,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: software_compiler.py:87",
-          "source": "shared/definitions/asset_query.py:2900"
+          "source": "shared/definitions/asset_query.py:2929"
         },
         {
           "name": "severity",
@@ -6964,7 +7018,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: software_compiler.py:88",
-          "source": "shared/definitions/asset_query.py:2909"
+          "source": "shared/definitions/asset_query.py:2938"
         },
         {
           "name": "cvss",
@@ -6989,7 +7043,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Decimal. source: software_compiler.py:89",
-          "source": "shared/definitions/asset_query.py:2918"
+          "source": "shared/definitions/asset_query.py:2947"
         },
         {
           "name": "epss",
@@ -7014,7 +7068,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "Decimal. source: software_compiler.py:90",
-          "source": "shared/definitions/asset_query.py:2925"
+          "source": "shared/definitions/asset_query.py:2954"
         },
         {
           "name": "rank",
@@ -7039,7 +7093,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2932"
+          "source": "shared/definitions/asset_query.py:2961"
         },
         {
           "name": "confidence",
@@ -7064,7 +7118,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: software_compiler.py:92",
-          "source": "shared/definitions/asset_query.py:2939"
+          "source": "shared/definitions/asset_query.py:2968"
         },
         {
           "name": "caveat",
@@ -7090,7 +7144,7 @@
           "sub_field": null,
           "match": "value compared exactly (lowercased); ':' and '=' behave the same; '!=' negates",
           "note": "source: software_compiler.py:40-46",
-          "source": "shared/definitions/asset_query.py:2948"
+          "source": "shared/definitions/asset_query.py:2977"
         },
         {
           "name": "evidence",
@@ -7104,17 +7158,17 @@
           ],
           "values": [
             "inferred",
-            "corroborated"
+            "cross-checked"
           ],
-          "description": "Inferred from the version alone, or corroborated by a check at the same host.",
-          "example": "evidence:corroborated",
+          "description": "Inferred from the version alone, or cross-checked against a check at the same host.",
+          "example": "evidence:cross-checked",
           "free_text": false,
           "facet": "evidence",
           "unit": null,
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: software_compiler.py:93",
-          "source": "shared/definitions/asset_query.py:2957"
+          "source": "shared/definitions/asset_query.py:2986"
         },
         {
           "name": "target",
@@ -7137,7 +7191,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2966"
+          "source": "shared/definitions/asset_query.py:2995"
         },
         {
           "name": "host",
@@ -7160,7 +7214,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2973"
+          "source": "shared/definitions/asset_query.py:3002"
         },
         {
           "name": "ip",
@@ -7181,7 +7235,7 @@
           "sub_field": null,
           "match": "CIDR is containment; a full IPv4 or '=' is exact; anything else is a substring; '!=' negates",
           "note": "source: software_compiler.py:96-98",
-          "source": "shared/definitions/asset_query.py:2981"
+          "source": "shared/definitions/asset_query.py:3010"
         },
         {
           "name": "port",
@@ -7206,7 +7260,7 @@
           "sub_field": null,
           "match": "':' and '=' equal; accepts a list and an inclusive a..b range; '>' '>=' '<' '<=' compare; '!=' also matches rows with no value",
           "note": "",
-          "source": "shared/definitions/asset_query.py:2988"
+          "source": "shared/definitions/asset_query.py:3017"
         },
         {
           "name": "seen",
@@ -7234,7 +7288,7 @@
           "sub_field": null,
           "match": "calendar date or relative age; see grammar.dates",
           "note": "Past-facing. source: software_compiler.py:100-102",
-          "source": "shared/definitions/asset_query.py:2995"
+          "source": "shared/definitions/asset_query.py:3024"
         },
         {
           "name": "is",
@@ -7259,7 +7313,7 @@
             "stated",
             "web",
             "service",
-            "corroborated",
+            "cross-checked",
             "fixable"
           ],
           "description": "Property of the match.",
@@ -7270,7 +7324,7 @@
           "sub_field": null,
           "match": "one or more flag names; a list is any-of; unknown names are an error",
           "note": "source: software_compiler.py:56-77",
-          "source": "shared/definitions/asset_query.py:3003"
+          "source": "shared/definitions/asset_query.py:3032"
         }
       ],
       "flags": [
@@ -7335,9 +7389,9 @@
           "rule": "bound to a port"
         },
         {
-          "name": "corroborated",
+          "name": "cross-checked",
           "description": "A check at the same host names the same CVE",
-          "rule": "evidence is corroborated"
+          "rule": ""
         },
         {
           "name": "fixable",
@@ -7345,55 +7399,55 @@
           "rule": "fixed_in is set"
         }
       ],
-      "flags_source": "shared/definitions/asset_query.py:2844",
+      "flags_source": "shared/definitions/asset_query.py:2873",
       "group_by": [
         {
           "key": "target",
           "label": "Target",
           "description": "Rows belonging to the same target",
-          "source": "shared/definitions/asset_query.py:3015"
+          "source": "shared/definitions/asset_query.py:3044"
         },
         {
           "key": "cve",
           "label": "CVE",
           "description": "Every asset affected by one published CVE",
-          "source": "shared/definitions/asset_query.py:3018"
+          "source": "shared/definitions/asset_query.py:3047"
         },
         {
           "key": "product",
           "label": "Product",
           "description": "Everything running the same software",
-          "source": "shared/definitions/asset_query.py:3021"
+          "source": "shared/definitions/asset_query.py:3050"
         },
         {
           "key": "version",
           "label": "Version",
           "description": "Everything running the same release",
-          "source": "shared/definitions/asset_query.py:3026"
+          "source": "shared/definitions/asset_query.py:3055"
         },
         {
           "key": "host",
           "label": "Host",
           "description": "Everything inferred on one hostname",
-          "source": "shared/definitions/asset_query.py:3031"
+          "source": "shared/definitions/asset_query.py:3060"
         },
         {
           "key": "severity",
           "label": "Severity",
           "description": "Matches of the same severity",
-          "source": "shared/definitions/asset_query.py:3034"
+          "source": "shared/definitions/asset_query.py:3063"
         },
         {
           "key": "confidence",
           "label": "Confidence",
           "description": "Matches with the same amount verified",
-          "source": "shared/definitions/asset_query.py:3037"
+          "source": "shared/definitions/asset_query.py:3066"
         },
         {
           "key": "evidence",
           "label": "Evidence",
           "description": "Matches with the same evidence",
-          "source": "shared/definitions/asset_query.py:3042"
+          "source": "shared/definitions/asset_query.py:3071"
         }
       ],
       "sort": {
@@ -7430,101 +7484,101 @@
           "description": "Software carrying a CVE with confirmed exploitation",
           "group": "Priority",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:3057"
+          "source": "shared/definitions/asset_query.py:3086"
         },
         {
           "query": "is:kev and is:firm",
           "description": "Confirmed exploited and fully verified",
           "group": "Priority",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3063"
+          "source": "shared/definitions/asset_query.py:3092"
         },
         {
           "query": "severity:critical and is:stated",
           "description": "Critical CVEs where the server stated its own version",
           "group": "Priority",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:3068"
+          "source": "shared/definitions/asset_query.py:3097"
         },
         {
           "query": "epss>=0.5",
           "description": "EPSS probability of 0.5 or above",
           "group": "Priority",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3074"
+          "source": "shared/definitions/asset_query.py:3103"
         },
         {
           "query": "is:kev and is:fixable",
           "description": "Known exploited CVEs with an unaffected release on the same target",
           "group": "Priority",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:3079"
+          "source": "shared/definitions/asset_query.py:3108"
         },
         {
           "query": "is:new",
           "description": "Matches absent from every earlier scan of this target",
           "group": "Change",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:3085"
+          "source": "shared/definitions/asset_query.py:3114"
         },
         {
           "query": "is:new and severity:[critical,high]",
           "description": "Severe matches absent from every earlier scan",
           "group": "Change",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3091"
+          "source": "shared/definitions/asset_query.py:3120"
         },
         {
           "query": "software:nginx",
           "description": "Everything running nginx",
           "group": "Software",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:3096"
+          "source": "shared/definitions/asset_query.py:3125"
         },
         {
           "query": "product:http_server and cvss>=9",
           "description": "Apache builds carrying a critically scored CVE",
           "group": "Software",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3102"
+          "source": "shared/definitions/asset_query.py:3131"
         },
         {
           "query": "software:wordpress and is:new",
           "description": "WordPress matches absent from every earlier scan",
           "group": "Software",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3107"
+          "source": "shared/definitions/asset_query.py:3136"
         },
         {
           "query": "confidence:high",
           "description": "Matches with no unverified part",
           "group": "Confidence",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:3112"
+          "source": "shared/definitions/asset_query.py:3141"
         },
         {
           "query": "caveat:backport",
           "description": "Distribution builds that may patch without a version change",
           "group": "Confidence",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3118"
+          "source": "shared/definitions/asset_query.py:3147"
         },
         {
           "query": "not caveat:conditional",
           "description": "Matches NVD does not tie to a further component",
           "group": "Confidence",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3123"
+          "source": "shared/definitions/asset_query.py:3152"
         },
         {
-          "query": "evidence:corroborated",
+          "query": "evidence:cross-checked",
           "description": "Matches that a check at the same host also names",
           "group": "Confidence",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3128"
+          "source": "shared/definitions/asset_query.py:3157"
         }
       ],
-      "registry_source": "shared/definitions/asset_query.py:3135"
+      "registry_source": "shared/definitions/asset_query.py:3164"
     },
     {
       "id": "secrets",
@@ -7653,7 +7707,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match on the detector key. source: secret_compiler.py:34",
-          "source": "shared/definitions/asset_query.py:3167"
+          "source": "shared/definitions/asset_query.py:3196"
         },
         {
           "name": "group",
@@ -7684,7 +7738,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: secret_compiler.py:36",
-          "source": "shared/definitions/asset_query.py:3177"
+          "source": "shared/definitions/asset_query.py:3206"
         },
         {
           "name": "vendor",
@@ -7707,7 +7761,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:3186"
+          "source": "shared/definitions/asset_query.py:3215"
         },
         {
           "name": "subject",
@@ -7730,7 +7784,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:3194"
+          "source": "shared/definitions/asset_query.py:3223"
         },
         {
           "name": "fingerprint",
@@ -7753,7 +7807,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:3203"
+          "source": "shared/definitions/asset_query.py:3232"
         },
         {
           "name": "state",
@@ -7778,7 +7832,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: secret_compiler.py:39",
-          "source": "shared/definitions/asset_query.py:3210"
+          "source": "shared/definitions/asset_query.py:3239"
         },
         {
           "name": "source",
@@ -7805,7 +7859,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "Declared enum; compiled as a substring match. source: secret_compiler.py:40",
-          "source": "shared/definitions/asset_query.py:3219"
+          "source": "shared/definitions/asset_query.py:3248"
         },
         {
           "name": "target",
@@ -7828,7 +7882,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:3228"
+          "source": "shared/definitions/asset_query.py:3257"
         },
         {
           "name": "host",
@@ -7851,7 +7905,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:3235"
+          "source": "shared/definitions/asset_query.py:3264"
         },
         {
           "name": "url",
@@ -7874,7 +7928,7 @@
           "sub_field": null,
           "match": "':' case-insensitive substring; '=' case-insensitive exact; '!=' not equal (rows with no value match); '~' / '!~' case-insensitive PostgreSQL regular expression",
           "note": "",
-          "source": "shared/definitions/asset_query.py:3243"
+          "source": "shared/definitions/asset_query.py:3272"
         },
         {
           "name": "seen",
@@ -7902,7 +7956,7 @@
           "sub_field": null,
           "match": "calendar date or relative age; see grammar.dates",
           "note": "Past-facing. source: secret_compiler.py:43",
-          "source": "shared/definitions/asset_query.py:3251"
+          "source": "shared/definitions/asset_query.py:3280"
         },
         {
           "name": "is",
@@ -7930,7 +7984,7 @@
           "sub_field": null,
           "match": "one or more flag names; a list is any-of; unknown names are an error",
           "note": "source: secret_compiler.py:22-29",
-          "source": "shared/definitions/asset_query.py:3259"
+          "source": "shared/definitions/asset_query.py:3288"
         }
       ],
       "flags": [
@@ -7965,55 +8019,55 @@
           "rule": "read on more than one web asset (hosts above 1)"
         }
       ],
-      "flags_source": "shared/definitions/asset_query.py:3157",
+      "flags_source": "shared/definitions/asset_query.py:3186",
       "group_by": [
         {
           "key": "value",
           "label": "Value",
           "description": "One row per distinct value, however many places carry it",
-          "source": "shared/definitions/asset_query.py:3271"
+          "source": "shared/definitions/asset_query.py:3300"
         },
         {
           "key": "target",
           "label": "Target",
           "description": "Values belonging to the same target",
-          "source": "shared/definitions/asset_query.py:3276"
+          "source": "shared/definitions/asset_query.py:3305"
         },
         {
           "key": "secret",
           "label": "Kind",
           "description": "Values of the same kind",
-          "source": "shared/definitions/asset_query.py:3279"
+          "source": "shared/definitions/asset_query.py:3308"
         },
         {
           "key": "group",
           "label": "Family",
           "description": "Values in the same family",
-          "source": "shared/definitions/asset_query.py:3280"
+          "source": "shared/definitions/asset_query.py:3309"
         },
         {
           "key": "vendor",
           "label": "Provider",
           "description": "Values from the same provider",
-          "source": "shared/definitions/asset_query.py:3283"
+          "source": "shared/definitions/asset_query.py:3312"
         },
         {
           "key": "state",
           "label": "State",
           "description": "Values in the same state",
-          "source": "shared/definitions/asset_query.py:3286"
+          "source": "shared/definitions/asset_query.py:3315"
         },
         {
           "key": "host",
           "label": "Host",
           "description": "Values read on one host",
-          "source": "shared/definitions/asset_query.py:3287"
+          "source": "shared/definitions/asset_query.py:3316"
         },
         {
           "key": "subject",
           "label": "Subject",
           "description": "Values naming the same subject",
-          "source": "shared/definitions/asset_query.py:3288"
+          "source": "shared/definitions/asset_query.py:3317"
         }
       ],
       "sort": {
@@ -8047,52 +8101,52 @@
           "description": "Private values readable in a response",
           "group": "Priority",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:3303"
+          "source": "shared/definitions/asset_query.py:3332"
         },
         {
           "query": "group:cloud and is:exposed",
           "description": "Exposed cloud provider credentials",
           "group": "Priority",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3309"
+          "source": "shared/definitions/asset_query.py:3338"
         },
         {
           "query": "is:exposed and is:new",
           "description": "Exposed values absent from every earlier scan",
           "group": "Change",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3314"
+          "source": "shared/definitions/asset_query.py:3343"
         },
         {
           "query": "secret:jwt and is:expired",
           "description": "Expired JSON web tokens",
           "group": "Kind",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3319"
+          "source": "shared/definitions/asset_query.py:3348"
         },
         {
           "query": "secret:aws_access_key",
           "description": "AWS access keys",
           "group": "Kind",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:3324"
+          "source": "shared/definitions/asset_query.py:3353"
         },
         {
           "query": "secret:email",
           "description": "Email addresses printed in responses",
           "group": "Contacts",
           "generic": true,
-          "source": "shared/definitions/asset_query.py:3330"
+          "source": "shared/definitions/asset_query.py:3359"
         },
         {
           "query": "secret:email and subject:example.com",
           "description": "Addresses on one email domain",
           "group": "Contacts",
           "generic": false,
-          "source": "shared/definitions/asset_query.py:3336"
+          "source": "shared/definitions/asset_query.py:3365"
         }
       ],
-      "registry_source": "shared/definitions/asset_query.py:3343"
+      "registry_source": "shared/definitions/asset_query.py:3372"
     }
   ],
   "vocabulary": {
@@ -8150,19 +8204,19 @@
       "order": [
         "inferred",
         "observed",
-        "corroborated",
+        "cross-checked",
         "proven"
       ],
       "labels": {
         "inferred": "Inferred",
         "observed": "Observed",
-        "corroborated": "Corroborated",
+        "cross-checked": "Cross-checked",
         "proven": "Proven"
       },
       "help": {
         "inferred": "The reported version falls inside the affected range.",
         "observed": "A check matched the response it received.",
-        "corroborated": "Two independent signals agree at the same location.",
+        "cross-checked": "Two independent signals agree at the same location.",
         "proven": "The asset produced an out-of-band interaction."
       }
     },

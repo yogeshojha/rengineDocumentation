@@ -711,7 +711,7 @@
       "title": "CVE exposure",
       "group": "Interrogate",
       "capability": "read",
-      "description": "Every asset in the estate that carries one CVE, across both findings dimensions, counted on one evidence ladder. Inferred: a version fell in the affected range. Observed: a check fired. Corroborated: two signals agree. Proven: an out-of-band artifact came back. Includes the NVD, EPSS and KEV record and how long the exposure has been held.",
+      "description": "Every asset in the estate that carries one CVE, across both findings dimensions, counted on one evidence ladder. Inferred: a version fell in the affected range. Observed: a check fired. Cross-checked: two signals agree. Proven: an out-of-band artifact came back. Includes the NVD, EPSS and KEV record and how long the exposure has been held.",
       "touches_target": false,
       "traffic_note": "No. Reads or writes reNgine's own database.",
       "read_only_hint": true,
@@ -722,7 +722,7 @@
         "cve_exposure cve=CVE-2021-44228",
         "cve_exposure cve=CVE-2024-3400 target=example.com"
       ],
-      "context_tokens": 255,
+      "context_tokens": 256,
       "params": [
         {
           "name": "cve",
