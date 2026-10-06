@@ -17,6 +17,8 @@ MkDocs 1.6.1 with Material for MkDocs 9.7.7, Python only, no Node build step.
 
 `hooks/rengine.py` adds the page metadata block, the Markdown copy of every page, `llms.txt` and `llms-full.txt`. `overrides/` holds the theme templates. `docs/assets/stylesheets/rengine.css` and `docs/assets/javascripts/rengine.js` hold the styling and the pane behaviour.
 
+A running `make serve` rebuilds pages when templates, styles or data change, but it keeps the `hooks/rengine.py` it imported at start. After editing the hook, restart `make serve`, or the served pages keep the old behaviour, for example home-page links that point at `.` and empty step text.
+
 ## Front matter
 
 Every page starts with front matter. The build fails on a page without `title`, `description`, `sources` or `revised`.

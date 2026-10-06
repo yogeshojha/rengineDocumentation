@@ -1,4 +1,5 @@
 {% extends "main.html" %}
+{% import "partials/home/shell.html" as shell %}
 
 {% block site_nav %}{% endblock %}
 
@@ -7,10 +8,12 @@
 {% set counts = config.extra.counts %}
 <div class="md-content rn-home" data-md-component="content">
   <article class="md-content__inner md-typeset rn-home__inner">
+    {{ shell.icons() }}
 
-    <section class="rn-run" aria-labelledby="rn-hero-title" data-rn-run>
+    <section class="rn-run" aria-labelledby="rn-hero-title" data-rn-run data-band>
+      <div class="rn-band rn-band--hero" aria-hidden="true"><i class="rn-run__orb rn-run__orb--a"></i><i class="rn-run__orb rn-run__orb--b"></i><i class="rn-run__grid"></i></div>
       <div class="rn-hero rn-run__intro">
-        <p class="rn-hero__eyebrow">reNgine {{ config.extra.rengine_version }} · Sirius</p>
+        <p class="rn-hero__eyebrow"><span class="rn-hero__pulse"></span>reNgine {{ config.extra.rengine_version }} · Sirius</p>
         <h1 id="rn-hero-title">reNgine 3.0</h1>
         <p class="rn-hero__lede">{{ m.description_html }}</p>
         <span class="rn-actions">
@@ -38,9 +41,9 @@
                 <i class="rn-run__fill"></i>
                 <span class="rn-run__n">0{{ loop.index }}</span>
                 <b>{{ c.title }}</b>
-                <span class="rn-run__text">{{ c.text_html }}</span>
+                <span class="rn-run__desc">{{ c.text_html }}</span>
               </button>
-              <a class="rn-run__link" href="{{ c.href | url }}">{{ c.label }}</a>
+              <a class="rn-run__link" href="{{ c.href | url }}">{{ c.label }}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
             </li>
           {% endfor %}
         </ol>
@@ -51,9 +54,9 @@
         </button>
       </div>
 
-      <nav class="rn-start rn-start--row" aria-label="Audiences">
+      <nav class="rn-start rn-start--row" aria-label="Audiences" data-reveal>
         {% for a in m.audiences %}
-          <a class="rn-start__row" href="{{ a.href | url }}">
+          <a class="rn-start__row" href="{{ a.href | url }}" style="--i:{{ loop.index0 }}">
             <b>{{ a.title }}</b>
             <span>{{ a.text }}</span>
             <em>{{ a.surface }}</em>
@@ -62,30 +65,34 @@
       </nav>
     </section>
 
-    <section class="rn-surface" aria-labelledby="rn-layers-title" data-rn-surface>
+    <section class="rn-surface" aria-labelledby="rn-layers-title" data-rn-surface data-band>
+      <div class="rn-band rn-band--layers" aria-hidden="true"><i></i><i></i></div>
       <div class="rn-surface__stage" aria-hidden="true">
-        {% include "partials/home/stack.html" %}
-        <p class="rn-surface__cue"><svg viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4"/></svg>Scroll to open each layer</p>
+        {% include "partials/home/layers.html" %}
       </div>
 
       <div class="rn-surface__steps">
-        <div class="rn-step rn-step--intro" data-plane="closed">
+        <div class="rn-step rn-step--intro" data-view="closed" data-label="Overview">
+          <p class="rn-step__eyebrow">Attack surface</p>
           <h2 id="rn-layers-title">{{ m.layers_title }}</h2>
           <p>{{ m.layers_text_html }}</p>
+          <p class="rn-surface__cue"><svg viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4"/></svg>Scroll through the layers</p>
         </div>
         {% for l in m.layers %}
-          <article class="rn-step" data-plane="{{ l.plane }}">
+          <article class="rn-step" data-view="{{ l.view }}" data-label="{{ l.label }}">
+            <p class="rn-step__eyebrow"><span class="rn-step__n">{{ "%02d" | format(loop.index) }}</span>{{ l.label }}</p>
             <h3>{{ l.title }}</h3>
             <p>{{ l.text_html }}</p>
-            <a class="rn-step__more" href="{{ l.href | url }}">{{ l.label }}</a>
+            <a class="rn-step__more" href="{{ l.href | url }}">{{ l.label }}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
           </article>
         {% endfor %}
       </div>
     </section>
 
-    <section class="rn-home__section rn-tour" aria-labelledby="rn-tour-title" data-rn-tour>
-      <div class="rn-home__head"><h2 id="rn-tour-title">{{ m.tour_title }}</h2></div>
-      <p class="rn-home__sub">{{ m.tour_text_html }}</p>
+    <section class="rn-home__section rn-tour" aria-labelledby="rn-tour-title" data-rn-tour data-band>
+      <div class="rn-band rn-band--tour" aria-hidden="true"><i></i><i></i></div>
+      <div class="rn-home__head" data-reveal><h2 id="rn-tour-title">{{ m.tour_title }}</h2></div>
+      <p class="rn-home__sub" data-reveal>{{ m.tour_text_html }}</p>
       <div class="rn-tour__grid">
         <div class="rn-tour__stage" aria-hidden="true">
           <div class="rn-tour__dots">{% for t in m.tour %}<i></i>{% endfor %}</div>
@@ -96,36 +103,39 @@
         <div class="rn-tour__steps">
           {% for t in m.tour %}
             <article class="rn-step" data-scene="{{ t.scene }}">
+              <p class="rn-step__eyebrow"><span class="rn-step__n">{{ "%02d" | format(loop.index) }}</span>{{ t.label }}</p>
               <h3>{{ t.title }}</h3>
               <p>{{ t.text_html }}</p>
               <ul>
                 {% for pt in t.points %}<li>{{ pt.text_html }}</li>{% endfor %}
               </ul>
-              <a class="rn-step__more" href="{{ t.href | url }}">{{ t.label }}</a>
+              <a class="rn-step__more" href="{{ t.href | url }}">{{ t.label }}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
             </article>
           {% endfor %}
         </div>
       </div>
     </section>
 
-    <section class="rn-home__section rn-burp" aria-labelledby="rn-burp-title">
-      <div class="rn-home__head">
-        <h2 id="rn-burp-title">Burp Suite connector <span class="rn-new">New in 3.0</span></h2>
+    <section class="rn-home__section rn-burp" aria-labelledby="rn-burp-title" data-band>
+      <div class="rn-band rn-band--burp" aria-hidden="true"><i></i><i></i></div>
+      <div class="rn-burp__intro" data-reveal>
+        <p class="rn-hero__eyebrow"><span class="rn-new">New in 3.0</span><span class="rn-burp__eyebrow-text">Burp Suite connector</span></p>
+        <h2 id="rn-burp-title">The integration you did not expect.<br>Burp Suite, inside reNgine.</h2>
+        <p class="rn-burp__lede">You can send a finding to Burp Repeater in one click. The request opens in Burp exactly as nuclei sent it, so you can test it by hand straight away. The requests you then make in Burp return to reNgine as endpoints, which keeps your manual testing and your scan results in one place.</p>
         <span class="rn-burp__links">
+          <a class="rn-step__more rn-step__more--solid" href="{{ m.burp_href | url }}">Burp Suite connector guide<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg></a>
           <button type="button" class="rn-action rn-burp__toggle" aria-pressed="false" hidden>
             <svg class="rn-burp__ico-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
             <svg class="rn-burp__ico-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg>
             <span>Pause</span>
           </button>
-          <a href="{{ m.burp_href | url }}">Burp Suite connector guide</a>
         </span>
       </div>
-      <p class="rn-home__sub rn-burp__lede">Burp Suite and reNgine now work together. Send a finding to Burp Repeater in one click and test it by hand, starting from the exact request nuclei sent. What you find in Burp comes back to reNgine as endpoints, so your manual testing and your scans stay in one place.</p>
 
       <div class="rn-burp__stage is-arrived is-responded" role="img" aria-label="A reflected XSS finding on shop.example.com is sent from reNgine to Burp Repeater, where the tester edits the payload and sends it again.">
 
         <div class="rn-burp__win rn-burp__rn rn-pane" aria-hidden="true">
-          <div class="rn-burp__chrome"><i></i><i></i><i></i><span>reNgine · Vulnerabilities</span></div>
+          <div class="rn-burp__chrome"><i></i><i></i><i></i><span>reNgine · Findings</span></div>
           <div class="rn-burp__sheet">
             <div class="rn-burp__chips"><span class="rn-burp__sev">Medium</span><span class="rn-burp__new">New</span></div>
             <div class="rn-burp__title">Reflected Cross-Site Scripting</div>
@@ -189,21 +199,27 @@ Host: shop.example.com</pre>
       </div>
 
       <ol class="rn-burp__steps">
-        <li data-step="1"><b>A scan finds something</b><span>nuclei finds a reflected XSS on shop.example.com. reNgine keeps the exact request that triggered it.</span></li>
-        <li data-step="2"><b>Send it to Burp</b><span>Click <strong>Repeater</strong> on the finding, or press <kbd>b</kbd>. The request goes straight to Burp.</span></li>
-        <li data-step="3"><b>It opens in Repeater</b><span>Burp opens a new tab, <code>reNgine reflected-xss</code>, with the request ready to edit.</span></li>
-        <li data-step="4"><b>Test it by hand</b><span>Change the payload and send it. reNgine keeps the traffic as endpoints, next to your scan results.</span></li>
+        <li data-step="1"><b>A scan reports a finding</b><span>nuclei reports a reflected XSS on shop.example.com. reNgine stores the exact request that produced it.</span></li>
+        <li data-step="2"><b>Send it to Burp</b><span>Click <strong>Repeater</strong> on the finding, or press <kbd>b</kbd>. The request goes to Burp through the connector.</span></li>
+        <li data-step="3"><b>It opens in Repeater</b><span>Burp opens a new Repeater tab, <code>reNgine reflected-xss</code>, with the request ready to edit.</span></li>
+        <li data-step="4"><b>Test it by hand</b><span>Change the payload and send it. The traffic is recorded in reNgine as endpoints, next to the scan results.</span></li>
       </ol>
+      <ul class="rn-burp__facts" data-reveal>
+        <li style="--i:0"><b>Repeater, Intruder or Organizer</b><span>You choose which Burp tool receives a finding, a web asset or an endpoint.</span></li>
+        <li style="--i:1"><b>Burp traffic comes back</b><span>Requests you make through Burp are stored in reNgine as endpoints, marked <code>source:proxy</code>.</span></li>
+        <li style="--i:2"><b>One keystroke</b><span>Press <kbd>b</kbd> on a finding to send it to Repeater.</span></li>
+      </ul>
     </section>
 
-    <section class="rn-home__section" aria-labelledby="rn-cap-title">
-      <div class="rn-home__head">
-        <h2 id="rn-cap-title">What you can do with reNgine</h2>
-        <a href="{{ m.capabilities_href | url }}">See every capability</a>
+    <section class="rn-home__section rn-home__caps" aria-labelledby="rn-cap-title" data-band>
+      <div class="rn-band rn-band--dots" aria-hidden="true"><i></i></div>
+      <div class="rn-home__head" data-reveal>
+        <h2 id="rn-cap-title">What reNgine does for you</h2>
+        <a href="{{ m.capabilities_href | url }}">All capabilities</a>
       </div>
-      <ul class="rn-caps">
+      <ul class="rn-caps" data-reveal data-spotlight>
         {% for c in m.capabilities %}
-          <li class="rn-cap">
+          <li class="rn-cap" style="--i:{{ loop.index0 }}">
             <a href="{{ c.href | url }}">
               <span class="rn-cap__kind">{{ c.kind }}</span>
               <b>{{ c.title }}</b>
@@ -215,23 +231,23 @@ Host: shop.example.com</pre>
     </section>
 
     <section class="rn-home__section" aria-labelledby="rn-ref-title">
-      <div class="rn-home__head">
+      <div class="rn-home__head" data-reveal>
         <h2 id="rn-ref-title">Reference</h2>
         <span class="rn-home__note">Generated from the reNgine 3.0 source</span>
       </div>
-      <ul class="rn-counts">
+      <ul class="rn-counts" data-reveal data-spotlight>
         {% for r in m.reference %}
-          <li><a href="{{ r.href | url }}"><b>{{ "{:,}".format(counts[r.count]) }}</b><span>{{ r.title }}</span></a></li>
+          <li style="--i:{{ loop.index0 }}"><a href="{{ r.href | url }}"><b>{{ "{:,}".format(counts[r.count]) }}</b><span>{{ r.title }}</span></a></li>
         {% endfor %}
       </ul>
     </section>
 
-    <section class="rn-home__section rn-home__install" aria-labelledby="rn-install-title">
+    <section class="rn-home__section rn-home__install" aria-labelledby="rn-install-title" data-reveal>
       <div class="rn-home__head">
         <h2 id="rn-install-title">Install reNgine</h2>
-        <a href="{{ m.install_href | url }}">Full install guide</a>
+        <a href="{{ m.install_href | url }}">Install guide</a>
       </div>
-      <p class="rn-home__sub">reNgine runs on a Linux server, x86_64 or aarch64. {{ m.install_note }}</p>
+      <p class="rn-home__sub">reNgine runs on a Linux server, x86_64 or aarch64, and one command installs it. {{ m.install_note }}</p>
       <div class="language-bash highlight"><pre><span></span><code>{{ m.install | e }}</code></pre></div>
     </section>
 

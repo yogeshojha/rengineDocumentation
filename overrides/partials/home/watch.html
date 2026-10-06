@@ -1,37 +1,40 @@
-<div class="rn-x rn-x-win">
-  <div class="rn-x-bar"><b>Bounty Hub</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
-  <div class="rn-x-body">
-    <div><div class="rn-x-h">Bounty Hub</div><div class="rn-x-sub">48 programs across 2 platforms · synced 3h ago · Every 6 hours</div></div>
+{% import "partials/home/shell.html" as shell %}
+{% call shell.app(active="bounty-hub", crumbs=["Bounty Hub"], cls="rn-tour__app") %}
+<div class="rn-pg">
+  <div class="rn-pg__head"><div><span class="rn-pg__h1">Bounty Hub</span><span class="rn-pg__sub">48 programs across 2 platforms · synced 3h ago · Every 6 hours</span></div></div>
+  <div class="rn-card">
     <div class="rn-x-tabs"><span>Watching <small data-wcount>0</small></span><span class="is-on">Programs</span><span>Updates</span></div>
-    <div class="rn-x-tbl">
-      <div class="rn-x-prog" data-prog>
-        <span class="rn-x-prog__logo" style="background:#f3d36b;color:#2a2108">A</span>
-        <div><b>Acme<small>@acme</small></b><div class="rn-x-prog__meta"><span>4 in scope</span><span>1 out of scope</span><span>3 scannable</span><span>HackerOne</span></div></div>
-        <span class="rn-x-pill rn-x-pill--a">Bounty</span>
-      </div>
-      <div class="rn-x-prog">
-        <span class="rn-x-prog__logo" style="background:#2b3550;color:#9fb8ff">G</span>
-        <div><b>Globex<small>@globex</small></b><div class="rn-x-prog__meta"><span>12 in scope</span><span>9 scannable</span><span>Intigriti</span></div></div>
-        <span class="rn-x-pill rn-x-pill--o">VDP</span>
-      </div>
-      <div class="rn-x-prog">
-        <span class="rn-x-prog__logo" style="background:#2a3a33;color:#8fd6a9">I</span>
-        <div><b>Initech<small>@initech</small></b><div class="rn-x-prog__meta"><span>7 in scope</span><span>2 out of scope</span><span>5 scannable</span><span>HackerOne</span></div></div>
-        <span class="rn-x-pill rn-x-pill--a">Bounty</span>
-      </div>
+    <div class="rn-x-prog" data-prog>
+      <span class="rn-x-prog__logo" style="background:#f3d36b;color:#2a2108">A</span>
+      <div><b>Acme<small>@acme</small></b><div class="rn-x-prog__meta"><span>4 in scope</span><span>1 out of scope</span><span>3 scannable</span><span>HackerOne</span></div></div>
+      <span class="rn-x-pill rn-x-pill--a">Bounty</span>
+    </div>
+    <div class="rn-x-prog">
+      <span class="rn-x-prog__logo" style="background:#2b3550;color:#9fb8ff">G</span>
+      <div><b>Globex<small>@globex</small></b><div class="rn-x-prog__meta"><span>12 in scope</span><span>9 scannable</span><span>Intigriti</span></div></div>
+      <span class="rn-x-pill rn-x-pill--o">VDP</span>
+    </div>
+    <div class="rn-x-prog">
+      <span class="rn-x-prog__logo" style="background:#2a3a33;color:#8fd6a9">I</span>
+      <div><b>Initech<small>@initech</small></b><div class="rn-x-prog__meta"><span>7 in scope</span><span>2 out of scope</span><span>5 scannable</span><span>HackerOne</span></div></div>
+      <span class="rn-x-pill rn-x-pill--a">Bounty</span>
     </div>
   </div>
-  <div class="rn-x-dlg" data-dlg>
-    <div class="rn-x-dlg__box">
-      <b class="rn-x-dlg__t">Watch Acme</b>
-      <span class="rn-x-dlg__p">Scope from HackerOne, refreshed on every sync.</span>
+</div>
+<div class="rn-x-dlg" data-dlg>
+  <div class="rn-x-dlg__box rn-dlg">
+    <div class="rn-dlg__head"><b>Watch Acme</b><span>Scope from HackerOne, refreshed on every sync.</span></div>
+    <div class="rn-dlg__body">
       <span class="rn-x-dlg__scope"><span>*.example.com</span><span>api.example.com</span></span>
       <span class="rn-x-dlg__p">Followed from now on. Earlier certificates come from the baseline scan.</span>
-      <span class="rn-x-dlg__foot"><span class="rn-x-btn">Cancel</span><span class="rn-x-btn rn-x-btn--p" data-press>Watch program</span></span>
     </div>
+    <div class="rn-dlg__foot"><span class="rn-x-btn">Cancel</span><span class="rn-x-btn rn-x-btn--p" data-press><svg><use href="#rni-eye"/></svg>Watch program</span></div>
   </div>
-  <div class="rn-x-hosts" data-hosts>
-    <div class="rn-x-tabs"><span class="is-on">Hosts</span></div>
+</div>
+<div class="rn-x-hosts" data-hosts>
+  <div class="rn-pg__head"><div><span class="rn-pg__h1">Acme</span><span class="rn-pg__sub">Watching since today · 2 hosts seen</span></div></div>
+  <div class="rn-card">
+    <div class="rn-x-tabs"><span class="is-on">Hosts <small>2</small></span><span>Scope <small>2</small></span></div>
     <div class="rn-x-hrow">
       <span class="rn-x-host">billing<i>.example.com</i> <span class="rn-x-pill rn-x-pill--warn">Alerted</span></span>
       <span class="rn-x-hrow__a"><span class="rn-x-btn">Open the probe</span></span>
@@ -43,14 +46,15 @@
       <span class="rn-x-hrow__m"><span>Seen 2 days ago</span><span>api.example.com</span></span>
     </div>
   </div>
-  <div class="rn-x-alert" data-alert>
-    <b>New in-scope asset · Acme</b>
-    <span>billing.example.com</span>
-    <span>200 · Billing</span>
-    <span>nginx, React</span>
-    <span>198.51.100.24</span>
-    <span>Scope .example.com</span>
-  </div>
-  <div class="rn-x-toast" data-toast><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg>Watching Acme</div>
-  <svg class="rn-x-cursor" data-cursor viewBox="0 0 20 20"><path d="M3 2.5v13.2l3.6-3.3 2.4 5.3 2.3-1-2.4-5.2h5z"/></svg>
 </div>
+<div class="rn-x-alert" data-alert>
+  <b>New in-scope asset · Acme</b>
+  <span>billing.example.com</span>
+  <span>200 · Billing</span>
+  <span>nginx, React</span>
+  <span>198.51.100.24</span>
+  <span>Scope .example.com</span>
+</div>
+<div class="rn-x-toast" data-toast><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7"/></svg>Watching Acme</div>
+<svg class="rn-x-cursor" data-cursor viewBox="0 0 20 20"><path d="M3 2.5v13.2l3.6-3.3 2.4 5.3 2.3-1-2.4-5.2h5z"/></svg>
+{% endcall %}

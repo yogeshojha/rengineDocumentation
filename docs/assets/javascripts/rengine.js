@@ -1,4 +1,4 @@
-/* rengine.wiki: Copy page, search shortcut, query chips, pane sync. */
+/* rengine.wiki: Copy page, search shortcut, query chips, pane sync, and the home page scenes. */
 (() => {
   "use strict";
 
@@ -337,27 +337,6 @@
     io.observe(el);
   }
 
-  // A wait() that only counts time while el is on screen and the tab is visible.
-  function gatedWait(el) {
-    let inView = !("IntersectionObserver" in window);
-    if (!inView) new IntersectionObserver((es) => { inView = es.some((e) => e.isIntersecting); }, { threshold: 0.1 }).observe(el);
-    const live = () => inView && !document.hidden;
-    const wait = (ms, onTick) =>
-      new Promise((resolve) => {
-        let done = 0;
-        let last = performance.now();
-        const tick = (now) => {
-          if (live()) done += now - last;
-          last = now;
-          if (onTick) onTick(Math.min(1, done / ms));
-          if (done >= ms) resolve();
-          else requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-      });
-    return wait;
-  }
-
   // Types the text of el, keeping its child spans (query field names stay coloured).
   async function typeInto(el, wait, perChar = 40) {
     if (el.dataset.full === undefined) el.dataset.full = el.innerHTML;
@@ -437,6 +416,36 @@
     });
   }
 
+  // ---------- home: the reNgine shell ----------
+  // Points the sidebar and the breadcrumb of a shell at the page an element describes
+  // through its data-nav and data-crumb attributes.
+  function shellTo(app, el) {
+    if (!app || !el) return;
+    const nav = el.dataset.nav || "";
+    $$("[data-nav]", app).forEach((it) => it.classList.toggle("is-active", it.dataset.nav === nav));
+    app.classList.toggle("is-assets", nav.startsWith("assets"));
+    app.classList.toggle("is-findings", nav.startsWith("findings"));
+    const crumbs = app.querySelector("[data-crumbs]");
+    if (crumbs && el.dataset.crumb) {
+      const parts = el.dataset.crumb.split("›").map((s) => s.trim()).filter(Boolean);
+      const nodes = [];
+      parts.forEach((p, i) => {
+        if (i) {
+          const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+          const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+          use.setAttribute("href", "#rni-chev");
+          svg.appendChild(use);
+          nodes.push(svg);
+        }
+        const span = document.createElement("span");
+        span.textContent = p;
+        if (i === parts.length - 1) span.className = "is-cur";
+        nodes.push(span);
+      });
+      crumbs.replaceChildren(...nodes);
+    }
+  }
+
   // ---------- home: scroll-driven layers and tour ----------
   const clamp = (v, lo = 0, hi = 1) => Math.min(hi, Math.max(lo, v));
   const seg = (p, a, b) => clamp((p - a) / (b - a));
@@ -485,155 +494,52 @@
     return { on, local: clamp((mid - r.top) / r.height) };
   }
 
-  // The stack: each step has a resting state, the scroll position blends between neighbouring states,
-  // and the drawn state eases toward it every frame, so the layers follow the reader without lag or jumps.
+  // The layers: one pinned window, one page per step. The page of the active step is in,
+  // the pages before it have lifted off, the sidebar and the breadcrumb follow.
   function surface() {
     const root = document.querySelector("[data-rn-surface]");
     if (!root || root.dataset.rnOn) return;
     root.dataset.rnOn = "1";
-    const stack = root.querySelector("[data-rn-stack]");
     const stage = root.querySelector(".rn-surface__stage");
-    const steps = $$(".rn-step", root);
-    const marks = steps;
-    const keys = steps.map((el) => el.dataset.plane);
-    const planes = $$(".rn-plane", stack).sort((x, y) => +x.dataset.i - +y.dataset.i);
-    const index = {};
-    planes.forEach((pl, i) => { index[pl.dataset.plane] = i; });
-    const queryable = planes.map((pl) => !!pl.querySelector(".rn-plane__q"));
-    const top = planes.length - 1;
-
-    // the resting state for one step
-    function rest(key, narrow, rem) {
-      const gap = narrow ? 22 : 34;
-      const peel = narrow ? 150 : 230;
-      const deep = stack.offsetHeight;
-      const st = { rx: 57, rz: -18, ty: 0, q: 0, p: planes.map(() => ({ y: 0, z: 0, dim: 0, glow: 0, op: 1 })) };
-      if (key === "closed") {
-        st.rx = 60;
-        st.rz = -22;
-        st.p.forEach((pp, i) => { pp.z = i * (narrow ? 12 : 16); });
-        st.p[top].glow = 0.35;
-      } else if (key === "query") {
-        st.rx = 0;
-        st.rz = 0;
-        st.q = 1;
-        const step = (narrow ? 2.05 : 3.5) * rem;
-        const shown = queryable.filter(Boolean).length;
-        let k = 0;
-        st.p.forEach((pp, i) => {
-          if (!queryable[i]) { pp.op = 0; pp.z = -40; return; }
-          const row = shown - 1 - k++;
-          pp.y = (row - (shown - 1) / 2) * step;
-          pp.z = row * 2;
-          pp.glow = 0.25;
-        });
-      } else {
-        // layers you have passed peel off upward and fade out, so the active layer is always the top of the deck
-        const focus = key in index ? index[key] : top;
-        st.p.forEach((pp, i) => {
-          pp.z = i * gap;
-          if (i > focus) {
-            pp.z += peel + (i - focus) * 36;
-            pp.y = -0.28 * deep;
-            pp.op = 0;
-          } else if (i < focus) {
-            pp.dim = 0.32;
-          } else {
-            pp.glow = key === "open" ? 0.35 : 1;
-          }
-        });
-      }
-      if (key !== "query") {
-        // keep the stack centred on screen as its layers move
-        const a = (st.rx * Math.PI) / 180;
-        const ys = st.p.filter((pp) => pp.op > 0.5).map((pp) => pp.y * Math.cos(a) - pp.z * Math.sin(a));
-        st.ty = -(Math.max(...ys) + Math.min(...ys)) / 2;
-      }
-      return st;
-    }
-
-    const mix = (a, b, t) => a + (b - a) * t;
-    const blend = (A, B, t) => ({
-      rx: mix(A.rx, B.rx, t), rz: mix(A.rz, B.rz, t), ty: mix(A.ty, B.ty, t), q: mix(A.q, B.q, t),
-      p: A.p.map((pa, i) => {
-        const pb = B.p[i];
-        // a leaving layer fades out early and a returning one fades in late, so neither hangs over the active layer
-        const to = pb.op < pa.op ? Math.min(1, t * 1.8) : pb.op > pa.op ? Math.max(0, (t - 0.45) / 0.55) : t;
-        return { y: mix(pa.y, pb.y, t), z: mix(pa.z, pb.z, t), dim: mix(pa.dim, pb.dim, t), glow: mix(pa.glow, pb.glow, t), op: mix(pa.op, pb.op, to) };
-      }),
-    });
-    // straight interpolation, used to ease the drawn state toward the target every frame
-    const follow = (A, B, t) => ({
-      rx: mix(A.rx, B.rx, t), rz: mix(A.rz, B.rz, t), ty: mix(A.ty, B.ty, t), q: mix(A.q, B.q, t),
-      p: A.p.map((pa, i) => {
-        const pb = B.p[i];
-        return { y: mix(pa.y, pb.y, t), z: mix(pa.z, pb.z, t), dim: mix(pa.dim, pb.dim, t), glow: mix(pa.glow, pb.glow, t), op: mix(pa.op, pb.op, t) };
-      }),
-    });
-    const ease = (t) => t * t * (3 - 2 * t);
-
-    // which two steps the reading line sits between, and how far
-    function target() {
-      const narrow = innerWidth < 960;
-      const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 20;
-      const line = readingLine(stage);
-      const mids = marks.map((el) => { const r = el.getBoundingClientRect(); return r.top + r.height / 2; });
-      if (line <= mids[0]) return rest(keys[0], narrow, rem);
-      for (let j = 0; j < mids.length - 1; j++) {
-        if (line <= mids[j + 1]) {
-          const t = (line - mids[j]) / (mids[j + 1] - mids[j]);
-          return blend(rest(keys[j], narrow, rem), rest(keys[j + 1], narrow, rem), ease(clamp((t - 0.22) / 0.56)));
-        }
-      }
-      return rest(keys[keys.length - 1], narrow, rem);
-    }
-
-    function draw(st) {
-      stack.style.transform = `translateY(${st.ty.toFixed(1)}px) rotateX(${st.rx.toFixed(2)}deg) rotateZ(${st.rz.toFixed(2)}deg)`;
-      stack.style.setProperty("--q", st.q.toFixed(3));
-      planes.forEach((pl, i) => {
-        const pp = st.p[i];
-        pl.style.transform = `translate3d(0, ${pp.y.toFixed(1)}px, ${pp.z.toFixed(1)}px)`;
-        pl.style.setProperty("--dim", pp.dim.toFixed(3));
-        pl.style.setProperty("--glow", pp.glow.toFixed(3));
-        pl.style.opacity = pp.op.toFixed(3);
-        pl.style.visibility = pp.op < 0.01 ? "hidden" : "";
-      });
-    }
-
-    let cur = null;
-    let goal = null;
-    let running = false;
-    const settle = () => {
-      const k = 0.16;
-      cur = follow(cur, goal, k);
-      draw(cur);
-      const left = Math.abs(cur.rx - goal.rx) + Math.abs(cur.ty - goal.ty) + Math.abs(cur.q - goal.q) +
-        cur.p.reduce((sum, pp, i) => sum + Math.abs(pp.z - goal.p[i].z) + Math.abs(pp.y - goal.p[i].y) + Math.abs(pp.dim - goal.p[i].dim) + Math.abs(pp.op - goal.p[i].op), 0);
-      if (left > 0.05) requestAnimationFrame(settle);
-      else {
-        cur = goal;
-        draw(cur);
-        running = false;
-      }
-    };
+    const app = root.querySelector("[data-app]");
+    const steps = $$(".rn-surface__steps .rn-step", root);
+    const views = $$(".rn-layer", root);
+    const byView = Object.fromEntries(views.map((v) => [v.dataset.view, v]));
+    const slabs = $$(".rn-surface__slabs i", root);
+    const label = root.querySelector("[data-rail-label]");
+    let last = -1;
     const update = () => {
-      goal = target();
-      const { on } = activeStep(steps, readingLine(stage));
-      steps.forEach((el, i) => el.classList.toggle("is-on", i === on));
-      root.classList.toggle("is-open", on > 0);
-      if (!cur || reduced()) {
-        cur = goal;
-        draw(cur);
-        return;
-      }
-      if (!running) {
-        running = true;
-        requestAnimationFrame(settle);
-      }
+      let { on } = activeStep(steps, readingLine(stage));
+      if (on < 0) on = last < 0 ? 0 : last;
+      if (on === last) return;
+      const view = byView[steps[on].dataset.view] || views[0];
+      const idx = views.indexOf(view);
+      views.forEach((v, i) => {
+        v.classList.toggle("is-on", i === idx);
+        v.classList.toggle("is-out", i < idx);
+      });
+      steps.forEach((s, i) => s.classList.toggle("is-on", i === on));
+      slabs.forEach((s, i) => {
+        s.classList.toggle("is-on", i === idx);
+        s.classList.toggle("is-past", i < idx);
+      });
+      if (label) label.textContent = steps[on].dataset.label || "";
+      shellTo(app, view);
+      last = on;
     };
     onScroll(update);
     update();
+  }
+
+  // Puts a scene's cursor over the middle of el, offset by dx and dy pixels.
+  function aim(sc, el, dx = 0, dy = 0) {
+    const cur = sc.querySelector("[data-cursor]");
+    if (!cur || !el) return;
+    const host = cur.parentElement || sc;
+    const h = host.getBoundingClientRect();
+    const r = el.getBoundingClientRect();
+    cur.style.left = `${r.left - h.left + r.width / 2 + dx}px`;
+    cur.style.top = `${r.top - h.top + r.height / 2 + dy}px`;
   }
 
   // The tour: one pinned window, one scene per step, each scene played by the reader's scroll.
@@ -662,13 +568,15 @@
     },
     watch(sc, p) {
       const pressed = p > 0.4;
-      sc.querySelector("[data-prog]").classList.toggle("is-on", p > 0.08);
+      const prog = sc.querySelector("[data-prog]");
+      const press = sc.querySelector("[data-press]");
+      prog.classList.toggle("is-on", p > 0.08);
       sc.querySelector("[data-dlg]").classList.toggle("is-on", p > 0.22 && p < 0.55);
-      sc.querySelector("[data-press]").classList.toggle("is-press", p > 0.4 && p < 0.46);
+      press.classList.toggle("is-press", p > 0.4 && p < 0.46);
       const cur = sc.querySelector("[data-cursor]");
       cur.style.opacity = p > 0.12 && p < 0.55 ? "1" : "0";
-      cur.style.left = p < 0.22 ? "82%" : "70%";
-      cur.style.top = p < 0.22 ? "44%" : "71%";
+      if (p < 0.22) aim(sc, prog, prog.getBoundingClientRect().width * 0.28, 0);
+      else aim(sc, press, 0, 0);
       sc.querySelector("[data-toast]").classList.toggle("is-on", pressed && p < 0.62);
       sc.querySelector("[data-wcount]").textContent = pressed ? "1" : "0";
       sc.querySelector("[data-hosts]").classList.toggle("is-on", p > 0.58);
@@ -723,20 +631,30 @@
 
   // ---------- home: one run, end to end ----------
   // Five chapters played in one window. Reduced motion shows each chapter's last frame.
-  const RUN_W = 920;
+  const RUN_W = 1120;
   const fmt = (n) => Math.round(n).toLocaleString("en-US");
+  const setText = (root, sel, text) => $$(sel, root).forEach((el) => { el.textContent = text; });
 
   const RUN = {
     target: {
       reset(sc) {
-        sc.classList.remove("s-sw", "s-added");
+        sc.classList.remove("s-sw", "s-added", "s-typed");
         sc.querySelector("[data-dlg]").classList.remove("is-on");
         sc.querySelector("[data-at=input]").classList.remove("is-focus");
         sc.querySelector("[data-type]").textContent = "";
+        setText(sc, "[data-targets], [data-shown], [data-shown2]", "3");
+        setText(sc, "[data-livecount]", "0");
+      },
+      added(sc) {
+        sc.classList.add("s-added");
+        setText(sc, "[data-targets], [data-shown], [data-shown2]", "4");
+        setText(sc, "[data-livecount]", "1");
+        sc.closest("[data-app]").classList.add("is-scanning");
       },
       finish(sc) {
         sc.querySelector("[data-type]").textContent = sc.querySelector("[data-type]").dataset.type;
-        sc.classList.add("s-sw", "s-added");
+        sc.classList.add("s-sw", "s-typed");
+        this.added(sc);
       },
       async play(sc, k) {
         const input = sc.querySelector("[data-at=input]");
@@ -747,7 +665,8 @@
         await k.click(input);
         input.classList.add("is-focus");
         await k.type(sc.querySelector("[data-type]"), 70);
-        await k.wait(250);
+        sc.classList.add("s-typed");
+        await k.wait(300);
         await k.click(sc.querySelector("[data-at=switch]"));
         sc.classList.add("s-sw");
         await k.wait(350);
@@ -756,8 +675,8 @@
         sc.querySelector("[data-dlg]").classList.remove("is-on");
         k.hide();
         await k.wait(250);
-        sc.classList.add("s-added");
-        await k.wait(1600);
+        this.added(sc);
+        await k.wait(1700);
       },
     },
     scan: {
@@ -812,6 +731,7 @@
         funnel.forEach((f) => delete f.dataset.taken);
         sc.classList.add("s-done");
         sc.querySelector("[data-state]").textContent = "Completed";
+        sc.closest("[data-app]").classList.remove("is-scanning");
         await k.wait(1500);
       },
     },
@@ -907,7 +827,7 @@
           await k.wait(900);
           dest(name).classList.add("is-settled");
         };
-        await k.wait(500);
+        await k.wait(900);
         await land(sc.querySelector(".rn-run__chips"), "alert");
         await k.click(sc.querySelector("[data-at=repeater]"));
         await land(sc.querySelector("[data-at=repeater]"), "repeater");
@@ -925,6 +845,8 @@
     root.dataset.rnOn = "1";
     const frame = root.querySelector("[data-run-frame]");
     const body = root.querySelector("[data-run-body]");
+    const app = root.querySelector("[data-app]");
+    const urlbar = root.querySelector("[data-urlbar]");
     const cursor = root.querySelector("[data-cursor]");
     const dot = root.querySelector("[data-packet]");
     const scenes = $$(".rn-run__scene", root);
@@ -948,14 +870,17 @@
         li.classList.toggle("is-on", j === i);
         li.style.setProperty("--p", j < i || (j === i && done) ? 1 : 0);
       });
+      shellTo(app, scenes[i]);
+      if (urlbar) urlbar.textContent = scenes[i].dataset.url || "";
+      app.classList.toggle("is-scanning", scenes[i].dataset.scene === "scan");
     };
     const settle = (i) => {
       const sc = scenes[i];
       const spec = RUN[sc.dataset.scene];
       spec.reset(sc);
+      show(i, true);
       spec.finish(sc);
       cursor.classList.remove("is-on");
-      show(i, true);
     };
 
     // every wait counts only while the hero is on screen, the tab is visible and nothing is paused
@@ -1046,7 +971,7 @@
       return k;
     }
 
-    const LENGTH = { target: 7100, scan: 5950, results: 4900, ask: 8200, act: 9000 };
+    const LENGTH = { target: 7400, scan: 5950, results: 4900, ask: 8200, act: 9400 };
 
     async function play(from) {
       const my = ++token;
@@ -1123,6 +1048,57 @@
     });
   }
 
+  // ---------- home: reveal on scroll, spotlight on hover, parallax in the hero ----------
+  function reveal() {
+    const els = $$("[data-reveal]").filter((el) => !el.dataset.rnReveal);
+    if (!els.length) return;
+    els.forEach((el) => { el.dataset.rnReveal = "1"; });
+    if (reduced() || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+        }),
+      { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }
+    );
+    els.forEach((el) => {
+      el.classList.add("rn-reveal");
+      io.observe(el);
+    });
+  }
+
+  function spotlight() {
+    $$("[data-spotlight]").forEach((grid) => {
+      if (grid.dataset.rnSpot) return;
+      grid.dataset.rnSpot = "1";
+      grid.addEventListener("pointermove", (ev) => {
+        const a = ev.target.closest("a");
+        if (!a) return;
+        const r = a.getBoundingClientRect();
+        a.style.setProperty("--mx", `${ev.clientX - r.left}px`);
+        a.style.setProperty("--my", `${ev.clientY - r.top}px`);
+      });
+    });
+  }
+
+  // Each banded section carries --py, its position relative to the middle of the viewport, from -1 to 1.
+  function bands() {
+    const secs = $$("[data-band]").filter((el) => !el.dataset.rnBand);
+    if (!secs.length) return;
+    secs.forEach((el) => { el.dataset.rnBand = "1"; });
+    if (reduced()) return;
+    onScroll(() => {
+      secs.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < -400 || r.top > innerHeight + 400) return;
+        const p = (innerHeight / 2 - (r.top + r.height / 2)) / (r.height / 2 + innerHeight / 2);
+        el.style.setProperty("--py", clamp(p, -1, 1).toFixed(3));
+      });
+    });
+  }
+
   function init() {
     copyPage();
     searchShortcut();
@@ -1133,6 +1109,9 @@
     surface();
     tour();
     countUp();
+    reveal();
+    spotlight();
+    bands();
     paneRecreations();
   }
 

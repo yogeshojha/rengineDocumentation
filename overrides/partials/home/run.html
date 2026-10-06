@@ -1,37 +1,86 @@
+{% import "partials/home/shell.html" as shell %}
 <div class="rn-run__frame" data-run-frame>
-<div class="rn-run__win rn-x" data-run-win>
-  <div class="rn-run__chrome"><i></i><i></i><i></i><span>reNgine</span></div>
+<div class="rn-run__win" data-run-win>
+  <div class="rn-run__chrome"><i></i><i></i><i></i><span class="rn-run__url"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>rengine.example.com<b data-urlbar>/targets</b></span></span></div>
+  {% call shell.app(active="targets", crumbs=["Targets"], cls="rn-run__app", scans="1") %}
   <div class="rn-run__body" data-run-body>
 
-    <div class="rn-run__scene" data-scene="target">
-      <div class="rn-x-bar"><span>acme</span><i>›</i><b>Targets</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
-      <div class="rn-x-body">
-        <div class="rn-run__head"><span class="rn-x-h">Targets</span><span class="rn-x-btn rn-x-btn--p" data-at="open">Add target</span></div>
-        <div class="rn-x-tbl">
-          <div class="rn-x-tr rn-run__tr rn-x-th"><span>Target</span><span>Last run</span><span>Findings</span><span>Assets</span></div>
-          <div class="rn-x-tr rn-run__tr rn-run__new" data-new><span><b class="rn-x-host">example.com</b><small>Domain</small></span><span class="rn-run__live">Running</span><span class="rn-x-dim">Not scanned</span><span class="rn-x-dim">Not scanned</span></div>
-          <div class="rn-x-tr rn-run__tr"><span><b class="rn-x-host">example.org</b><small>Domain</small></span><span class="rn-x-dim">2 days ago</span><span><em class="rn-x-sev rn-x-sev--med">14</em></span><span>212 web assets</span></div>
-          <div class="rn-x-tr rn-run__tr"><span><b class="rn-x-host">203.0.113.0/24</b><small>IP range</small></span><span class="rn-x-dim">5 days ago</span><span><em class="rn-x-sev rn-x-sev--low">3</em></span><span>41 services</span></div>
+    <div class="rn-run__scene" data-scene="target" data-nav="targets" data-crumb="Targets" data-url="/targets">
+      <div class="rn-pg">
+        <div class="rn-pg__head">
+          <div><span class="rn-pg__h1">Targets</span><span class="rn-pg__sub">Domains, IP ranges, URLs and ASNs in acme</span></div>
+          <div class="rn-pg__actions"><span class="rn-x-btn"><svg><use href="#rni-upload"/></svg>Import</span><span class="rn-x-btn rn-x-btn--p" data-at="open"><svg><use href="#rni-plus"/></svg>Add target</span></div>
         </div>
-        <div class="rn-x-dlg" data-dlg>
-          <div class="rn-x-dlg__box">
-            <div class="rn-x-dlg__t">Add target</div>
-            <div class="rn-x-fld">Target value
-              <span class="rn-x-in rn-run__in" data-at="input"><span data-type="example.com">example.com</span><span class="rn-x-qb__caret"></span><span class="rn-run__ph">example.com, 192.168.1.0/24, AS12345</span></span>
-            </div>
-            <div class="rn-run__sw" data-at="switch"><span class="rn-run__switch"></span><b>Scan after adding</b></div>
-            <div class="rn-x-dlg__foot"><span class="rn-x-btn">Cancel</span><span class="rn-x-btn rn-x-btn--p" data-at="add"><span class="rn-run__off">Add target</span><span class="rn-run__on">Add &amp; scan</span></span></div>
+        <div class="rn-card">
+          <div class="rn-strip">
+            <span><small>Targets</small><b data-targets>3</b></span>
+            <span><small>Critical</small><b class="rn-x-sev--crit">1</b></span>
+            <span><small>High</small><b class="rn-x-sev--high">4</b></span>
+            <span><small>Medium</small><b class="rn-x-sev--med">12</b></span>
+            <span><small>Scanning</small><b class="rn-run__livecount" data-livecount>0</b></span>
           </div>
+          <div class="rn-x-tbl rn-x-tbl--flat">
+            <div class="rn-x-tr rn-run__tr rn-x-th"><span>Target</span><span>Last run</span><span>Findings</span><span>Assets</span><span></span></div>
+            <div class="rn-x-tr rn-run__tr rn-run__new" data-new>
+              <span class="rn-run__tcell"><b class="rn-x-host">example.com</b><small><em>Domain</em>Added just now</small></span>
+              <span><span class="rn-run__live"><i></i>Running</span><small class="rn-run__ago">Normal intensity</small></span>
+              <span class="rn-x-dim">Not scanned</span>
+              <span class="rn-x-dim">Not scanned</span>
+              <span class="rn-run__acts"><svg class="is-busy"><use href="#rni-radar"/></svg><svg><use href="#rni-down"/></svg><svg><use href="#rni-more"/></svg></span>
+            </div>
+            <div class="rn-x-tr rn-run__tr">
+              <span class="rn-run__tcell"><b class="rn-x-host">example.org</b><small><em>Domain</em>Example Foundation</small></span>
+              <span><span class="rn-badge rn-badge--ok"><svg><use href="#rni-check"/></svg>Completed</span><small class="rn-run__ago">2 days ago</small></span>
+              <span class="rn-chips"><em class="rn-chip rn-chip--crit">1</em><em class="rn-chip rn-chip--high">2</em><em class="rn-chip rn-chip--med">11</em></span>
+              <span class="rn-run__assets">212 web assets<small>8,920 endpoints</small></span>
+              <span class="rn-run__acts"><svg><use href="#rni-play"/></svg><svg><use href="#rni-down"/></svg><svg><use href="#rni-more"/></svg></span>
+            </div>
+            <div class="rn-x-tr rn-run__tr">
+              <span class="rn-run__tcell"><b class="rn-x-host">203.0.113.0/24</b><small><em>IP range</em>Office network</small></span>
+              <span><span class="rn-badge rn-badge--ok"><svg><use href="#rni-check"/></svg>Completed</span><small class="rn-run__ago">5 days ago</small></span>
+              <span class="rn-chips"><em class="rn-chip rn-chip--high">2</em><em class="rn-chip rn-chip--low">3</em></span>
+              <span class="rn-run__assets">41 services<small>61 IP addresses</small></span>
+              <span class="rn-run__acts"><svg><use href="#rni-play"/></svg><svg><use href="#rni-down"/></svg><svg><use href="#rni-more"/></svg></span>
+            </div>
+            <div class="rn-x-tr rn-run__tr">
+              <span class="rn-run__tcell"><b class="rn-x-host">shop.example.net</b><small><em>Domain</em>Storefront</small></span>
+              <span><span class="rn-badge"><svg><use href="#rni-pause"/></svg>Paused</span><small class="rn-run__ago">1 week ago</small></span>
+              <span class="rn-chips"><em class="rn-chip rn-chip--med">1</em></span>
+              <span class="rn-run__assets">38 web assets<small>1,204 endpoints</small></span>
+              <span class="rn-run__acts"><svg><use href="#rni-play"/></svg><svg><use href="#rni-down"/></svg><svg><use href="#rni-more"/></svg></span>
+            </div>
+          </div>
+          <div class="rn-card__foot"><span>Showing <b data-shown>3</b> of <b data-shown2>3</b></span><span>25 per page</span></div>
+        </div>
+      </div>
+      <div class="rn-x-dlg" data-dlg>
+        <div class="rn-x-dlg__box rn-dlg">
+          <div class="rn-dlg__head"><b>Add target</b><span>Domain, IP address, CIDR range, URL or ASN.</span></div>
+          <div class="rn-dlg__body">
+            <span class="rn-dlg__label">Target value <i>*</i></span>
+            <span class="rn-x-in rn-run__in" data-at="input"><span data-type="example.com"></span><span class="rn-x-qb__caret"></span><span class="rn-run__ph">example.com, 192.168.1.0/24, AS12345</span><svg class="rn-run__valid"><use href="#rni-check"/></svg></span>
+            <span class="rn-dlg__type"><svg><use href="#rni-globe"/></svg>Domain</span>
+            <span class="rn-dlg__label">Display name</span>
+            <span class="rn-x-in rn-run__in"><span class="rn-run__ph">Optional</span></span>
+          </div>
+          <div class="rn-dlg__scan">
+            <span class="rn-run__sw" data-at="switch"><span class="rn-run__switch"></span><b>Scan after adding</b></span>
+            <small>Default engine · Normal intensity</small>
+          </div>
+          <div class="rn-dlg__foot"><span class="rn-x-btn">Cancel</span><span class="rn-x-btn rn-x-btn--p" data-at="add"><span class="rn-run__off">Add target</span><span class="rn-run__on">Add and scan</span></span></div>
         </div>
       </div>
     </div>
 
-    <div class="rn-run__scene" data-scene="scan">
-      <div class="rn-x-bar"><span>acme</span><i>›</i><span>Scans</span><i>›</i><b>example.com</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
-      <div class="rn-x-body">
-        <div class="rn-run__head">
-          <span><span class="rn-x-h">example.com</span><span class="rn-x-sub rn-run__sub">Normal intensity</span></span>
-          <span class="rn-run__state"><i></i><span data-state>Running</span></span>
+    <div class="rn-run__scene" data-scene="scan" data-nav="scans" data-crumb="Scans › example.com" data-url="/scans/8a1f2c3d">
+      <div class="rn-pg">
+        <div class="rn-pg__head rn-pg__head--scan">
+          <span class="rn-pg__ticon"><svg><use href="#rni-target"/></svg></span>
+          <div>
+            <span class="rn-pg__h1 rn-x-mono">example.com <em class="rn-badge rn-badge--plain">Normal intensity</em></span>
+            <span class="rn-pg__sub"><span class="rn-run__state"><i></i><span data-state>Running</span></span><i>·</i>Default engine<i>·</i>Started just now<i>·</i>From 198.51.100.7</span>
+          </div>
+          <div class="rn-pg__actions"><span class="rn-x-btn"><svg><use href="#rni-pause"/></svg>Pause</span><span class="rn-x-btn"><svg><use href="#rni-ban"/></svg>Cancel</span></div>
         </div>
         <div class="rn-run__bar"><i data-progress></i></div>
         <div class="rn-run__funnel">
@@ -48,43 +97,55 @@
           <div class="rn-run__step" data-stage><i></i><span>Vulnerability Scan</span><em><b data-tick="23">23</b> findings</em></div>
           <div class="rn-run__step" data-stage><i></i><span>Response secret mining</span><em><b data-tick="3">3</b> secrets</em></div>
         </div>
-        <div class="rn-x-tbl rn-run__feed">
-          <div class="rn-x-tr rn-x-th"><span>Web asset</span><span>Status</span><span>Title</span><span>Tech</span></div>
-          <div class="rn-x-tr is-in" data-feed><span class="rn-x-host">ci<i>.example.com</i></span><span class="rn-x-st">200</span><span>Dashboard [Jenkins]</span><span class="rn-x-tech"><em>Jenkins</em><em>Jetty</em></span></div>
-          <div class="rn-x-tr is-in" data-feed><span class="rn-x-host">api<i>.example.com</i></span><span class="rn-x-st rn-x-st--4">401</span><span>Unauthorized</span><span class="rn-x-tech"><em>nginx</em></span></div>
+        <div class="rn-card rn-run__feed">
+          <div class="rn-card__head"><span>Live</span><b>Web assets as they answer</b></div>
+          <div class="rn-x-tbl rn-x-tbl--flat">
+            <div class="rn-x-tr rn-x-th"><span>Web asset</span><span>Status</span><span>Title</span><span>Tech</span></div>
+            <div class="rn-x-tr is-in" data-feed><span class="rn-x-host">ci<i>.example.com</i></span><span class="rn-x-st">200</span><span>Dashboard [Jenkins]</span><span class="rn-x-tech"><em>Jenkins</em><em>Jetty</em></span></div>
+            <div class="rn-x-tr is-in" data-feed><span class="rn-x-host">api<i>.example.com</i></span><span class="rn-x-st rn-x-st--4">401</span><span>Unauthorized</span><span class="rn-x-tech"><em>nginx</em></span></div>
+            <div class="rn-x-tr is-in" data-feed><span class="rn-x-host">www<i>.example.com</i></span><span class="rn-x-st">200</span><span>Example Store</span><span class="rn-x-tech"><em>Next.js</em><em>Vercel</em></span></div>
+            <div class="rn-x-tr is-in" data-feed><span class="rn-x-host">status<i>.example.com</i></span><span class="rn-x-st rn-x-st--3">302</span><span>Redirecting</span><span class="rn-x-tech"><em>Cloudflare</em></span></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="rn-run__scene" data-scene="results">
-      <div class="rn-x-bar"><span>example.com</span><i>›</i><b>Web assets</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
-      <div class="rn-x-body">
-        <div class="rn-x-tabs rn-run__tabs">
-          <span class="is-on">Web assets <small>412</small></span><span>Endpoints <small>8,920</small></span><span>Services <small>96</small></span><span>IP addresses <small>61</small></span><span>Vulnerabilities <small>23</small></span><span>Software <small>14</small></span><span>Secrets <small>3</small></span>
+    <div class="rn-run__scene" data-scene="results" data-nav="assets:web" data-crumb="Attack surface › Web assets" data-url="/surface/web-assets">
+      <div class="rn-pg">
+        <div class="rn-pg__head">
+          <div><span class="rn-pg__h1">Web assets</span><span class="rn-pg__sub">example.com · latest run</span></div>
+          <div class="rn-pg__actions"><span class="rn-x-btn"><svg><use href="#rni-upload"/></svg>Export</span><span class="rn-x-btn rn-x-btn--ghost"><svg><use href="#rni-settings"/></svg>Columns</span></div>
         </div>
-        <div class="rn-x-qb" data-qb>
-          <svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
-          <span class="rn-x-qb__q" data-query="tech:jenkins is:live"><span class="k">tech:</span>jenkins <span class="k">is:</span>live</span><span class="rn-x-qb__caret"></span>
-          <span class="rn-x-qb__count"><b data-count>2</b> web assets</span>
-        </div>
-        <div class="rn-x-tbl">
-          <div class="rn-x-tr rn-x-th"><span>Web asset</span><span>Status</span><span>Title</span><span>Tech</span></div>
-          <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">www<i>.example.com</i></span><span class="rn-x-st">200</span><span>Example Store</span><span class="rn-x-tech"><em>Next.js</em></span></div>
-          <div class="rn-x-tr" data-keep="1"><span class="rn-x-host">ci<i>.example.com</i></span><span class="rn-x-st">200</span><span>Dashboard [Jenkins]</span><span class="rn-x-tech"><em>Jenkins</em><em>Jetty</em></span></div>
-          <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">api<i>.example.com</i></span><span class="rn-x-st rn-x-st--4">401</span><span>Unauthorized</span><span class="rn-x-tech"><em>nginx</em></span></div>
-          <div class="rn-x-tr" data-keep="1"><span class="rn-x-host">build<i>.example.com</i></span><span class="rn-x-st">200</span><span>Sign in [Jenkins]</span><span class="rn-x-tech"><em>Jenkins</em></span></div>
-          <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">mail<i>.example.com</i></span><span class="rn-x-st">200</span><span>Outlook</span><span class="rn-x-tech"><em>IIS</em></span></div>
-          <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">status<i>.example.com</i></span><span class="rn-x-st rn-x-st--3">302</span><span>Redirecting</span><span class="rn-x-tech"><em>Cloudflare</em></span></div>
+        <div class="rn-card">
+          <div class="rn-x-tabs rn-run__tabs">
+            <span class="is-on">Web assets <small>412</small></span><span>Endpoints <small>8,920</small></span><span>Services <small>96</small></span><span>IP addresses <small>61</small></span><span>Findings <small>23</small></span><span>Software <small>14</small></span><span>Secrets <small>3</small></span>
+          </div>
+          <div class="rn-x-qb" data-qb>
+            <span class="rn-x-qb__ico"><svg><use href="#rni-search"/></svg></span>
+            <span class="rn-x-qb__q" data-query="tech:jenkins is:live"><span class="k">tech:</span>jenkins <span class="k">is:</span>live</span><span class="rn-x-qb__caret"></span>
+            <span class="rn-x-qb__count"><b data-count>2</b> web assets</span>
+          </div>
+          <div class="rn-x-tbl rn-x-tbl--flat">
+            <div class="rn-x-tr rn-x-th"><span>Web asset</span><span>Status</span><span>Title</span><span>Tech</span></div>
+            <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">www<i>.example.com</i></span><span class="rn-x-st">200</span><span>Example Store</span><span class="rn-x-tech"><em>Next.js</em></span></div>
+            <div class="rn-x-tr" data-keep="1"><span class="rn-x-host">ci<i>.example.com</i></span><span class="rn-x-st">200</span><span>Dashboard [Jenkins]</span><span class="rn-x-tech"><em>Jenkins</em><em>Jetty</em></span></div>
+            <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">api<i>.example.com</i></span><span class="rn-x-st rn-x-st--4">401</span><span>Unauthorized</span><span class="rn-x-tech"><em>nginx</em></span></div>
+            <div class="rn-x-tr" data-keep="1"><span class="rn-x-host">build<i>.example.com</i></span><span class="rn-x-st">200</span><span>Sign in [Jenkins]</span><span class="rn-x-tech"><em>Jenkins</em></span></div>
+            <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">mail<i>.example.com</i></span><span class="rn-x-st">200</span><span>Outlook</span><span class="rn-x-tech"><em>IIS</em></span></div>
+            <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">status<i>.example.com</i></span><span class="rn-x-st rn-x-st--3">302</span><span>Redirecting</span><span class="rn-x-tech"><em>Cloudflare</em></span></div>
+            <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">docs<i>.example.com</i></span><span class="rn-x-st">200</span><span>Developer docs</span><span class="rn-x-tech"><em>MkDocs</em></span></div>
+            <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">vpn<i>.example.com</i></span><span class="rn-x-st rn-x-st--4">403</span><span>Forbidden</span><span class="rn-x-tech"><em>OpenVPN</em></span></div>
+            <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">cdn<i>.example.com</i></span><span class="rn-x-st">200</span><span>Assets</span><span class="rn-x-tech"><em>Cloudflare</em></span></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="rn-run__scene rn-run__ask is-on s-sent s-work s-lead s-text s-block" data-scene="ask">
-      <div class="rn-x-bar"><span>acme</span><i>›</i><b>Ask</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
-      <div class="rn-x-body">
+    <div class="rn-run__scene rn-run__ask is-on s-sent s-work s-lead s-text s-block" data-scene="ask" data-nav="ask" data-crumb="Ask" data-url="/ask">
+      <div class="rn-pg rn-run__askbody">
         <div class="rn-run__bubble" data-bubble>Which known exploited findings should I fix first?</div>
         <div class="rn-run__answer" data-answer>
-          <span class="rn-run__mark"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg></span>
+          <span class="rn-run__mark"><svg><use href="#rni-sparkles"/></svg></span>
           <div class="rn-run__col">
             <div class="rn-run__work" data-work><i></i><span data-work-text data-running="Searching findings">1 lookup · 1.4 s</span></div>
             <div class="rn-run__lead" data-lead><b>2</b><span>known exploited findings, both on <span class="rn-x-mono">ci.example.com</span></span></div>
@@ -99,44 +160,49 @@
         <div class="rn-run__composer" data-composer>
           <span class="rn-run__ctext" data-type="Which known exploited findings should I fix first?"></span><span class="rn-x-qb__caret"></span>
           <span class="rn-run__cph">Ask about web assets, findings, endpoints and services</span>
-          <span class="rn-run__send"><svg viewBox="0 0 16 16"><path d="M8 13V3M4 7l4-4 4 4"/></svg></span>
+          <span class="rn-run__send"><svg><use href="#rni-send"/></svg></span>
         </div>
       </div>
     </div>
 
-    <div class="rn-run__scene rn-run__act" data-scene="act">
-      <div class="rn-x-bar"><span>example.com</span><i>›</i><b>Vulnerabilities</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
-      <div class="rn-x-body rn-run__actbody">
-        <div class="rn-run__sheet">
-          <div class="rn-run__chips"><em class="rn-x-sev rn-x-sev--crit">Critical</em><span class="rn-x-pill rn-x-pill--kev">KEV</span></div>
-          <div class="rn-x-h">Jenkins Arbitrary File Read</div>
-          <div class="rn-x-sub"><span class="rn-x-mono">ci.example.com</span> · nuclei · Seen 2h ago</div>
-          <div class="rn-run__btns">
-            <span class="rn-x-btn rn-x-btn--p" data-at="repeater">Repeater</span>
-            <span class="rn-x-btn" data-at="issue">File issue</span>
-            <span class="rn-x-btn rn-x-btn--ghost">Notes</span>
-          </div>
-          <dl class="rn-run__dl"><dt>Matched on</dt><dd class="rn-x-mono">https://ci.example.com/</dd><dt>Evidence</dt><dd>Observed</dd><dt>EPSS</dt><dd class="rn-x-mono">0.97</dd></dl>
+    <div class="rn-run__scene rn-run__act" data-scene="act" data-nav="findings:vulns" data-crumb="Attack surface › Findings" data-url="/surface/vulnerabilities">
+      <div class="rn-pg">
+        <div class="rn-pg__head">
+          <div><span class="rn-pg__h1">Findings</span><span class="rn-pg__sub">example.com · 23 findings · 2 known exploited</span></div>
         </div>
-        <div class="rn-run__dests">
-          <div class="rn-run__dest" data-dest="alert">
-            <span class="rn-run__dico rn-run__dico--tg"><svg viewBox="0 0 24 24"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/></svg></span>
-            <span><small>Telegram</small><b>1 known exploited vulnerability on example.com</b><em>Jenkins Arbitrary File Read · ci.example.com</em></span>
-          </div>
-          <div class="rn-run__dest" data-dest="repeater">
-            <span class="rn-run__dico rn-run__dico--bs">B</span>
-            <span><small>Burp Suite · Repeater</small><b>reNgine jenkins-file-read</b><em class="rn-x-mono">Host: ci.example.com</em></span>
-          </div>
-          <div class="rn-run__dest" data-dest="issue">
-            <span class="rn-run__dico rn-run__dico--jira"><svg viewBox="0 0 24 24"><path d="M12 3 3 12l9 9 9-9z"/></svg></span>
-            <span><small>Jira · SEC-142</small><b>Jenkins Arbitrary File Read on ci.example.com</b><em>To Do</em></span>
+        <div class="rn-card">
+          <div class="rn-x-qb"><span class="rn-x-qb__ico"><svg><use href="#rni-search"/></svg></span><span class="rn-x-qb__q"><span class="k">is:</span>kev</span><span class="rn-x-qb__count"><b>2</b> findings</span></div>
+          <div class="rn-x-tbl rn-x-tbl--flat">
+            <div class="rn-x-tr rn-x-tr--f rn-x-th"><span>Severity</span><span>Finding</span><span>Host</span><span>Intelligence</span></div>
+            <div class="rn-x-tr rn-x-tr--f is-selected"><em class="rn-x-sev rn-x-sev--crit">Critical</em><span>Jenkins Arbitrary File Read</span><span class="rn-x-host">ci<i>.example.com</i></span><span class="rn-x-intel"><span class="rn-x-pill rn-x-pill--kev">KEV</span><span class="rn-x-mono">EPSS 0.97</span></span></div>
+            <div class="rn-x-tr rn-x-tr--f"><em class="rn-x-sev rn-x-sev--crit">Critical</em><span>Jenkins Remote Code Execution</span><span class="rn-x-host">ci<i>.example.com</i></span><span class="rn-x-intel"><span class="rn-x-pill rn-x-pill--kev">KEV</span><span class="rn-x-mono">EPSS 0.94</span></span></div>
           </div>
         </div>
+      </div>
+      <aside class="rn-sheet">
+        <div class="rn-sheet__top"><div class="rn-run__chips"><em class="rn-x-sev rn-x-sev--crit">Critical</em><span class="rn-x-pill rn-x-pill--kev">KEV</span><span class="rn-x-pill rn-x-pill--o">Observed</span></div><span class="rn-sheet__pos">1 / 23</span></div>
+        <div class="rn-sheet__title">Jenkins Arbitrary File Read</div>
+        <div class="rn-sheet__meta"><span class="rn-x-mono">ci.example.com</span><i>·</i><span>nuclei</span><i>·</i><span class="rn-x-mono">CVE-2024-23897</span><i>·</i><span>Seen 2h ago</span></div>
+        <div class="rn-sheet__actions">
+          <span class="rn-x-btn rn-x-btn--p" data-at="repeater"><svg><use href="#rni-send"/></svg>Repeater</span>
+          <span class="rn-x-btn" data-at="issue"><svg><use href="#rni-link"/></svg>File issue</span>
+          <span class="rn-x-btn rn-x-btn--ghost">Notes</span>
+          <span class="rn-x-btn rn-x-btn--ghost rn-x-btn--icon"><svg><use href="#rni-more"/></svg></span>
+        </div>
+        <dl class="rn-run__dl"><dt>Matched on</dt><dd class="rn-x-mono">https://ci.example.com/cli?remoting=false</dd><dt>Evidence</dt><dd>Observed in the response</dd><dt>EPSS</dt><dd class="rn-x-mono">0.97</dd><dt>Rank</dt><dd><span class="rn-rank"><i style="--r:.96"></i></span><span class="rn-x-mono">96</span></dd></dl>
+        <div class="rn-sheet__sec">Description</div>
+        <p class="rn-sheet__p">The Jenkins CLI reads arbitrary files from the controller. An unauthenticated attacker can read the first lines of any file, including secrets.</p>
+      </aside>
+      <div class="rn-toasts">
+        <div class="rn-toast" data-dest="alert"><span class="rn-run__dico rn-run__dico--tg"><svg viewBox="0 0 24 24"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/></svg></span><span><b>Alert sent to Telegram</b><em>1 known exploited finding on example.com</em></span></div>
+        <div class="rn-toast" data-dest="repeater"><span class="rn-run__dico rn-run__dico--bs">B</span><span><b>Sent to Burp Repeater</b><em class="rn-x-mono">reNgine jenkins-file-read</em></span></div>
+        <div class="rn-toast" data-dest="issue"><span class="rn-run__dico rn-run__dico--jira"><svg viewBox="0 0 24 24"><path d="M12 3 3 12l9 9 9-9z"/></svg></span><span><b>Issue SEC-142 created in Jira</b><em>Jenkins Arbitrary File Read on ci.example.com</em></span></div>
       </div>
     </div>
 
     <span class="rn-run__packet" data-packet></span>
     <svg class="rn-run__cursor" data-cursor viewBox="0 0 20 20" aria-hidden="true"><path d="M3 2.5v13.2l3.6-3.3 2.4 5.3 2.3-1-2.4-5.2h5z"/></svg>
   </div>
+  {% endcall %}
 </div>
 </div>

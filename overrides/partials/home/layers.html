@@ -1,0 +1,173 @@
+{% import "partials/home/shell.html" as shell %}
+{#
+  The attack surface, one pinned window. Each step of the section lights a sidebar item and shows
+  the matching page: dashboard, Bounty Hub, web assets with correlation, services with AI detection,
+  findings with exploit intelligence, secrets, and the query bar that works across every one of them.
+#}
+<div class="rn-surface__win" data-rn-layers>
+  <div class="rn-surface__rail" aria-hidden="true">
+    <span class="rn-surface__slabs"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    <em data-rail-label>Overview</em>
+  </div>
+  {% call shell.app(active="dashboard", crumbs=["Dashboard"], cls="rn-surface__app") %}
+  <div class="rn-layers" data-run-body>
+
+    <div class="rn-layer" data-view="closed" data-nav="dashboard" data-crumb="Dashboard">
+      <div class="rn-pg">
+        <div class="rn-pg__head">
+          <div><span class="rn-pg__h1">Dashboard</span><span class="rn-pg__sub">acme · 4 targets · last run 2 hours ago</span></div>
+          <div class="rn-pg__actions"><span class="rn-x-btn rn-x-btn--ghost">All targets<svg><use href="#rni-down"/></svg></span></div>
+        </div>
+        <div class="rn-cells">
+          <div class="rn-cell" style="--i:0"><small>Web assets</small><b>1,284</b><span class="rn-cell__bars"><i style="--v:.9"></i><i style="--v:.7"></i><i style="--v:.8"></i><i style="--v:1"></i><i style="--v:.95"></i></span></div>
+          <div class="rn-cell" style="--i:1"><small>Endpoints</small><b>28,311</b><span class="rn-cell__bars"><i style="--v:.5"></i><i style="--v:.6"></i><i style="--v:.9"></i><i style="--v:.85"></i><i style="--v:1"></i></span></div>
+          <div class="rn-cell" style="--i:2"><small>Services</small><b>212</b><span class="rn-cell__bars"><i style="--v:.8"></i><i style="--v:.8"></i><i style="--v:.85"></i><i style="--v:.9"></i><i style="--v:.9"></i></span></div>
+          <div class="rn-cell rn-cell--wide" style="--i:3"><small>Findings</small><b>61</b><span class="rn-cell__sev"><i class="rn-x-sev--crit" style="--v:.1"></i><i class="rn-x-sev--high" style="--v:.22"></i><i class="rn-x-sev--med" style="--v:.4"></i><i class="rn-x-sev--low" style="--v:.28"></i></span><span class="rn-cell__legend"><em class="rn-x-sev rn-x-sev--crit">4</em><em class="rn-x-sev rn-x-sev--high">9</em><em class="rn-x-sev rn-x-sev--med">26</em><em class="rn-x-sev rn-x-sev--low">22</em></span></div>
+          <div class="rn-cell" style="--i:4"><small>Secrets</small><b>3</b><span class="rn-x-pill rn-x-pill--warn">Exposed</span></div>
+          <div class="rn-cell" style="--i:5"><small>Programs</small><b>48</b><span class="rn-x-dim">1 watched</span></div>
+          <div class="rn-cell rn-cell--wide" style="--i:6"><small>Known exploited</small><b>2</b><span class="rn-x-dim">Jenkins Arbitrary File Read · Jenkins Remote Code Execution</span></div>
+          <div class="rn-cell" style="--i:7"><small>AI services</small><b>3</b><span class="rn-x-dim">1 lists models without authentication</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rn-layer" data-view="programs" data-nav="bounty-hub" data-crumb="Bounty Hub">
+      <div class="rn-pg">
+        <div class="rn-pg__head">
+          <div><span class="rn-pg__h1">Bounty Hub</span><span class="rn-pg__sub">48 programs across 2 platforms · synced 3h ago</span></div>
+          <div class="rn-pg__actions"><span class="rn-x-btn rn-x-btn--ghost"><svg><use href="#rni-news"/></svg>Updates</span><span class="rn-x-btn"><svg><use href="#rni-settings"/></svg>Platforms</span></div>
+        </div>
+        <div class="rn-card">
+          <div class="rn-x-tabs"><span>Watching <small>1</small></span><span class="is-on">Programs <small>48</small></span><span>Updates <small>6</small></span></div>
+          <div class="rn-x-prog is-on" style="--i:0">
+            <span class="rn-x-prog__logo" style="background:#f3d36b;color:#2a2108">A</span>
+            <div><b>Acme<small>@acme</small></b><div class="rn-x-prog__meta"><span>4 in scope</span><span>1 out of scope</span><span>3 scannable</span><span>HackerOne</span></div></div>
+            <span class="rn-x-prog__act"><span class="rn-x-btn rn-x-btn--p"><svg><use href="#rni-plus"/></svg>Add targets</span><span class="rn-x-btn"><svg><use href="#rni-eye"/></svg>Watching</span></span>
+            <span class="rn-x-pill rn-x-pill--a">Bounty</span>
+          </div>
+          <div class="rn-x-prog" style="--i:1">
+            <span class="rn-x-prog__logo" style="background:#2b3550;color:#9fb8ff">G</span>
+            <div><b>Globex<small>@globex</small></b><div class="rn-x-prog__meta"><span>12 in scope</span><span>9 scannable</span><span>Intigriti</span></div></div>
+            <span class="rn-x-pill rn-x-pill--o">VDP</span>
+          </div>
+          <div class="rn-x-prog" style="--i:2">
+            <span class="rn-x-prog__logo" style="background:#2a3a33;color:#8fd6a9">I</span>
+            <div><b>Initech<small>@initech</small></b><div class="rn-x-prog__meta"><span>7 in scope</span><span>2 out of scope</span><span>5 scannable</span><span>HackerOne</span></div></div>
+            <span class="rn-x-pill rn-x-pill--a">Bounty</span>
+          </div>
+          <div class="rn-x-prog" style="--i:3">
+            <span class="rn-x-prog__logo" style="background:#3b2a3f;color:#e0a7ee">U</span>
+            <div><b>Umbrella<small>@umbrella</small></b><div class="rn-x-prog__meta"><span>21 in scope</span><span>16 scannable</span><span>Intigriti</span></div></div>
+            <span class="rn-x-pill rn-x-pill--a">Bounty</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rn-layer" data-view="web" data-nav="assets:web" data-crumb="Attack surface › Web assets">
+      <div class="rn-pg">
+        <div class="rn-pg__head">
+          <div><span class="rn-pg__h1">Web assets</span><span class="rn-pg__sub">1,284 across 4 targets</span></div>
+          <div class="rn-pg__actions"><span class="rn-x-btn rn-x-btn--ghost"><svg><use href="#rni-link"/></svg>Correlation</span></div>
+        </div>
+        <div class="rn-card">
+          <div class="rn-x-qb"><span class="rn-x-qb__ico"><svg><use href="#rni-search"/></svg></span><span class="rn-x-qb__q"><span class="k">tech:</span>jenkins</span><span class="rn-x-qb__count"><b>4</b> web assets</span></div>
+          <div class="rn-x-tbl rn-x-tbl--flat">
+            <div class="rn-x-tr rn-x-tr--rel rn-x-th"><span>Web asset</span><span>Status</span><span>Title</span><span>Related</span></div>
+            <div class="rn-x-tr rn-x-tr--rel is-selected" style="--i:0"><span class="rn-x-host">ci<i>.example.com</i></span><span class="rn-x-st">200</span><span>Dashboard [Jenkins]</span><span class="rn-x-rel"><svg><use href="#rni-link"/></svg>3 related</span></div>
+            <div class="rn-corr" style="--i:1">
+              <div class="rn-corr__h"><svg><use href="#rni-link"/></svg><b>ci.example.com</b> shares</div>
+              <div class="rn-corr__row"><span class="rn-x-pill rn-x-pill--o">Favicon</span><span class="rn-x-host">build<i>.example.com</i></span><span class="rn-x-host">jenkins.stg<i>.example.com</i></span></div>
+              <div class="rn-corr__row"><span class="rn-x-pill rn-x-pill--o">Certificate</span><span class="rn-x-host">build<i>.example.com</i></span><span class="rn-x-dim">*.example.com</span></div>
+              <div class="rn-corr__row"><span class="rn-x-pill rn-x-pill--o">Address</span><span class="rn-x-mono">203.0.113.40</span><span class="rn-x-host">build<i>.example.com</i></span></div>
+            </div>
+            <div class="rn-x-tr rn-x-tr--rel" style="--i:2"><span class="rn-x-host">build<i>.example.com</i></span><span class="rn-x-st">200</span><span>Sign in [Jenkins]</span><span class="rn-x-rel"><svg><use href="#rni-link"/></svg>2 related</span></div>
+            <div class="rn-x-tr rn-x-tr--rel" style="--i:3"><span class="rn-x-host">jenkins.stg<i>.example.com</i></span><span class="rn-x-st rn-x-st--3">302</span><span>Redirecting</span><span class="rn-x-rel"><svg><use href="#rni-link"/></svg>1 related</span></div>
+            <div class="rn-x-tr rn-x-tr--rel" style="--i:4"><span class="rn-x-host">jenkins-old<i>.example.com</i></span><span class="rn-x-st rn-x-st--0">none</span><span>Not reported</span><span class="rn-x-dim">–</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rn-layer" data-view="services" data-nav="assets:services" data-crumb="Attack surface › Services">
+      <div class="rn-pg">
+        <div class="rn-pg__head">
+          <div><span class="rn-pg__h1">Services</span><span class="rn-pg__sub">212 across 4 targets</span></div>
+          <div class="rn-pg__actions"><span class="rn-x-btn rn-x-btn--ghost"><svg><use href="#rni-sparkles"/></svg>AI detection</span></div>
+        </div>
+        <div class="rn-card">
+          <div class="rn-x-qb"><span class="rn-x-qb__ico"><svg><use href="#rni-search"/></svg></span><span class="rn-x-qb__q"><span class="k">ai:</span>yes</span><span class="rn-x-qb__count"><b>3</b> services</span></div>
+          <div class="rn-x-tbl rn-x-tbl--flat">
+            <div class="rn-x-tr rn-x-tr--ai rn-x-th"><span>Service</span><span>Software</span><span>AI</span><span>Models</span></div>
+            <div class="rn-x-tr rn-x-tr--ai" style="--i:0"><span><span class="rn-x-host">203.0.113.12<i>:11434</i></span> <span class="rn-x-pill rn-x-pill--o">http</span></span><span>Ollama</span><span><span class="rn-x-pill rn-x-pill--ai">Model server</span></span><span class="rn-x-models"><span class="rn-x-mono">llama3.1:8b, mistral:7b</span><em class="rn-x-warn">Lists models without authentication</em></span></div>
+            <div class="rn-x-tr rn-x-tr--ai" style="--i:1"><span><span class="rn-x-host">llm<i>.example.com:4000</i></span> <span class="rn-x-pill rn-x-pill--o">https</span></span><span>LiteLLM</span><span><span class="rn-x-pill rn-x-pill--ai">AI gateway</span></span><span class="rn-x-models"><span class="rn-x-mono">14 models</span><em class="rn-x-dim">Authenticated</em></span></div>
+            <div class="rn-x-tr rn-x-tr--ai" style="--i:2"><span><span class="rn-x-host">mcp<i>.example.com:8080</i></span> <span class="rn-x-pill rn-x-pill--o">https</span></span><span>FastMCP</span><span><span class="rn-x-pill rn-x-pill--ai">MCP server</span></span><span class="rn-x-models"><span class="rn-x-mono">6 tools</span><em class="rn-x-dim">Streamable HTTP</em></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rn-layer" data-view="vulns" data-nav="findings:vulns" data-crumb="Attack surface › Findings">
+      <div class="rn-pg">
+        <div class="rn-pg__head">
+          <div><span class="rn-pg__h1">Findings</span><span class="rn-pg__sub">61 across 4 targets · 2 known exploited</span></div>
+          <div class="rn-pg__actions"><span class="rn-x-btn rn-x-btn--ghost">Sort: rank<svg><use href="#rni-down"/></svg></span></div>
+        </div>
+        <div class="rn-card">
+          <div class="rn-x-qb"><span class="rn-x-qb__ico"><svg><use href="#rni-search"/></svg></span><span class="rn-x-qb__q"><span class="k">is:</span>kev <span class="k">or</span> <span class="k">epss:</span>&gt;0.5</span><span class="rn-x-qb__count"><b>3</b> findings</span></div>
+          <div class="rn-x-tbl rn-x-tbl--flat">
+            <div class="rn-x-tr rn-x-tr--xi rn-x-th"><span>Finding</span><span>Evidence</span><span>EPSS</span><span>KEV</span><span>Rank</span></div>
+            <div class="rn-x-tr rn-x-tr--xi" style="--i:0"><span class="rn-run__tcell"><b><em class="rn-x-sev rn-x-sev--crit">Critical</em> Apache Log4j2 Remote Code Injection</b><small><span class="rn-x-mono">CVE-2021-44228</span> · app-staging.example.com</small></span><span><span class="rn-x-pill rn-x-pill--o">Observed</span></span><span class="rn-x-mono">0.98</span><span><span class="rn-x-pill rn-x-pill--kev">KEV</span></span><span class="rn-x-rankcell"><span class="rn-rank"><i style="--r:.99"></i></span><b>99</b></span></div>
+            <div class="rn-x-tr rn-x-tr--xi" style="--i:1"><span class="rn-run__tcell"><b><em class="rn-x-sev rn-x-sev--crit">Critical</em> PHP-FPM Path Info Buffer Underflow</b><small><span class="rn-x-mono">CVE-2019-11043</span> · api.example.com</small></span><span><span class="rn-x-pill rn-x-pill--o">Observed</span></span><span class="rn-x-mono">0.97</span><span><span class="rn-x-pill rn-x-pill--kev">KEV</span></span><span class="rn-x-rankcell"><span class="rn-rank"><i style="--r:.96"></i></span><b>96</b></span></div>
+            <div class="rn-x-tr rn-x-tr--xi" style="--i:2"><span class="rn-run__tcell"><b><em class="rn-x-sev rn-x-sev--high">High</em> Grafana Path Traversal</b><small><span class="rn-x-mono">CVE-2021-43798</span> · metrics.example.com</small></span><span><span class="rn-x-pill rn-x-pill--o rn-x-pill--faint">Inferred</span></span><span class="rn-x-mono">0.72</span><span class="rn-x-dim">–</span><span class="rn-x-rankcell"><span class="rn-rank"><i style="--r:.61"></i></span><b>61</b></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rn-layer" data-view="secrets" data-nav="findings:secrets" data-crumb="Attack surface › Findings › Secrets">
+      <div class="rn-pg">
+        <div class="rn-pg__head">
+          <div><span class="rn-pg__h1">Secrets</span><span class="rn-pg__sub">Read from stored responses · no traffic sent to the target</span></div>
+          <div class="rn-pg__actions"><span class="rn-x-btn"><svg><use href="#rni-key"/></svg>Mine again</span></div>
+        </div>
+        <div class="rn-card">
+          <div class="rn-x-qb"><span class="rn-x-qb__ico"><svg><use href="#rni-search"/></svg></span><span class="rn-x-qb__q"><span class="k">group:</span>cloud <span class="k">or</span> <span class="k">group:</span>code</span><span class="rn-x-qb__count"><b>3</b> secrets</span></div>
+          <div class="rn-x-tbl rn-x-tbl--flat">
+            <div class="rn-x-tr rn-x-tr--sec rn-x-th"><span>Secret</span><span>Kind</span><span>Found in</span><span>Status</span></div>
+            <div class="rn-x-tr rn-x-tr--sec" style="--i:0"><span class="rn-x-mono rn-x-secret">AKIA4QZ7R2LM8XVN3TDP</span><span>AWS access key</span><span class="rn-x-host">ci<i>.example.com/static/app.js</i></span><span><span class="rn-x-pill rn-x-pill--warn">Exposed</span></span></div>
+            <div class="rn-x-tr rn-x-tr--sec" style="--i:1"><span class="rn-x-mono rn-x-secret">ghp_8Kd2••••••••••••••••••</span><span>GitHub token</span><span class="rn-x-host">ci<i>.example.com/env.js</i></span><span><span class="rn-x-pill rn-x-pill--warn">Exposed</span></span></div>
+            <div class="rn-x-tr rn-x-tr--sec" style="--i:2"><span class="rn-x-mono rn-x-secret">hooks.slack.com/services/T0••••</span><span>Slack webhook</span><span class="rn-x-dim">3 web assets</span><span><span class="rn-x-pill rn-x-pill--warn">Exposed</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rn-layer" data-view="query" data-nav="assets:endpoints" data-crumb="Attack surface › Endpoints">
+      <div class="rn-pg">
+        <div class="rn-pg__head">
+          <div><span class="rn-pg__h1">Endpoints</span><span class="rn-pg__sub">28,311 across 4 targets</span></div>
+        </div>
+        <div class="rn-card">
+          <div class="rn-qbwrap">
+            <div class="rn-x-qb is-focus"><span class="rn-x-qb__ico"><svg><use href="#rni-search"/></svg></span><span class="rn-x-qb__q"><span class="k">status:</span>&gt;=500 <span class="k">and</span> <span class="k">not</span> <span class="k">is:</span>cdn</span><span class="rn-x-qb__caret"></span><span class="rn-x-qb__count"><b>7</b> endpoints</span></div>
+          </div>
+          <div class="rn-same">
+            <span class="rn-same__h">The same query, everywhere</span>
+            <span class="rn-same__row" style="--i:0"><em>Interface</em><code>status:&gt;=500 and not is:cdn</code></span>
+            <span class="rn-same__row" style="--i:1"><em>HTTP API</em><code><b>POST</b> /api/v1/endpoints/search <span class="rn-x-dim">{"query": "status:&gt;=500 and not is:cdn"}</span></code></span>
+            <span class="rn-same__row" style="--i:2"><em>MCP</em><code>query_assets <span class="rn-x-dim">dimension=endpoints query='status:&gt;=500 and not is:cdn'</span></code></span>
+          </div>
+          <div class="rn-x-tbl rn-x-tbl--flat">
+            <div class="rn-x-tr rn-x-th"><span>Endpoint</span><span>Status</span><span>Title</span><span>Tech</span></div>
+            <div class="rn-x-tr" style="--i:3"><span class="rn-x-host">api<i>.example.com/v2/export</i></span><span class="rn-x-st rn-x-st--5">502</span><span>Bad Gateway</span><span class="rn-x-tech"><em>nginx</em></span></div>
+            <div class="rn-x-tr" style="--i:4"><span class="rn-x-host">shop<i>.example.net/checkout</i></span><span class="rn-x-st rn-x-st--5">500</span><span>Internal Server Error</span><span class="rn-x-tech"><em>Express</em></span></div>
+            <div class="rn-x-tr" style="--i:5"><span class="rn-x-host">status<i>.example.com/api/health</i></span><span class="rn-x-st rn-x-st--5">503</span><span>Service Unavailable</span><span class="rn-x-tech"><em>Go</em></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  {% endcall %}
+</div>

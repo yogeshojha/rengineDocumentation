@@ -1,0 +1,115 @@
+{#
+  The reNgine shell, drawn once per recreation: project switcher, sidebar groups, top bar and the inset page.
+  Labels and order follow frontend/src/lib/components/layout/sidebar-nav.svelte.ts and top-bar.svelte.
+  Icons are the lucide icons the sidebar uses, declared once as symbols by icons().
+#}
+
+{% macro icons() %}
+<svg class="rn-icons" width="0" height="0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs>
+  <symbol id="rni-dashboard" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol>
+  <symbol id="rni-sparkles" viewBox="0 0 24 24"><path d="M9.9 15.5a2 2 0 0 0-1.4-1.4L2.4 12.5a.5.5 0 0 1 0-1L8.5 9.9a2 2 0 0 0 1.4-1.4l1.6-6.1a.5.5 0 0 1 1 0l1.6 6.1a2 2 0 0 0 1.4 1.4l6.1 1.6a.5.5 0 0 1 0 1l-6.1 1.6a2 2 0 0 0-1.4 1.4l-1.6 6.1a.5.5 0 0 1-1 0z"/><path d="M20 3v4M22 5h-4"/></symbol>
+  <symbol id="rni-news" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8V6Z"/></symbol>
+  <symbol id="rni-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  <symbol id="rni-note" viewBox="0 0 24 24"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9Z"/><path d="M15 3v4a2 2 0 0 0 2 2h4"/></symbol>
+  <symbol id="rni-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+  <symbol id="rni-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4M12 16h.01"/></symbol>
+  <symbol id="rni-scaneye" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="1"/><path d="M18.94 12.33a1 1 0 0 0 0-.66 7.5 7.5 0 0 0-13.88 0 1 1 0 0 0 0 .66 7.5 7.5 0 0 0 13.88 0"/></symbol>
+  <symbol id="rni-radar" viewBox="0 0 24 24"><path d="M19.07 4.93A10 10 0 0 0 6.99 3.34M4 6h.01M2.29 9.62A10 10 0 1 0 21.31 8.35M16.24 7.76A6 6 0 1 0 8.23 16.67M12 18h.01M17.99 11.66A6 6 0 0 1 15.77 16.67"/><circle cx="12" cy="12" r="2"/><path d="m13.41 10.59 5.66-5.66"/></symbol>
+  <symbol id="rni-workflow" viewBox="0 0 24 24"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></symbol>
+  <symbol id="rni-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+  <symbol id="rni-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></symbol>
+  <symbol id="rni-ninja" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.6 9.5h16.8M4.2 14.5h15.6"/><path d="M9 12h.01M15 12h.01"/></symbol>
+  <symbol id="rni-library" viewBox="0 0 24 24"><path d="m16 6 4 14M12 6v14M8 8v12M4 4v16"/></symbol>
+  <symbol id="rni-plug" viewBox="0 0 24 24"><path d="M12 22v-5M9 8V2M15 8V2M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></symbol>
+  <symbol id="rni-settings" viewBox="0 0 24 24"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></symbol>
+  <symbol id="rni-updown" viewBox="0 0 24 24"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"/></symbol>
+  <symbol id="rni-chev" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="rni-panel" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></symbol>
+  <symbol id="rni-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="rni-bell" viewBox="0 0 24 24"><path d="M10.27 21a2 2 0 0 0 3.46 0"/><path d="M3.26 15.33A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67C19.41 13.96 18 12.5 18 8A6 6 0 0 0 6 8c0 4.5-1.41 5.96-2.74 7.33"/></symbol>
+  <symbol id="rni-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+  <symbol id="rni-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+  <symbol id="rni-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+  <symbol id="rni-play" viewBox="0 0 24 24"><path d="M6 4v16l14-8z"/></symbol>
+  <symbol id="rni-more" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol>
+  <symbol id="rni-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="rni-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
+  <symbol id="rni-key" viewBox="0 0 24 24"><path d="M2.6 21.4a1 1 0 0 1 0-1.4l9.2-9.2a6 6 0 1 1 1.4 1.4l-1.6 1.6a1 1 0 0 1-.7.3H9.5v1.5a1 1 0 0 1-1 1H7v1.5a1 1 0 0 1-1 1H4.5"/><circle cx="16.5" cy="7.5" r=".5"/></symbol>
+  <symbol id="rni-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol>
+  <symbol id="rni-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="rni-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></symbol>
+  <symbol id="rni-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></symbol>
+  <symbol id="rni-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></symbol>
+  <symbol id="rni-send" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+  <symbol id="rni-link" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="rni-eye" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></symbol>
+</defs></svg>
+{% endmacro %}
+
+{% macro item(id, label, icon, active, badge=none, live=false, branch=false) %}
+<span class="rn-app__item{% if id == active %} is-active{% endif %}" data-nav="{{ id }}"><svg><use href="#rni-{{ icon }}"/></svg><span>{{ label }}</span>{% if branch %}<svg class="rn-app__arrow"><use href="#rni-chev"/></svg>{% endif %}{% if badge %}<i class="rn-app__badge{% if live %} is-live{% endif %}">{{ badge }}</i>{% endif %}</span>
+{% endmacro %}
+
+{% macro sub(id, label, active) %}
+<span class="rn-app__subitem{% if id == active %} is-active{% endif %}" data-nav="{{ id }}">{{ label }}</span>
+{% endmacro %}
+
+{% macro app(active="targets", crumbs=["Targets"], cls="", project="acme", mode="Bug bounty", scans=none) %}
+<div class="rn-x rn-app{% if active.startswith('assets') %} is-assets{% endif %}{% if active.startswith('findings') %} is-findings{% endif %}{% if cls %} {{ cls }}{% endif %}" data-app>
+  <aside class="rn-app__side">
+    <div class="rn-app__proj">
+      <span class="rn-app__pico"><svg><use href="#rni-folder"/></svg></span>
+      <span class="rn-app__ptext"><b>{{ project }}</b><small>{{ mode }}</small></span>
+      <svg class="rn-app__updown"><use href="#rni-updown"/></svg>
+    </div>
+    <nav class="rn-app__nav">
+      {{ item("dashboard", "Dashboard", "dashboard", active) }}
+      {{ item("ask", "Ask", "sparkles", active) }}
+      {{ item("whats-new", "What's new", "news", active, badge="3") }}
+      {{ item("targets", "Targets", "target", active) }}
+      {{ item("notes", "Notes", "note", active) }}
+      <div class="rn-app__group">Attack surface</div>
+      {{ item("assets", "Assets", "layers", active, branch=true) }}
+      <div class="rn-app__subs rn-app__subs--assets">
+        {{ sub("assets:web", "Web assets", active) }}
+        {{ sub("assets:endpoints", "Endpoints", active) }}
+        {{ sub("assets:services", "Services", active) }}
+        {{ sub("assets:ips", "IP addresses", active) }}
+      </div>
+      {{ item("findings", "Findings", "shield", active, branch=true) }}
+      <div class="rn-app__subs rn-app__subs--findings">
+        {{ sub("findings:vulns", "Findings", active) }}
+        {{ sub("findings:software", "Software", active) }}
+        {{ sub("findings:secrets", "Secrets", active) }}
+        {{ sub("findings:cves", "CVEs", active) }}
+      </div>
+      {{ item("exposures", "Exposures", "scaneye", active) }}
+      <div class="rn-app__group">Operations</div>
+      {{ item("scans", "Scans", "radar", active, badge=scans, live=true) }}
+      {{ item("scan-setup", "Scan setup", "workflow", active, branch=true) }}
+      {{ item("tripwires", "Tripwires", "zap", active) }}
+      {{ item("reports", "Reports", "file", active) }}
+      {{ item("bounty-hub", "Bounty Hub", "ninja", active, branch=true) }}
+    </nav>
+    <div class="rn-app__foot">
+      {{ item("arsenal", "Arsenal", "library", active) }}
+      {{ item("integrations", "Integrations", "plug", active, branch=true) }}
+      {{ item("settings", "Settings", "settings", active) }}
+      <div class="rn-app__user"><span class="rn-app__avatar">Y</span><span class="rn-app__ptext"><b>yogesh</b><small>yogesh@example.com</small></span><svg class="rn-app__updown"><use href="#rni-updown"/></svg></div>
+    </div>
+  </aside>
+  <div class="rn-app__main">
+    <header class="rn-app__top">
+      <svg class="rn-app__trigger"><use href="#rni-panel"/></svg>
+      <i class="rn-app__vsep"></i>
+      <nav class="rn-app__crumbs" data-crumbs>{% for c in crumbs %}{% if not loop.first %}<svg><use href="#rni-chev"/></svg>{% endif %}<span{% if loop.last %} class="is-cur"{% endif %}>{{ c }}</span>{% endfor %}</nav>
+      <span class="rn-app__grow"></span>
+      <span class="rn-app__cmd"><svg><use href="#rni-search"/></svg><span>Search</span><kbd>Ctrl K</kbd></span>
+      <span class="rn-app__ibtn"><svg><use href="#rni-activity"/></svg></span>
+      <span class="rn-app__ibtn"><svg><use href="#rni-bell"/></svg><i class="rn-app__dot"></i></span>
+      <span class="rn-app__ibtn"><svg><use href="#rni-plus"/></svg></span>
+    </header>
+    <div class="rn-app__inset">{{ caller() }}</div>
+  </div>
+</div>
+{% endmacro %}
