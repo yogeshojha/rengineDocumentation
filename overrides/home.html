@@ -8,83 +8,102 @@
 <div class="md-content rn-home" data-md-component="content">
   <article class="md-content__inner md-typeset rn-home__inner">
 
-    <section class="rn-hero" aria-labelledby="rn-hero-title">
-      <div class="rn-hero__text">
-        <div class="rn-hero__top">
-          <p class="rn-hero__eyebrow">reNgine {{ config.extra.rengine_version }} · Sirius</p>
-          <span class="rn-actions">
-            <button type="button" class="rn-action rn-copy-page" data-md-url="{{ m.md_url | url }}">
-              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg>
-              <span>Copy page</span>
-            </button>
-            <a class="rn-action" href="{{ m.md_url | url }}" type="text/markdown">
-              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="M4.5 10V6l1.75 2L8 6v4M10.5 6v4M9.25 8.75 10.5 10l1.25-1.25"/></svg>
-              <span>View as Markdown</span>
-            </a>
-          </span>
-        </div>
+    <section class="rn-run" aria-labelledby="rn-hero-title" data-rn-run>
+      <div class="rn-hero rn-run__intro">
+        <p class="rn-hero__eyebrow">reNgine {{ config.extra.rengine_version }} · Sirius</p>
         <h1 id="rn-hero-title">reNgine 3.0</h1>
         <p class="rn-hero__lede">{{ m.description_html }}</p>
-        <nav class="rn-start" aria-label="Audiences">
-          {% for a in m.audiences %}
-            <a class="rn-start__row" href="{{ a.href | url }}">
-              <b>{{ a.title }}</b>
-              <span>{{ a.text }}</span>
-              <em>{{ a.surface }}</em>
-            </a>
-          {% endfor %}
-        </nav>
+        <span class="rn-actions">
+          <button type="button" class="rn-action rn-copy-page" data-md-url="{{ m.md_url | url }}">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg>
+            <span>Copy page</span>
+          </button>
+          <a class="rn-action" href="{{ m.md_url | url }}" type="text/markdown">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="M4.5 10V6l1.75 2L8 6v4M10.5 6v4M9.25 8.75 10.5 10l1.25-1.25"/></svg>
+            <span>View as Markdown</span>
+          </a>
+        </span>
       </div>
 
-      <div class="rn-pane rn-pane--home" aria-label="One task on three surfaces" data-autoplay="7000">
-        <div class="rn-pane-head"><b>Find live Jenkins servers</b><span>web assets</span></div>
-        <div class="tabbed-set tabbed-alternate" data-tabs="900:3">
-          <input checked="checked" id="__home_1" name="__home" type="radio">
-          <input id="__home_2" name="__home" type="radio">
-          <input id="__home_3" name="__home" type="radio">
-          <div class="tabbed-labels">
-            <label for="__home_1">Interface</label><label for="__home_2">HTTP API</label><label for="__home_3">MCP</label>
-          </div>
-          <div class="tabbed-content">
-            <div class="tabbed-block">
-              <div class="rn-ui" aria-label="Web assets table filtered by the query tech:jenkins is:live, three rows">
-                <div class="rn-ui-qb">
-                  <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
-                  <span class="rn-q"><span class="f">tech:</span>jenkins <span class="f">is:</span>live</span>
-                  <span class="rn-ui-qb__count">3 web assets</span>
-                </div>
-                <div class="rn-ui-rows rn-ui-rows--web">
-                  <div class="rn-ui-rows__head"><span>Host</span><span>Status</span><span>Title</span><span>Tech</span></div>
-                  <div class="rn-ui-row"><span class="rn-ui-host">ci<i>.example.com</i></span><span class="rn-ui-status">200</span><span class="rn-ui-title">Dashboard [Jenkins]</span><span class="rn-ui-tech"><em>Jenkins</em><em>Jetty</em></span></div>
-                  <div class="rn-ui-row"><span class="rn-ui-host">build<i>.example.com</i></span><span class="rn-ui-status">200</span><span class="rn-ui-title">Sign in [Jenkins]</span><span class="rn-ui-tech"><em>Jenkins</em></span></div>
-                  <div class="rn-ui-row"><span class="rn-ui-host">jenkins.stg<i>.example.com</i></span><span class="rn-ui-status rn-ui-status--3xx">302</span><span class="rn-ui-title">Redirecting</span><span class="rn-ui-tech"><em>Jenkins</em><em>nginx</em></span></div>
-                </div>
-              </div>
-            </div>
-            <div class="tabbed-block">
-              <div class="rn-pane-label">request</div>
-<div class="highlight"><pre><code><span class="c"># RENGINE=https://asm.example.com, signed in with a cookie jar</span>
-<span class="nb">curl</span> -b jar -X POST \
-  <span class="s2">"$RENGINE/api/v1/subdomains/search?project_id=$PROJECT"</span> \
-  -H <span class="s2">"Content-Type: application/json"</span> \
-  -d <span class="s1">'{"q": "tech:jenkins is:live"}'</span></code></pre></div>
-              <div class="rn-pane-label">response · 200</div>
-<div class="highlight"><pre><code>{ <span class="nt">"items"</span>: [ … ], <span class="nt">"total"</span>: <span class="mi">3</span>, <span class="nt">"total_capped"</span>: <span class="kc">false</span>, <span class="nt">"error"</span>: <span class="kc">null</span> }</code></pre></div>
-            </div>
-            <div class="tabbed-block">
-              <div class="rn-pane-label">tools/call</div>
-<div class="highlight"><pre><code>{
-  <span class="nt">"name"</span>: <span class="s2">"query_assets"</span>,
-  <span class="nt">"arguments"</span>: {
-    <span class="nt">"target"</span>: <span class="s2">"example.com"</span>,
-    <span class="nt">"dimension"</span>: <span class="s2">"web_assets"</span>,
-    <span class="nt">"query"</span>: <span class="s2">"tech:jenkins is:live"</span>
-  }
-}</code></pre></div>
-              <div class="rn-pane-label">capability</div>
-<div class="highlight"><pre><code><span class="c">read · no traffic to the target</span></code></pre></div>
-            </div>
-          </div>
+      <div class="rn-run__stage" role="img" aria-label="{{ m.run_label }}">
+        {% include "partials/home/run.html" %}
+      </div>
+
+      <div class="rn-run__nav">
+        <h2 class="rn-run__title">{{ m.run_title }}</h2>
+        <ol class="rn-run__chapters">
+          {% for c in m.run %}
+            <li data-chapter="{{ c.scene }}">
+              <button type="button" class="rn-run__chapter" aria-label="Play: {{ c.title }}">
+                <i class="rn-run__fill"></i>
+                <span class="rn-run__n">0{{ loop.index }}</span>
+                <b>{{ c.title }}</b>
+                <span class="rn-run__text">{{ c.text_html }}</span>
+              </button>
+              <a class="rn-run__link" href="{{ c.href | url }}">{{ c.label }}</a>
+            </li>
+          {% endfor %}
+        </ol>
+        <button type="button" class="rn-action rn-run__toggle" aria-pressed="false" hidden>
+          <svg class="rn-run__ico-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
+          <svg class="rn-run__ico-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+          <span>Pause</span>
+        </button>
+      </div>
+
+      <nav class="rn-start rn-start--row" aria-label="Audiences">
+        {% for a in m.audiences %}
+          <a class="rn-start__row" href="{{ a.href | url }}">
+            <b>{{ a.title }}</b>
+            <span>{{ a.text }}</span>
+            <em>{{ a.surface }}</em>
+          </a>
+        {% endfor %}
+      </nav>
+    </section>
+
+    <section class="rn-surface" aria-labelledby="rn-layers-title" data-rn-surface>
+      <div class="rn-surface__stage" aria-hidden="true">
+        {% include "partials/home/stack.html" %}
+        <p class="rn-surface__cue"><svg viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4"/></svg>Scroll to open each layer</p>
+      </div>
+
+      <div class="rn-surface__steps">
+        <div class="rn-step rn-step--intro" data-plane="closed">
+          <h2 id="rn-layers-title">{{ m.layers_title }}</h2>
+          <p>{{ m.layers_text_html }}</p>
+        </div>
+        {% for l in m.layers %}
+          <article class="rn-step" data-plane="{{ l.plane }}">
+            <h3>{{ l.title }}</h3>
+            <p>{{ l.text_html }}</p>
+            <a class="rn-step__more" href="{{ l.href | url }}">{{ l.label }}</a>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="rn-home__section rn-tour" aria-labelledby="rn-tour-title" data-rn-tour>
+      <div class="rn-home__head"><h2 id="rn-tour-title">{{ m.tour_title }}</h2></div>
+      <p class="rn-home__sub">{{ m.tour_text_html }}</p>
+      <div class="rn-tour__grid">
+        <div class="rn-tour__stage" aria-hidden="true">
+          <div class="rn-tour__dots">{% for t in m.tour %}<i></i>{% endfor %}</div>
+          {% for t in m.tour %}
+            <div class="rn-scene" data-scene="{{ t.scene }}">{% include "partials/home/" ~ t.scene ~ ".html" %}</div>
+          {% endfor %}
+        </div>
+        <div class="rn-tour__steps">
+          {% for t in m.tour %}
+            <article class="rn-step" data-scene="{{ t.scene }}">
+              <h3>{{ t.title }}</h3>
+              <p>{{ t.text_html }}</p>
+              <ul>
+                {% for pt in t.points %}<li>{{ pt.text_html }}</li>{% endfor %}
+              </ul>
+              <a class="rn-step__more" href="{{ t.href | url }}">{{ t.label }}</a>
+            </article>
+          {% endfor %}
         </div>
       </div>
     </section>
@@ -173,7 +192,7 @@ Host: shop.example.com</pre>
         <li data-step="1"><b>A scan finds something</b><span>nuclei finds a reflected XSS on shop.example.com. reNgine keeps the exact request that triggered it.</span></li>
         <li data-step="2"><b>Send it to Burp</b><span>Click <strong>Repeater</strong> on the finding, or press <kbd>b</kbd>. The request goes straight to Burp.</span></li>
         <li data-step="3"><b>It opens in Repeater</b><span>Burp opens a new tab, <code>reNgine reflected-xss</code>, with the request ready to edit.</span></li>
-        <li data-step="4"><b>Test it by hand</b><span>Change the payload and send it. The traffic is captured back into reNgine, next to your scan results.</span></li>
+        <li data-step="4"><b>Test it by hand</b><span>Change the payload and send it. reNgine keeps the traffic as endpoints, next to your scan results.</span></li>
       </ol>
     </section>
 
@@ -198,7 +217,7 @@ Host: shop.example.com</pre>
     <section class="rn-home__section" aria-labelledby="rn-ref-title">
       <div class="rn-home__head">
         <h2 id="rn-ref-title">Reference</h2>
-        <span class="rn-home__note">Built from the reNgine 3.0 source, so these lists match what you run</span>
+        <span class="rn-home__note">Generated from the reNgine 3.0 source</span>
       </div>
       <ul class="rn-counts">
         {% for r in m.reference %}

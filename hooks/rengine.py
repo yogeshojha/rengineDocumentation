@@ -190,13 +190,19 @@ def on_page_markdown(markdown, page: Page, config, files, **kwargs):
     markdown = COUNT_TOKEN.sub(count, markdown)
     if INDEX_TOKEN.search(markdown):
         markdown = INDEX_TOKEN.sub(lambda m: _section_index(page), markdown)
-    for key in ("audiences", "capabilities", "reference"):
+    for key in ("audiences", "capabilities", "reference", "run", "layers", "tour"):
         for item in meta.get(key) or []:
             if item.get("link"):
                 item["href"] = _href(src, item["link"])
             if item.get("text"):
                 item["text"] = COUNT_TOKEN.sub(count, str(item["text"]))
                 item["text_html"] = _inline_html(item["text"])
+            for point in item.get("points") or []:
+                point["text"] = COUNT_TOKEN.sub(count, str(point["text"]))
+                point["text_html"] = _inline_html(point["text"])
+    for key in ("run_text", "layers_text", "tour_text"):
+        if meta.get(key):
+            meta[key + "_html"] = _inline_html(str(meta[key]))
     for key in ("capabilities_link", "install_link", "burp_link"):
         if meta.get(key):
             meta[key.replace("_link", "_href")] = _href(src, meta[key])
@@ -205,7 +211,7 @@ def on_page_markdown(markdown, page: Page, config, files, **kwargs):
         "description": meta.get("description_md", ""),
         "md_path": md_path,
         "markdown": markdown,
-        "meta": {k: meta.get(k) for k in ("sources", "revised", "generated", "audiences", "capabilities", "install", "endpoint")},
+        "meta": {k: meta.get(k) for k in ("sources", "revised", "generated", "audiences", "capabilities", "install", "endpoint", "run_title", "run_text", "run", "layers_title", "layers_text", "layers", "tour_title", "tour_text", "tour")},
     }
     return markdown
 
@@ -439,6 +445,17 @@ def _home_markdown(info: dict, config) -> str:
     out = []
     for row in meta.get("audiences") or []:
         out.append(f"- [{row['title']}]({site}{STATE['md_paths'].get(row['link'], row['link'])}): {row['text']}")
+    for title_key, text_key, key in (("run_title", "run_text", "run"), ("layers_title", "layers_text", "layers"), ("tour_title", "tour_text", "tour")):
+        items = meta.get(key) or []
+        if not items:
+            continue
+        out += ["", f"## {meta.get(title_key)}", ""]
+        if meta.get(text_key):
+            out += [meta[text_key], ""]
+        for item in items:
+            out.append(f"- [{item['title']}]({site}{STATE['md_paths'].get(item['link'], item['link'])}): {item['text']}")
+            for point in item.get("points") or []:
+                out.append(f"  - {point['text']}")
     caps = meta.get("capabilities") or []
     if caps:
         out += ["", "## Capabilities", ""]

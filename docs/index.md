@@ -5,7 +5,25 @@ description: Everything you need to install reNgine, scan your targets, find wha
 sources:
   - README.md
   - VERSION
-revised: 2026-10-03
+  - frontend/src/lib/components/scans/results/query-bar/query-suggestions.svelte
+  - frontend/src/lib/components/bounty-hub/watch-dialog.svelte
+  - frontend/src/lib/components/bounty-hub/watch-host-row.svelte
+  - frontend/src/lib/components/tripwires/tripwire-button.svelte
+  - shared/definitions/notifications.py
+  - shared/definitions/correlation.py
+  - shared/definitions/threat_intel.py
+  - shared/definitions/secrets.py
+  - frontend/src/lib/config/ai-services.ts
+  - channels/dispatch.py
+  - mcp/tools/resolve_target.py
+  - mcp/tools/query_assets.py
+  - frontend/src/lib/components/modals/add-target-modal.svelte
+  - frontend/src/lib/components/targets/list/prefs.svelte.ts
+  - frontend/src/lib/components/ask/estate-composer.svelte
+  - frontend/src/lib/components/ask/ask-page.svelte
+  - shared/definitions/notifications.py
+  - docs:data/stages.json
+revised: 2026-10-06
 hide:
   - navigation
   - toc
@@ -22,6 +40,116 @@ audiences:
     text: Connect AI agents through MCP and give them these docs
     surface: MCP
     link: agents/index.md
+run_title: How reNgine works
+run_text: Add a target, scan it, search and ask about the results, then act on what you find.
+run_label: "reNgine at work: example.com is added and scanned, the web assets are narrowed with tech:jenkins is:live, Ask lists the known exploited findings to fix first, and the first one is alerted on Telegram, sent to Burp Repeater and filed in Jira."
+run:
+  - scene: target
+    title: Add a target
+    text: A domain, an IP address, a range, a URL or an ASN. Turn on **Scan after adding** and the scan starts with it.
+    label: Projects and targets
+    link: pentesters/targets.md
+  - scene: scan
+    title: Scan it
+    text: Stages find names, services, web assets, endpoints and findings, and the counts grow while the scan runs.
+    label: Run a scan
+    link: pentesters/run-a-scan.md
+  - scene: results
+    title: Search the results
+    text: Seven result types share one query language. `tech:jenkins is:live` narrows 412 web assets to 2.
+    label: Query language
+    link: pentesters/query.md
+  - scene: ask
+    title: Ask a question
+    text: Ask in plain words. The answer is counted rows, and every number opens the rows behind it.
+    label: Ask
+    link: pentesters/ask.md
+  - scene: act
+    title: Act on it
+    text: Get the alert, test the request in Burp Repeater and file the issue in Jira.
+    label: Burp Suite connector
+    link: pentesters/burp-suite.md
+layers_title: Your attack surface, layer by layer
+layers_text: Work through your attack surface one layer at a time, from the programs you hunt on to the secrets your targets expose.
+layers:
+  - plane: programs
+    title: Import your bug bounty programs
+    text: In bug bounty mode, Bounty Hub lists your HackerOne and Intigriti programs with their scope. Add a program's in-scope assets as targets in one step, and watch a program to get an alert when a new in-scope host appears.
+    label: Bounty Hub
+    link: pentesters/bounty-hub.md
+  - plane: web
+    title: See which web assets belong together
+    text: Correlation shows which web assets share a favicon, a certificate, an address, a page title or a rendered page, so you can find every copy of an application.
+    label: Correlation
+    link: pentesters/correlation.md
+  - plane: services
+    title: Find AI services on your attack surface
+    text: AI detection finds model servers, AI gateways, AI applications and MCP servers among your services, and shows which ones list their models without authentication.
+    label: AI detection
+    link: pentesters/ai-detection.md
+  - plane: vulns
+    title: Decide what to fix first
+    text: Exploit intelligence adds the EPSS score, CISA KEV status and an exploitation rank from 0 to 100 to your findings, and shows how strong the evidence is for each one.
+    label: Exploit intelligence
+    link: pentesters/exploit-intelligence.md
+  - plane: secrets
+    title: Detect exposed keys and tokens
+    text: Secret mining reads the responses reNgine already stored and finds API keys, tokens and credentials in them, without sending any traffic to your targets.
+    label: Secret mining
+    link: pentesters/secret-mining.md
+  - plane: query
+    title: Search every layer the same way
+    text: One query language works across all seven result types. Each table has its own fields and flags, and the same query works in the interface, the HTTP API and over MCP.
+    label: Query language
+    link: pentesters/query.md
+tour_title: Everyday workflows
+tour_text: Search your results, follow your programs, get alerted when something changes, and work from Telegram or your AI client.
+tour:
+  - scene: query
+    title: Narrow any table with a query
+    text: Start typing in any table and reNgine suggests fields, flags and the values your scans found. Combine them with `and`, `or` and `not`, and the table narrows to the rows you asked for.
+    points:
+      - text: "`tech:jenkins` keeps web assets running Jenkins"
+      - text: "`is:live` keeps the ones that answer with 2xx or 3xx"
+      - text: Every count on screen opens the rows behind it
+    label: Query language
+    link: pentesters/query.md
+  - scene: watch
+    title: Get alerts for new in-scope hosts
+    text: Watch a bug bounty program and reNgine follows the public certificate logs for its scope. When a new in-scope host gets a certificate, reNgine probes it and alerts you with its status, title, technologies, address and a screenshot.
+    points:
+      - text: Hosts already known in your project send no alert
+      - text: A watch follows certificates from the moment you start it, and the baseline scan covers earlier hosts
+      - text: Alerts go to the channels you set up, such as Slack, Telegram or email
+    label: Program watches
+    link: pentesters/program-watches.md
+  - scene: tripwire
+    title: Turn any query into an alert
+    text: Save any query as a tripwire and reNgine checks it after each scan. When new rows match, such as a newly opened remote desktop port, you get an alert. A tripwire can also start a focused scan on what it found.
+    points:
+      - text: "Choose when it fires: when rows appear, when a condition becomes true, or on every match"
+      - text: Apply it to one target or to all of them
+      - text: Appears and Becomes true do not fire on a target's first scan
+    label: Tripwires
+    link: pentesters/tripwires.md
+  - scene: telegram
+    title: Run reNgine from Telegram
+    text: Pair a private Telegram chat with your account to list targets, read findings and start, pause or cancel scans from your phone. Anything beyond reading asks for your authenticator code first.
+    points:
+      - text: "{{ counts.chat_commands }} commands, such as `/vulns`, `/changes` and `/scan`"
+      - text: Your code message is deleted as soon as it arrives
+      - text: One code confirms the chat for 15 minutes
+    label: Remote control over Telegram
+    link: pentesters/telegram.md
+  - scene: mcp
+    title: Ask your AI client about your attack surface
+    text: "Connect Claude, Cursor or any other MCP client to reNgine. It answers from your scan results through a key you create, and you choose how far each key can go: read, plan scans, make changes or start scans."
+    points:
+      - text: "{{ counts.mcp_tools }} tools, from `resolve_target` to `start_scan`"
+      - text: The MCP server stays off until you start it on the Agents page
+      - text: Each key has a project scope and an expiry
+    label: MCP server
+    link: agents/mcp/connect.md
 capabilities_link: pentesters/capabilities.md
 burp_link: pentesters/burp-suite.md
 capabilities:
@@ -29,21 +157,25 @@ capabilities:
     title: Burp Suite connector
     text: Send any finding, web asset or endpoint from reNgine to Burp Repeater, Intruder or Organizer and test it by hand. What you browse in Burp comes back to reNgine as endpoints.
     link: pentesters/burp-suite.md
+  - kind: Results
+    title: Ask
+    text: Ask a question about your scan results in plain words, across every target or one scan. The answer is counted rows, and every number opens the rows behind it.
+    link: pentesters/ask.md
   - kind: Agents
     title: MCP server
-    text: "Let Claude, Cursor or any other MCP client ask questions about your attack surface and, if you allow it, start scans. {{ counts.mcp_tools }} tools, with permissions you choose for each token."
+    text: "Let Claude, Cursor or any other MCP client ask questions about your attack surface and, if you allow it, start scans. {{ counts.mcp_tools }} tools, with permissions you choose for each key."
     link: agents/mcp/connect.md
   - kind: Results
     title: Query language
-    text: Find exactly what you are looking for with one search syntax across all seven result types, for example `tech:jenkins is:live`. Every number on screen opens the rows behind it.
+    text: Search all seven result types with one query syntax, for example `tech:jenkins is:live`. Every number on screen opens the rows behind it.
     link: pentesters/query.md
   - kind: Bug bounty
     title: Bounty Hub and program watches
-    text: Bring your HackerOne and Intigriti programs and scopes into reNgine, and watch a program to hear about new in-scope domains as soon as their certificates appear.
+    text: Bring your HackerOne and Intigriti programs and scopes into reNgine, and watch a program to get an alert when a new in-scope host gets a certificate.
     link: pentesters/bounty-hub.md
   - kind: Results
     title: Correlation
-    text: See which web assets belong together because they share an IP address, a certificate, a favicon, a page title or a rendered page, within a scan and across your targets.
+    text: See which web assets belong together because they share an address, a certificate, a favicon, a page title or a rendered page.
     link: pentesters/correlation.md
   - kind: Results
     title: Compare runs and What's new
@@ -55,7 +187,7 @@ capabilities:
     link: pentesters/exploit-intelligence.md
   - kind: Detection
     title: Secret mining
-    text: Find API keys, tokens and credentials that your targets leak in their responses. reNgine reads the responses it already stored, so this adds no traffic.
+    text: Find API keys, tokens and credentials exposed in your targets' responses. reNgine reads the responses it already stored, so this adds no traffic.
     link: pentesters/secret-mining.md
   - kind: Scanning
     title: Scan contexts
@@ -67,7 +199,7 @@ capabilities:
     link: pentesters/focused-rescans.md
   - kind: Integration
     title: Remote control over Telegram
-    text: "Use reNgine from your phone. A paired Telegram chat gives you {{ counts.chat_commands }} commands to list targets, start and stop scans, read findings and run lookups. Anything beyond reading asks for your authenticator code."
+    text: "Use reNgine from your phone. A paired Telegram chat gives you {{ counts.chat_commands }} commands to list targets, start, pause and cancel scans, read findings and run lookups. Anything beyond reading asks for your authenticator code."
     link: pentesters/telegram.md
   - kind: Results
     title: Reports
@@ -75,11 +207,11 @@ capabilities:
     link: pentesters/reports.md
   - kind: Integration
     title: Notifications and issue trackers
-    text: Hear about new results on Slack, Discord, Telegram, Microsoft Teams, email or a webhook, and file findings in Jira, GitHub or GitLab with their status shown back in reNgine.
+    text: Get new results on Slack, Discord, Telegram, Microsoft Teams, email or a webhook, and file findings in Jira, GitHub or GitLab with their status shown back in reNgine.
     link: pentesters/notifications.md
   - kind: Detection
     title: Lookalike domains
-    text: "Spot domains registered to imitate your targets: typos, homoglyphs, added words and other TLDs, each with its DNS records, page similarity, registration date and a verdict."
+    text: "Find registered domains that look like your targets' domains: typos, homoglyphs, added words and other TLDs, each with its DNS records, page similarity, registration date and a verdict."
     link: pentesters/lookalike-domains.md
   - kind: Detection
     title: Tripwires

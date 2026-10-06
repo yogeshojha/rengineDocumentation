@@ -1,0 +1,33 @@
+<div class="rn-x rn-x-win">
+  <div class="rn-x-bar"><span>Attack surface</span><i>›</i><b>Services</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
+  <div class="rn-x-body">
+    <div class="rn-x-toolbar">
+      <div class="rn-x-qb is-focus">
+        <svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+        <span class="rn-x-qb__q"><span class="k">service:</span>[ssh,rdp]</span>
+        <span class="rn-x-qb__count"><b>2</b> services</span>
+      </div>
+      <span class="rn-x-btn" data-press><svg viewBox="0 0 16 16"><path d="M9 1.5 3.5 9H8l-1 5.5L12.5 7H8z"/></svg>Tripwire</span>
+    </div>
+    <div class="rn-x-tbl">
+      <div class="rn-x-tr rn-x-th rn-x-tr--svc"><span>Service</span><span>Software</span><span>Network</span></div>
+      <div class="rn-x-tr rn-x-tr--svc"><span><span class="rn-x-host">203.0.113.10<i>:3389</i></span> <span class="rn-x-pill rn-x-pill--o">rdp</span></span><span>Microsoft Terminal Services</span><span class="rn-x-mono rn-x-dim">AS64500</span></div>
+      <div class="rn-x-tr rn-x-tr--svc"><span><span class="rn-x-host">203.0.113.11<i>:22</i></span> <span class="rn-x-pill rn-x-pill--o">ssh</span></span><span>OpenSSH 9.6</span><span class="rn-x-mono rn-x-dim">AS64500</span></div>
+    </div>
+  </div>
+  <div class="rn-x-pop" data-pop>
+    <b class="rn-x-dlg__t">Tripwire on this query</b>
+    <span class="rn-x-chip"><span class="k">service:</span>[ssh,rdp]</span>
+    <span class="rn-x-fld"><span>Name</span><span class="rn-x-in">Services · service:[ssh,rdp]</span></span>
+    <span class="rn-x-fld"><span>Fires when a service</span><span class="rn-x-seg"><span class="is-on" data-mode>Appears</span><span>Becomes true</span><span>Matches</span></span></span>
+    <span class="rn-x-fld"><span>Scope</span><span class="rn-x-seg"><span class="is-on">All targets</span></span></span>
+    <span class="rn-x-dlg__p">Checked after each scan. Sent to the channels subscribed to Tripwires.</span>
+    <span class="rn-x-pop__foot"><span class="rn-x-btn rn-x-btn--ghost">More options</span><span class="rn-x-btn rn-x-btn--p" data-create>Create tripwire</span></span>
+  </div>
+  <div class="rn-x-alert" data-alert>
+    <b>Tripwire · Services · service:[ssh,rdp]</b>
+    <span class="rn-x-alert__lead">2 services appeared on example.com</span>
+    <span>203.0.113.10:3389 · rdp</span>
+    <span>203.0.113.11:22 · ssh</span>
+  </div>
+</div>

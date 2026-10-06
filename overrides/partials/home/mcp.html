@@ -1,0 +1,25 @@
+<div class="rn-x rn-x-win rn-x-agent">
+  <div class="rn-x-bar"><b>MCP client</b><i>·</i><span>connected to reNgine</span><span class="rn-x-search rn-x-mono">rngmcp_eb50a761…</span></div>
+  <div class="rn-x-body rn-x-agent__log">
+    <div class="rn-x-ask" data-step="0">What is exposed on example.com?</div>
+    <div class="rn-x-call" data-step="1">
+      <span class="rn-x-call__name">resolve_target</span>
+      <code>{"target": "example.com"}</code>
+    </div>
+    <div class="rn-x-out" data-step="2">
+      <span>example.com: 5 of 6 dimensions scanned, 7 findings need review</span>
+      <span class="rn-x-dim">Not scanned: Secrets.</span>
+    </div>
+    <div class="rn-x-call" data-step="3">
+      <span class="rn-x-call__name">query_assets</span>
+      <code>{"target": "example.com", "dimension": "services", "query": "ai:yes"}</code>
+    </div>
+    <div class="rn-x-out" data-step="4">
+      <span>2 services match on example.com · all shown</span>
+      <span>203.0.113.12:11434 · Ollama</span>
+      <span>llm.example.com:4000 · LiteLLM</span>
+      <u>Open in reNgine</u>
+    </div>
+  </div>
+  <div class="rn-x-ladder"><span>Access</span><span class="is-on">Read</span><span class="is-on">Plan</span><span>Write</span><span>Launch</span><em>Reads and plans scans in every project · Sends no traffic</em></div>
+</div>

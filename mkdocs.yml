@@ -155,6 +155,7 @@ nav:
       - Results:
           - Your attack surface: pentesters/attack-surface.md
           - Search the attack surface: pentesters/query.md
+          - Ask across your attack surface: pentesters/ask.md
           - Findings and triage: pentesters/findings.md
           - Exploit intelligence: pentesters/exploit-intelligence.md
           - Correlation: pentesters/correlation.md

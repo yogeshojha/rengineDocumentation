@@ -1,0 +1,28 @@
+<div class="rn-x rn-x-win">
+  <div class="rn-x-bar"><span>Attack surface</span><i>›</i><b>Web assets</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
+  <div class="rn-x-body">
+    <div class="rn-x-qb" data-qb>
+      <svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+      <span class="rn-x-qb__q" data-q="tech:jenkins is:live"></span><span class="rn-x-qb__caret"></span>
+      <span class="rn-x-qb__ph" data-ph>Search, or filter with <span class="rn-x-mono">status:&gt;=500 not is:cdn</span></span>
+      <span class="rn-x-qb__count"><b data-count>53,142</b> web assets</span>
+    </div>
+    <div class="rn-x-sug" data-sug data-show="field">
+      <div class="rn-x-sug__g" data-g="field"><div class="rn-x-sug__h">HTTP</div><div class="rn-x-sug__i is-act"><code class="f">tech:</code><span>Technology fingerprinted on the response.</span><small class="b">enum</small></div><div class="rn-x-sug__i"><code class="f">title:</code><span>Page title of the response.</span><small class="b">string</small></div></div>
+      <div class="rn-x-sug__g" data-g="value"><div class="rn-x-sug__h">tech</div><div class="rn-x-sug__i is-act"><code>jenkins</code><span></span><small>4</small></div><div class="rn-x-sug__i"><code>jetty</code><span></span><small>2</small></div></div>
+      <div class="rn-x-sug__g" data-g="flag"><div class="rn-x-sug__h">is</div><div class="rn-x-sug__i is-act"><code>live</code><span>Responded with 2xx or 3xx</span></div><div class="rn-x-sug__i"><code>new</code><span>Absent from every earlier scan of this target</span></div><div class="rn-x-sug__i"><code>auth</code><span>Login wall or 401/403</span></div></div>
+      <div class="rn-x-sug__foot"><span><kbd>↵</kbd>search</span><span><kbd>Tab</kbd>completes fields and values</span></div>
+    </div>
+    <div class="rn-x-tbl">
+      <div class="rn-x-tr rn-x-th"><span>Host</span><span>Status</span><span>Title</span><span>Tech</span></div>
+      <div class="rn-x-tr" data-m="0"><span class="rn-x-host">www<i>.example.com</i></span><span class="rn-x-st">200</span><span>Example Store</span><span class="rn-x-tech"><em>Next.js</em></span></div>
+      <div class="rn-x-tr" data-m="2"><span class="rn-x-host">ci<i>.example.com</i></span><span class="rn-x-st">200</span><span>Dashboard [Jenkins]</span><span class="rn-x-tech"><em>Jenkins</em><em>Jetty</em></span></div>
+      <div class="rn-x-tr" data-m="0"><span class="rn-x-host">api<i>.example.com</i></span><span class="rn-x-st rn-x-st--4">401</span><span>Unauthorized</span><span class="rn-x-tech"><em>nginx</em></span></div>
+      <div class="rn-x-tr" data-m="1"><span class="rn-x-host">jenkins-old<i>.example.com</i></span><span class="rn-x-st rn-x-st--0">none</span><span>Not reported</span><span class="rn-x-tech"><em>Jenkins</em></span></div>
+      <div class="rn-x-tr" data-m="2"><span class="rn-x-host">build<i>.example.com</i></span><span class="rn-x-st">200</span><span>Sign in [Jenkins]</span><span class="rn-x-tech"><em>Jenkins</em></span></div>
+      <div class="rn-x-tr" data-m="0"><span class="rn-x-host">mail<i>.example.com</i></span><span class="rn-x-st">200</span><span>Outlook</span><span class="rn-x-tech"><em>IIS</em></span></div>
+      <div class="rn-x-tr" data-m="2"><span class="rn-x-host">jenkins.stg<i>.example.com</i></span><span class="rn-x-st rn-x-st--3">302</span><span>Redirecting</span><span class="rn-x-tech"><em>Jenkins</em><em>nginx</em></span></div>
+      <div class="rn-x-tr" data-m="0"><span class="rn-x-host">status<i>.example.com</i></span><span class="rn-x-st">200</span><span>Status</span><span class="rn-x-tech"><em>Cloudflare</em></span></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,142 @@
+<div class="rn-run__frame" data-run-frame>
+<div class="rn-run__win rn-x" data-run-win>
+  <div class="rn-run__chrome"><i></i><i></i><i></i><span>reNgine</span></div>
+  <div class="rn-run__body" data-run-body>
+
+    <div class="rn-run__scene" data-scene="target">
+      <div class="rn-x-bar"><span>acme</span><i>›</i><b>Targets</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
+      <div class="rn-x-body">
+        <div class="rn-run__head"><span class="rn-x-h">Targets</span><span class="rn-x-btn rn-x-btn--p" data-at="open">Add target</span></div>
+        <div class="rn-x-tbl">
+          <div class="rn-x-tr rn-run__tr rn-x-th"><span>Target</span><span>Last run</span><span>Findings</span><span>Assets</span></div>
+          <div class="rn-x-tr rn-run__tr rn-run__new" data-new><span><b class="rn-x-host">example.com</b><small>Domain</small></span><span class="rn-run__live">Running</span><span class="rn-x-dim">Not scanned</span><span class="rn-x-dim">Not scanned</span></div>
+          <div class="rn-x-tr rn-run__tr"><span><b class="rn-x-host">example.org</b><small>Domain</small></span><span class="rn-x-dim">2 days ago</span><span><em class="rn-x-sev rn-x-sev--med">14</em></span><span>212 web assets</span></div>
+          <div class="rn-x-tr rn-run__tr"><span><b class="rn-x-host">203.0.113.0/24</b><small>IP range</small></span><span class="rn-x-dim">5 days ago</span><span><em class="rn-x-sev rn-x-sev--low">3</em></span><span>41 services</span></div>
+        </div>
+        <div class="rn-x-dlg" data-dlg>
+          <div class="rn-x-dlg__box">
+            <div class="rn-x-dlg__t">Add target</div>
+            <div class="rn-x-fld">Target value
+              <span class="rn-x-in rn-run__in" data-at="input"><span data-type="example.com">example.com</span><span class="rn-x-qb__caret"></span><span class="rn-run__ph">example.com, 192.168.1.0/24, AS12345</span></span>
+            </div>
+            <div class="rn-run__sw" data-at="switch"><span class="rn-run__switch"></span><b>Scan after adding</b></div>
+            <div class="rn-x-dlg__foot"><span class="rn-x-btn">Cancel</span><span class="rn-x-btn rn-x-btn--p" data-at="add"><span class="rn-run__off">Add target</span><span class="rn-run__on">Add &amp; scan</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rn-run__scene" data-scene="scan">
+      <div class="rn-x-bar"><span>acme</span><i>›</i><span>Scans</span><i>›</i><b>example.com</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
+      <div class="rn-x-body">
+        <div class="rn-run__head">
+          <span><span class="rn-x-h">example.com</span><span class="rn-x-sub rn-run__sub">Normal intensity</span></span>
+          <span class="rn-run__state"><i></i><span data-state>Running</span></span>
+        </div>
+        <div class="rn-run__bar"><i data-progress></i></div>
+        <div class="rn-run__funnel">
+          <span><b data-tick="1284">1,284</b> names</span><em>›</em>
+          <span><b data-tick="412">412</b> web assets</span><em>›</em>
+          <span><b data-tick="8920">8,920</b> endpoints</span><em>›</em>
+          <span><b data-tick="23">23</b> findings</span>
+        </div>
+        <div class="rn-run__stages">
+          <div class="rn-run__step" data-stage><i></i><span>Subdomain Discovery</span><em><b data-tick="1284">1,284</b> names</em></div>
+          <div class="rn-run__step" data-stage><i></i><span>Port Scan</span><em><b data-tick="96">96</b> services</em></div>
+          <div class="rn-run__step" data-stage><i></i><span>HTTP Probe</span><em><b data-tick="412">412</b> web assets</em></div>
+          <div class="rn-run__step" data-stage><i></i><span>URL Discovery</span><em><b data-tick="8920">8,920</b> endpoints</em></div>
+          <div class="rn-run__step" data-stage><i></i><span>Vulnerability Scan</span><em><b data-tick="23">23</b> findings</em></div>
+          <div class="rn-run__step" data-stage><i></i><span>Response secret mining</span><em><b data-tick="3">3</b> secrets</em></div>
+        </div>
+        <div class="rn-x-tbl rn-run__feed">
+          <div class="rn-x-tr rn-x-th"><span>Web asset</span><span>Status</span><span>Title</span><span>Tech</span></div>
+          <div class="rn-x-tr is-in" data-feed><span class="rn-x-host">ci<i>.example.com</i></span><span class="rn-x-st">200</span><span>Dashboard [Jenkins]</span><span class="rn-x-tech"><em>Jenkins</em><em>Jetty</em></span></div>
+          <div class="rn-x-tr is-in" data-feed><span class="rn-x-host">api<i>.example.com</i></span><span class="rn-x-st rn-x-st--4">401</span><span>Unauthorized</span><span class="rn-x-tech"><em>nginx</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rn-run__scene" data-scene="results">
+      <div class="rn-x-bar"><span>example.com</span><i>›</i><b>Web assets</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
+      <div class="rn-x-body">
+        <div class="rn-x-tabs rn-run__tabs">
+          <span class="is-on">Web assets <small>412</small></span><span>Endpoints <small>8,920</small></span><span>Services <small>96</small></span><span>IP addresses <small>61</small></span><span>Vulnerabilities <small>23</small></span><span>Software <small>14</small></span><span>Secrets <small>3</small></span>
+        </div>
+        <div class="rn-x-qb" data-qb>
+          <svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+          <span class="rn-x-qb__q" data-query="tech:jenkins is:live"><span class="k">tech:</span>jenkins <span class="k">is:</span>live</span><span class="rn-x-qb__caret"></span>
+          <span class="rn-x-qb__count"><b data-count>2</b> web assets</span>
+        </div>
+        <div class="rn-x-tbl">
+          <div class="rn-x-tr rn-x-th"><span>Web asset</span><span>Status</span><span>Title</span><span>Tech</span></div>
+          <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">www<i>.example.com</i></span><span class="rn-x-st">200</span><span>Example Store</span><span class="rn-x-tech"><em>Next.js</em></span></div>
+          <div class="rn-x-tr" data-keep="1"><span class="rn-x-host">ci<i>.example.com</i></span><span class="rn-x-st">200</span><span>Dashboard [Jenkins]</span><span class="rn-x-tech"><em>Jenkins</em><em>Jetty</em></span></div>
+          <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">api<i>.example.com</i></span><span class="rn-x-st rn-x-st--4">401</span><span>Unauthorized</span><span class="rn-x-tech"><em>nginx</em></span></div>
+          <div class="rn-x-tr" data-keep="1"><span class="rn-x-host">build<i>.example.com</i></span><span class="rn-x-st">200</span><span>Sign in [Jenkins]</span><span class="rn-x-tech"><em>Jenkins</em></span></div>
+          <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">mail<i>.example.com</i></span><span class="rn-x-st">200</span><span>Outlook</span><span class="rn-x-tech"><em>IIS</em></span></div>
+          <div class="rn-x-tr" data-keep="0"><span class="rn-x-host">status<i>.example.com</i></span><span class="rn-x-st rn-x-st--3">302</span><span>Redirecting</span><span class="rn-x-tech"><em>Cloudflare</em></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rn-run__scene rn-run__ask is-on s-sent s-work s-lead s-text s-block" data-scene="ask">
+      <div class="rn-x-bar"><span>acme</span><i>›</i><b>Ask</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
+      <div class="rn-x-body">
+        <div class="rn-run__bubble" data-bubble>Which known exploited findings should I fix first?</div>
+        <div class="rn-run__answer" data-answer>
+          <span class="rn-run__mark"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg></span>
+          <div class="rn-run__col">
+            <div class="rn-run__work" data-work><i></i><span data-work-text data-running="Searching findings">1 lookup · 1.4 s</span></div>
+            <div class="rn-run__lead" data-lead><b>2</b><span>known exploited findings, both on <span class="rn-x-mono">ci.example.com</span></span></div>
+            <p class="rn-run__text" data-text>Both are on the Jenkins server that answers on ci.example.com. Start with the arbitrary file read.</p>
+            <div class="rn-run__block" data-block>
+              <div class="rn-run__bhead"><span class="rn-run__bid">B1</span><code><span class="k">is:</span>kev</code><span class="rn-run__open">Open</span></div>
+              <div class="rn-run__brow"><em class="rn-x-sev rn-x-sev--crit">Critical</em><span>Jenkins Arbitrary File Read</span><span class="rn-x-pill rn-x-pill--kev">KEV</span><span class="rn-x-host">ci<i>.example.com</i></span></div>
+              <div class="rn-run__brow"><em class="rn-x-sev rn-x-sev--crit">Critical</em><span>Jenkins Remote Code Execution</span><span class="rn-x-pill rn-x-pill--kev">KEV</span><span class="rn-x-host">ci<i>.example.com</i></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="rn-run__composer" data-composer>
+          <span class="rn-run__ctext" data-type="Which known exploited findings should I fix first?"></span><span class="rn-x-qb__caret"></span>
+          <span class="rn-run__cph">Ask about web assets, findings, endpoints and services</span>
+          <span class="rn-run__send"><svg viewBox="0 0 16 16"><path d="M8 13V3M4 7l4-4 4 4"/></svg></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rn-run__scene rn-run__act" data-scene="act">
+      <div class="rn-x-bar"><span>example.com</span><i>›</i><b>Vulnerabilities</b><span class="rn-x-search">Search… <kbd>Ctrl K</kbd></span></div>
+      <div class="rn-x-body rn-run__actbody">
+        <div class="rn-run__sheet">
+          <div class="rn-run__chips"><em class="rn-x-sev rn-x-sev--crit">Critical</em><span class="rn-x-pill rn-x-pill--kev">KEV</span></div>
+          <div class="rn-x-h">Jenkins Arbitrary File Read</div>
+          <div class="rn-x-sub"><span class="rn-x-mono">ci.example.com</span> · nuclei · Seen 2h ago</div>
+          <div class="rn-run__btns">
+            <span class="rn-x-btn rn-x-btn--p" data-at="repeater">Repeater</span>
+            <span class="rn-x-btn" data-at="issue">File issue</span>
+            <span class="rn-x-btn rn-x-btn--ghost">Notes</span>
+          </div>
+          <dl class="rn-run__dl"><dt>Matched on</dt><dd class="rn-x-mono">https://ci.example.com/</dd><dt>Evidence</dt><dd>Observed</dd><dt>EPSS</dt><dd class="rn-x-mono">0.97</dd></dl>
+        </div>
+        <div class="rn-run__dests">
+          <div class="rn-run__dest" data-dest="alert">
+            <span class="rn-run__dico rn-run__dico--tg"><svg viewBox="0 0 24 24"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/></svg></span>
+            <span><small>Telegram</small><b>1 known exploited vulnerability on example.com</b><em>Jenkins Arbitrary File Read · ci.example.com</em></span>
+          </div>
+          <div class="rn-run__dest" data-dest="repeater">
+            <span class="rn-run__dico rn-run__dico--bs">B</span>
+            <span><small>Burp Suite · Repeater</small><b>reNgine jenkins-file-read</b><em class="rn-x-mono">Host: ci.example.com</em></span>
+          </div>
+          <div class="rn-run__dest" data-dest="issue">
+            <span class="rn-run__dico rn-run__dico--jira"><svg viewBox="0 0 24 24"><path d="M12 3 3 12l9 9 9-9z"/></svg></span>
+            <span><small>Jira · SEC-142</small><b>Jenkins Arbitrary File Read on ci.example.com</b><em>To Do</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <span class="rn-run__packet" data-packet></span>
+    <svg class="rn-run__cursor" data-cursor viewBox="0 0 20 20" aria-hidden="true"><path d="M3 2.5v13.2l3.6-3.3 2.4 5.3 2.3-1-2.4-5.2h5z"/></svg>
+  </div>
+</div>
+</div>
